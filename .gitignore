@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Dielle brand source assets & raw work materials (kept locally, not committed)
+/DLCommunication.ai
+/*.pdf
+/~ai-*.tmp
+/dl-communication/
+/NAMARE/
+/dielle-carosello/
+/dielle-carosello-foto-menu/
+/dielle-carosello-linkedin/
+/dielle-checklist-bts/
+/dielle-cover-selezione/
+/dielle-linkedin-*.png
+/dielle-portfolio-cover-*.png

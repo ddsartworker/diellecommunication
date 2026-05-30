@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
+/*
+  Dielle Communication — design tokens
+  Brand palette (da brief): blu #282f3f · verde #4eb480 · arancio #f49619 · bianco.
+  I nomi dei token (navy / saffron / mint / cream) restano stabili: cambiano i valori.
+  Type: Michroma (titoli/display), Inter (testo), JetBrains Mono (micro-label).
+*/
+@theme {
+  --color-navy: #282f3f; /* blu brand */
+  --color-navy-2: #333d4f; /* superfici elevate (card, immagini) */
+  --color-navy-deep: #1e2530; /* sezioni e footer più scure */
+  --color-navy-dim: #7d8694; /* label spente su fondo scuro */
+
+  --color-saffron: #f49619; /* arancio brand */
+  --color-saffron-2: #b96e0c; /* arancio scuro: hover + accenti su chiaro */
+
+  --color-mint: #4eb480; /* verde brand */
+  --color-mint-2: #2c8a5a; /* verde scuro: testo su fondo chiaro */
+
+  --color-cream: #f7f7f3; /* bianco brand, appena ammorbidito */
+  --color-cream-2: #e9e9e2;
+  --color-cream-rule: #dcdcd2;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  /* `display`/`font-serif` puntano a Michroma: il font del brand per i titoli. */
+  --font-serif: var(--font-michroma), var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-navy);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  /* Michroma è molto largo: evita lo scroll orizzontale su mobile se un titolo sfora. */
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-saffron);
+  color: var(--color-navy);
+}
+
+/*
+  Display type — Michroma. Font geometrico e largo: niente corsivo (non esiste),
+  interlinea generosa per non far toccare le righe, tracking leggermente negativo
+  per compattare un glifo nativamente ampio.
+*/
+.display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  /* glifi larghi: lascia spezzare le parole lunghe invece di sforare il contenitore */
+  overflow-wrap: break-word;
+}
+
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Scroll-reveal — staggered fade/translate, no layout-property animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Client marquee */
+@keyframes dielle-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: dielle-marquee 38s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
 }
