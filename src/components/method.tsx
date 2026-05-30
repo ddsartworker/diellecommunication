@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "./reveal";
 import { method } from "@/lib/site";
 
@@ -43,6 +44,18 @@ export default function Method() {
             </Reveal>
           ))}
         </ol>
+
+        <Reveal delay={120}>
+          <Link
+            href="/metodo"
+            className="group mt-12 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-cream/65 transition-colors hover:text-saffron"
+          >
+            Scopri il metodo in dettaglio
+            <span className="transition-transform duration-300 group-hover:translate-x-1">
+              →
+            </span>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

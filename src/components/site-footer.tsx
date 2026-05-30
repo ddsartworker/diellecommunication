@@ -1,5 +1,18 @@
+import Link from "next/link";
 import Logo from "./logo";
-import { nav, social, site } from "@/lib/site";
+import { social, site } from "@/lib/site";
+
+// Il footer fa da indice del sito: punta alle pagine dedicate
+// (l'header resta invece la navigazione one-page con scroll alle sezioni).
+const footerLinks = [
+  { label: "Metodo", href: "/metodo" },
+  { label: "Servizi", href: "/#servizi" },
+  { label: "Lavori", href: "/lavori" },
+  { label: "Blog", href: "/blog" },
+  { label: "Chi siamo", href: "/chi-siamo" },
+  { label: "Periodo di prova", href: "/prova" },
+  { label: "Contatti", href: "/contatti" },
+];
 
 export default function SiteFooter() {
   return (
@@ -13,14 +26,14 @@ export default function SiteFooter() {
         </div>
 
         <nav className="flex flex-wrap gap-x-8 gap-y-3">
-          {nav.map((item) => (
-            <a
+          {footerLinks.map((item) => (
+            <Link
               key={item.href}
               href={item.href}
               className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-cream/55 transition-colors hover:text-cream"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
