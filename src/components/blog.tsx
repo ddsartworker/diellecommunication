@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Reveal from "./reveal";
 import { posts } from "@/lib/site";
 
@@ -30,7 +31,7 @@ export default function Blog() {
               delay={i * 80}
               className="bg-navy/40"
             >
-              <a
+              <Link
                 href={post.href}
                 className="group flex h-full flex-col p-8 transition-colors duration-500 hover:bg-white/[0.02]"
               >
@@ -50,7 +51,7 @@ export default function Blog() {
                     →
                   </span>
                 </span>
-              </a>
+              </Link>
             </Reveal>
           ))}
         </div>

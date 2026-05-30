@@ -37,7 +37,7 @@ export default function SiteHeader() {
             </a>
           ))}
           <a
-            href="#prova"
+            href="/#prova"
             className="rounded-full bg-saffron px-5 py-2 text-sm font-semibold text-navy transition-colors duration-300 hover:bg-saffron-2"
           >
             Prova gratuita
@@ -88,7 +88,7 @@ export default function SiteHeader() {
               </a>
             ))}
             <a
-              href="#prova"
+              href="/#prova"
               onClick={() => setOpen(false)}
               className="mt-4 rounded-full bg-saffron px-5 py-3 text-center text-sm font-semibold text-navy"
             >

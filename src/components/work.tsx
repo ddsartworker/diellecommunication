@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "./reveal";
 import { work, workCategories, social, type WorkCategory } from "@/lib/site";
 
@@ -55,7 +56,11 @@ export default function Work() {
         {filtered.length > 0 ? (
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((item) => (
-              <article key={item.title} className="group flex flex-col">
+              <Link
+                key={item.title}
+                href={`/lavori/${item.slug}`}
+                className="group flex flex-col"
+              >
                 <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-navy-2">
                   <Image
                     src={item.image}
@@ -92,7 +97,13 @@ export default function Work() {
                     <dd className="mt-1 text-cream/75">{item.result}</dd>
                   </div>
                 </dl>
-              </article>
+                <span className="mt-4 inline-flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-cream/55 transition-colors group-hover:text-saffron">
+                  Vedi il caso
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </span>
+              </Link>
             ))}
           </div>
         ) : (
