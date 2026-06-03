@@ -16,11 +16,12 @@ export const site = {
 // (es. /blog/[slug]): porta alla home e poi scrolla alla sezione.
 export const nav = [
   { label: "Metodo", href: "/#metodo" },
+  { label: "Lavori", href: "/lavori" },
   { label: "Servizi", href: "/#servizi" },
-  { label: "Lavori", href: "/#lavori" },
+  { label: "Chi siamo", href: "/chi-siamo" },
   { label: "Blog", href: "/blog" },
-  { label: "Studio", href: "/#studio" },
   { label: "Contatti", href: "/#contatti" },
+  { label: "Prova gratuita", href: "/#prova" },
 ];
 
 export const social = [

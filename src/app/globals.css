@@ -95,6 +95,88 @@ body {
   transform: none;
 }
 
+/*
+  Tools fan-out — loghi impilati che si aprono a ventaglio durante lo scroll
+  (ispirato a plain.com, riletto in chiave positiva: gli strumenti che usiamo).
+  Il movimento è guidato da JS via transform (translateX): nessuna animazione
+  di proprietà di layout sulle card. Lo stage riserva la larghezza di una card
+  in SSR/no-JS così il testo accanto non collassa.
+*/
+.tools-stage {
+  --card: clamp(2.15rem, 9vw, 3.55rem);
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  height: var(--card);
+  width: var(--card);
+}
+.tool-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--card);
+  height: var(--card);
+  will-change: transform;
+}
+.tool-card__face {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: #ffffff; /* eccezione voluta: i marchi (es. Adobe) presuppongono fondo bianco */
+  border-radius: 26%;
+  box-shadow:
+    0 0 0 1px rgba(15, 20, 30, 0.05),
+    0 1px 2px rgba(15, 20, 30, 0.18),
+    0 12px 28px -10px rgba(8, 11, 18, 0.6);
+  transition:
+    transform 0.55s var(--ease-out-expo),
+    box-shadow 0.55s var(--ease-out-expo);
+}
+.tool-card__face img {
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .tool-card:hover {
+    z-index: 50 !important;
+  }
+  .tool-card:hover .tool-card__face {
+    transform: translateY(-9px) scale(1.06);
+    box-shadow:
+      0 0 0 1px rgba(15, 20, 30, 0.06),
+      0 2px 4px rgba(15, 20, 30, 0.2),
+      0 22px 40px -12px rgba(8, 11, 18, 0.7);
+  }
+}
+.tools-badge {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.6rem;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  border-radius: 999px;
+  background: var(--color-saffron);
+  padding: 0.1rem 0.42rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--color-navy);
+  box-shadow: 0 4px 12px -2px rgba(8, 11, 18, 0.6);
+  will-change: opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tool-card__face {
+    transition: none;
+  }
+}
+
 /* Client marquee */
 @keyframes dielle-marquee {
   to {

@@ -12,10 +12,10 @@ export default function Marquee() {
         <div className="marquee-track">
           {row.map((name, i) => (
             <span key={i} className="flex items-center">
-              <span className="px-7 font-mono text-sm uppercase tracking-[0.14em] text-cream/55">
+              <span className="display px-7 text-[0.72rem] uppercase tracking-[0.18em] text-cream">
                 {name}
               </span>
-              <span className="size-1 rounded-full bg-mint/70" />
+              <span className="size-1 rounded-full bg-cream" />
             </span>
           ))}
         </div>

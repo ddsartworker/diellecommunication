@@ -1,31 +1,12 @@
-import { site } from "@/lib/site";
-
-const trust = [
-  "Seguiti dai fondatori",
-  "A numero chiuso",
-  "Napoli · Campania · Italia",
-];
-
 export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden px-6 pb-20 pt-36 sm:px-10 sm:pt-44"
+      className="relative flex min-h-[calc(100svh-5.5rem)] flex-col justify-center overflow-hidden bg-white px-4 pb-16 pt-28 sm:px-6"
     >
-      {/* soft saffron glow, low and off-center */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-40 top-10 size-[40rem] rounded-full bg-saffron/10 blur-[120px]"
-      />
-
-      <div className="relative mx-auto max-w-7xl">
-        <p className="kicker flex items-center gap-3 text-saffron">
-          <span className="size-1.5 rounded-full bg-saffron" />
-          {site.tagline}
-        </p>
-
-        <h1 className="mt-8 max-w-4xl text-[clamp(1.5rem,5vw,3.5rem)]">
-          <span className="display block text-cream">
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center text-center">
+        <h1 className="max-w-4xl text-[clamp(1.5rem,5vw,3.5rem)]">
+          <span className="display block text-navy">
             Il marketing non deve essere complicato.
           </span>
           <span className="display mt-3 block text-saffron">
@@ -33,40 +14,33 @@ export default function Hero() {
           </span>
         </h1>
 
-        <div className="mt-10 grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-end">
-          <p className="max-w-xl text-lg leading-relaxed text-cream/75 sm:text-xl">
+        <p
+          className="display mt-10 max-w-5xl text-sm text-navy/70 sm:text-base"
+          style={{ lineHeight: 2.2 }}
+        >
+          <span className="block sm:whitespace-nowrap">
             Costruiamo la tua comunicazione su misura e la seguiamo di persona,
-            dal primo giorno. Pochi clienti, perché ognuno merita attenzione
-            vera.
-          </p>
+            dal primo giorno.
+          </span>
+          <span className="block">
+            Pochi clienti, perché ognuno merita attenzione vera.
+          </span>
+        </p>
 
-          <div className="flex flex-wrap items-center gap-4 md:justify-end">
+        <div className="mt-20 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 sm:mt-24">
             <a
               href="#prova"
-              className="rounded-full bg-saffron px-7 py-3.5 text-sm font-semibold text-navy transition-colors duration-300 hover:bg-saffron-2"
+              className="relative font-mono text-[0.72rem] uppercase tracking-[0.18em] text-navy after:absolute after:-bottom-[3px] after:left-0 after:h-px after:w-0 after:bg-navy after:opacity-0 after:transition-[width,opacity] after:duration-700 after:ease-out hover:after:w-full hover:after:opacity-100"
             >
               Richiedi la prova gratuita
             </a>
             <a
               href="#metodo"
-              className="rounded-full border border-cream/20 px-7 py-3.5 text-sm font-semibold text-cream transition-colors duration-300 hover:border-cream/60"
+              className="relative font-mono text-[0.72rem] uppercase tracking-[0.18em] text-navy after:absolute after:-bottom-[3px] after:left-0 after:h-px after:w-0 after:bg-navy after:opacity-0 after:transition-[width,opacity] after:duration-700 after:ease-out hover:after:w-full hover:after:opacity-100"
             >
               Scopri il metodo
             </a>
-          </div>
         </div>
-
-        <ul className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t border-white/5 pt-6">
-          {trust.map((item) => (
-            <li
-              key={item}
-              className="flex items-center gap-2.5 font-mono text-[0.68rem] uppercase tracking-[0.16em] text-cream/55"
-            >
-              <span className="size-1 rounded-full bg-mint" />
-              {item}
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   );

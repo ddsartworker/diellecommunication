@@ -3,10 +3,8 @@ import Hero from "@/components/hero";
 import Marquee from "@/components/marquee";
 import Problem from "@/components/problem";
 import Method from "@/components/method";
-import About from "@/components/about";
+import Tools from "@/components/tools";
 import Services from "@/components/services";
-import Work from "@/components/work";
-import Blog from "@/components/blog";
 import Testimonials from "@/components/testimonials";
 import Trial from "@/components/trial";
 import Contact from "@/components/contact";
@@ -22,10 +20,8 @@ export default function Home() {
         <Marquee />
         <Problem />
         <Method />
-        <About />
+        <Tools />
         <Services />
-        <Work />
-        <Blog />
         <Testimonials />
         <Trial />
         <Contact />
