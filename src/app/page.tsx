@@ -1,6 +1,5 @@
 import SiteHeader from "@/components/site-header";
 import Hero from "@/components/hero";
-import Stats from "@/components/stats";
 import Marquee from "@/components/marquee";
 import Problem from "@/components/problem";
 import Method from "@/components/method";
@@ -19,7 +18,6 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
-        <Stats />
         <Marquee />
         <Problem />
         <Method />

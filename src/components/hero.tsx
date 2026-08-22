@@ -1,4 +1,5 @@
 import Cta from "./cta";
+import Stats from "./stats";
 
 export default function Hero() {
   return (
@@ -6,10 +7,10 @@ export default function Hero() {
       id="top"
       // Fondo scuro con un alone radiale al centro, come il riferimento: loro
       // schiariscono verso un blu-viola, noi verso il blu del brand.
-      // L'altezza è quella dello schermo meno la barra, con le stesse
-      // imbottiture del riferimento (108px sopra, 72px sotto): su un MacBook
-      // 13" l'apertura si vede tutta, dal titolo fino ai pulsanti.
-      className="relative flex min-h-[calc(100svh-5.5rem)] flex-col justify-center overflow-hidden px-4 pb-[4.5rem] pt-[6.75rem] text-cream sm:px-6"
+      // L'apertura occupa tutto lo schermo e passa sotto la barra, che è
+      // trasparente: nessuna linea di stacco, una superficie sola. Su un
+      // MacBook 13" si vede per intero e finisce con i pulsanti.
+      className="relative flex min-h-svh flex-col justify-center overflow-hidden px-4 pb-[4.5rem] pt-[6.75rem] text-cream sm:px-6"
       style={{
         backgroundImage:
           "radial-gradient(80% 60% at 50% 40%, var(--color-navy-2) 0%, var(--color-navy-deep) 70%)",
@@ -29,7 +30,9 @@ export default function Hero() {
           dal primo giorno. Pochi clienti, perché ognuno merita attenzione vera.
         </p>
 
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <Stats className="mt-10" />
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           <Cta href="#prova">Richiedi la prova gratuita</Cta>
           <Cta href="#metodo" variant="outline">
             Scopri il metodo

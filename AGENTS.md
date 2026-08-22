@@ -93,10 +93,18 @@ Interlinea: **1.3** sul testo (come il riferimento), **1.05** sui titoli, con
 tracking -0.03em e peso 500. Sono i valori misurati sul titolo di leftclick.ai.
 
 L'apertura è scura, con un alone radiale al centro
-(`radial-gradient(80% 60% at 50% 40%, navy-2, navy-deep)`), titolo in **un solo
-colore** — la sfumatura sta nel fondo, mai nelle lettere — e altezza pari allo
-schermo meno la barra: su un MacBook 13" si vede tutta, fino ai pulsanti. La
-fascia dei numeri prosegue sullo stesso fondo scuro.
+(`radial-gradient(80% 60% at 50% 40%, navy-2, navy-deep)`) e titolo in **un solo
+colore**: la sfumatura sta nel fondo, mai nelle lettere.
+
+**Barra e apertura sono una superficie sola.** In cima alla pagina l'intestazione
+non ha né fondo né bordo: galleggia sopra l'apertura, che parte dal margine dello
+schermo e occupa tutta l'altezza (`min-h-svh`). Il fondo scuro sfocato compare
+solo dopo lo scroll, quando sotto la barra passano le sezioni chiare. Non
+reintrodurre un bordo o un fondo fisso in cima: è la riga di stacco che il
+cliente ha chiesto di togliere.
+
+L'ordine dell'apertura è titolo → sottotitolo → fascia dei numeri → pulsanti, e
+finisce lì: su un MacBook 13" si vede per intero, con i pulsanti sulla piega.
 
 Le animazioni restano lente e discrete (comparse allo scroll, scorrimenti nei
 pulsanti).

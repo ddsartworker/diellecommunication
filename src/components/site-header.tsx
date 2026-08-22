@@ -24,9 +24,14 @@ export default function SiteHeader() {
   }, [open]);
 
   return (
+    // In cima alla pagina la barra non ha fondo né bordo: galleggia sopra
+    // l'apertura, che così è una superficie unica dal margine dello schermo.
+    // Il fondo compare solo dopo lo scroll, quando sotto passano sezioni chiare.
     <header
-      className={`fixed inset-x-0 top-0 z-50 bg-navy transition-colors duration-500 ${
-        scrolled || open ? "border-b border-white/5" : "border-b border-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+        scrolled || open
+          ? "border-b border-white/5 bg-navy-deep/90 backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-7 sm:px-10 sm:py-9">
