@@ -41,7 +41,7 @@ export default function About() {
                       src={person.photo}
                       alt={`Ritratto di ${person.name}`}
                       fill
-                      sizes="(max-width: 640px) 70vw, 17rem"
+                      sizes="(max-width: 640px) 90vw, 32rem"
                       className="object-cover"
                     />
                   ) : (

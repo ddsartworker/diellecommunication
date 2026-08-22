@@ -9,9 +9,10 @@ export default function Problem() {
           perché un elenco puntato centrato non si legge. */}
       <div className="shell text-center">
         <Reveal>
-          <h2 className="shell text-balance text-[clamp(1.6rem,3.6vw,2.7rem)]">
-            <span className="display text-cream">Probabilmente ti riconosci</span>{" "}
-            <span className="display text-cream">in una di queste due situazioni.</span>
+          <h2 className="mx-auto max-w-6xl text-balance text-[clamp(1.6rem,3.6vw,2.7rem)]">
+            <span className="display text-cream">
+              Probabilmente ti riconosci in una di queste due situazioni.
+            </span>
           </h2>
         </Reveal>
 
@@ -44,10 +45,8 @@ export default function Problem() {
         <Reveal delay={140}>
           <p className="mx-auto mt-12 max-w-6xl text-balance text-[clamp(1.25rem,2.6vw,1.9rem)] leading-snug">
             <span className="display text-cream">
-              In entrambi i casi il problema non sei tu.
-            </span>{" "}
-            <span className="display text-cream">
-              È il modo in cui hai comunicato fino a oggi.
+              In entrambi i casi il problema non sei tu. È il modo in cui hai
+              comunicato fino a oggi.
             </span>
           </p>
           <p className="mx-auto mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-cream/60">

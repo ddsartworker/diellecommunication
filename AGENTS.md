@@ -44,8 +44,10 @@ punto solo, senza toccare il codice.
 - `src/app/lavori/[slug]` e `src/app/blog/[slug]` — pagine generate una per voce tramite
   `generateStaticParams`: basta aggiungere un elemento a `work` o `posts` in `site.ts`
   e la pagina nasce da sola
-- `src/components/` — un componente per sezione, più due trasversali:
-  `cta.tsx` (gli inviti all'azione) e `reveal.tsx` (le comparse allo scroll)
+- `src/components/` — un componente per sezione, più tre trasversali:
+  `cta.tsx` (gli inviti all'azione), `reveal.tsx` (le comparse allo scroll) e
+  `stats.tsx` (la riga di numeri, che vive **dentro** l'apertura, non come
+  sezione a sé)
 - `public/work/`, `public/social/`, `public/tools/` — immagini dei progetti e loghi
 
 ## Design
@@ -58,9 +60,14 @@ di margine per lato — e ogni sezione ha **108px** di imbottitura sopra e sotto
 Le sezioni non mettono imbottitura laterale: ci pensa la gabbia. Non tornare a
 `max-w-7xl` con `px-6 sm:px-10`.
 
-Palette di marca: blu `#282f3f` (token `navy`, è il fondo), arancio `#f49619`
-(`saffron`, l'accento), verde `#4eb480` (`mint`), bianco caldo `#f7f7f3` (`cream`).
-Usa sempre i token, mai i codici colore scritti a mano.
+Palette in uso: blu `#282f3f` (token `navy`, è il fondo), arancio `#f49619`
+(`saffron`, **l'unico accento**), bianco caldo `#f7f7f3` (`cream`), più due blu di
+servizio — `navy-deep` `#1e2530` per i fondi bassi e `navy-ink` `#0f141b` per le
+fasce che devono staccare. Usa sempre i token, mai i codici colore scritti a mano.
+
+Il verde `#4eb480` (`mint`) è ancora definito fra i token ma **non è più usato da
+nessuna parte**: su richiesta di Dario è stato sostituito ovunque dall'arancione.
+Non reintrodurlo senza chiederglielo.
 
 Carattere: **uno solo per tutto il sito**, la pila di sistema
 (`ui-sans-serif, system-ui, …`), cioè il font dell'interfaccia del dispositivo di
@@ -76,8 +83,9 @@ maiuscole spaziate.
 
 **Inviti all'azione**: usa sempre il componente `src/components/cta.tsx`, mai un
 link sottolineato. La pillola arancione piena (`primary`) è l'unica azione forte
-di ogni schermata; il contorno (`outline`, pensato per i fondi chiari) accompagna
-senza rubare l'occhio. Entrambe chiudono con un pallino blu e la freccia.
+di ogni schermata; il contorno (`outline`, pensato per i **fondi scuri**: bordo e
+testo avorio) accompagna senza rubare l'occhio. La pillola piena chiude con un
+pallino blu, quella a contorno con un pallino avorio; in entrambe c'è la freccia.
 
 Peso, interlinea e spaziature dei pulsanti sono misurati su leftclick.ai:
 testo di **peso 400** (mai grassetto), riga 1.3, nessuna spaziatura extra tra le
@@ -92,7 +100,8 @@ pulsante. La barra fissa su mobile (`mobile-cta`) resta una pillola larga a sé:
 è un'altra affordance, non un pulsante in linea.
 
 Per dare profondità ai fondi piatti si usano cerchi sfumati molto sfocati nei
-colori del brand (`bg-saffron/10 blur-[120px]`), come nell'hero e in `trial`.
+colori del brand (`bg-saffron/10 blur-[120px]`), come in `trial` e `inner-cta`.
+Nell'hero quel ruolo lo svolge `.surface-glow`, non gli aloni.
 Mai gradienti sul testo.
 
 Interlinea: **1.3** sul testo (come il riferimento), **1.05** sui titoli, con
@@ -134,6 +143,12 @@ nomi 15,8px di peso 500, 54px tra un nome e l'altro, giro in 25 secondi. I nomi
 dei clienti in `site.ts` vanno scritti con le maiuscole giuste: il nastro non li
 trasforma più in maiuscolo.
 
+Nella sezione **«Chi siamo»** (`about.tsx`) foto e testi di ciascun fondatore
+stanno in un unico blocco largo `32rem`, centrato nella colonna e allineato a
+sinistra: nome, ruolo, citazione e biografia cominciano e finiscono esattamente
+sui bordi del quadrato. Se cambi la misura del quadrato, cambia anche `sizes`
+sull'`Image`, altrimenti il browser scarica una foto della misura sbagliata.
+
 Le animazioni restano lente e discrete (comparse allo scroll, scorrimenti nei
 pulsanti).
 
@@ -165,7 +180,26 @@ in inglese.
   campo `photo` in `founders`.
 - `eslint.config.mjs` — la cartella `.vercel/` generata dal deploy non è esclusa
   dal controllo, e da sola produce oltre duemila avvisi che rendono `pnpm lint`
-  illeggibile.
+  illeggibile. `src/components/logo.tsx` usa inoltre un `<a>` verso `/` invece di
+  `<Link>`: è l'unico errore vero del progetto.
+- **Impianto non ancora uniforme.** Hero, «Partiamo da te», «Un metodo
+  sartoriale» e «Chi siamo» seguono il nuovo impianto (niente kicker, titolo
+  centrato di un colore solo). Tutte le altre — `tools`, `services`, `work`,
+  `testimonials`, `blog`, `contact`, `trial` e le pagine interne — hanno ancora
+  il kicker e i titoli su due colori. Vanno allineate.
+- `src/app/chi-siamo/page.tsx` — ricopia le schede dei fondatori con l'aspetto
+  vecchio (fondo chiaro, ritratti 4:5, kicker). Ora divergono da `about.tsx`:
+  o si allinea la pagina, o le schede diventano un componente solo usato da
+  entrambe.
+
+## Insidia nota: le classi nuove e il server di sviluppo
+
+Quando aggiungi in `globals.css` **un token o una classe che prima non
+esisteva** (un colore, `.shell`, `.surface-glow`), il server di sviluppo
+continua a servire il foglio di stile vecchio: a video l'elemento risulta senza
+fondo, senza larghezza, senza effetto, mentre `pnpm build` è corretto. Non è un
+errore nel codice. Riavvia `pnpm dev` (`rm -rf .next/dev` e rilancia) e torna
+tutto. È già successo tre volte: prima di cercare il bug altrove, riavvia.
 
 ## Manutenzione di questo file
 
