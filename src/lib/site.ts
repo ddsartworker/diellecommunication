@@ -36,6 +36,17 @@ export const social = [
   },
 ];
 
+// — Fascia di numeri sotto l'hero: trasforma la promessa in prova.
+// TODO: confermare con Dario e Luisa. Sono dati già dichiarati altrove nel
+// sito (bio dei fondatori, elenco clienti, posizionamento a numero chiuso):
+// niente di inventato, ma vanno verificati prima di andare online.
+export const stats = [
+  { value: "10+", label: "anni di mestiere" },
+  { value: "10", label: "brand seguiti" },
+  { value: "2", label: "persone, sempre le stesse" },
+  { value: "0", label: "pacchetti preconfezionati" },
+];
+
 // — The two visitor types the homepage has to speak to (Sezione Problema).
 export const problems = [
   {

@@ -1,8 +1,10 @@
 import SiteHeader from "@/components/site-header";
 import Hero from "@/components/hero";
+import Stats from "@/components/stats";
 import Marquee from "@/components/marquee";
 import Problem from "@/components/problem";
 import Method from "@/components/method";
+import About from "@/components/about";
 import Tools from "@/components/tools";
 import Services from "@/components/services";
 import Testimonials from "@/components/testimonials";
@@ -17,9 +19,13 @@ export default function Home() {
       <SiteHeader />
       <main>
         <Hero />
+        <Stats />
         <Marquee />
         <Problem />
         <Method />
+        {/* Dopo il metodo arrivano le facce: «chi mi ascolta?» è la domanda
+            successiva, e per una boutique agency le persone sono l'argomento. */}
+        <About />
         <Tools />
         <Services />
         <Testimonials />

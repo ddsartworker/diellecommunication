@@ -44,7 +44,8 @@ punto solo, senza toccare il codice.
 - `src/app/lavori/[slug]` e `src/app/blog/[slug]` — pagine generate una per voce tramite
   `generateStaticParams`: basta aggiungere un elemento a `work` o `posts` in `site.ts`
   e la pagina nasce da sola
-- `src/components/` — un componente per sezione
+- `src/components/` — un componente per sezione, più due trasversali:
+  `cta.tsx` (gli inviti all'azione) e `reveal.tsx` (le comparse allo scroll)
 - `public/work/`, `public/social/`, `public/tools/` — immagini dei progetti e loghi
 
 ## Design
@@ -57,6 +58,16 @@ Usa sempre i token, mai i codici colore scritti a mano.
 
 Caratteri: **Michroma** per i titoli (classe `display`), **Inter** per il testo,
 **JetBrains Mono** per le micro-etichette in maiuscolo con lettere spaziate.
+
+**Inviti all'azione**: usa sempre il componente `src/components/cta.tsx`, mai un
+link sottolineato. La pillola arancione piena (`primary`) è l'unica azione forte
+di ogni schermata; il contorno (`outline`, pensato per i fondi chiari) accompagna
+senza rubare l'occhio. Le pillole già presenti in `trial`, `inner-cta` e
+`mobile-cta` seguono la stessa forma.
+
+Per dare profondità ai fondi piatti si usano cerchi sfumati molto sfocati nei
+colori del brand (`bg-saffron/10 blur-[120px]`), come nell'hero e in `trial`.
+Mai gradienti sul testo.
 
 L'estetica è tipografica e sobria: fondo scuro, molto spazio bianco, animazioni
 lente e discrete (sottolineature che crescono al passaggio del mouse, comparse allo
@@ -82,6 +93,15 @@ in inglese.
   Da rimuovere o proteggere prima di collegare il dominio.
 - `src/lib/site.ts` — l'email di contatto punta a `diellecommunication.it`, un dominio
   che non esiste. Va corretta con la casella vera su `dlcommunication.it`.
+- `src/lib/site.ts` — i numeri della fascia sotto l'hero (`stats`) sono ripresi da
+  affermazioni già presenti nel sito, ma non sono ancora stati confermati dai
+  fondatori. Da verificare prima di andare online: sono dichiarazioni pubbliche.
+- `src/components/about.tsx` — mancano le foto di Dario e Luisa: al loro posto
+  compaiono le iniziali. Le foto vanno in `public/team/` e poi valorizzato il
+  campo `photo` in `founders`.
+- `eslint.config.mjs` — la cartella `.vercel/` generata dal deploy non è esclusa
+  dal controllo, e da sola produce oltre duemila avvisi che rendono `pnpm lint`
+  illeggibile.
 
 ## Manutenzione di questo file
 
