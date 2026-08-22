@@ -13,16 +13,13 @@ export default function Trial() {
           />
 
           <div className="relative">
-            <p className="kicker text-saffron">L&apos;elemento distintivo</p>
-            <h2 className="mt-5 max-w-3xl text-[clamp(1.6rem,3.8vw,2.7rem)]">
+            <h2 className="mx-auto max-w-4xl text-balance text-center text-[clamp(1.6rem,3.8vw,2.7rem)]">
               <span className="display text-cream">
-                Prima di chiederti fiducia,
-              </span>{" "}
-              <span className="display text-cream">
-                preferiamo dimostrarti il nostro valore.
+                Prima di chiederti fiducia, preferiamo dimostrarti il nostro
+                valore.
               </span>
             </h2>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/75">
+            <p className="mx-auto mt-6 max-w-3xl text-pretty text-center text-lg leading-relaxed text-cream/70">
               Inizia con un periodo di prova gratuito. Se ti convince,
               continuiamo insieme. Se no, ci siamo costati solo qualche giorno.
             </p>

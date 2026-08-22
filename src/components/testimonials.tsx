@@ -1,3 +1,4 @@
+import SectionHead from "./section-head";
 import Reveal from "./reveal";
 import { testimonials } from "@/lib/site";
 
@@ -7,13 +8,10 @@ export default function Testimonials() {
   return (
     <section className="bg-cream py-[108px] text-navy">
       <div className="shell">
-        <Reveal>
-          <p className="kicker text-saffron-2">Lo dicono loro</p>
-          <h2 className="mt-4 text-[clamp(1.55rem,3.6vw,2.6rem)]">
-            <span className="display text-navy">Non fidarti di noi.</span>{" "}
-            <span className="display text-navy">Fidati di chi ci ha provato.</span>
-          </h2>
-        </Reveal>
+        <SectionHead
+          tone="light"
+          title="Non fidarti di noi. Fidati di chi ci ha provato."
+        />
 
         {lead && (
           <Reveal delay={80}>

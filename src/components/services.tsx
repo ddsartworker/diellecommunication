@@ -1,3 +1,4 @@
+import SectionHead from "./section-head";
 import Reveal from "./reveal";
 import { services } from "@/lib/site";
 
@@ -5,19 +6,10 @@ export default function Services() {
   return (
     <section id="servizi" className="py-[108px]">
       <div className="shell">
-        <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="kicker text-saffron">Cosa facciamo</p>
-            <h2 className="mt-4 text-[clamp(1.7rem,4vw,3rem)]">
-              <span className="display text-cream">Tutto ciò che serve</span>{" "}
-              <span className="display text-cream">per farti scegliere.</span>
-            </h2>
-          </div>
-          <p className="max-w-xs text-cream/60">
-            Otto fronti, una sola squadra. Prendi tutto o solo ciò che ti serve:
-            la strategia resta cucita su misura.
-          </p>
-        </Reveal>
+        <SectionHead
+          title="Tutto ciò che serve per farti scegliere."
+          body="Otto fronti, una sola squadra. Prendi tutto o solo ciò che ti serve: la strategia resta cucita su misura."
+        />
 
         <div className="mt-16 border-t border-cream/10">
           {services.map((s, i) => (
@@ -32,7 +24,7 @@ export default function Services() {
 
               <h3 className="font-sans text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
                 <span className="text-cream">{s.title} </span>
-                <span className="text-saffron">{s.accent}</span>
+                <span className="text-cream">{s.accent}</span>
               </h3>
 
               <p className="max-w-md text-cream/65">{s.body}</p>

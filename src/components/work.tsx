@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import SectionHead from "./section-head";
 import Reveal from "./reveal";
 import { work, workCategories, social, type WorkCategory } from "@/lib/site";
 
@@ -17,19 +18,10 @@ export default function Work() {
   return (
     <section id="lavori" className="py-[108px]">
       <div className="shell">
-        <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="kicker text-saffron">Portfolio</p>
-            <h2 className="mt-4 text-[clamp(1.7rem,4vw,3rem)]">
-              <span className="display text-cream">I lavori,</span>{" "}
-              <span className="display text-cream">spiegati semplice.</span>
-            </h2>
-          </div>
-          <p className="max-w-xs text-cream/60">
-            Per ogni progetto trovi cos&apos;è e a cosa è servito. Niente gergo:
-            scegli la categoria che ti somiglia.
-          </p>
-        </Reveal>
+        <SectionHead
+          title="I lavori, spiegati semplice."
+          body="Per ogni progetto trovi cos'è e a cosa è servito. Niente gergo: scegli la categoria che ti somiglia."
+        />
 
         {/* Filtri per categoria */}
         <Reveal delay={60} className="mt-10 flex flex-wrap gap-2.5">

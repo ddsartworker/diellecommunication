@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SectionHead from "./section-head";
 import Reveal from "./reveal";
 import { posts } from "@/lib/site";
 
@@ -6,22 +7,13 @@ export default function Blog() {
   return (
     <section
       id="blog"
-      className="border-t border-white/5 bg-navy-deep py-[108px]"
+      className="bg-navy-deep py-[108px]"
     >
       <div className="shell">
-        <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="kicker text-saffron">Dal blog</p>
-            <h2 className="mt-4 text-[clamp(1.7rem,4vw,3rem)]">
-              <span className="display text-cream">Il marketing,</span>{" "}
-              <span className="display text-cream">senza paroloni.</span>
-            </h2>
-          </div>
-          <p className="max-w-xs text-cream/60">
-            Idee e spiegazioni per chi fa un altro mestiere e vuole capirci
-            qualcosa. Brevi, concrete, in italiano.
-          </p>
-        </Reveal>
+        <SectionHead
+          title="Il marketing, senza paroloni."
+          body="Idee e spiegazioni per chi fa un altro mestiere e vuole capirci qualcosa. Brevi, concrete, in italiano."
+        />
 
         <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-cream/10 sm:grid-cols-3">
           {posts.map((post, i) => (

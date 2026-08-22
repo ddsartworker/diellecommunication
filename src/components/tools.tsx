@@ -36,7 +36,9 @@ export default function Tools() {
     if (!stage || !sentinel) return;
 
     const n = TOOLS.length;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     let cardW = 0;
     let step = 0;
@@ -45,7 +47,8 @@ export default function Tools() {
       cardW = cardsRef.current[0]?.offsetWidth ?? 52;
       // budget = larghezza utile dello stage (mai oltre il contenitore/viewport)
       const host = stage.parentElement?.clientWidth ?? cardW;
-      const budget = Math.min(host, document.documentElement.clientWidth) * 0.94;
+      const budget =
+        Math.min(host, document.documentElement.clientWidth) * 0.94;
       const preferred = cardW * 1.12;
       const maxStep = (budget - cardW) / (n - 1);
       step = Math.max(Math.min(preferred, maxStep), cardW * 0.4);
@@ -101,69 +104,66 @@ export default function Tools() {
   }, []);
 
   return (
-    <section
-      id="strumenti"
-      className="overflow-x-clip py-[108px]"
-    >
-      <div className="mx-auto max-w-3xl text-center">
-        <Reveal>
-          <p className="kicker text-saffron">Tutto in casa</p>
-        </Reveal>
+    <section id="strumenti" className="overflow-x-clip py-[108px]">
+      <div className="shell">
+        <div className="mx-auto max-w-3xl text-center">
+          <Reveal>
+            <h2 className="text-[clamp(1.45rem,4.6vw,3rem)] leading-[1.12]">
+              <span className="display block text-cream">Progettiamo con</span>
 
-        <Reveal delay={80}>
-          <h2 className="mt-5 text-[clamp(1.45rem,4.6vw,3rem)] leading-[1.12]">
-            <span className="display block text-cream">Progettiamo con</span>
-
-            <span
-              ref={sentinelRef}
-              className="my-4 flex justify-center sm:my-6"
-              aria-hidden="false"
-            >
-              <span ref={stageRef} className="tools-stage">
-                {TOOLS.map((tool, i) => (
-                  <span
-                    key={tool.name}
-                    ref={(el) => {
-                      if (el) cardsRef.current[i] = el;
-                    }}
-                    className="tool-card"
-                    title={tool.name}
-                  >
-                    <span className="tool-card__face">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={tool.file}
-                        alt={tool.name}
-                        width={40}
-                        height={40}
-                        loading="lazy"
-                      />
-                    </span>
-                    {i === TOOLS.length - 1 && (
-                      <span
-                        ref={badgeRef}
-                        className="tools-badge"
-                        aria-hidden="true"
-                      >
-                        {TOOLS.length}
+              <span
+                ref={sentinelRef}
+                className="my-4 flex justify-center sm:my-6"
+                aria-hidden="false"
+              >
+                <span ref={stageRef} className="tools-stage">
+                  {TOOLS.map((tool, i) => (
+                    <span
+                      key={tool.name}
+                      ref={(el) => {
+                        if (el) cardsRef.current[i] = el;
+                      }}
+                      className="tool-card"
+                      title={tool.name}
+                    >
+                      <span className="tool-card__face">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={tool.file}
+                          alt={tool.name}
+                          width={40}
+                          height={40}
+                          loading="lazy"
+                        />
                       </span>
-                    )}
-                  </span>
-                ))}
+                      {i === TOOLS.length - 1 && (
+                        <span
+                          ref={badgeRef}
+                          className="tools-badge"
+                          aria-hidden="true"
+                        >
+                          {TOOLS.length}
+                        </span>
+                      )}
+                    </span>
+                  ))}
+                </span>
               </span>
-            </span>
 
-            <span className="display block text-cream">senza intermediari.</span>
-          </h2>
-        </Reveal>
+              <span className="display block text-cream">
+                senza intermediari.
+              </span>
+            </h2>
+          </Reveal>
 
-        <Reveal delay={150}>
-          <p className="mx-auto mt-8 max-w-2xl leading-relaxed text-cream/65">
-            Grafica, foto, siti, sviluppo e AI: ogni strumento del progetto lo
-            usiamo noi. Nessuna catena di fornitori, nessun lavoro girato a
-            terzi. Quello che vedi nasce qui, dentro Dielle Communication.
-          </p>
-        </Reveal>
+          <Reveal delay={150}>
+            <p className="mx-auto mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-cream/60">
+              Grafica, foto, siti, sviluppo e AI: ogni strumento del progetto lo
+              usiamo noi. Nessuna catena di fornitori, nessun lavoro girato a
+              terzi. Quello che vedi nasce qui, dentro Dielle Communication.
+            </p>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
