@@ -58,8 +58,8 @@ export default function MetodoPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="px-6 pb-12 pt-36 sm:px-10 sm:pt-44">
-          <div className="mx-auto max-w-7xl">
+        <section className="pb-12 pt-36 sm:pt-44">
+          <div className="shell">
             <p className="kicker text-saffron">Il metodo</p>
             <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,5.2vw,4rem)]">
               <span className="display text-cream">Lavoriamo come un sarto,</span>{" "}
@@ -74,8 +74,8 @@ export default function MetodoPage() {
         </section>
 
         {/* I cinque step in dettaglio */}
-        <section className="px-6 py-12 sm:px-10">
-          <div className="mx-auto max-w-7xl border-t border-cream/10">
+        <section className="py-[108px]">
+          <div className="shell border-t border-cream/10">
             {method.map((step) => (
               <div
                 key={step.n}
@@ -112,7 +112,7 @@ export default function MetodoPage() {
         </section>
 
         {/* Confronto onesto */}
-        <section className="bg-navy-deep px-6 py-20 sm:px-10 sm:py-28">
+        <section className="bg-navy-deep py-[108px]">
           <div className="mx-auto max-w-5xl">
             <h2 className="text-[clamp(1.6rem,3.8vw,2.7rem)]">
               <span className="display text-cream">Cosa cambia</span>{" "}
@@ -141,8 +141,8 @@ export default function MetodoPage() {
         </section>
 
         {/* Perché funziona */}
-        <section className="px-6 py-20 sm:px-10 sm:py-28">
-          <div className="mx-auto max-w-7xl">
+        <section className="py-[108px]">
+          <div className="shell">
             <p className="kicker text-saffron">Perché funziona</p>
             <div className="mt-10 grid gap-10 sm:grid-cols-3 sm:gap-8">
               {why.map((point) => (

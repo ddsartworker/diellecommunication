@@ -36,7 +36,7 @@ export default async function ArticlePage({
     <>
       <SiteHeader />
       <main>
-        <article className="px-6 pb-16 pt-36 sm:px-10 sm:pt-44">
+        <article className="pb-16 pt-36 sm:pt-44">
           <div className="mx-auto max-w-3xl">
             <Link
               href="/blog"
@@ -86,7 +86,7 @@ export default async function ArticlePage({
         </article>
 
         {others.length > 0 && (
-          <section className="px-6 py-16 sm:px-10">
+          <section className="py-[108px]">
             <div className="mx-auto max-w-3xl">
               <p className="kicker text-cream/55">Continua a leggere</p>
               <div className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-cream/10 sm:grid-cols-2">

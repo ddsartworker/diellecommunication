@@ -6,9 +6,9 @@ export default function Contact() {
   return (
     <section
       id="contatti"
-      className="border-t border-white/5 bg-navy-deep px-6 py-24 sm:px-10 sm:py-32"
+      className="border-t border-white/5 bg-navy-deep py-[108px]"
     >
-      <div className="mx-auto grid max-w-7xl gap-14 md:grid-cols-2 md:gap-20">
+      <div className="shell grid gap-14 md:grid-cols-2 md:gap-20">
         <Reveal>
           <p className="kicker text-saffron">Parliamone</p>
           <h2 className="mt-6 text-[clamp(1.9rem,4.6vw,3.4rem)]">

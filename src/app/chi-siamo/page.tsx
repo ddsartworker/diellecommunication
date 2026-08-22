@@ -34,8 +34,8 @@ export default function ChiSiamoPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="px-6 pb-8 pt-36 sm:px-10 sm:pt-44">
-          <div className="mx-auto max-w-7xl">
+        <section className="pb-8 pt-36 sm:pt-44">
+          <div className="shell">
             <p className="kicker text-saffron">Chi siamo</p>
             <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,5.2vw,4rem)]">
               <span className="display text-cream">Dietro Dielle</span>{" "}
@@ -60,8 +60,8 @@ export default function ChiSiamoPage() {
         </section>
 
         {/* Valori */}
-        <section className="px-6 py-16 sm:px-10">
-          <div className="mx-auto max-w-7xl">
+        <section className="py-[108px]">
+          <div className="shell">
             <div className="grid gap-10 sm:grid-cols-3 sm:gap-8">
               {values.map((value) => (
                 <div key={value.title} className="border-t border-cream/15 pt-6">
@@ -76,8 +76,8 @@ export default function ChiSiamoPage() {
         </section>
 
         {/* Fondatori */}
-        <section className="bg-cream px-6 py-20 text-navy sm:px-10 sm:py-28">
-          <div className="mx-auto max-w-7xl">
+        <section className="bg-cream py-[108px] text-navy">
+          <div className="shell">
             <p className="kicker text-saffron-2">I fondatori</p>
             <div className="mt-10 grid gap-12 md:grid-cols-2 md:gap-10">
               {founders.map((person) => (

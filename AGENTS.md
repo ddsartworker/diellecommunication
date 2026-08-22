@@ -52,6 +52,12 @@ punto solo, senza toccare il codice.
 
 I token sono definiti in `src/app/globals.css`, dentro il blocco `@theme`.
 
+**Gabbia e ritmo verticale** (misurati su leftclick.ai a 1440px): il contenuto
+sta nella classe **`.shell`** — largo 87,5% con un tetto di 1260px, quindi 90px
+di margine per lato — e ogni sezione ha **108px** di imbottitura sopra e sotto.
+Le sezioni non mettono imbottitura laterale: ci pensa la gabbia. Non tornare a
+`max-w-7xl` con `px-6 sm:px-10`.
+
 Palette di marca: blu `#282f3f` (token `navy`, è il fondo), arancio `#f49619`
 (`saffron`, l'accento), verde `#4eb480` (`mint`), bianco caldo `#f7f7f3` (`cream`).
 Usa sempre i token, mai i codici colore scritti a mano.

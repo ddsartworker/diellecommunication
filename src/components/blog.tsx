@@ -6,9 +6,9 @@ export default function Blog() {
   return (
     <section
       id="blog"
-      className="border-t border-white/5 bg-navy-deep px-6 py-24 sm:px-10 sm:py-32"
+      className="border-t border-white/5 bg-navy-deep py-[108px]"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="shell">
         <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="kicker text-saffron">Dal blog</p>

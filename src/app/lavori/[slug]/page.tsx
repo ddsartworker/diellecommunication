@@ -37,7 +37,7 @@ export default async function CaseStudyPage({
     <>
       <SiteHeader />
       <main>
-        <article className="px-6 pb-16 pt-36 sm:px-10 sm:pt-44">
+        <article className="pb-16 pt-36 sm:pt-44">
           <div className="mx-auto max-w-5xl">
             <Link
               href="/lavori"
@@ -120,7 +120,7 @@ export default async function CaseStudyPage({
         </article>
 
         {others.length > 0 && (
-          <section className="px-6 py-16 sm:px-10">
+          <section className="py-[108px]">
             <div className="mx-auto max-w-5xl">
               <p className="kicker text-cream/55">Altri lavori</p>
               <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-3">

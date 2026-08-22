@@ -3,13 +3,13 @@ import { problems } from "@/lib/site";
 
 export default function Problem() {
   return (
-    <section id="problema" className="surface-glow px-6 py-24 sm:px-10 sm:py-32">
+    <section id="problema" className="surface-glow py-[108px]">
       {/* Impianto centrato come l'apertura: titolo, chiusura e testi di raccordo
           stanno sull'asse. Dentro le schede il testo resta allineato a sinistra,
           perché un elenco puntato centrato non si legge. */}
-      <div className="mx-auto max-w-7xl text-center">
+      <div className="shell text-center">
         <Reveal>
-          <h2 className="mx-auto max-w-7xl text-balance text-[clamp(1.6rem,3.6vw,2.7rem)]">
+          <h2 className="shell text-balance text-[clamp(1.6rem,3.6vw,2.7rem)]">
             <span className="display text-cream">Probabilmente ti riconosci</span>{" "}
             <span className="display text-cream">in una di queste due situazioni.</span>
           </h2>

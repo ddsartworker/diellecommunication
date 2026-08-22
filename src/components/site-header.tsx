@@ -22,7 +22,7 @@ export default function SiteHeader() {
     // `absolute` invece di `static` perché così non occupa spazio nel flusso e
     // l'apertura parte davvero dal margine dello schermo.
     <header className="absolute inset-x-0 top-0 z-50">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-7 sm:px-10 sm:py-9">
+      <div className="shell flex items-center justify-between py-7 sm:py-9">
         <Logo />
 
         <nav className="hidden items-center gap-10 lg:flex xl:gap-14">
@@ -67,7 +67,7 @@ export default function SiteHeader() {
         }`}
       >
         <div className="min-h-0">
-          <div className="mx-auto max-w-7xl px-6 py-10 sm:px-10 sm:py-14">
+          <div className="shell py-10 sm:py-14">
             {/* Info cliccabili (sopra) */}
             <div className="grid gap-8 border-b border-navy/10 pb-10 sm:grid-cols-3">
               <a href={`mailto:${site.email}`} className="group block">

@@ -6,11 +6,11 @@ export default function About() {
   return (
     <section
       id="studio"
-      className="surface-glow px-6 py-24 text-cream sm:px-10 sm:py-32"
+      className="surface-glow py-[108px] text-cream"
     >
       {/* Stesso impianto delle sezioni precedenti: niente kicker, titolo e
           sottotitolo centrati e di un colore solo. */}
-      <div className="mx-auto max-w-7xl text-center">
+      <div className="shell text-center">
         <Reveal>
           <h2 className="mx-auto max-w-6xl text-balance text-[clamp(1.6rem,3.6vw,2.7rem)]">
             <span className="display text-cream">
@@ -28,11 +28,12 @@ export default function About() {
           </p>
         </Reveal>
 
-        {/* Ritratti quadrati e contenuti, come nel riferimento: prima
-            occupavano l'intera colonna e pesavano quanto uno schermo. */}
+        {/* Ritratti quadrati e contenuti, come nel riferimento. Dentro la
+            scheda tutto è allineato a sinistra — foto, nome, ruolo, testo —
+            mentre titolo e sottotitolo della sezione restano centrati. */}
         <div className="mx-auto mt-16 grid max-w-4xl gap-12 sm:grid-cols-2 sm:gap-10">
           {founders.map((person, i) => (
-            <Reveal key={person.name} delay={140 + i * 90} className="flex flex-col items-center">
+            <Reveal key={person.name} delay={140 + i * 90} className="flex flex-col items-start text-left">
               <div className="relative aspect-square w-full max-w-[17rem] overflow-hidden rounded-2xl">
                 {person.photo ? (
                   <Image
@@ -59,7 +60,7 @@ export default function About() {
               <p className="mt-4 text-lg italic leading-snug text-saffron">
                 «{person.quote}»
               </p>
-              <p className="mx-auto mt-4 max-w-sm leading-relaxed text-cream/65">
+              <p className="mt-4 max-w-sm leading-relaxed text-cream/65">
                 {person.bio}
               </p>
             </Reveal>

@@ -193,6 +193,19 @@ body {
 }
 
 /*
+  Gabbia del sito. Misure prese da leftclick.ai su uno schermo da 1440:
+  contenuto largo 1260px con 90px di margine per lato. In percentuale (87,5%)
+  la proporzione regge anche sugli schermi piccoli, e il tetto di 1260px evita
+  righe troppo lunghe su quelli grandi.
+  Le sezioni non mettono imbottitura laterale: ci pensa la gabbia.
+*/
+.shell {
+  width: 87.5%;
+  max-width: 1260px;
+  margin-inline: auto;
+}
+
+/*
   Superficie dell'apertura: alone radiale che schiarisce verso il centro.
   La usano l'hero e la sezione «Partiamo da te», così restano la stessa cosa.
 */

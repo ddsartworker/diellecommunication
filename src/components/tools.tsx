@@ -103,7 +103,7 @@ export default function Tools() {
   return (
     <section
       id="strumenti"
-      className="overflow-x-clip px-6 py-24 sm:px-10 sm:py-32"
+      className="overflow-x-clip py-[108px]"
     >
       <div className="mx-auto max-w-3xl text-center">
         <Reveal>

@@ -16,8 +16,8 @@ export default function BlogIndex() {
     <>
       <SiteHeader />
       <main>
-        <section className="px-6 pb-12 pt-36 sm:px-10 sm:pt-44">
-          <div className="mx-auto max-w-7xl">
+        <section className="pb-12 pt-36 sm:pt-44">
+          <div className="shell">
             <p className="kicker text-saffron">Dal blog</p>
             <h1 className="mt-4 text-[clamp(2rem,6vw,4.5rem)]">
               <span className="display text-cream">Il marketing,</span>{" "}
@@ -30,8 +30,8 @@ export default function BlogIndex() {
           </div>
         </section>
 
-        <section className="px-6 pb-24 sm:px-10 sm:pb-32">
-          <div className="mx-auto max-w-7xl border-t border-cream/10">
+        <section className="pb-24 sm:pb-32">
+          <div className="shell border-t border-cream/10">
             {posts.map((post) => (
               <Link
                 key={post.slug}

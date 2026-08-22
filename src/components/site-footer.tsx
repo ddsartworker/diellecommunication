@@ -16,8 +16,8 @@ const footerLinks = [
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-white/5 px-6 py-12 sm:px-10">
-      <div className="mx-auto flex max-w-7xl flex-col gap-10 md:flex-row md:items-center md:justify-between">
+    <footer className="border-t border-white/5 py-12">
+      <div className="shell flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
         <div>
           <Logo />
           <p className="mt-4 max-w-xs font-mono text-[0.68rem] uppercase tracking-[0.16em] text-navy-dim">
@@ -52,7 +52,7 @@ export default function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 max-w-7xl border-t border-white/5 pt-6">
+      <div className="shell mt-10 border-t border-white/5 pt-6">
         <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-navy-dim">
           © {new Date().getFullYear()} {site.name} — {site.founders}
         </p>

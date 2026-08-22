@@ -15,8 +15,8 @@ export default function Work() {
     active === "Tutti" ? work : work.filter((w) => w.category === active);
 
   return (
-    <section id="lavori" className="px-6 py-24 sm:px-10 sm:py-32">
-      <div className="mx-auto max-w-7xl">
+    <section id="lavori" className="py-[108px]">
+      <div className="shell">
         <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="kicker text-saffron">Portfolio</p>

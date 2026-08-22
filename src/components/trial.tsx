@@ -4,8 +4,8 @@ import { trial } from "@/lib/site";
 
 export default function Trial() {
   return (
-    <section id="prova" className="px-6 py-24 sm:px-10 sm:py-32">
-      <div className="mx-auto max-w-7xl">
+    <section id="prova" className="py-[108px]">
+      <div className="shell">
         <Reveal className="relative overflow-hidden rounded-[1.75rem] border border-saffron/25 bg-gradient-to-br from-saffron/15 via-navy-2/40 to-saffron/10 p-8 sm:p-14">
           <div
             aria-hidden

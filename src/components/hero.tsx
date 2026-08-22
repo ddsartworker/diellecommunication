@@ -11,9 +11,9 @@ export default function Hero() {
       // fondo: nessuna linea di stacco, una superficie sola. L'imbottitura in
       // alto lascia 108px tra la barra e il titolo, la stessa aria del
       // riferimento. Su un MacBook 13" si vede per intero, fino ai pulsanti.
-      className="surface-glow relative flex min-h-svh flex-col justify-start overflow-hidden px-4 pb-[4.5rem] pt-36 text-cream sm:px-6 sm:pt-[13.875rem]"
+      className="surface-glow relative flex min-h-svh flex-col justify-start overflow-hidden pb-[4.5rem] pt-36 text-cream sm:pt-[13.875rem]"
     >
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center text-center">
+      <div className="relative shell flex flex-col items-center text-center">
         {/* Un solo colore per tutto il titolo: la sfumatura sta nel fondo,
             non nelle lettere. */}
         <h1 className="display max-w-6xl text-balance text-[clamp(2rem,5.6vw,4.5rem)] text-cream">

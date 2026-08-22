@@ -11,8 +11,8 @@ export default function InnerCta({
   body = "Una chiacchierata gratuita, senza impegno. Ti diciamo con sincerità se e come possiamo aiutarti.",
 }: InnerCtaProps) {
   return (
-    <section className="px-6 py-20 sm:px-10 sm:py-28">
-      <div className="mx-auto max-w-7xl">
+    <section className="py-[108px]">
+      <div className="shell">
         <div className="relative overflow-hidden rounded-[1.75rem] border border-saffron/25 bg-gradient-to-br from-saffron/15 via-navy-2/40 to-saffron/10 p-8 sm:p-14">
           <div
             aria-hidden

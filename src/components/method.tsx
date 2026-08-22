@@ -6,9 +6,9 @@ export default function Method() {
   return (
     <section
       id="metodo"
-      className="bg-navy-deep px-6 py-24 sm:px-10 sm:py-32"
+      className="bg-navy-deep py-[108px]"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="shell">
         {/* Titolo e sottotitolo sull'asse centrale; l'elenco dei passi sotto
             resta allineato a sinistra, dove si legge. */}
         <Reveal className="text-center">

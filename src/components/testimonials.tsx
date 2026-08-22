@@ -5,8 +5,8 @@ export default function Testimonials() {
   const [lead, ...rest] = testimonials;
 
   return (
-    <section className="bg-cream px-6 py-24 text-navy sm:px-10 sm:py-32">
-      <div className="mx-auto max-w-7xl">
+    <section className="bg-cream py-[108px] text-navy">
+      <div className="shell">
         <Reveal>
           <p className="kicker text-saffron-2">Lo dicono loro</p>
           <h2 className="mt-4 text-[clamp(1.55rem,3.6vw,2.6rem)]">

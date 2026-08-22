@@ -17,8 +17,8 @@ export default function LavoriIndex() {
     <>
       <SiteHeader />
       <main>
-        <section className="px-6 pb-12 pt-36 sm:px-10 sm:pt-44">
-          <div className="mx-auto max-w-7xl">
+        <section className="pb-12 pt-36 sm:pt-44">
+          <div className="shell">
             <p className="kicker text-saffron">Portfolio</p>
             <h1 className="mt-4 text-[clamp(2rem,6vw,4.5rem)]">
               <span className="display text-cream">I lavori,</span>{" "}
@@ -31,8 +31,8 @@ export default function LavoriIndex() {
           </div>
         </section>
 
-        <section className="px-6 pb-24 sm:px-10 sm:pb-32">
-          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="pb-24 sm:pb-32">
+          <div className="shell grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {work.map((item) => (
               <Link
                 key={item.slug}

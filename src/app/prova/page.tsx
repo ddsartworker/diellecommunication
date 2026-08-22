@@ -52,8 +52,8 @@ export default function ProvaPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="px-6 pb-8 pt-36 sm:px-10 sm:pt-44">
-          <div className="mx-auto max-w-7xl">
+        <section className="pb-8 pt-36 sm:pt-44">
+          <div className="shell">
             <p className="kicker text-saffron">L&apos;elemento distintivo</p>
             <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,5.2vw,4rem)]">
               <span className="display text-cream">Provaci gratis.</span>{" "}
@@ -74,8 +74,8 @@ export default function ProvaPage() {
         </section>
 
         {/* Come funziona */}
-        <section className="px-6 py-16 sm:px-10">
-          <div className="mx-auto max-w-7xl">
+        <section className="py-[108px]">
+          <div className="shell">
             <p className="kicker text-saffron">Come funziona</p>
             <ol className="mt-10 grid gap-px sm:grid-cols-3">
               {trial.steps.map((step) => (
@@ -95,8 +95,8 @@ export default function ProvaPage() {
         </section>
 
         {/* Cosa include + cosa non chiediamo */}
-        <section className="bg-navy-deep px-6 py-20 sm:px-10 sm:py-28">
-          <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 md:gap-16">
+        <section className="bg-navy-deep py-[108px]">
+          <div className="shell grid gap-12 md:grid-cols-2 md:gap-16">
             <div>
               <h2 className="text-2xl font-semibold tracking-tight text-cream">
                 Cosa include
@@ -127,8 +127,8 @@ export default function ProvaPage() {
         </section>
 
         {/* Per chi è / per chi non è */}
-        <section className="px-6 py-20 sm:px-10 sm:py-28">
-          <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2">
+        <section className="py-[108px]">
+          <div className="shell grid gap-5 md:grid-cols-2">
             <div className="rounded-2xl border border-saffron/25 bg-saffron/[0.04] p-8">
               <h2 className="display text-2xl text-saffron">È per te se…</h2>
               <ul className="mt-6 space-y-3">
@@ -155,7 +155,7 @@ export default function ProvaPage() {
         </section>
 
         {/* FAQ */}
-        <section className="px-6 pb-24 sm:px-10 sm:pb-32">
+        <section className="pb-24 sm:pb-32">
           <div className="mx-auto max-w-3xl">
             <p className="kicker text-saffron">Domande frequenti</p>
             <dl className="mt-8 divide-y divide-cream/10 border-y border-cream/10">

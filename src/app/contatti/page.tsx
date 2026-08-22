@@ -15,8 +15,8 @@ export default function ContattiPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="px-6 pb-24 pt-36 sm:px-10 sm:pb-32 sm:pt-44">
-          <div className="mx-auto grid max-w-7xl gap-14 md:grid-cols-2 md:gap-20">
+        <section className="pb-24 pt-36 sm:pb-32 sm:pt-44">
+          <div className="shell grid gap-14 md:grid-cols-2 md:gap-20">
             <div>
               <p className="kicker text-saffron">Parliamone</p>
               <h1 className="mt-6 text-[clamp(2.2rem,6vw,4.5rem)]">

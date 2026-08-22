@@ -13,7 +13,7 @@ export default function Marquee() {
 
   return (
     <section aria-label="Alcuni dei nostri clienti" className="bg-navy-ink py-[27px]">
-      <div className="mx-auto flex max-w-7xl items-center px-6 sm:px-10">
+      <div className="shell flex items-center">
         <p className="hidden shrink-0 pr-5 text-[0.62rem] font-medium uppercase tracking-[0.1em] text-cream/55 sm:block">
           Dario e Luisa hanno lavorato con
         </p>
