@@ -1,3 +1,4 @@
+import Cta from "./cta";
 import Reveal from "./reveal";
 import { trial } from "@/lib/site";
 
@@ -53,12 +54,9 @@ export default function Trial() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="#contatti"
-                className="shrink-0 rounded-full bg-saffron px-7 py-3.5 text-center text-sm font-semibold text-navy transition-colors duration-300 hover:bg-saffron-2"
-              >
+              <Cta href="#contatti" className="shrink-0">
                 Richiedi la prova gratuita
-              </a>
+              </Cta>
             </div>
           </div>
         </Reveal>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Cta from "./cta";
 
 type InnerCtaProps = {
   title?: string;
@@ -25,12 +25,9 @@ export default function InnerCta({
               </h2>
               <p className="mt-4 max-w-md leading-relaxed text-cream/75">{body}</p>
             </div>
-            <Link
-              href="/#prova"
-              className="shrink-0 rounded-full bg-saffron px-7 py-3.5 text-center text-sm font-semibold text-navy transition-colors duration-300 hover:bg-saffron-2"
-            >
+            <Cta href="/#prova" className="shrink-0">
               Richiedi la prova gratuita
-            </Link>
+            </Cta>
           </div>
         </div>
       </div>

@@ -62,8 +62,15 @@ Caratteri: **Michroma** per i titoli (classe `display`), **Inter** per il testo,
 **Inviti all'azione**: usa sempre il componente `src/components/cta.tsx`, mai un
 link sottolineato. La pillola arancione piena (`primary`) è l'unica azione forte
 di ogni schermata; il contorno (`outline`, pensato per i fondi chiari) accompagna
-senza rubare l'occhio. Le pillole già presenti in `trial`, `inner-cta` e
-`mobile-cta` seguono la stessa forma.
+senza rubare l'occhio. Entrambe chiudono con un pallino blu e la freccia.
+
+Il movimento è ripreso da leftclick.ai, indicato da Dario come riferimento:
+testo e freccia sono scritti due volte dentro un contenitore che taglia il
+fuori-bordo, e al passaggio del mouse la coppia scorre — il testo verso l'alto,
+la freccia verso destra — in 0,3 secondi con andamento `ease`. Le misure sono
+in `em`, quindi basta cambiare la dimensione del testo per riscalare tutto il
+pulsante. La barra fissa su mobile (`mobile-cta`) resta una pillola larga a sé:
+è un'altra affordance, non un pulsante in linea.
 
 Per dare profondità ai fondi piatti si usano cerchi sfumati molto sfocati nei
 colori del brand (`bg-saffron/10 blur-[120px]`), come nell'hero e in `trial`.
