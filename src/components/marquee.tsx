@@ -5,13 +5,14 @@ import { clients } from "@/lib/site";
 // maiuscola con tracking 0.1em, nomi 15,8px di peso 500, 54px tra un nome e
 // l'altro, giro completo in 25 secondi.
 //
-// Il fondo è il blu chiaro del gradiente dell'apertura, ma in tinta unita: così
-// la fascia stacca da quello che le sta sopra e da quello che viene sotto.
+// Il fondo è il blu scuro del gradiente dell'apertura (`navy-deep`, quello dei
+// bordi, non quello chiaro al centro), steso in tinta unita: la fascia stacca
+// dal blu più chiaro delle sezioni che vengono sotto.
 export default function Marquee() {
   const row = [...clients, ...clients];
 
   return (
-    <section aria-label="Alcuni dei nostri clienti" className="bg-navy-2 py-[27px]">
+    <section aria-label="Alcuni dei nostri clienti" className="bg-navy-deep py-[27px]">
       <div className="mx-auto flex max-w-7xl items-center px-6 sm:px-10">
         <p className="hidden shrink-0 pr-5 text-[0.62rem] font-medium uppercase tracking-[0.1em] text-cream/55 sm:block">
           Dario e Luisa hanno lavorato con
