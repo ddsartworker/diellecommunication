@@ -37,7 +37,7 @@ export default function Method() {
               <h3 className="self-center font-sans text-2xl font-semibold tracking-tight text-cream sm:text-3xl md:self-auto md:whitespace-nowrap">
                 {step.title}
               </h3>
-              <p className="col-start-2 max-w-md text-cream/65 leading-relaxed md:col-start-3 md:row-start-1">
+              <p className="col-start-2 leading-relaxed text-cream/65 md:col-start-3 md:row-start-1">
                 {step.body}
               </p>
             </Reveal>
