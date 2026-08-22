@@ -114,9 +114,9 @@ L'ordine dell'apertura è titolo → sottotitolo → fascia dei numeri → pulsa
 finisce lì: su un MacBook 13" si vede per intero, con i pulsanti sulla piega.
 
 Subito sotto, il **nastro dei clienti** (`marquee.tsx`) è una fascia in tinta
-unita `navy-deep`: è il blu **scuro** del gradiente dell'apertura, quello dei
-bordi, non il più chiaro al centro. Steso pieno, stacca dal blu più chiaro delle
-sezioni che vengono sotto. A sinistra una
+unita `navy-ink` (`#0f141b`), un blu più profondo di tutti quelli del gradiente:
+non è preso dall'apertura, esiste apposta per far staccare la fascia sia da ciò
+che sta sopra (`#1e2530`) sia dalle sezioni sotto (`#282f3f`). A sinistra una
 scritta ferma («Dario e Luisa hanno lavorato con»), a destra i nomi che scorrono.
 Misure prese dal riferimento: etichetta 9,9px maiuscola con tracking 0.1em,
 nomi 15,8px di peso 500, 54px tra un nome e l'altro, giro in 25 secondi. I nomi

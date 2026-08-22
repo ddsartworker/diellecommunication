@@ -11,6 +11,10 @@
   --color-navy-2: #333d4f; /* superfici elevate (card, immagini) */
   --color-navy-deep: #1e2530; /* sezioni e footer più scure */
   --color-navy-dim: #7d8694; /* label spente su fondo scuro */
+  /* Blu d'inchiostro: non fa parte del gradiente dell'apertura, serve per le
+     fasce che devono staccare sia dall'apertura (#1e2530) sia dalle sezioni
+     sotto (#282f3f). Oggi lo usa il nastro dei clienti. */
+  --color-navy-ink: #0f141b;
 
   --color-saffron: #f49619; /* arancio brand */
   --color-saffron-2: #b96e0c; /* arancio scuro: hover + accenti su chiaro */
