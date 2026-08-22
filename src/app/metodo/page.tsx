@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SectionHead from "@/components/section-head";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import InnerCta from "@/components/inner-cta";
@@ -60,16 +61,12 @@ export default function MetodoPage() {
       <main>
         <section className="pb-12 pt-36 sm:pt-44">
           <div className="shell">
-            <p className="kicker text-saffron">Il metodo</p>
-            <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,5.2vw,4rem)]">
-              <span className="display text-cream">Lavoriamo come un sarto,</span>{" "}
-              <span className="display text-cream">non come una catena.</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/70">
-              Niente pacchetti preconfezionati. Costruiamo la tua comunicazione su
-              misura, un passo alla volta, e la seguiamo di persona dall&apos;inizio
-              alla fine.
-            </p>
+            <SectionHead
+              as="h1"
+              size="xl"
+              title="Lavoriamo come un sarto, non come una catena."
+              body="Niente pacchetti preconfezionati. Costruiamo la tua comunicazione su misura, un passo alla volta, e la seguiamo di persona dall'inizio alla fine."
+            />
           </div>
         </section>
 
@@ -143,8 +140,8 @@ export default function MetodoPage() {
         {/* Perché funziona */}
         <section className="py-[108px]">
           <div className="shell">
-            <p className="kicker text-saffron">Perché funziona</p>
-            <div className="mt-10 grid gap-10 sm:grid-cols-3 sm:gap-8">
+            <SectionHead title="Perché funziona." />
+            <div className="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-8">
               {why.map((point) => (
                 <div key={point.title} className="border-t border-cream/15 pt-6">
                   <h3 className="text-xl font-semibold tracking-tight text-cream">

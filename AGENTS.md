@@ -117,10 +117,17 @@ centrati e di **un colore solo** (avorio sul fondo scuro, blu su quello chiaro),
 sottotitolo a 18px. I contenuti a elenco o in colonna restano allineati a
 sinistra, dove si leggono.
 
-Quell'intestazione è il componente **`src/components/section-head.tsx`**: passa
-`title`, il `body` opzionale, `tone="light"` sui fondi chiari e `size="lg"` per
-i titoli più grandi. Non riscrivere il blocco a mano — prima era ripetuto in
-cinque sezioni e bastava dimenticarne una per avere un impianto diverso.
+Quell'intestazione è il componente **`src/components/section-head.tsx`**, usato
+da tutta la home e da tutte le pagine interne: passa `title`, il `body`
+opzionale, `tone="light"` sui fondi chiari, `size` (`md` di sezione, `lg`, `xl`
+per l'intestazione di una pagina) e `as="h1"` quando è il titolo della pagina.
+Non riscrivere il blocco a mano — prima era ripetuto in cinque sezioni e bastava
+dimenticarne una per avere un impianto diverso.
+
+La classe `kicker` sopravvive solo come **micro-etichetta dentro i contenuti**
+(«Il problema», «La soluzione», «Scritto da» nelle pagine di caso studio e negli
+articoli, la maniglia Instagram nel portfolio). Non usarla più come occhiello
+sopra il titolo di una sezione.
 
 **Barra e apertura sono una superficie sola.** L'intestazione non ha fondo né
 bordo, e **non è fissa**: è `absolute` e scorre via con la pagina, come sul
@@ -188,13 +195,10 @@ in inglese.
   dal controllo, e da sola produce oltre duemila avvisi che rendono `pnpm lint`
   illeggibile. `src/components/logo.tsx` usa inoltre un `<a>` verso `/` invece di
   `<Link>`: è l'unico errore vero del progetto.
-- **Le pagine interne non seguono ancora il nuovo impianto.** Tutta la home è
-  allineata; `metodo`, `chi-siamo`, `lavori`, `blog`, `contatti` e `prova` hanno
-  ancora il kicker e i titoli su due colori.
-- `src/app/chi-siamo/page.tsx` — ricopia le schede dei fondatori con l'aspetto
-  vecchio (fondo chiaro, ritratti 4:5, kicker). Ora divergono da `about.tsx`:
-  o si allinea la pagina, o le schede diventano un componente solo usato da
-  entrambe.
+
+- `src/app/chi-siamo/page.tsx` — le schede dei fondatori sono ora identiche a
+  quelle di `about.tsx`, ma il markup è ancora ricopiato: se ne cambi una,
+  ricordati dell'altra. Prima o poi vanno estratte in un componente solo.
 
 ## Insidia nota: le classi nuove e il server di sviluppo
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SectionHead from "@/components/section-head";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import { trial } from "@/lib/site";
@@ -54,16 +55,12 @@ export default function ProvaPage() {
       <main>
         <section className="pb-8 pt-36 sm:pt-44">
           <div className="shell">
-            <p className="kicker text-saffron">L&apos;elemento distintivo</p>
-            <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,5.2vw,4rem)]">
-              <span className="display text-cream">Provaci gratis.</span>{" "}
-              <span className="display text-cream">Poi decidi.</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/70">
-              Prima di chiederti fiducia, preferiamo dimostrarti il nostro valore.
-              Inizia con un periodo di prova gratuito: se ti convince, continuiamo
-              insieme. Se no, ci siamo costati solo qualche giorno.
-            </p>
+            <SectionHead
+              as="h1"
+              size="xl"
+              title="Provaci gratis. Poi decidi."
+              body="Prima di chiederti fiducia, preferiamo dimostrarti il nostro valore. Inizia con un periodo di prova gratuito: se ti convince, continuiamo insieme. Se no, ci siamo costati solo qualche giorno."
+            />
             <Link
               href="/#contatti"
               className="mt-8 inline-block rounded-full bg-saffron px-7 py-3.5 text-sm font-semibold text-navy transition-colors duration-300 hover:bg-saffron-2"
@@ -76,8 +73,8 @@ export default function ProvaPage() {
         {/* Come funziona */}
         <section className="py-[108px]">
           <div className="shell">
-            <p className="kicker text-saffron">Come funziona</p>
-            <ol className="mt-10 grid gap-px sm:grid-cols-3">
+            <SectionHead title="Come funziona." />
+            <ol className="mt-14 grid gap-px sm:grid-cols-3">
               {trial.steps.map((step) => (
                 <li
                   key={step.n}
@@ -157,8 +154,8 @@ export default function ProvaPage() {
         {/* FAQ */}
         <section className="pb-24 sm:pb-32">
           <div className="mx-auto max-w-3xl">
-            <p className="kicker text-saffron">Domande frequenti</p>
-            <dl className="mt-8 divide-y divide-cream/10 border-y border-cream/10">
+            <SectionHead title="Domande frequenti." />
+            <dl className="mt-12 divide-y divide-cream/10 border-y border-cream/10">
               {faq.map((item) => (
                 <div key={item.q} className="py-7">
                   <dt className="text-lg font-semibold text-cream">{item.q}</dt>

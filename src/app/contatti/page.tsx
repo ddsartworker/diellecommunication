@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SectionHead from "@/components/section-head";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import ContactForm from "@/components/contact-form";
@@ -16,19 +17,18 @@ export default function ContattiPage() {
       <SiteHeader />
       <main>
         <section className="pb-24 pt-36 sm:pb-32 sm:pt-44">
-          <div className="shell grid gap-14 md:grid-cols-2 md:gap-20">
-            <div>
-              <p className="kicker text-saffron">Parliamone</p>
-              <h1 className="mt-6 text-[clamp(2.2rem,6vw,4.5rem)]">
-                <span className="display text-cream">Parliamo del</span>
-                <span className="display mt-2 block text-cream">tuo progetto.</span>
-              </h1>
-              <p className="mt-8 max-w-md text-lg leading-relaxed text-cream/70">
-                Una chiacchierata gratuita, senza impegno. Ci racconti la tua
-                attività, noi ti diciamo con sincerità se e come possiamo aiutarti.
-              </p>
+          <div className="shell">
+            <SectionHead
+              as="h1"
+              size="xl"
+              title="Parliamo del tuo progetto."
+              body="Una chiacchierata gratuita, senza impegno. Ci racconti la tua attività, noi ti diciamo con sincerità se e come possiamo aiutarti."
+            />
+          </div>
 
-              <div className="mt-10 space-y-6">
+          <div className="shell mt-16 grid gap-14 md:grid-cols-2 md:gap-20">
+            <div>
+              <div className="space-y-6">
                 <div>
                   <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-cream/45">
                     Scrivici

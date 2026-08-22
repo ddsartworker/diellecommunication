@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SectionHead from "@/components/section-head";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import InnerCta from "@/components/inner-cta";
@@ -18,15 +19,12 @@ export default function BlogIndex() {
       <main>
         <section className="pb-12 pt-36 sm:pt-44">
           <div className="shell">
-            <p className="kicker text-saffron">Dal blog</p>
-            <h1 className="mt-4 text-[clamp(2rem,6vw,4.5rem)]">
-              <span className="display text-cream">Il marketing,</span>{" "}
-              <span className="display text-cream">senza paroloni.</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/70">
-              Idee e spiegazioni per chi fa un altro mestiere e vuole capirci
-              qualcosa. Brevi, concrete, in italiano.
-            </p>
+            <SectionHead
+              as="h1"
+              size="xl"
+              title="Il marketing, senza paroloni."
+              body="Idee e spiegazioni per chi fa un altro mestiere e vuole capirci qualcosa. Brevi, concrete, in italiano."
+            />
           </div>
         </section>
 

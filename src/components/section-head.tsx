@@ -9,26 +9,31 @@ export default function SectionHead({
   body,
   tone = "dark",
   size = "md",
+  as = "h2",
   className = "",
 }: {
   title: string;
   body?: string;
   tone?: "dark" | "light";
-  size?: "md" | "lg";
+  // `xl` è l'intestazione di una pagina interna, `lg` e `md` quelle di sezione.
+  size?: "md" | "lg" | "xl";
+  as?: "h1" | "h2";
   className?: string;
 }) {
+  const Titolo = as;
   const titolo = tone === "dark" ? "text-cream" : "text-navy";
   const corpo = tone === "dark" ? "text-cream/60" : "text-navy/65";
-  const scala =
-    size === "lg"
-      ? "text-[clamp(1.9rem,4.6vw,3.4rem)]"
-      : "text-[clamp(1.7rem,4vw,3rem)]";
+  const scala = {
+    md: "text-[clamp(1.7rem,4vw,3rem)]",
+    lg: "text-[clamp(1.9rem,4.6vw,3.4rem)]",
+    xl: "text-[clamp(2rem,5.6vw,4.2rem)]",
+  }[size];
 
   return (
     <Reveal className={`text-center ${className}`}>
-      <h2 className={`mx-auto max-w-5xl text-balance ${scala}`}>
+      <Titolo className={`mx-auto max-w-5xl text-balance ${scala}`}>
         <span className={`display ${titolo}`}>{title}</span>
-      </h2>
+      </Titolo>
       {body ? (
         <p
           className={`mx-auto mt-6 max-w-3xl text-pretty text-lg leading-relaxed ${corpo}`}

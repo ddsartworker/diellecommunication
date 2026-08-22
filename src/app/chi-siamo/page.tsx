@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import SectionHead from "@/components/section-head";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import InnerCta from "@/components/inner-cta";
@@ -26,9 +27,6 @@ const values = [
   },
 ];
 
-const accentText = "text-saffron-2";
-const accentPanel = "bg-saffron/15 text-saffron-2";
-
 export default function ChiSiamoPage() {
   return (
     <>
@@ -36,12 +34,12 @@ export default function ChiSiamoPage() {
       <main>
         <section className="pb-8 pt-36 sm:pt-44">
           <div className="shell">
-            <p className="kicker text-saffron">Chi siamo</p>
-            <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,5.2vw,4rem)]">
-              <span className="display text-cream">Dietro Dielle</span>{" "}
-              <span className="display text-cream">ci siamo noi. Sempre.</span>
-            </h1>
-            <div className="mt-8 grid max-w-3xl gap-5 text-lg leading-relaxed text-cream/70">
+            <SectionHead
+              as="h1"
+              size="xl"
+              title="Dietro Dielle ci siamo noi. Sempre."
+            />
+            <div className="mx-auto mt-8 grid max-w-3xl gap-5 text-lg leading-relaxed text-cream/70">
               <p>
                 Dielle Communication nasce dall&apos;unione professionale di Dario
                 De Sisto e Luisa Panariello, dopo oltre dieci anni di esperienza
@@ -76,44 +74,42 @@ export default function ChiSiamoPage() {
         </section>
 
         {/* Fondatori */}
-        <section className="bg-cream py-[108px] text-navy">
+        <section className="surface-glow py-[108px] text-cream">
           <div className="shell">
-            <p className="kicker text-saffron-2">I fondatori</p>
-            <div className="mt-10 grid gap-12 md:grid-cols-2 md:gap-10">
+            <SectionHead title="I fondatori." />
+            <div className="mx-auto mt-16 grid max-w-6xl gap-12 md:grid-cols-2 md:gap-12">
               {founders.map((person) => (
-                <div key={person.name} className="flex flex-col">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+                <div key={person.name} className="mx-auto w-full max-w-[32rem] text-left">
+                  <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
                     {person.photo ? (
                       <Image
                         src={person.photo}
                         alt={`Ritratto di ${person.name}`}
                         fill
-                        sizes="(max-width: 768px) 100vw, 45vw"
+                        sizes="(max-width: 640px) 90vw, 32rem"
                         className="object-cover"
                       />
                     ) : (
                       // TODO: sostituire con la foto professionale in /public/team/
-                      <div
-                        className={`flex h-full items-center justify-center ${accentPanel}`}
-                      >
-                        <span className="display text-[7rem] leading-none sm:text-[9rem]">
+                      <div className="flex h-full items-center justify-center bg-cream/90 text-navy">
+                        <span className="display text-[4.5rem] leading-none">
                           {person.initials}
                         </span>
                       </div>
                     )}
                   </div>
-                  <h3 className="mt-6 text-2xl font-semibold tracking-tight text-navy">
+                  <h3 className="mt-6 text-2xl font-semibold tracking-tight text-cream">
                     {person.name}
                   </h3>
-                  <p className="mt-1 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-navy/55">
+                  <p className="mt-1 text-cream/55">
                     {person.role}
                   </p>
-                  <p
-                    className={`display mt-5 text-xl leading-snug sm:text-2xl ${accentText}`}
-                  >
+                  <p className="mt-4 text-lg italic leading-snug text-saffron">
                     «{person.quote}»
                   </p>
-                  <p className="mt-4 leading-relaxed text-navy/70">{person.bio}</p>
+                  <p className="mt-4 leading-relaxed text-cream/65">
+                    {person.bio}
+                  </p>
                 </div>
               ))}
             </div>
