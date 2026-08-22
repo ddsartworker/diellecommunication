@@ -3,20 +3,19 @@ import { problems } from "@/lib/site";
 
 export default function Problem() {
   return (
-    <section
-      id="problema"
-      className="surface-glow px-6 py-24 sm:px-10 sm:py-32"
-    >
-      <div className="mx-auto max-w-7xl">
+    <section id="problema" className="surface-glow px-6 py-24 sm:px-10 sm:py-32">
+      {/* Impianto centrato come l'apertura: titolo, chiusura e testi di raccordo
+          stanno sull'asse. Dentro le schede il testo resta allineato a sinistra,
+          perché un elenco puntato centrato non si legge. */}
+      <div className="mx-auto max-w-7xl text-center">
         <Reveal>
-          <p className="kicker text-mint">Partiamo da te</p>
-          <h2 className="mt-4 max-w-4xl text-[clamp(1.6rem,3.6vw,2.7rem)]">
+          <h2 className="mx-auto max-w-4xl text-[clamp(1.6rem,3.6vw,2.7rem)]">
             <span className="display text-cream">Probabilmente ti riconosci</span>{" "}
             <span className="display text-saffron">in una di queste due situazioni.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2">
+        <div className="mt-14 grid gap-5 text-left md:grid-cols-2">
           {problems.map((group, i) => (
             <Reveal
               key={group.tag}
@@ -51,7 +50,7 @@ export default function Problem() {
               È il modo in cui hai comunicato fino a oggi.
             </span>
           </p>
-          <p className="mt-6 max-w-2xl text-cream/60 leading-relaxed">
+          <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-cream/60">
             Il marketing serve a una cosa sola: far incontrare la tua offerta con
             le persone giuste. Non per fare pubblicità, ma per comunicare meglio.
           </p>
