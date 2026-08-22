@@ -6,18 +6,17 @@ export default function Method() {
   return (
     <section
       id="metodo"
-      className="border-y border-white/5 bg-navy-deep px-6 py-24 sm:px-10 sm:py-32"
+      className="bg-navy-deep px-6 py-24 sm:px-10 sm:py-32"
     >
       <div className="mx-auto max-w-7xl">
-        <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="kicker text-mint">Come lavoriamo</p>
-            <h2 className="mt-4 text-[clamp(1.7rem,4vw,3rem)]">
-              <span className="display text-cream">Un metodo</span>{" "}
-              <span className="display text-saffron">sartoriale.</span>
-            </h2>
-          </div>
-          <p className="max-w-xs text-cream/60">
+        {/* Titolo e sottotitolo sull'asse centrale; l'elenco dei passi sotto
+            resta allineato a sinistra, dove si legge. */}
+        <Reveal className="text-center">
+          <h2 className="text-[clamp(1.7rem,4vw,3rem)]">
+            <span className="display text-cream">Un metodo</span>{" "}
+            <span className="display text-saffron">sartoriale.</span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-cream/60">
             Niente pacchetti uguali per tutti. Cuciamo la tua comunicazione su
             misura, passo dopo passo.
           </p>
