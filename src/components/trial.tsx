@@ -18,7 +18,7 @@ export default function Trial() {
               <span className="display text-cream">
                 Prima di chiederti fiducia,
               </span>{" "}
-              <span className="display text-saffron">
+              <span className="display text-cream">
                 preferiamo dimostrarti il nostro valore.
               </span>
             </h2>

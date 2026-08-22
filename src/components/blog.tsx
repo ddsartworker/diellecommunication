@@ -14,7 +14,7 @@ export default function Blog() {
             <p className="kicker text-saffron">Dal blog</p>
             <h2 className="mt-4 text-[clamp(1.7rem,4vw,3rem)]">
               <span className="display text-cream">Il marketing,</span>{" "}
-              <span className="display text-saffron">senza paroloni.</span>
+              <span className="display text-cream">senza paroloni.</span>
             </h2>
           </div>
           <p className="max-w-xs text-cream/60">

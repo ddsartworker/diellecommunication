@@ -22,7 +22,7 @@ export default function Work() {
             <p className="kicker text-saffron">Portfolio</p>
             <h2 className="mt-4 text-[clamp(1.7rem,4vw,3rem)]">
               <span className="display text-cream">I lavori,</span>{" "}
-              <span className="display text-saffron">spiegati semplice.</span>
+              <span className="display text-cream">spiegati semplice.</span>
             </h2>
           </div>
           <p className="max-w-xs text-cream/60">

@@ -57,7 +57,7 @@ export default function ProvaPage() {
             <p className="kicker text-saffron">L&apos;elemento distintivo</p>
             <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,5.2vw,4rem)]">
               <span className="display text-cream">Provaci gratis.</span>{" "}
-              <span className="display text-saffron">Poi decidi.</span>
+              <span className="display text-cream">Poi decidi.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/70">
               Prima di chiederti fiducia, preferiamo dimostrarti il nostro valore.

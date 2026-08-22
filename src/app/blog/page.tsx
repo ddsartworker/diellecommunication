@@ -21,7 +21,7 @@ export default function BlogIndex() {
             <p className="kicker text-saffron">Dal blog</p>
             <h1 className="mt-4 text-[clamp(2rem,6vw,4.5rem)]">
               <span className="display text-cream">Il marketing,</span>{" "}
-              <span className="display text-saffron">senza paroloni.</span>
+              <span className="display text-cream">senza paroloni.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/70">
               Idee e spiegazioni per chi fa un altro mestiere e vuole capirci

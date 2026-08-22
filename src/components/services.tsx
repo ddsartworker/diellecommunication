@@ -10,7 +10,7 @@ export default function Services() {
             <p className="kicker text-saffron">Cosa facciamo</p>
             <h2 className="mt-4 text-[clamp(1.7rem,4vw,3rem)]">
               <span className="display text-cream">Tutto ciò che serve</span>{" "}
-              <span className="display text-saffron">per farti scegliere.</span>
+              <span className="display text-cream">per farti scegliere.</span>
             </h2>
           </div>
           <p className="max-w-xs text-cream/60">

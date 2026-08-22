@@ -11,7 +11,7 @@ export default function Problem() {
         <Reveal>
           <h2 className="mx-auto max-w-7xl text-balance text-[clamp(1.6rem,3.6vw,2.7rem)]">
             <span className="display text-cream">Probabilmente ti riconosci</span>{" "}
-            <span className="display text-saffron">in una di queste due situazioni.</span>
+            <span className="display text-cream">in una di queste due situazioni.</span>
           </h2>
         </Reveal>
 
@@ -25,7 +25,7 @@ export default function Problem() {
               <p className="display text-xl text-cream sm:text-2xl">
                 {group.tag}
               </p>
-              <p className="text-cream/65 leading-relaxed">{group.body}</p>
+              <p className="text-lg leading-relaxed text-cream/65">{group.body}</p>
               <ul className="mt-auto space-y-3 border-t border-cream/10 pt-6">
                 {group.points.map((point) => (
                   <li
@@ -46,11 +46,11 @@ export default function Problem() {
             <span className="display text-cream">
               In entrambi i casi il problema non sei tu.
             </span>{" "}
-            <span className="display text-saffron">
+            <span className="display text-cream">
               È il modo in cui hai comunicato fino a oggi.
             </span>
           </p>
-          <p className="mx-auto mt-6 max-w-3xl text-pretty leading-relaxed text-cream/60">
+          <p className="mx-auto mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-cream/60">
             Il marketing serve a una cosa sola: far incontrare la tua offerta con
             le persone giuste. Non per fare pubblicità, ma per comunicare meglio.
           </p>

@@ -13,7 +13,7 @@ export default function Contact() {
           <p className="kicker text-saffron">Parliamone</p>
           <h2 className="mt-6 text-[clamp(1.9rem,4.6vw,3.4rem)]">
             <span className="display text-cream">Parliamo del</span>
-            <span className="display mt-2 block text-saffron">tuo progetto.</span>
+            <span className="display mt-2 block text-cream">tuo progetto.</span>
           </h2>
           <p className="mt-8 max-w-md text-lg leading-relaxed text-cream/70">
             Una chiacchierata gratuita, senza impegno. Ci racconti la tua

@@ -11,7 +11,7 @@ export default function Testimonials() {
           <p className="kicker text-saffron-2">Lo dicono loro</p>
           <h2 className="mt-4 text-[clamp(1.55rem,3.6vw,2.6rem)]">
             <span className="display text-navy">Non fidarti di noi.</span>{" "}
-            <span className="display text-saffron-2">Fidati di chi ci ha provato.</span>
+            <span className="display text-navy">Fidati di chi ci ha provato.</span>
           </h2>
         </Reveal>
 

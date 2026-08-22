@@ -21,7 +21,7 @@ export default function ContattiPage() {
               <p className="kicker text-saffron">Parliamone</p>
               <h1 className="mt-6 text-[clamp(2.2rem,6vw,4.5rem)]">
                 <span className="display text-cream">Parliamo del</span>
-                <span className="display mt-2 block text-saffron">tuo progetto.</span>
+                <span className="display mt-2 block text-cream">tuo progetto.</span>
               </h1>
               <p className="mt-8 max-w-md text-lg leading-relaxed text-cream/70">
                 Una chiacchierata gratuita, senza impegno. Ci racconti la tua

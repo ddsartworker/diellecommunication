@@ -39,7 +39,7 @@ export default function ChiSiamoPage() {
             <p className="kicker text-saffron">Chi siamo</p>
             <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,5.2vw,4rem)]">
               <span className="display text-cream">Dietro Dielle</span>{" "}
-              <span className="display text-saffron">ci siamo noi. Sempre.</span>
+              <span className="display text-cream">ci siamo noi. Sempre.</span>
             </h1>
             <div className="mt-8 grid max-w-3xl gap-5 text-lg leading-relaxed text-cream/70">
               <p>

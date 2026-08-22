@@ -22,7 +22,7 @@ export default function LavoriIndex() {
             <p className="kicker text-saffron">Portfolio</p>
             <h1 className="mt-4 text-[clamp(2rem,6vw,4.5rem)]">
               <span className="display text-cream">I lavori,</span>{" "}
-              <span className="display text-saffron">spiegati semplice.</span>
+              <span className="display text-cream">spiegati semplice.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/70">
               Per ogni progetto: il problema di partenza, cosa abbiamo fatto e

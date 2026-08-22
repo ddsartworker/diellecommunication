@@ -17,7 +17,7 @@ export default function About() {
         <Reveal delay={80}>
           <blockquote className="mt-8 max-w-4xl text-[clamp(1.45rem,3.4vw,2.5rem)] leading-[1.12]">
             <span className="display text-navy">«Due persone che ti ascoltano,</span>{" "}
-            <span className="display text-saffron-2">non un reparto che ti rimbalza.»</span>
+            <span className="display text-navy">non un reparto che ti rimbalza.»</span>
           </blockquote>
         </Reveal>
 

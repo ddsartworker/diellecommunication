@@ -63,7 +63,7 @@ export default function MetodoPage() {
             <p className="kicker text-saffron">Il metodo</p>
             <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,5.2vw,4rem)]">
               <span className="display text-cream">Lavoriamo come un sarto,</span>{" "}
-              <span className="display text-saffron">non come una catena.</span>
+              <span className="display text-cream">non come una catena.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/70">
               Niente pacchetti preconfezionati. Costruiamo la tua comunicazione su
@@ -116,7 +116,7 @@ export default function MetodoPage() {
           <div className="mx-auto max-w-5xl">
             <h2 className="text-[clamp(1.6rem,3.8vw,2.7rem)]">
               <span className="display text-cream">Cosa cambia</span>{" "}
-              <span className="display text-saffron">rispetto alle altre.</span>
+              <span className="display text-cream">rispetto alle altre.</span>
             </h2>
             <div className="mt-10 overflow-hidden rounded-2xl border border-cream/10">
               <div className="grid grid-cols-2 border-b border-cream/10 font-mono text-[0.65rem] uppercase tracking-[0.14em]">

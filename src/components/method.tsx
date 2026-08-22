@@ -14,9 +14,9 @@ export default function Method() {
         <Reveal className="text-center">
           <h2 className="text-[clamp(1.7rem,4vw,3rem)]">
             <span className="display text-cream">Un metodo</span>{" "}
-            <span className="display text-saffron">sartoriale.</span>
+            <span className="display text-cream">sartoriale.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-pretty text-cream/60">
+          <p className="mx-auto mt-6 max-w-3xl text-pretty text-lg text-cream/60">
             Niente pacchetti uguali per tutti. Cuciamo la tua comunicazione su
             misura, passo dopo passo.
           </p>
@@ -29,12 +29,12 @@ export default function Method() {
               as="li"
               key={step.n}
               delay={i * 70}
-              className="relative grid grid-cols-[2.4rem_1fr] gap-x-5 gap-y-3 py-7 md:grid-cols-[2.4rem_14rem_1fr] md:items-baseline md:gap-x-10 md:gap-y-0"
+              className="relative grid grid-cols-[2.4rem_1fr] gap-x-5 gap-y-3 py-7 md:grid-cols-[2.4rem_21rem_1fr] md:items-baseline md:gap-x-10 md:gap-y-0"
             >
               <span className="relative z-10 row-span-2 flex size-[2.4rem] items-center justify-center rounded-full border border-cream/15 bg-navy-deep font-mono text-xs text-saffron md:row-span-1">
                 {step.n}
               </span>
-              <h3 className="self-center font-sans text-2xl font-semibold tracking-tight text-cream sm:text-3xl md:self-auto">
+              <h3 className="self-center font-sans text-2xl font-semibold tracking-tight text-cream sm:text-3xl md:self-auto md:whitespace-nowrap">
                 {step.title}
               </h3>
               <p className="col-start-2 max-w-md text-cream/65 leading-relaxed md:col-start-3 md:row-start-1">
