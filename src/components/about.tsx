@@ -28,13 +28,13 @@ export default function About() {
         {/* Ritratti quadrati e contenuti, come nel riferimento. Dentro la
             scheda tutto è allineato a sinistra — foto, nome, ruolo, testo —
             mentre titolo e sottotitolo della sezione restano centrati. */}
-        <div className="mx-auto mt-16 grid max-w-4xl gap-12 sm:grid-cols-2 sm:gap-10">
+        <div className="mx-auto mt-16 grid max-w-6xl gap-12 sm:grid-cols-2 sm:gap-12">
           {founders.map((person, i) => (
             <Reveal key={person.name} delay={140 + i * 90}>
               {/* Foto e testi condividono la stessa larghezza e gli stessi
                   bordi, come nel riferimento: il testo non sborda mai oltre
                   il quadrato. Il blocco intero è centrato nella colonna. */}
-              <div className="mx-auto w-full max-w-[20rem] text-left">
+              <div className="mx-auto w-full max-w-[32rem] text-left">
                 <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
                   {person.photo ? (
                     <Image
