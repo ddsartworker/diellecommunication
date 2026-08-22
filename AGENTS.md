@@ -82,3 +82,22 @@ in inglese.
   Da rimuovere o proteggere prima di collegare il dominio.
 - `src/lib/site.ts` — l'email di contatto punta a `diellecommunication.it`, un dominio
   che non esiste. Va corretta con la casella vera su `dlcommunication.it`.
+
+## Manutenzione di questo file
+
+**Questo documento va aggiornato insieme al codice, non dopo.**
+
+Ogni volta che una modifica cambia una di queste cose, correggi subito la sezione
+corrispondente qui sopra, nello stesso intervento — non in un secondo momento:
+
+- colori, token, caratteri, spaziature o qualsiasi scelta di stile
+- la struttura delle pagine o dei componenti
+- il modo in cui i contenuti sono organizzati in `src/lib/site.ts`
+- dominio, hosting, servizi esterni collegati
+- una voce risolta (o nuova) nella sezione «Da sistemare»
+
+Poi dillo esplicitamente all'utente: «ho aggiornato anche AGENTS.md», così sa che
+il documento e il sito sono allineati.
+
+Se un intervento è grosso e il file resta indietro su più punti, fermati e riallinealo
+prima di proseguire.
