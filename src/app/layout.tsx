@@ -1,27 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Michroma, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-// Michroma — font del brand per titoli e display. Disponibile solo in regular.
-const michroma = Michroma({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-michroma",
-  display: "swap",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-jetbrains",
-  display: "swap",
-});
+// Nessun font da scaricare: il sito usa il carattere di sistema del
+// dispositivo di chi guarda (vedi il blocco @theme in globals.css).
+// Tre famiglie da Google Fonts in meno significano anche una pagina che
+// compare prima, senza il salto di carattere durante il caricamento.
 
 const siteUrl = "https://diellecommunication.it";
 
@@ -68,10 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="it"
-      className={`${inter.variable} ${michroma.variable} ${jetbrains.variable}`}
-    >
+    <html lang="it">
       <body className="min-h-screen bg-navy font-sans text-cream antialiased">
         {children}
       </body>

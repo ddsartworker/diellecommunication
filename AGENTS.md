@@ -56,8 +56,17 @@ Palette di marca: blu `#282f3f` (token `navy`, è il fondo), arancio `#f49619`
 (`saffron`, l'accento), verde `#4eb480` (`mint`), bianco caldo `#f7f7f3` (`cream`).
 Usa sempre i token, mai i codici colore scritti a mano.
 
-Caratteri: **Michroma** per i titoli (classe `display`), **Inter** per il testo,
-**JetBrains Mono** per le micro-etichette in maiuscolo con lettere spaziate.
+Carattere: **uno solo per tutto il sito**, la pila di sistema
+(`ui-sans-serif, system-ui, …`), cioè il font dell'interfaccia del dispositivo di
+chi guarda: San Francisco su Mac e iPhone, Segoe UI su Windows, Roboto su
+Android. Nessun font viene scaricato: `layout.tsx` non carica più Michroma,
+Inter e JetBrains Mono.
+
+I tre token `--font-sans`, `--font-serif` e `--font-mono` puntano tutti alla
+stessa pila, quindi la gerarchia si costruisce con dimensione e peso, non
+cambiando famiglia. La classe `display` resta il gancio per i titoli
+(interlinea stretta, tracking -0.025em) e `kicker` per le micro-etichette
+maiuscole spaziate.
 
 **Inviti all'azione**: usa sempre il componente `src/components/cta.tsx`, mai un
 link sottolineato. La pillola arancione piena (`primary`) è l'unica azione forte

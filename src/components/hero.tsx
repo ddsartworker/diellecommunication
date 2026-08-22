@@ -18,7 +18,10 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto flex max-w-7xl flex-col items-center text-center">
-        <h1 className="max-w-4xl text-[clamp(1.5rem,5vw,3.5rem)]">
+        {/* Il carattere di sistema è molto più stretto di Michroma: senza
+            alzare la scala il titolo risulterebbe smilzo. 5.6vw arriva a 72px
+            sul desktop, la stessa misura del riferimento. */}
+        <h1 className="max-w-5xl text-[clamp(2rem,5.6vw,4.5rem)]">
           <span className="display block text-navy">
             Il marketing non deve essere complicato.
           </span>
@@ -27,17 +30,9 @@ export default function Hero() {
           </span>
         </h1>
 
-        <p
-          className="display mt-10 max-w-5xl text-sm text-navy/70 sm:text-base"
-          style={{ lineHeight: 2.2 }}
-        >
-          <span className="block sm:whitespace-nowrap">
-            Costruiamo la tua comunicazione su misura e la seguiamo di persona,
-            dal primo giorno.
-          </span>
-          <span className="block">
-            Pochi clienti, perché ognuno merita attenzione vera.
-          </span>
+        <p className="mt-8 max-w-2xl text-base leading-relaxed text-navy/65 sm:text-lg">
+          Costruiamo la tua comunicazione su misura e la seguiamo di persona,
+          dal primo giorno. Pochi clienti, perché ognuno merita attenzione vera.
         </p>
 
         <div className="mt-16 flex flex-wrap items-center justify-center gap-3 sm:mt-20 sm:gap-4">
