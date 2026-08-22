@@ -113,6 +113,15 @@ numeri→pulsanti.
 L'ordine dell'apertura è titolo → sottotitolo → fascia dei numeri → pulsanti, e
 finisce lì: su un MacBook 13" si vede per intero, con i pulsanti sulla piega.
 
+Subito sotto, il **nastro dei clienti** (`marquee.tsx`) è una fascia in tinta
+unita `navy-2`: è il blu chiaro al centro del gradiente dell'apertura, usato
+pieno perché la fascia stacchi da ciò che sta sopra e sotto. A sinistra una
+scritta ferma («Dario e Luisa hanno lavorato con»), a destra i nomi che scorrono.
+Misure prese dal riferimento: etichetta 9,9px maiuscola con tracking 0.1em,
+nomi 15,8px di peso 500, 54px tra un nome e l'altro, giro in 25 secondi. I nomi
+dei clienti in `site.ts` vanno scritti con le maiuscole giuste: il nastro non li
+trasforma più in maiuscolo.
+
 Le animazioni restano lente e discrete (comparse allo scroll, scorrimenti nei
 pulsanti).
 

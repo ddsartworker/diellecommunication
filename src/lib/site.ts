@@ -527,15 +527,18 @@ export function getWork(slug: string): WorkItem | undefined {
 }
 
 // Clienti reali (fonte: ddsartworker.it). Usati nella marquee.
+// Nomi come vanno scritti a video: il nastro non li mette più in maiuscolo,
+// quindi le maiuscole interne contano.
+// TODO: far confermare a Dario le grafie esatte dei marchi.
 export const clients = [
-  "everup",
-  "ninjastickers",
-  "voice concierge",
-  "tadàplay",
-  "san pietro bistro",
-  "coffeeworld",
-  "orto botanico",
-  "glam&go london",
-  "k&c college",
-  "namare",
+  "EverUp",
+  "NinjaStickers",
+  "Voice Concierge",
+  "Tadàplay",
+  "San Pietro Bistro",
+  "CoffeeWorld",
+  "Orto Botanico",
+  "Glam&Go London",
+  "K&C College",
+  "Namare",
 ];

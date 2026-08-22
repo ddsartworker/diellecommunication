@@ -197,7 +197,8 @@ body {
 .marquee-track {
   display: inline-flex;
   white-space: nowrap;
-  animation: dielle-marquee 38s linear infinite;
+  /* 25s: la stessa velocità del nastro di riferimento. */
+  animation: dielle-marquee 25s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
