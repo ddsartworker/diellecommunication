@@ -60,7 +60,7 @@ export default function MetodoPage() {
       <main>
         <section className="px-6 pb-12 pt-36 sm:px-10 sm:pt-44">
           <div className="mx-auto max-w-7xl">
-            <p className="kicker text-mint">Il metodo</p>
+            <p className="kicker text-saffron">Il metodo</p>
             <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,5.2vw,4rem)]">
               <span className="display text-cream">Lavoriamo come un sarto,</span>{" "}
               <span className="display text-saffron">non come una catena.</span>
@@ -92,7 +92,7 @@ export default function MetodoPage() {
                 </div>
                 <dl className="flex flex-col gap-4 md:items-end md:text-right">
                   <div>
-                    <dt className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-mint">
+                    <dt className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-saffron">
                       Cosa ottieni
                     </dt>
                     <dd className="mt-1 max-w-xs text-cream/80">
@@ -143,7 +143,7 @@ export default function MetodoPage() {
         {/* Perché funziona */}
         <section className="px-6 py-20 sm:px-10 sm:py-28">
           <div className="mx-auto max-w-7xl">
-            <p className="kicker text-mint">Perché funziona</p>
+            <p className="kicker text-saffron">Perché funziona</p>
             <div className="mt-10 grid gap-10 sm:grid-cols-3 sm:gap-8">
               {why.map((point) => (
                 <div key={point.title} className="border-t border-cream/15 pt-6">

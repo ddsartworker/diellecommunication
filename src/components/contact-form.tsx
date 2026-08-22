@@ -39,8 +39,8 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="flex h-full min-h-64 flex-col items-start justify-center gap-3 rounded-2xl border border-mint/30 bg-mint/5 p-8">
-        <p className="display text-4xl text-mint">Ci siamo.</p>
+      <div className="flex h-full min-h-64 flex-col items-start justify-center gap-3 rounded-2xl border border-mint/30 bg-saffron/5 p-8">
+        <p className="display text-4xl text-saffron">Ci siamo.</p>
         <p className="text-cream/70">
           Messaggio ricevuto. Ti rispondo entro un paio di giorni lavorativi.
         </p>

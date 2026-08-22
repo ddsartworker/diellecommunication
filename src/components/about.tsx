@@ -2,15 +2,9 @@ import Image from "next/image";
 import Reveal from "./reveal";
 import { founders } from "@/lib/site";
 
-// Su fondo chiaro servono i toni scuri (mint-2 / saffron-2) per il contrasto.
-const accentText: Record<string, string> = {
-  saffron: "text-saffron-2",
-  mint: "text-mint-2",
-};
-const accentPanel: Record<string, string> = {
-  saffron: "bg-saffron/15 text-saffron-2",
-  mint: "bg-mint/20 text-mint-2",
-};
+// Su fondo chiaro serve il tono scuro dell'arancio per il contrasto.
+const accentText = "text-saffron-2";
+const accentPanel = "bg-saffron/15 text-saffron-2";
 
 export default function About() {
   return (
@@ -51,7 +45,7 @@ export default function About() {
                 ) : (
                   // TODO: sostituire con la foto professionale in /public/team/
                   <div
-                    className={`flex h-full items-center justify-center ${accentPanel[person.accent]}`}
+                    className={`flex h-full items-center justify-center ${accentPanel}`}
                   >
                     <span className="display text-[6rem] leading-none sm:text-[8rem]">
                       {person.initials}
@@ -66,7 +60,7 @@ export default function About() {
               <p className="mt-1 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-navy/55">
                 {person.role}
               </p>
-              <p className={`mt-5 text-lg italic leading-snug sm:text-xl ${accentText[person.accent]}`}>
+              <p className={`mt-5 text-lg italic leading-snug sm:text-xl ${accentText}`}>
                 «{person.quote}»
               </p>
               <p className="mt-4 text-navy/70 leading-relaxed">{person.bio}</p>

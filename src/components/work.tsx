@@ -19,7 +19,7 @@ export default function Work() {
       <div className="mx-auto max-w-7xl">
         <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="kicker text-mint">Portfolio</p>
+            <p className="kicker text-saffron">Portfolio</p>
             <h2 className="mt-4 text-[clamp(1.7rem,4vw,3rem)]">
               <span className="display text-cream">I lavori,</span>{" "}
               <span className="display text-saffron">spiegati semplice.</span>
@@ -85,7 +85,7 @@ export default function Work() {
 
                 <dl className="mt-3 space-y-2.5 text-sm leading-relaxed">
                   <div>
-                    <dt className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-mint">
+                    <dt className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-saffron">
                       Cos&apos;è
                     </dt>
                     <dd className="mt-1 text-cream/75">{item.what}</dd>

@@ -107,7 +107,7 @@ export default function Tools() {
     >
       <div className="mx-auto max-w-3xl text-center">
         <Reveal>
-          <p className="kicker text-mint">Tutto in casa</p>
+          <p className="kicker text-saffron">Tutto in casa</p>
         </Reveal>
 
         <Reveal delay={80}>

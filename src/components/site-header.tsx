@@ -71,7 +71,7 @@ export default function SiteHeader() {
             {/* Info cliccabili (sopra) */}
             <div className="grid gap-8 border-b border-navy/10 pb-10 sm:grid-cols-3">
               <a href={`mailto:${site.email}`} className="group block">
-                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-mint">
+                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-saffron">
                   Scrivici
                 </span>
                 <p className="display mt-3 text-sm text-navy transition-colors group-hover:text-saffron">
@@ -79,7 +79,7 @@ export default function SiteHeader() {
                 </p>
               </a>
               <div>
-                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-mint">
+                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-saffron">
                   Dove siamo
                 </span>
                 <p className="display mt-3 text-sm leading-relaxed text-navy">
@@ -87,7 +87,7 @@ export default function SiteHeader() {
                 </p>
               </div>
               <div>
-                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-mint">
+                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-saffron">
                   Seguici
                 </span>
                 <ul className="mt-3 space-y-2">

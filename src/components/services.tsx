@@ -7,7 +7,7 @@ export default function Services() {
       <div className="mx-auto max-w-7xl">
         <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="kicker text-mint">Cosa facciamo</p>
+            <p className="kicker text-saffron">Cosa facciamo</p>
             <h2 className="mt-4 text-[clamp(1.7rem,4vw,3rem)]">
               <span className="display text-cream">Tutto ciò che serve</span>{" "}
               <span className="display text-saffron">per farti scegliere.</span>

@@ -11,7 +11,7 @@ export default function Blog() {
       <div className="mx-auto max-w-7xl">
         <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="kicker text-mint">Dal blog</p>
+            <p className="kicker text-saffron">Dal blog</p>
             <h2 className="mt-4 text-[clamp(1.7rem,4vw,3rem)]">
               <span className="display text-cream">Il marketing,</span>{" "}
               <span className="display text-saffron">senza paroloni.</span>

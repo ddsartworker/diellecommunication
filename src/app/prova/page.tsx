@@ -76,7 +76,7 @@ export default function ProvaPage() {
         {/* Come funziona */}
         <section className="px-6 py-16 sm:px-10">
           <div className="mx-auto max-w-7xl">
-            <p className="kicker text-mint">Come funziona</p>
+            <p className="kicker text-saffron">Come funziona</p>
             <ol className="mt-10 grid gap-px sm:grid-cols-3">
               {trial.steps.map((step) => (
                 <li
@@ -104,7 +104,7 @@ export default function ProvaPage() {
               <ul className="mt-6 space-y-3">
                 {include.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-cream/75">
-                    <span className="mt-1 shrink-0 text-mint">✓</span>
+                    <span className="mt-1 shrink-0 text-saffron">✓</span>
                     {item}
                   </li>
                 ))}
@@ -129,12 +129,12 @@ export default function ProvaPage() {
         {/* Per chi è / per chi non è */}
         <section className="px-6 py-20 sm:px-10 sm:py-28">
           <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2">
-            <div className="rounded-2xl border border-mint/25 bg-mint/[0.04] p-8">
-              <h2 className="display text-2xl text-mint">È per te se…</h2>
+            <div className="rounded-2xl border border-saffron/25 bg-saffron/[0.04] p-8">
+              <h2 className="display text-2xl text-saffron">È per te se…</h2>
               <ul className="mt-6 space-y-3">
                 {forYou.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-cream/75">
-                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-mint" />
+                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-saffron" />
                     {item}
                   </li>
                 ))}
@@ -157,7 +157,7 @@ export default function ProvaPage() {
         {/* FAQ */}
         <section className="px-6 pb-24 sm:px-10 sm:pb-32">
           <div className="mx-auto max-w-3xl">
-            <p className="kicker text-mint">Domande frequenti</p>
+            <p className="kicker text-saffron">Domande frequenti</p>
             <dl className="mt-8 divide-y divide-cream/10 border-y border-cream/10">
               {faq.map((item) => (
                 <div key={item.q} className="py-7">

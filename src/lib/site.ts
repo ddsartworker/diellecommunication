@@ -106,7 +106,6 @@ export type Founder = {
   quote: string;
   bio: string;
   initials: string;
-  accent: "saffron" | "mint";
   photo?: string;
 };
 
@@ -117,7 +116,6 @@ export const founders: Founder[] = [
     quote: "Costruisco il tuo sito come fosse l'ingresso della tua attività.",
     bio: "Oltre dieci anni di esperienza tra Napoli e Londra come web designer e digital strategist. Unisco l'occhio del designer alla testa dello stratega: ogni cosa che le persone vedono deve farle entrare.",
     initials: "DD",
-    accent: "saffron",
   },
   {
     name: "Luisa Panariello",
@@ -125,7 +123,6 @@ export const founders: Founder[] = [
     quote: "Trasformo la tua storia in contenuti che le persone vogliono seguire.",
     bio: "Specialista in branding, contenuti e comunicazione. Mi occupo della relazione con te e dello sviluppo strategico: trovo le parole giuste e le porto alle persone giuste.",
     initials: "LP",
-    accent: "mint",
   },
 ];
 

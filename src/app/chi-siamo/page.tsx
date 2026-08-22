@@ -26,14 +26,8 @@ const values = [
   },
 ];
 
-const accentText: Record<string, string> = {
-  saffron: "text-saffron-2",
-  mint: "text-mint-2",
-};
-const accentPanel: Record<string, string> = {
-  saffron: "bg-saffron/15 text-saffron-2",
-  mint: "bg-mint/20 text-mint-2",
-};
+const accentText = "text-saffron-2";
+const accentPanel = "bg-saffron/15 text-saffron-2";
 
 export default function ChiSiamoPage() {
   return (
@@ -42,7 +36,7 @@ export default function ChiSiamoPage() {
       <main>
         <section className="px-6 pb-8 pt-36 sm:px-10 sm:pt-44">
           <div className="mx-auto max-w-7xl">
-            <p className="kicker text-mint">Chi siamo</p>
+            <p className="kicker text-saffron">Chi siamo</p>
             <h1 className="mt-4 max-w-4xl text-[clamp(1.9rem,5.2vw,4rem)]">
               <span className="display text-cream">Dietro Dielle</span>{" "}
               <span className="display text-saffron">ci siamo noi. Sempre.</span>
@@ -100,7 +94,7 @@ export default function ChiSiamoPage() {
                     ) : (
                       // TODO: sostituire con la foto professionale in /public/team/
                       <div
-                        className={`flex h-full items-center justify-center ${accentPanel[person.accent]}`}
+                        className={`flex h-full items-center justify-center ${accentPanel}`}
                       >
                         <span className="display text-[7rem] leading-none sm:text-[9rem]">
                           {person.initials}
@@ -115,7 +109,7 @@ export default function ChiSiamoPage() {
                     {person.role}
                   </p>
                   <p
-                    className={`display mt-5 text-xl leading-snug sm:text-2xl ${accentText[person.accent]}`}
+                    className={`display mt-5 text-xl leading-snug sm:text-2xl ${accentText}`}
                   >
                     «{person.quote}»
                   </p>

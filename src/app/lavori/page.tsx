@@ -19,7 +19,7 @@ export default function LavoriIndex() {
       <main>
         <section className="px-6 pb-12 pt-36 sm:px-10 sm:pt-44">
           <div className="mx-auto max-w-7xl">
-            <p className="kicker text-mint">Portfolio</p>
+            <p className="kicker text-saffron">Portfolio</p>
             <h1 className="mt-4 text-[clamp(2rem,6vw,4.5rem)]">
               <span className="display text-cream">I lavori,</span>{" "}
               <span className="display text-saffron">spiegati semplice.</span>

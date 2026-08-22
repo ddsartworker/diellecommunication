@@ -16,7 +16,7 @@ export default function Method() {
             <span className="display text-cream">Un metodo</span>{" "}
             <span className="display text-saffron">sartoriale.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-cream/60">
+          <p className="mx-auto mt-6 max-w-3xl text-pretty text-cream/60">
             Niente pacchetti uguali per tutti. Cuciamo la tua comunicazione su
             misura, passo dopo passo.
           </p>

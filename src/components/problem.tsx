@@ -9,7 +9,7 @@ export default function Problem() {
           perché un elenco puntato centrato non si legge. */}
       <div className="mx-auto max-w-7xl text-center">
         <Reveal>
-          <h2 className="mx-auto max-w-4xl text-[clamp(1.6rem,3.6vw,2.7rem)]">
+          <h2 className="mx-auto max-w-7xl text-balance text-[clamp(1.6rem,3.6vw,2.7rem)]">
             <span className="display text-cream">Probabilmente ti riconosci</span>{" "}
             <span className="display text-saffron">in una di queste due situazioni.</span>
           </h2>
@@ -42,15 +42,15 @@ export default function Problem() {
         </div>
 
         <Reveal delay={140}>
-          <p className="mx-auto mt-12 max-w-3xl text-[clamp(1.25rem,2.6vw,1.9rem)] leading-snug">
+          <p className="mx-auto mt-12 max-w-6xl text-balance text-[clamp(1.25rem,2.6vw,1.9rem)] leading-snug">
             <span className="display text-cream">
               In entrambi i casi il problema non sei tu.
             </span>{" "}
-            <span className="display text-mint">
+            <span className="display text-saffron">
               È il modo in cui hai comunicato fino a oggi.
             </span>
           </p>
-          <p className="mx-auto mt-6 max-w-2xl leading-relaxed text-cream/60">
+          <p className="mx-auto mt-6 max-w-3xl text-pretty leading-relaxed text-cream/60">
             Il marketing serve a una cosa sola: far incontrare la tua offerta con
             le persone giuste. Non per fare pubblicità, ma per comunicare meglio.
           </p>

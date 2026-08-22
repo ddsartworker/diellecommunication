@@ -16,13 +16,13 @@ export default function Hero() {
       <div className="relative mx-auto flex max-w-7xl flex-col items-center text-center">
         {/* Un solo colore per tutto il titolo: la sfumatura sta nel fondo,
             non nelle lettere. */}
-        <h1 className="display max-w-5xl text-[clamp(2rem,5.6vw,4.5rem)] text-cream">
+        <h1 className="display max-w-6xl text-balance text-[clamp(2rem,5.6vw,4.5rem)] text-cream">
           Il marketing non deve essere complicato.
           <br />
           Deve portarti clienti.
         </h1>
 
-        <p className="mt-6 max-w-2xl text-base text-cream/65 sm:text-lg">
+        <p className="mt-6 max-w-3xl text-pretty text-base text-cream/65 sm:text-lg">
           Costruiamo la tua comunicazione su misura e la seguiamo di persona,
           dal primo giorno. Pochi clienti, perché ognuno merita attenzione vera.
         </p>

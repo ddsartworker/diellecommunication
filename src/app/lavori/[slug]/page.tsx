@@ -79,7 +79,7 @@ export default async function CaseStudyPage({
               </div>
 
               <div className="md:contents">
-                <h2 className="kicker text-mint">La soluzione</h2>
+                <h2 className="kicker text-saffron">La soluzione</h2>
                 <ul className="mt-3 max-w-2xl space-y-3 md:mt-0">
                   {item.solution.map((step) => (
                     <li key={step} className="flex items-start gap-3 text-lg leading-relaxed text-cream/75">
@@ -95,7 +95,7 @@ export default async function CaseStudyPage({
                 <ul className="mt-3 max-w-2xl space-y-3 md:mt-0">
                   {item.outcome.map((line) => (
                     <li key={line} className="flex items-start gap-3 text-lg leading-relaxed text-cream/75">
-                      <span className="mt-1 shrink-0 text-mint">✓</span>
+                      <span className="mt-1 shrink-0 text-saffron">✓</span>
                       {line}
                     </li>
                   ))}

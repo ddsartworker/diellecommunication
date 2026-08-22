@@ -6,7 +6,7 @@ export default function Trial() {
   return (
     <section id="prova" className="px-6 py-24 sm:px-10 sm:py-32">
       <div className="mx-auto max-w-7xl">
-        <Reveal className="relative overflow-hidden rounded-[1.75rem] border border-saffron/25 bg-gradient-to-br from-saffron/15 via-navy-2/40 to-mint/10 p-8 sm:p-14">
+        <Reveal className="relative overflow-hidden rounded-[1.75rem] border border-saffron/25 bg-gradient-to-br from-saffron/15 via-navy-2/40 to-saffron/10 p-8 sm:p-14">
           <div
             aria-hidden
             className="pointer-events-none absolute -left-24 -top-24 size-[28rem] rounded-full bg-saffron/15 blur-[110px]"
@@ -49,7 +49,7 @@ export default function Trial() {
                     key={item}
                     className="flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-cream/60"
                   >
-                    <span className="text-mint">✓</span>
+                    <span className="text-saffron">✓</span>
                     {item}
                   </li>
                 ))}

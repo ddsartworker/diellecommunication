@@ -75,7 +75,7 @@ export default async function ArticlePage({
             </div>
 
             <div className="mt-16 rounded-2xl border border-cream/10 bg-white/[0.02] p-7">
-              <p className="kicker text-mint">Scritto da</p>
+              <p className="kicker text-saffron">Scritto da</p>
               <p className="mt-3 leading-relaxed text-cream/80">
                 {founders.map((f) => f.name).join(" & ")} — i fondatori di Dielle
                 Communication. Seguiamo di persona ogni cliente, da Napoli, in
