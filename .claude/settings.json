@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "PROJ=\"/Users/dariodesisto/Desktop/diellecommunication\"; [ -n \"$(find \"$PROJ/src\" -type f -newer \"$PROJ/AGENTS.md\" -print -quit 2>/dev/null)\" ] && printf \"%s\" \"{\\\"systemMessage\\\":\\\"AGENTS.md è più vecchio delle modifiche in src/ — allinea il file di progetto (stili, struttura, contenuti, TODO).\\\"}\"; true",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
