@@ -14,8 +14,11 @@ import type { ReactNode } from "react";
 type Variant = "primary" | "outline";
 type Size = "md" | "sm";
 
+// Peso, interlinea e spaziature sono quelli misurati sul riferimento:
+// testo di peso 400 (non grassetto), riga 1.3, nessuna spaziatura extra tra le
+// lettere, distanza testo-pallino 1em, imbottitura 0.2em/0.25em/0.2em/1em.
 const base =
-  "group inline-flex select-none items-center gap-[1em] rounded-[2em] py-[0.2em] pl-[1em] pr-[0.25em] font-semibold transition-colors duration-300";
+  "group inline-flex select-none items-center gap-[1em] rounded-[2em] py-[0.2em] pl-[1em] pr-[0.25em] font-normal leading-[1.3] tracking-normal transition-colors duration-300";
 
 // 0.9rem = la stessa dimensione del riferimento, da cui discende un pulsante
 // alto 38px. La versione piccola serve alle barre di navigazione.
@@ -26,13 +29,17 @@ const sizes: Record<Size, string> = {
 
 const variants: Record<Variant, string> = {
   primary: "bg-saffron text-navy hover:bg-saffron-2 hover:text-cream",
-  outline: "border border-navy/25 text-navy hover:border-navy/60 hover:bg-navy/5",
+  outline: "border border-cream/25 text-cream hover:border-cream/60 hover:bg-cream/10",
 };
 
 // Il pallino resta scuro in entrambe le varianti: è l'ancora visiva del
 // pulsante, e sull'arancione fa da contrappunto.
-const iconBox =
-  "relative flex size-[2.25em] shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy text-cream";
+const iconBox: Record<Variant, string> = {
+  primary:
+    "relative flex size-[2.25em] shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy text-cream",
+  outline:
+    "relative flex size-[2.25em] shrink-0 items-center justify-center overflow-hidden rounded-full bg-cream text-navy",
+};
 
 function Arrow({ className = "" }: { className?: string }) {
   return (
@@ -84,7 +91,7 @@ export default function Cta({
         </span>
       </span>
 
-      <span className={iconBox}>
+      <span className={iconBox[variant]}>
         <Arrow className="transition-transform duration-300 ease-[ease] group-hover:translate-x-[200%]" />
         <Arrow className="absolute -translate-x-[200%] transition-transform duration-300 ease-[ease] group-hover:translate-x-0" />
       </span>

@@ -73,7 +73,11 @@ link sottolineato. La pillola arancione piena (`primary`) è l'unica azione fort
 di ogni schermata; il contorno (`outline`, pensato per i fondi chiari) accompagna
 senza rubare l'occhio. Entrambe chiudono con un pallino blu e la freccia.
 
-Il movimento è ripreso da leftclick.ai, indicato da Dario come riferimento:
+Peso, interlinea e spaziature dei pulsanti sono misurati su leftclick.ai:
+testo di **peso 400** (mai grassetto), riga 1.3, nessuna spaziatura extra tra le
+lettere, distanza testo-pallino 1em, imbottitura `0.2em 0.25em 0.2em 1em`.
+
+Il movimento è ripreso dallo stesso riferimento:
 testo e freccia sono scritti due volte dentro un contenitore che taglia il
 fuori-bordo, e al passaggio del mouse la coppia scorre — il testo verso l'alto,
 la freccia verso destra — in 0,3 secondi con andamento `ease`. Le misure sono
@@ -85,9 +89,17 @@ Per dare profondità ai fondi piatti si usano cerchi sfumati molto sfocati nei
 colori del brand (`bg-saffron/10 blur-[120px]`), come nell'hero e in `trial`.
 Mai gradienti sul testo.
 
-L'estetica è tipografica e sobria: fondo scuro, molto spazio bianco, animazioni
-lente e discrete (sottolineature che crescono al passaggio del mouse, comparse allo
-scroll). Michroma è un carattere molto largo: attenzione ai titoli lunghi su mobile.
+Interlinea: **1.3** sul testo (come il riferimento), **1.05** sui titoli, con
+tracking -0.03em e peso 500. Sono i valori misurati sul titolo di leftclick.ai.
+
+L'apertura è scura, con un alone radiale al centro
+(`radial-gradient(80% 60% at 50% 40%, navy-2, navy-deep)`), titolo in **un solo
+colore** — la sfumatura sta nel fondo, mai nelle lettere — e altezza pari allo
+schermo meno la barra: su un MacBook 13" si vede tutta, fino ai pulsanti. La
+fascia dei numeri prosegue sullo stesso fondo scuro.
+
+Le animazioni restano lente e discrete (comparse allo scroll, scorrimenti nei
+pulsanti).
 
 ## Lingua
 
