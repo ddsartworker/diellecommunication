@@ -7,10 +7,11 @@ export default function Hero() {
       id="top"
       // Fondo scuro con un alone radiale al centro, come il riferimento: loro
       // schiariscono verso un blu-viola, noi verso il blu del brand.
-      // L'apertura occupa tutto lo schermo e passa sotto la barra, che è
-      // trasparente: nessuna linea di stacco, una superficie sola. Su un
-      // MacBook 13" si vede per intero e finisce con i pulsanti.
-      className="relative flex min-h-svh flex-col justify-center overflow-hidden px-4 pb-[4.5rem] pt-[6.75rem] text-cream sm:px-6"
+      // L'apertura occupa tutto lo schermo e passa sotto la barra, che non ha
+      // fondo: nessuna linea di stacco, una superficie sola. L'imbottitura in
+      // alto lascia 108px tra la barra e il titolo, la stessa aria del
+      // riferimento. Su un MacBook 13" si vede per intero, fino ai pulsanti.
+      className="relative flex min-h-svh flex-col justify-start overflow-hidden px-4 pb-[4.5rem] pt-36 text-cream sm:px-6 sm:pt-[13.875rem]"
       style={{
         backgroundImage:
           "radial-gradient(80% 60% at 50% 40%, var(--color-navy-2) 0%, var(--color-navy-deep) 70%)",
@@ -25,12 +26,12 @@ export default function Hero() {
           Deve portarti clienti.
         </h1>
 
-        <p className="mt-8 max-w-2xl text-base text-cream/65 sm:text-lg">
+        <p className="mt-6 max-w-2xl text-base text-cream/65 sm:text-lg">
           Costruiamo la tua comunicazione su misura e la seguiamo di persona,
           dal primo giorno. Pochi clienti, perché ognuno merita attenzione vera.
         </p>
 
-        <Stats className="mt-10" />
+        <Stats className="mt-7" />
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           <Cta href="#prova">Richiedi la prova gratuita</Cta>

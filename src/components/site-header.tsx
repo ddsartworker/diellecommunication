@@ -5,15 +5,7 @@ import Logo from "./logo";
 import { nav, site, social } from "@/lib/site";
 
 export default function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // Blocca lo scroll del body quando il pannello è aperto
   useEffect(() => {
@@ -24,16 +16,12 @@ export default function SiteHeader() {
   }, [open]);
 
   return (
-    // In cima alla pagina la barra non ha fondo né bordo: galleggia sopra
-    // l'apertura, che così è una superficie unica dal margine dello schermo.
-    // Il fondo compare solo dopo lo scroll, quando sotto passano sezioni chiare.
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        scrolled || open
-          ? "border-b border-white/5 bg-navy-deep/90 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
+    // La barra scorre via con la pagina (come sul riferimento, dove è
+    // `position: static`): non resta incollata in alto. Niente fondo e niente
+    // bordo, mai: appoggia sull'apertura ed è la stessa superficie.
+    // `absolute` invece di `static` perché così non occupa spazio nel flusso e
+    // l'apertura parte davvero dal margine dello schermo.
+    <header className="absolute inset-x-0 top-0 z-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-7 sm:px-10 sm:py-9">
         <Logo />
 
@@ -68,10 +56,14 @@ export default function SiteHeader() {
         </button>
       </div>
 
-      {/* Pannello a discesa */}
+      {/* Pannello a discesa. Da chiuso non deve dipingere nulla: il bordo di
+          1px lasciava intravedere il fondo bianco sotto la barra, ed è quella
+          la riga che si vedeva sopra l'apertura. */}
       <div
-        className={`grid overflow-hidden border-t bg-white transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          open ? "grid-rows-[1fr] border-navy/10" : "grid-rows-[0fr] border-transparent"
+        className={`grid overflow-hidden transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          open
+            ? "grid-rows-[1fr] border-t border-navy/10 bg-white"
+            : "grid-rows-[0fr] border-t-0 bg-transparent"
         }`}
       >
         <div className="min-h-0">

@@ -96,12 +96,19 @@ L'apertura è scura, con un alone radiale al centro
 (`radial-gradient(80% 60% at 50% 40%, navy-2, navy-deep)`) e titolo in **un solo
 colore**: la sfumatura sta nel fondo, mai nelle lettere.
 
-**Barra e apertura sono una superficie sola.** In cima alla pagina l'intestazione
-non ha né fondo né bordo: galleggia sopra l'apertura, che parte dal margine dello
-schermo e occupa tutta l'altezza (`min-h-svh`). Il fondo scuro sfocato compare
-solo dopo lo scroll, quando sotto la barra passano le sezioni chiare. Non
-reintrodurre un bordo o un fondo fisso in cima: è la riga di stacco che il
-cliente ha chiesto di togliere.
+**Barra e apertura sono una superficie sola.** L'intestazione non ha fondo né
+bordo, e **non è fissa**: è `absolute` e scorre via con la pagina, come sul
+riferimento (dove è `position: static`). L'apertura parte dal margine dello
+schermo e occupa tutta l'altezza (`min-h-svh`).
+
+Non reintrodurre né un fondo né un bordo in cima, e non rimetterla fissa: sono
+esattamente le cose che il cliente ha chiesto di togliere. Attenzione anche al
+pannello del menu: da chiuso deve avere fondo trasparente e nessun bordo,
+altrimenti il suo bianco si intravede come una riga di 1px sotto la barra.
+
+Distanze verticali dell'apertura, misurate sul riferimento: **108px** tra barra
+e titolo, **23px** titolo→sottotitolo, **28px** sottotitolo→numeri, **40px**
+numeri→pulsanti.
 
 L'ordine dell'apertura è titolo → sottotitolo → fascia dei numeri → pulsanti, e
 finisce lì: su un MacBook 13" si vede per intero, con i pulsanti sulla piega.
