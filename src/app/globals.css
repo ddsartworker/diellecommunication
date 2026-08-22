@@ -192,6 +192,18 @@ body {
   }
 }
 
+/*
+  Superficie dell'apertura: alone radiale che schiarisce verso il centro.
+  La usano l'hero e la sezione «Partiamo da te», così restano la stessa cosa.
+*/
+.surface-glow {
+  background-image: radial-gradient(
+    80% 60% at 50% 40%,
+    var(--color-navy-2) 0%,
+    var(--color-navy-deep) 70%
+  );
+}
+
 /* Client marquee */
 @keyframes dielle-marquee {
   to {

@@ -92,9 +92,10 @@ Mai gradienti sul testo.
 Interlinea: **1.3** sul testo (come il riferimento), **1.05** sui titoli, con
 tracking -0.03em e peso 500. Sono i valori misurati sul titolo di leftclick.ai.
 
-L'apertura è scura, con un alone radiale al centro
-(`radial-gradient(80% 60% at 50% 40%, navy-2, navy-deep)`) e titolo in **un solo
-colore**: la sfumatura sta nel fondo, mai nelle lettere.
+L'apertura è scura, con un alone radiale al centro e titolo in **un solo
+colore**: la sfumatura sta nel fondo, mai nelle lettere. Quella superficie è la
+classe **`.surface-glow`** in `globals.css`, condivisa da hero e sezione
+«Partiamo da te»: non ricopiare il gradiente a mano, usa la classe.
 
 **Barra e apertura sono una superficie sola.** L'intestazione non ha fondo né
 bordo, e **non è fissa**: è `absolute` e scorre via con la pagina, come sul

@@ -3,7 +3,10 @@ import { problems } from "@/lib/site";
 
 export default function Problem() {
   return (
-    <section id="problema" className="px-6 py-24 sm:px-10 sm:py-32">
+    <section
+      id="problema"
+      className="surface-glow px-6 py-24 sm:px-10 sm:py-32"
+    >
       <div className="mx-auto max-w-7xl">
         <Reveal>
           <p className="kicker text-mint">Partiamo da te</p>
