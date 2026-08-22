@@ -2,27 +2,25 @@ import Image from "next/image";
 import Reveal from "./reveal";
 import { founders } from "@/lib/site";
 
-// Su fondo chiaro serve il tono scuro dell'arancio per il contrasto.
-const accentText = "text-saffron-2";
-const accentPanel = "bg-saffron/15 text-saffron-2";
-
 export default function About() {
   return (
-    <section id="studio" className="bg-cream px-6 py-24 text-navy sm:px-10 sm:py-32">
-      <div className="mx-auto max-w-7xl">
+    <section
+      id="studio"
+      className="surface-glow px-6 py-24 text-cream sm:px-10 sm:py-32"
+    >
+      {/* Stesso impianto delle sezioni precedenti: niente kicker, titolo e
+          sottotitolo centrati e di un colore solo. */}
+      <div className="mx-auto max-w-7xl text-center">
         <Reveal>
-          <p className="kicker text-saffron-2">Chi siamo</p>
+          <h2 className="mx-auto max-w-6xl text-balance text-[clamp(1.6rem,3.6vw,2.7rem)]">
+            <span className="display text-cream">
+              «Due persone che ti ascoltano, non un reparto che ti rimbalza.»
+            </span>
+          </h2>
         </Reveal>
 
         <Reveal delay={80}>
-          <blockquote className="mt-8 max-w-4xl text-[clamp(1.45rem,3.4vw,2.5rem)] leading-[1.12]">
-            <span className="display text-navy">«Due persone che ti ascoltano,</span>{" "}
-            <span className="display text-navy">non un reparto che ti rimbalza.»</span>
-          </blockquote>
-        </Reveal>
-
-        <Reveal delay={120} className="mt-8 max-w-2xl text-lg leading-relaxed text-navy/70">
-          <p>
+          <p className="mx-auto mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-cream/60">
             Dielle Communication nasce dopo oltre dieci anni di esperienza, per
             offrire un&apos;alternativa alle agenzie strutturate. Niente referenti
             che cambiano, niente team che non vedrai mai: lavori sempre
@@ -30,40 +28,40 @@ export default function About() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-10 sm:grid-cols-2 sm:gap-8">
+        {/* Ritratti quadrati e contenuti, come nel riferimento: prima
+            occupavano l'intera colonna e pesavano quanto uno schermo. */}
+        <div className="mx-auto mt-16 grid max-w-4xl gap-12 sm:grid-cols-2 sm:gap-10">
           {founders.map((person, i) => (
-            <Reveal key={person.name} delay={140 + i * 90} className="flex flex-col">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+            <Reveal key={person.name} delay={140 + i * 90} className="flex flex-col items-center">
+              <div className="relative aspect-square w-full max-w-[17rem] overflow-hidden rounded-2xl">
                 {person.photo ? (
                   <Image
                     src={person.photo}
                     alt={`Ritratto di ${person.name}`}
                     fill
-                    sizes="(max-width: 640px) 100vw, 45vw"
+                    sizes="(max-width: 640px) 70vw, 17rem"
                     className="object-cover"
                   />
                 ) : (
                   // TODO: sostituire con la foto professionale in /public/team/
-                  <div
-                    className={`flex h-full items-center justify-center ${accentPanel}`}
-                  >
-                    <span className="display text-[6rem] leading-none sm:text-[8rem]">
+                  <div className="flex h-full items-center justify-center bg-cream/90 text-navy">
+                    <span className="display text-[4.5rem] leading-none">
                       {person.initials}
                     </span>
                   </div>
                 )}
               </div>
 
-              <h3 className="mt-6 text-2xl font-semibold tracking-tight text-navy">
+              <h3 className="mt-6 text-2xl font-semibold tracking-tight text-cream">
                 {person.name}
               </h3>
-              <p className="mt-1 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-navy/55">
-                {person.role}
-              </p>
-              <p className={`mt-5 text-lg italic leading-snug sm:text-xl ${accentText}`}>
+              <p className="mt-1 text-cream/55">{person.role}</p>
+              <p className="mt-4 text-lg italic leading-snug text-saffron">
                 «{person.quote}»
               </p>
-              <p className="mt-4 text-navy/70 leading-relaxed">{person.bio}</p>
+              <p className="mx-auto mt-4 max-w-sm leading-relaxed text-cream/65">
+                {person.bio}
+              </p>
             </Reveal>
           ))}
         </div>

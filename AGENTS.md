@@ -94,8 +94,12 @@ tracking -0.03em e peso 500. Sono i valori misurati sul titolo di leftclick.ai.
 
 L'apertura è scura, con un alone radiale al centro e titolo in **un solo
 colore**: la sfumatura sta nel fondo, mai nelle lettere. Quella superficie è la
-classe **`.surface-glow`** in `globals.css`, condivisa da hero e sezione
-«Partiamo da te»: non ricopiare il gradiente a mano, usa la classe.
+classe **`.surface-glow`** in `globals.css`, condivisa da hero, «Partiamo da te»
+e «Chi siamo»: non ricopiare il gradiente a mano, usa la classe.
+
+Impianto ricorrente delle sezioni: **niente kicker**, titolo e sottotitolo
+centrati e di **un colore solo** (avorio sul fondo scuro), sottotitolo a 18px.
+I contenuti a elenco o in colonna restano allineati a sinistra, dove si leggono.
 
 **Barra e apertura sono una superficie sola.** L'intestazione non ha fondo né
 bordo, e **non è fissa**: è `absolute` e scorre via con la pagina, come sul
