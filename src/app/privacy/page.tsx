@@ -19,7 +19,9 @@ export default function PrivacyPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="pb-24 pt-36 sm:pb-32 sm:pt-44">
+        {/* Stesso fondo in tinta unita della sezione «Parliamo del tuo
+            progetto»: `navy-deep`, non il blu di pagina. */}
+        <section className="bg-navy-deep pb-24 pt-36 sm:pb-32 sm:pt-44">
           <div className="shell">
             <SectionHead as="h1" size="xl" title={page.title} body={page.intro} />
 
