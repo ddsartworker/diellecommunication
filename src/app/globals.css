@@ -359,8 +359,11 @@ header {
 .theme-toggle__moon {
   display: none;
 }
-[data-theme="dark"] .theme-toggle__sun,
-[data-theme="light"] .theme-toggle__moon {
+/* Il bersaglio è `html`, non un `[data-theme]` qualsiasi: il pulsante stesso è
+   inchiodato al tema scuro, quindi con un selettore generico a tema chiaro si
+   sarebbero accese tutte e due le icone, una sopra l'altra. */
+html[data-theme="dark"] .theme-toggle__sun,
+html[data-theme="light"] .theme-toggle__moon {
   display: block;
 }
 

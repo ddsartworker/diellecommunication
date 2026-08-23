@@ -134,6 +134,11 @@ Per il **testo sopra l'arancio** esiste un token a parte, `ink` (`#282f3f`),
 che non segue il tema: `text-navy` a tema chiaro diventa bianco, e il bianco
 sull'arancio non si legge.
 
+Per provare i due temi senza cliccare, e per mandare un link a colpo sicuro,
+l'indirizzo accetta **`?theme=light`** e **`?theme=dark`**: lo legge lo stesso
+script che decide il tema all'apertura, e ha la precedenza sulla scelta
+salvata.
+
 L'interruttore **non tiene stato in React**: legge e scrive l'attributo, e
 quale icona mostrare lo decide il CSS a partire dallo stesso attributo. Con lo
 stato ci sarebbe un disallineamento fra la pagina generata dal server, che il
