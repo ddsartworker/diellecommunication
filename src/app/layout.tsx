@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ThemeToggle from "@/components/theme-toggle";
+import WhatsappButton from "@/components/whatsapp-button";
 
 // Nessun font da scaricare: il sito usa il carattere di sistema del
 // dispositivo di chi guarda (vedi il blocco @theme in globals.css).
@@ -76,6 +77,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-navy font-sans text-cream antialiased">
         {children}
+        <WhatsappButton />
         <ThemeToggle />
       </body>
     </html>

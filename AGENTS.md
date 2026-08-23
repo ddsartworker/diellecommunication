@@ -153,6 +153,15 @@ l'indirizzo accetta **`?theme=light`** e **`?theme=dark`**: lo legge lo stesso
 script che decide il tema all'apertura, e ha la precedenza sulla scelta
 salvata.
 
+Accanto all'interruttore, alla sua sinistra e sulla stessa riga, c'è il
+**pulsante WhatsApp** (`whatsapp-button.tsx`): apre una chat col numero del
+brand e un messaggio già scritto, così a Dario e Luisa arriva anche
+l'informazione che il contatto viene dal sito. Numero e messaggio stanno in
+`site.ts`, non nel componente. Non è verde WhatsApp ma della stessa pastiglia
+scura dell'interruttore: l'arancione è l'unico accento del sito e il verde era
+stato tolto apposta. A riconoscerlo basta il simbolo. Anche questo è inchiodato
+al tema scuro, per lo stesso motivo dell'interruttore.
+
 L'interruttore **non tiene stato in React**: legge e scrive l'attributo, e
 quale icona mostrare lo decide il CSS a partire dallo stesso attributo. Con lo
 stato ci sarebbe un disallineamento fra la pagina generata dal server, che il

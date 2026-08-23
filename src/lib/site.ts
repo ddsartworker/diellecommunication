@@ -10,6 +10,13 @@ export const site = {
   // sezione contatti e pagina /contatti la leggono da qui.
   email: "commercialedlcommunication@gmail.com",
   location: "Napoli · Campania · in remoto in tutta Italia",
+  // Numero WhatsApp. `wa.me` vuole solo cifre, prefisso internazionale
+  // compreso e senza il +; `display` è come va scritto a video.
+  whatsapp: "393791300096",
+  whatsappDisplay: "+39 379 130 0096",
+  // Messaggio già scritto nella chat: chi arriva da qui non deve inventarsi
+  // l'apertura, e a voi arriva l'informazione di dove vi ha trovati.
+  whatsappMessage: "Ciao! Vi scrivo dal sito di Dielle Communication.",
   founders: "Dario De Sisto & Luisa Panariello",
 };
 
