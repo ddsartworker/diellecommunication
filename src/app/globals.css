@@ -45,6 +45,13 @@
 
 :root {
   color-scheme: dark;
+
+  /* Altezza del nastro dei clienti: 27px di imbottitura sopra, 27 sotto e la
+     riga dei nomi (15,84px per 1.3 di interlinea). L'apertura la sottrae alla
+     propria altezza, così il nastro entra nella prima schermata e non serve
+     scorrere per vederlo — come sul riferimento. Se cambi l'imbottitura o il
+     corpo dei nomi in `marquee.tsx`, cambia anche questo. */
+  --marquee-h: 4.7rem;
 }
 
 * {

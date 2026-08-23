@@ -252,7 +252,14 @@ sopra il titolo di una sezione.
 **Barra e apertura sono una superficie sola.** L'intestazione non ha fondo né
 bordo, e **non è fissa**: è `absolute` e scorre via con la pagina, come sul
 riferimento (dove è `position: static`). L'apertura parte dal margine dello
-schermo e occupa tutta l'altezza (`min-h-svh`).
+schermo.
+
+L'apertura **non è alta quanto lo schermo, ma quanto lo schermo meno il nastro
+dei clienti** (`min-h-[calc(100svh-var(--marquee-h))]`). Serve a far entrare il
+nastro nella prima schermata, senza doverlo cercare scorrendo: appena si apre
+il sito si vede già con chi hanno lavorato Dario e Luisa. L'altezza del nastro
+sta in `--marquee-h` dentro `globals.css`, in un punto solo: se cambi
+l'imbottitura o il corpo dei nomi in `marquee.tsx`, cambia anche quella.
 
 Non reintrodurre né un fondo né un bordo in cima, e non rimetterla fissa: sono
 esattamente le cose che il cliente ha chiesto di togliere. Attenzione anche al
