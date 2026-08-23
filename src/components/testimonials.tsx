@@ -53,7 +53,11 @@ export default function Testimonials() {
               <p className="display text-[clamp(1.35rem,3vw,2.2rem)] leading-[1.18] text-cream">
                 <Quote text={lead.quote} />
               </p>
-              <footer className="mt-6 font-mono text-[0.62rem] uppercase tracking-[0.01em] text-cream/70">
+              {/* Questa firma sta larga: il contenitore è di 896px contro i
+                  ~600 delle due colonne sotto, quindi può stare più grande e
+                  ritrovare un po' di spaziatura da micro-etichetta senza
+                  andare a capo (le servono ~790px). */}
+              <footer className="mt-6 font-mono text-[0.8rem] uppercase tracking-[0.06em] text-cream/70">
                 {lead.author} — {lead.detail}
               </footer>
             </blockquote>

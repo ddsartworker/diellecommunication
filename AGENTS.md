@@ -195,7 +195,11 @@ Le **firme delle testimonianze** (nome, ruolo, locale, città) sfiorano i 100
 caratteri: con la spaziatura da micro-etichetta (`tracking-[0.16em]`) volevano
 ~860px e andavano a capo dentro una colonna larga ~600px. Stanno su una riga
 sola a `text-[0.62rem]` con `tracking-[0.01em]`: sono ~565px, il massimo che
-entra in quella colonna a finestra piena su un 13". A questo corpo la
+entra in quella colonna a finestra piena su un 13". **La firma della citazione
+principale fa eccezione**: sta in un contenitore da 896px invece che in mezza
+colonna, quindi regge `text-[0.8rem]` con `tracking-[0.06em]` (~790px) e si
+riprende un po' di spaziatura da micro-etichetta. Non è una svista che le tre
+firme non siano identiche: è la citazione a cui si vuole dare peso. A questo corpo la
 leggibilità la fa il **contrasto** più della dimensione, per questo le firme
 stanno a `text-cream/70` e non a `/50` come le altre micro-etichette. Sotto i
 ~1200px la colonna si stringe e tornano su due righe: è voluto, l'alternativa
