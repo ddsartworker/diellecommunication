@@ -104,7 +104,12 @@ export default function Tools() {
   }, []);
 
   return (
-    <section id="strumenti" className="overflow-x-clip py-[108px]">
+    // Tinta unita `navy-deep`, la stessa del metodo: le sezioni si alternano
+    // una in tinta unita e una a gradiente (`surface-glow`).
+    <section
+      id="strumenti"
+      className="overflow-x-clip bg-navy-deep py-[108px]"
+    >
       <div className="shell">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>

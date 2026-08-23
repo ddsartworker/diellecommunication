@@ -22,9 +22,17 @@ export default function Hero() {
           Deve portarti clienti.
         </h1>
 
+        {/* Due frasi, due righe: la promessa sopra, la ragione sotto. Sono
+            blocchi, non un <br>, così ognuna manda a capo per conto suo sugli
+            schermi stretti. */}
         <p className="mt-6 max-w-3xl text-pretty text-base text-cream/65 sm:text-lg">
-          Costruiamo la tua comunicazione su misura e la seguiamo di persona,
-          dal primo giorno. Pochi clienti, perché ognuno merita attenzione vera.
+          <span className="block">
+            Costruiamo la tua comunicazione su misura e la seguiamo di persona,
+            dal primo giorno.
+          </span>
+          <span className="block">
+            Pochi clienti, perché ognuno merita attenzione vera.
+          </span>
         </p>
 
         <Stats className="mt-7" />

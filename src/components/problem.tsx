@@ -50,8 +50,13 @@ export default function Problem() {
             </span>
           </p>
           <p className="mx-auto mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-cream/60">
-            Il marketing serve a una cosa sola: far incontrare la tua offerta con
-            le persone giuste. Non per fare pubblicità, ma per comunicare meglio.
+            <span className="block">
+              Il marketing serve a una cosa sola: far incontrare la tua offerta
+              con le persone giuste.
+            </span>
+            <span className="block">
+              Non per fare pubblicità, ma per comunicare meglio.
+            </span>
           </p>
         </Reveal>
       </div>

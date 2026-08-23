@@ -13,7 +13,9 @@ export default function SectionHead({
   className = "",
 }: {
   title: string;
-  body?: string;
+  // Una stringa sola, oppure più righe: ogni voce dell'array è una riga a sé
+  // (serve per far staccare la frase di chiusura, come nell'apertura).
+  body?: string | string[];
   tone?: "dark" | "light";
   // `xl` è l'intestazione di una pagina interna, `lg` e `md` quelle di sezione.
   size?: "md" | "lg" | "xl";
@@ -38,7 +40,11 @@ export default function SectionHead({
         <p
           className={`mx-auto mt-6 max-w-3xl text-pretty text-lg leading-relaxed ${corpo}`}
         >
-          {body}
+          {(Array.isArray(body) ? body : [body]).map((riga) => (
+            <span key={riga} className="block">
+              {riga}
+            </span>
+          ))}
         </p>
       ) : null}
     </Reveal>

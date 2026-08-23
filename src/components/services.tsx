@@ -4,11 +4,16 @@ import { services } from "@/lib/site";
 
 export default function Services() {
   return (
-    <section id="servizi" className="py-[108px]">
+    // Fondo a gradiente come l'apertura: le sezioni si alternano una sfumata e
+    // una in tinta unita (metodo e strumenti sono `navy-deep`).
+    <section id="servizi" className="surface-glow py-[108px]">
       <div className="shell">
         <SectionHead
           title="Tutto ciò che serve per farti scegliere."
-          body="Otto fronti, una sola squadra. Prendi tutto o solo ciò che ti serve: la strategia resta cucita su misura."
+          body={[
+            "Otto fronti, una sola squadra. Prendi tutto o solo ciò che ti serve:",
+            "la strategia resta cucita su misura.",
+          ]}
         />
 
         <div className="mt-16 border-t border-cream/10">
@@ -16,7 +21,7 @@ export default function Services() {
             <Reveal
               key={s.n}
               delay={i * 70}
-              className="group grid grid-cols-1 gap-6 border-b border-cream/10 py-9 transition-colors duration-500 hover:bg-white/[0.02] md:grid-cols-[auto_1fr_1.2fr_auto] md:items-baseline md:gap-10"
+              className="group grid grid-cols-1 gap-6 border-b border-cream/10 py-9 transition-colors duration-500 hover:bg-white/[0.02] lg:grid-cols-[2.5rem_minmax(0,15rem)_minmax(0,28rem)_1fr] lg:items-baseline lg:gap-10"
             >
               <span className="font-mono text-sm text-navy-dim transition-colors duration-300 group-hover:text-saffron">
                 {s.n}
@@ -27,9 +32,9 @@ export default function Services() {
                 <span className="text-cream">{s.accent}</span>
               </h3>
 
-              <p className="max-w-md text-cream/65">{s.body}</p>
+              <p className="text-cream/65">{s.body}</p>
 
-              <ul className="flex flex-wrap gap-2 md:justify-end">
+              <ul className="flex flex-wrap gap-2 lg:justify-end">
                 {s.tags.map((tag) => (
                   <li
                     key={tag}

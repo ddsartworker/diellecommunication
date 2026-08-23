@@ -109,8 +109,18 @@ tracking -0.03em e peso 500. Sono i valori misurati sul titolo di leftclick.ai.
 
 L'apertura è scura, con un alone radiale al centro e titolo in **un solo
 colore**: la sfumatura sta nel fondo, mai nelle lettere. Quella superficie è la
-classe **`.surface-glow`** in `globals.css`, condivisa da hero, «Partiamo da te»
-e «Chi siamo»: non ricopiare il gradiente a mano, usa la classe.
+classe **`.surface-glow`** in `globals.css`, condivisa da hero, «Partiamo da
+te», «Chi siamo» e «Tutto ciò che serve per farti scegliere»: non ricopiare il
+gradiente a mano, usa la classe.
+
+**I fondi si alternano: uno a gradiente, uno in tinta unita.** Scendendo lungo
+la home l'ordine è hero (`.surface-glow`) · nastro clienti (`navy-ink`) ·
+problema (`.surface-glow`) · metodo (`bg-navy-deep`) · chi siamo
+(`.surface-glow`) · strumenti (`bg-navy-deep`) · servizi (`.surface-glow`) ·
+testimonianze (`bg-navy-deep`) · prova (fondo pagina, `navy`) · contatti
+(`bg-navy-deep`). La sezione delle testimonianze **non è più chiara**: era
+l'unica su `bg-cream`, ora è blu in tinta unita come le altre. Se aggiungi una
+sezione, guarda quella sopra e prendi l'altro fondo.
 
 Impianto ricorrente delle sezioni: **niente kicker**, titolo e sottotitolo
 centrati e di **un colore solo** (avorio sul fondo scuro, blu su quello chiaro),
@@ -123,6 +133,21 @@ opzionale, `tone="light"` sui fondi chiari, `size` (`md` di sezione, `lg`, `xl`
 per l'intestazione di una pagina) e `as="h1"` quando è il titolo della pagina.
 Non riscrivere il blocco a mano — prima era ripetuto in cinque sezioni e bastava
 dimenticarne una per avere un impianto diverso.
+
+Il `body` accetta anche **un array di righe**: ogni voce diventa una riga a sé
+(`<span className="block">`). Serve a far staccare la frase di chiusura, come
+nei servizi («…solo ciò che ti serve:» a capo «la strategia resta cucita su
+misura.»). Stesso trucco, scritto a mano, nell'apertura, nel problema e in «Chi
+siamo». Nei **testi** non usare `<br />`: con i blocchi ogni riga manda a capo
+per conto suo sugli schermi stretti, mentre un `<br />` resta lì anche quando
+non ci sta. Nei **titoli** il `<br />` va bene (lo usa il titolo
+dell'apertura): lì la riga è corta e la spezzatura è voluta.
+
+Nell'elenco dei servizi le colonne hanno **misure fisse**
+(`lg:grid-cols-[2.5rem_minmax(0,15rem)_minmax(0,28rem)_1fr]`): ogni riga è una
+griglia a sé, e finché l'ultima colonna era `auto` le etichette di larghezza
+diversa spostavano l'inizio della descrizione riga per riga. Non tornare alle
+colonne in `fr` con una colonna `auto` in fondo.
 
 La classe `kicker` sopravvive solo come **micro-etichetta dentro i contenuti**
 («Il problema», «La soluzione», «Scritto da» nelle pagine di caso studio e negli

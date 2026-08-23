@@ -18,10 +18,12 @@ export default function About() {
 
         <Reveal delay={80}>
           <p className="mx-auto mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-cream/60">
-            Dielle Communication nasce dopo oltre dieci anni di esperienza, per
-            offrire un&apos;alternativa alle agenzie strutturate. Niente
-            referenti che cambiano, niente team che non vedrai mai: lavori
-            sempre direttamente con noi.
+            <span className="block">
+              Dielle Communication nasce dopo oltre dieci anni di esperienza,
+              per offrire un&apos;alternativa alle agenzie strutturate. Niente
+              referenti che cambiano, niente team che non vedrai mai:
+            </span>
+            <span className="block">lavori sempre direttamente con noi.</span>
           </p>
         </Reveal>
 
