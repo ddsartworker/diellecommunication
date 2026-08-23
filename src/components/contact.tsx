@@ -13,7 +13,10 @@ export default function Contact() {
         <SectionHead
           size="lg"
           title="Parliamo del tuo progetto."
-          body="Una chiacchierata gratuita, senza impegno. Ci racconti la tua attività, noi ti diciamo con sincerità se e come possiamo aiutarti."
+          body={[
+            "Una chiacchierata gratuita, senza impegno. Ci racconti la tua attività,",
+            "noi ti diciamo con sincerità se e come possiamo aiutarti.",
+          ]}
         />
       </div>
 

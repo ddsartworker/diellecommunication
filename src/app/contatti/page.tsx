@@ -22,7 +22,10 @@ export default function ContattiPage() {
               as="h1"
               size="xl"
               title="Parliamo del tuo progetto."
-              body="Una chiacchierata gratuita, senza impegno. Ci racconti la tua attività, noi ti diciamo con sincerità se e come possiamo aiutarti."
+              body={[
+                "Una chiacchierata gratuita, senza impegno. Ci racconti la tua attività,",
+                "noi ti diciamo con sincerità se e come possiamo aiutarti.",
+              ]}
             />
           </div>
 
