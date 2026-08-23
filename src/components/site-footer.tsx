@@ -29,10 +29,10 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 export default function SiteFooter() {
   return (
-    // Stessa superficie dell'apertura e della barra: `.surface-glow`, l'alone
-    // radiale che schiarisce verso il centro. Il sito si apre e si chiude
-    // sullo stesso fondo.
-    <footer className="surface-glow border-t border-white/5 pb-10 pt-[72px]">
+    // `navy-ink`, lo stesso blu d'inchiostro del nastro dei clienti: il più
+    // profondo della tavolozza. Il sito si apre chiaro e si chiude scuro, e
+    // la chiusura stacca da tutto quello che ha sopra.
+    <footer className="bg-navy-ink border-t border-white/5 pb-10 pt-[72px]">
       <div className="shell grid gap-16 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-20">
         {/* L'invito: etichetta piccola, una riga che spiega cosa succede, il
             pulsante sotto. Come nel riferimento, ma con la pillola arancione

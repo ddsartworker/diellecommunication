@@ -73,7 +73,9 @@ Le sezioni non mettono imbottitura laterale: ci pensa la gabbia. Non tornare a
 Palette in uso: blu `#282f3f` (token `navy`, è il fondo), arancio `#f49619`
 (`saffron`, **l'unico accento**), bianco caldo `#f7f7f3` (`cream`), più due blu di
 servizio — `navy-deep` `#1e2530` per i fondi bassi e `navy-ink` `#0f141b` per le
-fasce che devono staccare. Usa sempre i token, mai i codici colore scritti a mano.
+fasce che devono staccare — oggi il nastro dei clienti e il footer, che
+chiudono la pagina più scuri di tutto ciò che hanno sopra. Usa sempre i token,
+mai i codici colore scritti a mano.
 
 Il verde `#4eb480` (`mint`) è ancora definito fra i token ma **non è più usato da
 nessuna parte**: su richiesta di Dario è stato sostituito ovunque dall'arancione.
@@ -177,16 +179,15 @@ tracking -0.03em e peso 500. Sono i valori misurati sul titolo di leftclick.ai.
 L'apertura è scura, con un alone radiale al centro e titolo in **un solo
 colore**: la sfumatura sta nel fondo, mai nelle lettere. Quella superficie è la
 classe **`.surface-glow`** in `globals.css`, condivisa da hero, «Partiamo da
-te», «Chi siamo», «Tutto ciò che serve per farti scegliere», la sezione della
-prova e il **footer**: non ricopiare il gradiente a mano, usa la classe. Il
-sito si apre e si chiude sulla stessa superficie.
+te», «Chi siamo», «Tutto ciò che serve per farti scegliere» e la sezione della
+prova: non ricopiare il gradiente a mano, usa la classe.
 
 **I fondi si alternano: uno a gradiente, uno in tinta unita.** Scendendo lungo
 la home l'ordine è hero (`.surface-glow`) · nastro clienti (`navy-ink`) ·
 problema (`.surface-glow`) · metodo (`bg-navy-deep`) · chi siamo
 (`.surface-glow`) · strumenti (`bg-navy-deep`) · servizi (`.surface-glow`) ·
 testimonianze (`bg-navy-deep`) · prova (`.surface-glow`) · contatti
-(`bg-navy-deep`) · footer (`.surface-glow`). Le due pagine legali (`/privacy`
+(`bg-navy-deep`) · footer (`bg-navy-ink`). Le due pagine legali (`/privacy`
 e `/termini`) stanno su `bg-navy-deep`, come la sezione dei contatti: sono
 pagine di servizio, non devono brillare. La sezione delle testimonianze **non è più chiara**: era
 l'unica su `bg-cream`, ora è blu in tinta unita come le altre. Se aggiungi una
