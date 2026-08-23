@@ -108,6 +108,20 @@ da Dario, e sotto la scala resta leggibile invece di svanire. Se cambi
 `--p-cream` del tema chiaro, rifai il conto dei contrasti: è quello che tiene
 insieme la gerarchia, non un colore scelto a occhio.
 
+**Trappola già caduta una volta.** `@theme` dichiara i nomi `--color-*` **solo
+su `:root`**, e una variabile che contiene `var()` viene risolta sull'elemento
+dove è dichiarata, non dove viene usata: scende ai figli già risolta. Quindi
+ridefinire le `--p-*` su una sezione non bastava — `--color-navy-ink` era stata
+risolta in cima e arrivava al footer col valore del tema di pagina. Il footer
+inchiodato al tema scuro restava chiaro, e il markup sembrava giusto.
+
+Per questo **ogni blocco di tema ridichiara anche i nomi `--color-*`**, non
+solo le `--p-*`: così ogni elemento che porta `data-theme` le risolve per conto
+suo. Se aggiungi un token nuovo, aggiungilo in tutti e tre i posti — le due
+tavolozze e `@theme` — o l'inchiodatura non funzionerà per quel colore. E
+verificalo **guardando il colore a schermo**, non l'attributo nel markup: è
+esattamente così che l'errore era passato.
+
 **Come funziona, e perché è fatto così.** I token dentro `@theme` non
 contengono un colore: puntano a variabili `--p-*` ridefinite per tema. Sembra
 un giro inutile, non lo è. Se contenessero il colore, Tailwind lo

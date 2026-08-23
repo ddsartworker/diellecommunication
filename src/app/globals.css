@@ -35,6 +35,26 @@
   --p-cream-2: #e9e9e2;
   --p-cream-rule: #dcdcd2;
 
+  /*
+    Qui sta il punto delicato. I nomi `--color-*` li dichiara `@theme`, ma li
+    dichiara **solo su `:root`**: e una variabile che contiene `var()` viene
+    risolta sull'elemento dove è dichiarata, non dove viene usata. Risultato:
+    ridefinire le `--p-*` su una sezione non cambiava nulla, perché
+    `--color-navy-ink` era già stata risolta in cima e scendeva risolta.
+    Ecco perché il footer inchiodato al tema scuro restava chiaro.
+
+    Ridichiarandole qui, dentro ogni blocco di tema, ogni elemento che porta
+    `data-theme` le risolve per conto suo e le passa ai figli già giuste.
+  */
+  --color-navy: var(--p-navy);
+  --color-navy-2: var(--p-navy-2);
+  --color-navy-deep: var(--p-navy-deep);
+  --color-navy-dim: var(--p-navy-dim);
+  --color-navy-ink: var(--p-navy-ink);
+  --color-cream: var(--p-cream);
+  --color-cream-2: var(--p-cream-2);
+  --color-cream-rule: var(--p-cream-rule);
+
   /* L'apertura: alone radiale che schiarisce verso il centro. */
   --p-glow: radial-gradient(
     80% 60% at 50% 40%,
@@ -78,6 +98,26 @@
   --p-cream-2: #2c3444;
   --p-title: #282f3f;
   --p-cream-rule: #d6d6dc;
+
+  /*
+    Qui sta il punto delicato. I nomi `--color-*` li dichiara `@theme`, ma li
+    dichiara **solo su `:root`**: e una variabile che contiene `var()` viene
+    risolta sull'elemento dove è dichiarata, non dove viene usata. Risultato:
+    ridefinire le `--p-*` su una sezione non cambiava nulla, perché
+    `--color-navy-ink` era già stata risolta in cima e scendeva risolta.
+    Ecco perché il footer inchiodato al tema scuro restava chiaro.
+
+    Ridichiarandole qui, dentro ogni blocco di tema, ogni elemento che porta
+    `data-theme` le risolve per conto suo e le passa ai figli già giuste.
+  */
+  --color-navy: var(--p-navy);
+  --color-navy-2: var(--p-navy-2);
+  --color-navy-deep: var(--p-navy-deep);
+  --color-navy-dim: var(--p-navy-dim);
+  --color-navy-ink: var(--p-navy-ink);
+  --color-cream: var(--p-cream);
+  --color-cream-2: var(--p-cream-2);
+  --color-cream-rule: var(--p-cream-rule);
 
   --p-glow: #ffffff;
 }
