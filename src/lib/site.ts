@@ -568,7 +568,7 @@ export function getWork(slug: string): WorkItem | undefined {
 // cambiano solo gli indirizzi qui sotto.
 export const footer = {
   kicker: "Lavoriamo insieme",
-  lead: "Comincia con mezz'ora gratuita: vediamo come ti trovano su Google e cosa serve per farti scegliere.",
+  lead: "Comincia con una consulenza gratuita: vediamo come ti trovano su Google e cosa serve per farti scegliere.",
   columns: [
     {
       title: "Servizi",
