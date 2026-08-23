@@ -128,6 +128,11 @@ quattro colonne di link (Servizi, Studio, Risorse, Seguici); sotto una riga di
 chiusura con marchio, note legali e copyright. Tutti i contenuti stanno in
 `footer` dentro `site.ts` — `site-footer.tsx` fa solo impaginazione.
 
+La colonna «Seguici» **legge da `social`**, non ricopia i profili: erano due
+elenchi identici in due punti — footer e pannello del menu — e sarebbe bastato
+aggiungerne uno solo di qua per averli diversi. Un profilo nuovo in `social`
+compare da solo nel footer, nel pannello e nella pagina contatti.
+
 **Ogni voce del footer punta a una destinazione vera.** L'unica forzatura è la
 colonna «Servizi»: le otto voci non hanno una pagina propria e portano tutte a
 `/#servizi`. Il giorno in cui nascono le pagine dei singoli servizi, cambiano

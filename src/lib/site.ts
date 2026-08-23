@@ -26,6 +26,9 @@ export const nav = [
   // link di menu. Vedi `booking` più sotto e `site-header.tsx`.
 ];
 
+// I profili social, in un elenco solo: li leggono il pannello del menu, la
+// pagina contatti e la colonna «Seguici» del footer. Aggiungerne uno qui lo fa
+// comparire in tutti e tre i posti.
 export const social = [
   { label: "Instagram", href: "https://www.instagram.com/diellecommunication/" },
   {
@@ -33,8 +36,12 @@ export const social = [
     href: "https://www.linkedin.com/company/122214394/",
   },
   {
-    label: "Dario De Sisto",
+    label: "Dario su LinkedIn",
     href: "https://www.linkedin.com/in/dario-de-sisto/",
+  },
+  {
+    label: "Luisa su LinkedIn",
+    href: "https://www.linkedin.com/in/luisa-panariello-4694461b9/",
   },
 ];
 
@@ -593,13 +600,12 @@ export const footer = {
         { label: "Contenuti fedeli al brand", href: "/blog/contenuti-fedeli-al-brand-non-al-trend" },
       ],
     },
+    // Legge da `social` invece di ricopiare i profili: erano due elenchi
+    // uguali in due punti, e sarebbe bastato aggiungerne uno solo di qua per
+    // averli diversi.
     {
-      title: "Connettiti",
-      links: [
-        { label: "Instagram", href: "https://www.instagram.com/diellecommunication/" },
-        { label: "LinkedIn", href: "https://www.linkedin.com/company/122214394/" },
-        { label: "Dario su LinkedIn", href: "https://www.linkedin.com/in/dario-de-sisto/" },
-      ],
+      title: "Seguici",
+      links: social,
     },
   ],
   legalLinks: [
