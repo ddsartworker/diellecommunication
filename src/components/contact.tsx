@@ -28,7 +28,7 @@ export default function Contact() {
           <div className="space-y-5">
             <a
               href={`mailto:${site.email}`}
-              className="block text-xl font-semibold tracking-tight text-cream underline-offset-[6px] transition-colors duration-300 hover:text-saffron hover:underline hover:decoration-saffron sm:text-2xl"
+              className="block text-xl font-semibold tracking-tight text-cream underline decoration-cream/40 decoration-1 underline-offset-[6px] transition-colors duration-300 hover:text-saffron hover:decoration-saffron sm:text-2xl"
             >
               {site.email}
             </a>

@@ -234,9 +234,12 @@ colonna «Servizi»: le otto voci non hanno una pagina propria e portano tutte a
 solo gli indirizzi in `site.ts`.
 
 **L'indirizzo email è sempre cliccabile**, ovunque compaia: apre il programma
-di posta con il destinatario già scritto. Al passaggio del mouse si sottolinea
-in arancione — è l'unico posto del sito in cui una sottolineatura è voluta,
-perché lì serve a far capire che si può scrivere. Nelle pagine legali la mail
+di posta con il destinatario già scritto. Porta una **sottolineatura sottile e
+sempre visibile** (`decoration-1`, cioè un pixel, al 40% del colore del testo),
+non una che compare al passaggio del mouse: la riga c'è per dire che si può
+scrivere, e se si vede solo passandoci sopra non lo dice a nessuno. Col mouse
+sopra, riga e testo diventano arancioni. È l'unico posto del sito in cui una
+sottolineatura è voluta. Nelle pagine legali la mail
 è dentro il testo dei paragrafi: `legal-article.tsx` la riconosce e la
 trasforma in link da sé, non serve scriverlo a mano in `site.ts`.
 
