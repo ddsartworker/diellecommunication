@@ -255,6 +255,12 @@ giro senza stacchi — è `aria-hidden` e fuori dalla tabulazione, altrimenti ch
 naviga da tastiera o con un lettore di schermo troverebbe ogni cliente due
 volte.
 
+I ritratti chiedono `quality={90}` invece del 75 di default: sono immagini di
+partenza piccole, e la compressione forte sopra una foto già ingrandita si
+vede. In Next 16 non basta la prop — l'unica qualità ammessa è 75, e ogni altro
+valore viene riportato a quella: le qualità vanno dichiarate in
+`images.qualities` dentro `next.config.ts`.
+
 Le **foto dei fondatori** stanno in `public/team/`, già ritagliate quadrate e
 convertite in JPEG: il riquadro è un quadrato e `object-cover` taglierebbe da
 solo, ma dal centro — meglio decidere il taglio a monte che accorgersi di una
@@ -263,10 +269,16 @@ testa mozzata a sito pubblicato. Il campo che le accende è `photo` in
 nella cartella del progetto non finiscono in `git`: li esclude `.gitignore`.
 
 Nella sezione **«Chi siamo»** (`about.tsx`) foto e testi di ciascun fondatore
-stanno in un unico blocco largo `32rem`, centrato nella colonna e allineato a
-sinistra: nome, ruolo, citazione e biografia cominciano e finiscono esattamente
-sui bordi del quadrato. Se cambi la misura del quadrato, cambia anche `sizes`
-sull'`Image`, altrimenti il browser scarica una foto della misura sbagliata.
+stanno in un unico blocco largo **`26rem`** (416px), centrato nella colonna e
+allineato a sinistra: nome, ruolo, citazione e biografia cominciano e finiscono
+esattamente sui bordi del quadrato. Era `32rem`, ristretto perché a quella
+misura le foto — che partono da poco più di 400px — risultavano ingrandite e
+sgranate. Restringendo il blocco intero, e non la sola foto, l'allineamento fra
+quadrato e testo resta intatto: è quello il punto della sezione.
+
+Se cambi la misura del quadrato, cambia anche `sizes` sull'`Image` **in tutti e
+due i file** (`about.tsx` e `chi-siamo/page.tsx`), altrimenti il browser scarica
+una foto della misura sbagliata.
 
 Le animazioni restano lente e discrete (comparse allo scroll, scorrimenti nei
 pulsanti).
@@ -314,10 +326,11 @@ in inglese.
 - `src/lib/site.ts` — i numeri della fascia sotto l'hero (`stats`) sono ripresi da
   affermazioni già presenti nel sito, ma non sono ancora stati confermati dai
   fondatori. Da verificare prima di andare online: sono dichiarazioni pubbliche.
-- `public/team/dario.jpg` — la foto di Dario è di 472×472 pixel, mentre il
-  riquadro ne chiede 512 (e il doppio sugli schermi retina): a video risulta
-  un filo morbida. Se salta fuori l'originale ad alta risoluzione, si
-  sostituisce il file e basta, il nome resta lo stesso.
+- `public/team/` — le foto dei fondatori sono a bassa risoluzione (Dario
+  472×472, Luisa 1024×1024): il quadrato è stato ristretto a `26rem` proprio
+  per questo. Quando arrivano gli originali ad alta risoluzione si
+  sostituiscono i due file — stessi nomi, niente altro da toccare — e a quel
+  punto si può valutare se riportare il quadrato a `32rem`.
 - `eslint.config.mjs` — la cartella `.vercel/` generata dal deploy non è esclusa
   dal controllo, e da sola produce oltre duemila avvisi che rendono `pnpm lint`
   illeggibile. `src/components/logo.tsx` usa inoltre un `<a>` verso `/` invece di

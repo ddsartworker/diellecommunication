@@ -79,14 +79,15 @@ export default function ChiSiamoPage() {
             <SectionHead title="I fondatori." />
             <div className="mx-auto mt-16 grid max-w-6xl gap-12 md:grid-cols-2 md:gap-12">
               {founders.map((person) => (
-                <div key={person.name} className="mx-auto w-full max-w-[32rem] text-left">
+                <div key={person.name} className="mx-auto w-full max-w-[26rem] text-left">
                   <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
                     {person.photo ? (
                       <Image
                         src={person.photo}
                         alt={`Ritratto di ${person.name}`}
                         fill
-                        sizes="(max-width: 640px) 90vw, 32rem"
+                        sizes="(max-width: 640px) 90vw, 26rem"
+                        quality={90}
                         className="object-cover"
                       />
                     ) : (
