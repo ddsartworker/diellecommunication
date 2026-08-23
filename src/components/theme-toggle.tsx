@@ -68,8 +68,12 @@ export default function ThemeToggle() {
       onClick={cambia}
       aria-label="Cambia tema, chiaro o scuro"
       title="Cambia tema, chiaro o scuro"
+      // Pastiglia scura in tutti e due i temi, come sul riferimento. Serve:
+      // il pulsante è fisso in basso a destra e a fine pagina si trova sopra
+      // il footer, che resta scuro — se seguisse il tema chiaro lì sparirebbe.
+      data-theme="dark"
       // Sopra la barra fissa del telefono, che occupa il fondo dello schermo.
-      className="fixed bottom-24 right-5 z-50 flex size-11 items-center justify-center rounded-full border border-cream/15 bg-cream/[0.06] text-cream/70 backdrop-blur-md transition-colors duration-300 hover:border-cream/40 hover:text-cream md:bottom-6 md:right-6"
+      className="fixed bottom-24 right-5 z-50 flex size-11 items-center justify-center rounded-full border border-cream/15 bg-navy-deep/85 text-cream/70 shadow-lg backdrop-blur-md transition-colors duration-300 hover:border-cream/40 hover:text-cream md:bottom-6 md:right-6"
     >
       <Sole />
       <Luna />

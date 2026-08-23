@@ -30,9 +30,15 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 export default function SiteFooter() {
   return (
     // `navy-ink`, lo stesso blu d'inchiostro del nastro dei clienti: il più
-    // profondo della tavolozza. Il sito si apre chiaro e si chiude scuro, e
-    // la chiusura stacca da tutto quello che ha sopra.
-    <footer className="bg-navy-ink border-t border-cream/10 pb-10 pt-[72px]">
+    // profondo della tavolozza. La chiusura stacca da tutto quello che ha
+    // sopra.
+    //
+    // Resta scuro anche a tema chiaro, per scelta di Dario: come gli
+    // strumenti e i contatti, è una delle tre fasce che non cambiano mai.
+    <footer
+      data-theme="dark"
+      className="bg-navy-ink border-t border-cream/10 pb-10 pt-[72px]"
+    >
       <div className="shell grid gap-16 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-20">
         {/* L'invito: etichetta piccola, una riga che spiega cosa succede, il
             pulsante sotto. Come nel riferimento, ma con la pillola arancione

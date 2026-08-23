@@ -121,12 +121,14 @@ Ne segue la regola pratica: **usa sempre i token, mai `white/10` o un colore
 scritto a mano.** `border-white/10` non cambia col tema e a tema chiaro
 sparisce; `border-cream/15` funziona in tutti e due.
 
-**Due eccezioni volute, per scelta di Dario: gli strumenti («Progettiamo
-con…») e i contatti («Parliamo del tuo progetto») restano scuri anche a tema
-chiaro.** Sono inchiodati con `data-theme="dark"` sulla sezione: lo stesso
+**Tre fasce restano scure anche a tema chiaro, per scelta di Dario: gli
+strumenti («Progettiamo con…»), i contatti («Parliamo del tuo progetto») e il
+footer.** Sono inchiodati con `data-theme="dark"` sulla sezione: lo stesso
 attributo che sta su `html` si può mettere su qualunque elemento e vale per il
 suo sottoalbero. Lo usano anche il pannello del menu (bianco con testo blu in
-tutti e due i temi) e la pillola arancione piena, che non deve cambiare mai.
+tutti e due i temi), la pillola arancione piena, che non deve cambiare mai, e
+l'interruttore stesso: è fisso in basso a destra e a fine pagina si trova
+sopra il footer, quindi se seguisse il tema chiaro lì sparirebbe.
 
 Per il **testo sopra l'arancio** esiste un token a parte, `ink` (`#282f3f`),
 che non segue il tema: `text-navy` a tema chiaro diventa bianco, e il bianco
@@ -246,7 +248,7 @@ la home l'ordine è hero (`.surface-glow`) · nastro clienti (`navy-ink`) ·
 problema (`.surface-glow`) · metodo (`bg-navy-deep`) · chi siamo
 (`.surface-glow`) · strumenti (`bg-navy-deep`) · servizi (`.surface-glow`) ·
 testimonianze (`bg-navy-deep`) · prova (`.surface-glow`) · contatti
-(`bg-navy-deep`) · footer (`bg-navy-ink`). Le due pagine legali (`/privacy`
+(`bg-navy-deep`) · footer (`bg-navy-ink`, scuro sempre). Le due pagine legali (`/privacy`
 e `/termini`) stanno su `bg-navy-deep`, come la sezione dei contatti: sono
 pagine di servizio, non devono brillare. La sezione delle testimonianze **non è più chiara**: era
 l'unica su `bg-cream`, ora è blu in tinta unita come le altre. Se aggiungi una
