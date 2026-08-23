@@ -130,7 +130,7 @@ export type Founder = {
 export const founders: Founder[] = [
   {
     name: "Dario De Sisto",
-    role: "Web · UX/UI · Creative Director",
+    role: "Creative Director",
     quote: "Costruisco il tuo sito come fosse l'ingresso della tua attività.",
     bio: "Oltre dieci anni di esperienza tra Napoli e Londra come web designer e digital strategist. Unisco l'occhio del designer alla testa dello stratega: ogni cosa che le persone vedono deve farle entrare.",
     initials: "DD",
@@ -138,7 +138,7 @@ export const founders: Founder[] = [
   },
   {
     name: "Luisa Panariello",
-    role: "Marketing & Communication",
+    role: "CEO · Marketing & Communication",
     quote: "Trasformo la tua storia in contenuti che le persone vogliono seguire.",
     bio: "Specialista in branding, contenuti e comunicazione. Mi occupo della relazione con te e dello sviluppo strategico: trovo le parole giuste e le porto alle persone giuste.",
     initials: "LP",
