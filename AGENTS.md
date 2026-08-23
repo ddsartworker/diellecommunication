@@ -255,6 +255,13 @@ giro senza stacchi — è `aria-hidden` e fuori dalla tabulazione, altrimenti ch
 naviga da tastiera o con un lettore di schermo troverebbe ogni cliente due
 volte.
 
+Le **foto dei fondatori** stanno in `public/team/`, già ritagliate quadrate e
+convertite in JPEG: il riquadro è un quadrato e `object-cover` taglierebbe da
+solo, ma dal centro — meglio decidere il taglio a monte che accorgersi di una
+testa mozzata a sito pubblicato. Il campo che le accende è `photo` in
+`founders` (`site.ts`); senza, compaiono le iniziali. Gli originali lasciati
+nella cartella del progetto non finiscono in `git`: li esclude `.gitignore`.
+
 Nella sezione **«Chi siamo»** (`about.tsx`) foto e testi di ciascun fondatore
 stanno in un unico blocco largo `32rem`, centrato nella colonna e allineato a
 sinistra: nome, ruolo, citazione e biografia cominciano e finiscono esattamente
@@ -307,9 +314,10 @@ in inglese.
 - `src/lib/site.ts` — i numeri della fascia sotto l'hero (`stats`) sono ripresi da
   affermazioni già presenti nel sito, ma non sono ancora stati confermati dai
   fondatori. Da verificare prima di andare online: sono dichiarazioni pubbliche.
-- `src/components/about.tsx` — mancano le foto di Dario e Luisa: al loro posto
-  compaiono le iniziali. Le foto vanno in `public/team/` e poi valorizzato il
-  campo `photo` in `founders`.
+- `public/team/dario.jpg` — la foto di Dario è di 472×472 pixel, mentre il
+  riquadro ne chiede 512 (e il doppio sugli schermi retina): a video risulta
+  un filo morbida. Se salta fuori l'originale ad alta risoluzione, si
+  sostituisce il file e basta, il nome resta lo stesso.
 - `eslint.config.mjs` — la cartella `.vercel/` generata dal deploy non è esclusa
   dal controllo, e da sola produce oltre duemila avvisi che rendono `pnpm lint`
   illeggibile. `src/components/logo.tsx` usa inoltre un `<a>` verso `/` invece di

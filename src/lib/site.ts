@@ -101,7 +101,9 @@ export const method = [
 ];
 
 // — Founders (Sezione Chi Siamo / Studio).
-// TODO: aggiungere le foto professionali in /public/team/ e impostare `photo`.
+// Le foto stanno in /public/team/, già ritagliate quadrate: il riquadro è un
+// quadrato e `object-cover` taglierebbe da solo, ma tagliando dal centro —
+// meglio decidere il taglio a monte che scoprire una testa mozzata.
 export type Founder = {
   name: string;
   role: string;
@@ -118,6 +120,7 @@ export const founders: Founder[] = [
     quote: "Costruisco il tuo sito come fosse l'ingresso della tua attività.",
     bio: "Oltre dieci anni di esperienza tra Napoli e Londra come web designer e digital strategist. Unisco l'occhio del designer alla testa dello stratega: ogni cosa che le persone vedono deve farle entrare.",
     initials: "DD",
+    photo: "/team/dario.jpg",
   },
   {
     name: "Luisa Panariello",
@@ -125,6 +128,7 @@ export const founders: Founder[] = [
     quote: "Trasformo la tua storia in contenuti che le persone vogliono seguire.",
     bio: "Specialista in branding, contenuti e comunicazione. Mi occupo della relazione con te e dello sviluppo strategico: trovo le parole giuste e le porto alle persone giuste.",
     initials: "LP",
+    photo: "/team/luisa.jpg",
   },
 ];
 

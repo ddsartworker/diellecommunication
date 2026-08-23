@@ -55,3 +55,8 @@ next-env.d.ts
 /dielle-cover-selezione/
 /dielle-linkedin-*.png
 /dielle-portfolio-cover-*.png
+
+# Originali delle foto lasciati nella cartella del progetto: le versioni
+# ritagliate e alleggerite vivono in public/team/.
+/*.png
+/*.jpg
