@@ -64,12 +64,14 @@ export default function Cta({
   variant = "primary",
   size = "md",
   className = "",
+  onClick,
 }: {
   href: string;
   children: ReactNode;
   variant?: Variant;
   size?: Size;
   className?: string;
+  onClick?: () => void;
 }) {
   const classes = `${base} ${sizes[size]} ${variants[variant]} ${className}`;
   // Gli indirizzi interni passano dal router di Next; le ancore della stessa
@@ -84,7 +86,12 @@ export default function Cta({
     : {};
 
   return (
-    <Wrapper href={href} className={classes} {...attributiEsterni}>
+    <Wrapper
+      href={href}
+      className={classes}
+      onClick={onClick}
+      {...attributiEsterni}
+    >
       <span className="relative flex flex-col items-center justify-center overflow-hidden">
         <span className="transition-transform duration-300 ease-[ease] group-hover:-translate-y-full">
           {children}

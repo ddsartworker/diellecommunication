@@ -21,7 +21,8 @@ export const nav = [
   { label: "Chi siamo", href: "/chi-siamo" },
   { label: "Blog", href: "/blog" },
   { label: "Contatti", href: "/#contatti" },
-  { label: "Prova gratuita", href: "/#prova" },
+  // «Prova gratuita» non sta qui: nell'intestazione è un pulsante, non un
+  // link di menu. Vedi `booking` più sotto e `site-header.tsx`.
 ];
 
 export const social = [

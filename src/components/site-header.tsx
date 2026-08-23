@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Cta from "./cta";
 import Logo from "./logo";
-import { nav, site, social } from "@/lib/site";
+import { booking, nav, site, social } from "@/lib/site";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -25,7 +26,9 @@ export default function SiteHeader() {
       <div className="shell flex items-center justify-between py-7 sm:py-9">
         <Logo />
 
-        <nav className="hidden items-center gap-10 lg:flex xl:gap-14">
+        {/* Le distanze si stringono a 1024px: lì dentro devono stare marchio,
+            sei voci, il pulsante e il "+". Si riaprono a 1280 in su. */}
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-10 2xl:gap-14">
           {nav.map((item) => (
             <a
               key={item.href}
@@ -37,23 +40,32 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        {/* Toggle "+" — apre il pannello con info + link */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Chiudi il menu" : "Apri il menu"}
-          aria-expanded={open}
-          className="group flex size-10 items-center justify-center"
-        >
-          <span
-            className={`relative block size-5 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-              open ? "rotate-[135deg]" : ""
-            }`}
+        <div className="flex items-center gap-4">
+          {/* Stesso pulsante dell'apertura, e stessa destinazione: scende
+              alla sezione della prova, non apre il calendario. Chi è appena
+              arrivato prima deve sapere cosa sta prenotando. */}
+          <Cta href="/#prova" size="sm" className="hidden lg:inline-flex">
+            {booking.label}
+          </Cta>
+
+          {/* Toggle "+" — apre il pannello con info + link */}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Chiudi il menu" : "Apri il menu"}
+            aria-expanded={open}
+            className="group flex size-10 items-center justify-center"
           >
-            <span className="absolute left-1/2 top-1/2 h-px w-5 -translate-x-1/2 -translate-y-1/2 bg-cream transition-colors group-hover:bg-saffron" />
-            <span className="absolute left-1/2 top-1/2 h-5 w-px -translate-x-1/2 -translate-y-1/2 bg-cream transition-colors group-hover:bg-saffron" />
-          </span>
-        </button>
+            <span
+              className={`relative block size-5 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                open ? "rotate-[135deg]" : ""
+              }`}
+            >
+              <span className="absolute left-1/2 top-1/2 h-px w-5 -translate-x-1/2 -translate-y-1/2 bg-cream transition-colors group-hover:bg-saffron" />
+              <span className="absolute left-1/2 top-1/2 h-5 w-px -translate-x-1/2 -translate-y-1/2 bg-cream transition-colors group-hover:bg-saffron" />
+            </span>
+          </button>
+        </div>
       </div>
 
       {/* Pannello a discesa. Da chiuso non deve dipingere nulla: il bordo di
@@ -125,6 +137,16 @@ export default function SiteHeader() {
                 </a>
               ))}
             </nav>
+
+            {/* Lo stesso pulsante della barra: sotto i 1024px la barra non
+                c'è, e questa è l'unica via alla prova dentro il menu. */}
+            <Cta
+              href="/#prova"
+              className="mt-8"
+              onClick={() => setOpen(false)}
+            >
+              {booking.label}
+            </Cta>
           </div>
         </div>
       </div>

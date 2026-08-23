@@ -89,12 +89,23 @@ indicato da Dario). L'indirizzo (oggi
 fissa su mobile, CTA di chiusura delle pagine interne e i due pulsanti della
 pagina `/prova`.
 
-**Una sola eccezione: il pulsante dell'apertura**, che porta a `#prova`, cioè
-scende alla sezione della prova gratuita. È voluto: chi è appena arrivato non
+**Due eccezioni: il pulsante dell'apertura e quello dell'intestazione**, che
+portano a `#prova`, cioè scendono alla sezione della prova gratuita. È voluto: chi è appena arrivato non
 sa ancora cosa starebbe prenotando, e mandarlo diritto su un calendario è
 chiedergli fiducia prima di avergli spiegato di cosa si tratta. Da quella
 sezione in giù, invece, la spiegazione l'ha letta e ogni pulsante apre il
-calendario. Non uniformarlo «per coerenza»: è una scelta di Dario. **Non scrivere l'indirizzo a mano nei
+calendario. Non uniformarli «per coerenza»: è una scelta di Dario.
+
+Nell'**intestazione** «Prova gratuita» non è più una voce di menu: è lo stesso
+pulsante arancione dell'apertura, in versione `size="sm"`, e compare due
+volte — nella barra da 1024px in su, e in fondo al pannello del menu, dove
+serve a chi naviga da telefono (lì la barra non c'è). Per questo la voce è
+stata tolta da `nav` in `site.ts`: se la rimetti, compare due volte.
+
+Le distanze fra le voci della barra si stringono a `gap-5` fra 1024 e 1280px:
+in quello spazio devono stare marchio, sei voci, il pulsante e il «+». Da
+1280 in su tornano larghe (`xl:gap-10`, `2xl:gap-14`). Se aggiungi una voce
+di menu, rifai il conto o la barra va a capo. **Non scrivere l'indirizzo a mano nei
 componenti**: se cambia il tipo di evento su Cal.com si aggiorna una riga sola.
 I pulsanti aprono una **scheda nuova** (scelta di Dario): se il visitatore non
 porta a termine la prenotazione, il sito è ancora lì dietro. `cta.tsx`
