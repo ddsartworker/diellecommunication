@@ -138,6 +138,13 @@ colonna «Servizi»: le otto voci non hanno una pagina propria e portano tutte a
 `/#servizi`. Il giorno in cui nascono le pagine dei singoli servizi, cambiano
 solo gli indirizzi in `site.ts`.
 
+**L'indirizzo email è sempre cliccabile**, ovunque compaia: apre il programma
+di posta con il destinatario già scritto. Al passaggio del mouse si sottolinea
+in arancione — è l'unico posto del sito in cui una sottolineatura è voluta,
+perché lì serve a far capire che si può scrivere. Nelle pagine legali la mail
+è dentro il testo dei paragrafi: `legal-article.tsx` la riconosce e la
+trasforma in link da sé, non serve scriverlo a mano in `site.ts`.
+
 **Inviti all'azione**: usa sempre il componente `src/components/cta.tsx`, mai un
 link sottolineato. La pillola arancione piena (`primary`) è l'unica azione forte
 di ogni schermata; il contorno (`outline`, pensato per i **fondi scuri**: bordo e
@@ -374,6 +381,10 @@ in inglese.
   dal controllo, e da sola produce oltre duemila avvisi che rendono `pnpm lint`
   illeggibile. `src/components/logo.tsx` usa inoltre un `<a>` verso `/` invece di
   `<Link>`: è l'unico errore vero del progetto.
+
+Il corpo delle pagine legali sta in **`src/components/legal-article.tsx`**,
+usato sia da `/privacy` sia da `/termini`: prima era ricopiato in tutte e due,
+e bastava correggerne una per averle diverse.
 
 - `src/app/chi-siamo/page.tsx` — le schede dei fondatori sono ora identiche a
   quelle di `about.tsx`, ma il markup è ancora ricopiato: se ne cambi una,
