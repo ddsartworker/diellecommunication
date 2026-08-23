@@ -1,7 +1,7 @@
 import Cta from "./cta";
 import SectionHead from "./section-head";
 import Reveal from "./reveal";
-import { trial } from "@/lib/site";
+import { booking, trial } from "@/lib/site";
 
 export default function Trial() {
   return (
@@ -50,8 +50,8 @@ export default function Trial() {
                 </li>
               ))}
             </ul>
-            <Cta href="#contatti" className="shrink-0">
-              Richiedi la prova gratuita
+            <Cta href={booking.url} className="shrink-0">
+              {booking.label}
             </Cta>
           </div>
         </Reveal>

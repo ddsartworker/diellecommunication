@@ -1,4 +1,5 @@
 import Cta from "./cta";
+import { booking } from "@/lib/site";
 
 type InnerCtaProps = {
   title?: string;
@@ -25,8 +26,8 @@ export default function InnerCta({
               </h2>
               <p className="mt-4 max-w-md leading-relaxed text-cream/75">{body}</p>
             </div>
-            <Cta href="/#prova" className="shrink-0">
-              Richiedi la prova gratuita
+            <Cta href={booking.url} className="shrink-0">
+              {booking.label}
             </Cta>
           </div>
         </div>

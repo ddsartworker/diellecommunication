@@ -81,6 +81,18 @@ cambiando famiglia. La classe `display` resta il gancio per i titoli
 (interlinea stretta, tracking -0.025em) e `kicker` per le micro-etichette
 maiuscole spaziate.
 
+**Dove porta «Richiedi la prova gratuita»**: a **Cal.com**, il servizio di
+prenotazione appuntamenti (lo stesso impianto di leftclick.ai, il riferimento
+indicato da Dario). L'indirizzo sta in un punto solo — `booking.url` in
+`site.ts` — e da lì lo leggono tutti e sei i pulsanti: apertura, sezione della
+prova, barra fissa su mobile, CTA di chiusura delle pagine interne e i due
+pulsanti della pagina `/prova`. **Non scrivere l'indirizzo a mano nei
+componenti**: se cambia il tipo di evento su Cal.com si aggiorna una riga sola.
+I pulsanti aprono una **scheda nuova** (scelta di Dario): se il visitatore non
+porta a termine la prenotazione, il sito è ancora lì dietro. `cta.tsx`
+riconosce da sé i link che iniziano per `http` e aggiunge
+`target="_blank" rel="noopener noreferrer"`.
+
 **Inviti all'azione**: usa sempre il componente `src/components/cta.tsx`, mai un
 link sottolineato. La pillola arancione piena (`primary`) è l'unica azione forte
 di ogni schermata; il contorno (`outline`, pensato per i **fondi scuri**: bordo e
@@ -228,8 +240,16 @@ in inglese.
 
 ## Da sistemare
 
+- `src/lib/site.ts` — **`booking.url` è ancora un segnaposto**
+  (`cal.com/diellecommunication/prova-gratuita`): quell'indirizzo non esiste.
+  Va sostituito con il link vero appena l'account Cal.com è pronto. Finché è
+  un segnaposto **non pubblicare**: sarebbero sei pulsanti che portano a una
+  pagina inesistente.
 - `src/app/api/contact/route.ts` — il form contatti non invia ancora nulla, scrive
   solo nei log. Va collegato a un servizio email reale prima di andare online.
+- `src/app/prova/page.tsx` — i due pulsanti hanno ancora il loro markup
+  invece del componente `cta.tsx`: stesso colore, ma niente movimento e niente
+  pallino con la freccia. Da uniformare.
 - `src/app/zzpreview/` — pagina di lavoro interna, raggiungibile pubblicamente.
   Da rimuovere o proteggere prima di collegare il dominio.
 - `src/lib/site.ts` — l'email di contatto punta a `diellecommunication.it`, un dominio

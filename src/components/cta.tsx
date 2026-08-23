@@ -75,9 +75,16 @@ export default function Cta({
   // Gli indirizzi interni passano dal router di Next; le ancore della stessa
   // pagina e i link esterni restano ancore normali.
   const Wrapper = href.startsWith("/") ? Link : "a";
+  // I link fuori dal sito (oggi la prenotazione su Cal.com) aprono una scheda
+  // nuova: se il visitatore non porta a termine la prenotazione, il sito è
+  // ancora lì dietro.
+  const esterno = /^https?:/.test(href);
+  const attributiEsterni = esterno
+    ? { target: "_blank", rel: "noopener noreferrer" }
+    : {};
 
   return (
-    <Wrapper href={href} className={classes}>
+    <Wrapper href={href} className={classes} {...attributiEsterni}>
       <span className="relative flex flex-col items-center justify-center overflow-hidden">
         <span className="transition-transform duration-300 ease-[ease] group-hover:-translate-y-full">
           {children}

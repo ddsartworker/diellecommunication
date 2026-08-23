@@ -1,5 +1,6 @@
 import Cta from "./cta";
 import Stats from "./stats";
+import { booking } from "@/lib/site";
 
 export default function Hero() {
   return (
@@ -38,7 +39,7 @@ export default function Hero() {
         <Stats className="mt-7" />
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-          <Cta href="#prova">Richiedi la prova gratuita</Cta>
+          <Cta href={booking.url}>{booking.label}</Cta>
           <Cta href="#metodo" variant="outline">
             Scopri il metodo
           </Cta>

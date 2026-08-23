@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import SectionHead from "@/components/section-head";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
-import { trial } from "@/lib/site";
+import { booking, trial } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Periodo di prova gratuito — Provaci, poi decidi",
@@ -61,12 +60,14 @@ export default function ProvaPage() {
               title="Provaci gratis. Poi decidi."
               body="Prima di chiederti fiducia, preferiamo dimostrarti il nostro valore. Inizia con un periodo di prova gratuito: se ti convince, continuiamo insieme. Se no, ci siamo costati solo qualche giorno."
             />
-            <Link
-              href="/#contatti"
+            <a
+              href={booking.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-8 inline-block rounded-full bg-saffron px-7 py-3.5 text-sm font-semibold text-navy transition-colors duration-300 hover:bg-saffron-2"
             >
-              Richiedi la prova gratuita
-            </Link>
+              {booking.label}
+            </a>
           </div>
         </section>
 
@@ -163,12 +164,14 @@ export default function ProvaPage() {
                 </div>
               ))}
             </dl>
-            <Link
-              href="/#contatti"
+            <a
+              href={booking.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-10 inline-block rounded-full bg-saffron px-7 py-3.5 text-sm font-semibold text-navy transition-colors duration-300 hover:bg-saffron-2"
             >
-              Richiedi la prova gratuita
-            </Link>
+              {booking.label}
+            </a>
           </div>
         </section>
       </main>

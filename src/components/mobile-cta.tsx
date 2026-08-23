@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { booking } from "@/lib/site";
 
 // CTA fissa in fondo, solo su mobile. Compare dopo l'hero e si nasconde
 // quando la sezione contatti è in vista (lì la CTA c'è già).
@@ -39,11 +40,13 @@ export default function MobileCta() {
     >
       <div className="border-t border-white/10 bg-navy-deep/90 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md">
         <a
-          href="#contatti"
+          href={booking.url}
+          target="_blank"
+          rel="noopener noreferrer"
           tabIndex={show ? 0 : -1}
           className="flex items-center justify-center gap-2 rounded-full bg-saffron px-6 py-3.5 text-sm font-semibold text-navy"
         >
-          Richiedi la prova gratuita
+          {booking.label}
           <span aria-hidden>→</span>
         </a>
       </div>
