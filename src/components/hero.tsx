@@ -39,7 +39,11 @@ export default function Hero() {
         <Stats className="mt-7" />
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-          <Cta href={booking.url}>{booking.label}</Cta>
+          {/* L'unico pulsante che NON va su Cal.com: dall'apertura si scende
+              alla sezione della prova, dove è spiegato cosa comporta. Chi
+              arriva sul sito non sa ancora cosa sta prenotando; da lì in poi
+              sì, e tutti gli altri pulsanti aprono il calendario. */}
+          <Cta href="#prova">{booking.label}</Cta>
           <Cta href="#metodo" variant="outline">
             Scopri il metodo
           </Cta>

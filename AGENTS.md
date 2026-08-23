@@ -85,9 +85,16 @@ maiuscole spaziate.
 prenotazione appuntamenti (lo stesso impianto di leftclick.ai, il riferimento
 indicato da Dario). L'indirizzo (oggi
 `cal.com/dlcommunication/30min`) sta in un punto solo — `booking.url` in
-`site.ts` — e da lì lo leggono tutti e sei i pulsanti: apertura, sezione della
-prova, barra fissa su mobile, CTA di chiusura delle pagine interne e i due
-pulsanti della pagina `/prova`. **Non scrivere l'indirizzo a mano nei
+`site.ts` — e da lì lo leggono tutti i pulsanti: sezione della prova, barra
+fissa su mobile, CTA di chiusura delle pagine interne e i due pulsanti della
+pagina `/prova`.
+
+**Una sola eccezione: il pulsante dell'apertura**, che porta a `#prova`, cioè
+scende alla sezione della prova gratuita. È voluto: chi è appena arrivato non
+sa ancora cosa starebbe prenotando, e mandarlo diritto su un calendario è
+chiedergli fiducia prima di avergli spiegato di cosa si tratta. Da quella
+sezione in giù, invece, la spiegazione l'ha letta e ogni pulsante apre il
+calendario. Non uniformarlo «per coerenza»: è una scelta di Dario. **Non scrivere l'indirizzo a mano nei
 componenti**: se cambia il tipo di evento su Cal.com si aggiorna una riga sola.
 I pulsanti aprono una **scheda nuova** (scelta di Dario): se il visitatore non
 porta a termine la prenotazione, il sito è ancora lì dietro. `cta.tsx`
