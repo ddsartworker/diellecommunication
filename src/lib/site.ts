@@ -594,7 +594,7 @@ export const footer = {
       ],
     },
     {
-      title: "Seguici",
+      title: "Connettiti",
       links: [
         { label: "Instagram", href: "https://www.instagram.com/diellecommunication/" },
         { label: "LinkedIn", href: "https://www.linkedin.com/company/122214394/" },
