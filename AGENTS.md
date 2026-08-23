@@ -461,11 +461,46 @@ robot» servirebbe solo a fargli cambiare tattica.
 Se l'invio fallisce il modulo **non lascia un errore muto**: mostra
 l'indirizzo email cliccabile, così chi voleva scrivere ha comunque una strada.
 
-**Da fare: verificare il dominio.** Su Aruba, nei record DNS di
-`dlcommunication.it`, vanno aggiunti i tre record che Resend indica nel suo
-pannello — un TXT per DKIM su `resend._domainkey`, un MX e un TXT per SPF su
-`send`. Sono **record, mai i nameserver**: cambiare quelli spegnerebbe la
-casella di posta. Finché il dominio è `not_started`, ogni invio fallisce.
+### Verifica del dominio su Aruba — stato e trappole
+
+Resend rifiuta di spedire finché il dominio non è **verificato per intero**:
+non basta che uno dei record sia a posto. Provato sul campo, la risposta è
+`403 — the domain is not verified`.
+
+Servono tre record nei DNS di `dlcommunication.it`:
+
+| record | dove | stato |
+|---|---|---|
+| TXT `resend._domainkey` (DKIM) | scheda «Record» | ✅ verificato |
+| TXT `send` (SPF) | scheda «Record» | ✅ nei DNS |
+| MX `send` prio 10 (SPF) | scheda «Record MX» | ⏳ da completare |
+
+**La trappola grossa: il record MX.** Nella scheda «Record MX» di Aruba il
+pulsante blu **«SOSTITUISCI RECORD» cancella tutti i record MX esistenti**,
+compreso `@ → mx.dlcommunication.it`, che è il server che riceve la posta del
+dominio. Premerlo significa spegnere la casella. Il pulsante giusto è
+**«AGGIUNGI SU SOTTODOMINIO»**, dentro «Gestione avanzata»: aggiunge un MX su
+un nome specifico senza toccare gli altri. Nome host `send`, valore
+`feedback-smtp.eu-west-1.amazonses.com`, priorità 10.
+
+Vale in generale: su Aruba si toccano **solo i record, mai i nameserver**.
+
+Aruba non applica i cambiamenti DNS all'istante, li mette in coda. Per
+controllare senza aspettare la cache dei resolver pubblici, interroga i suoi
+nameserver diretti:
+
+```bash
+dig +short MX send.dlcommunication.it @dns.technorail.com
+dig +short MX dlcommunication.it @dns.technorail.com   # deve restare!
+```
+
+Poi si rilancia la verifica e si legge lo stato record per record dall'API di
+Resend (`POST /domains/<id>/verify`, poi `GET /domains/<id>`). Non fidarsi del
+markup o della configurazione: guardare lo stato che risponde il servizio.
+
+Nota: l'installazione dell'integrazione ha portato in `.claude/skills/` anche
+le guide di Resend, con il loro `skills-lock.json`. Sono file del progetto, non
+codice del sito.
 
 ## Contesto operativo
 
