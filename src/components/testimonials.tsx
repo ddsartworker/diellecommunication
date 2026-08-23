@@ -26,6 +26,10 @@ function Quote({ text }: { text: string | string[] }) {
   );
 }
 
+// Le firme (nome, ruolo, locale, città) sono lunghe: la più lunga sfiora i
+// 100 caratteri. Con la spaziatura da micro-etichetta (0.16em) occupavano
+// ~860px e andavano a capo dentro una colonna larga ~600px. Stanno su una riga
+// sola solo a corpo piccolo e con la spaziatura quasi azzerata.
 export default function Testimonials() {
   const [lead, ...rest] = testimonials;
 
@@ -46,7 +50,7 @@ export default function Testimonials() {
               <p className="display text-[clamp(1.35rem,3vw,2.2rem)] leading-[1.18] text-cream">
                 <Quote text={lead.quote} />
               </p>
-              <footer className="mt-6 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-cream/50">
+              <footer className="mt-6 font-mono text-[0.55rem] uppercase tracking-[0.02em] text-cream/50">
                 {lead.author} — {lead.detail}
               </footer>
             </blockquote>
@@ -61,7 +65,7 @@ export default function Testimonials() {
               <p className="text-xl leading-relaxed text-cream/75">
                 <Quote text={t.quote} />
               </p>
-              <p className="mt-5 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-cream/50">
+              <p className="mt-5 font-mono text-[0.55rem] uppercase tracking-[0.02em] text-cream/50">
                 {t.author} — {t.detail}
               </p>
             </Reveal>
