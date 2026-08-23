@@ -93,6 +93,21 @@ c'era la tinta unita. Il testo diventa `#282f3f`, cioè il blu del marchio: a
 tema scuro fa da fondo, a tema chiaro fa da inchiostro. L'arancione non cambia
 mai: è il marchio, non una superficie.
 
+**La gerarchia del testo, e perché la base chiara non è il blu del marchio.**
+Tutto il sito costruisce la gerarchia con le trasparenze: titolo pieno,
+sottotitolo al 65%, micro-etichette al 45%. Ma una stessa percentuale su fondo
+chiaro sbiadisce molto più che su fondo scuro — il 55% rende 4,9:1 di contrasto
+sul blu e appena 3,3:1 sul bianco. Tenendo `#282f3f` come base, a tema chiaro i
+livelli bassi si sarebbero persi.
+
+Per questo la base del tema chiaro è un blu più profondo (`#141a26`), che
+riporta ogni livello vicino al contrasto che ha nel tema scuro, e il **testo
+pieno** viene riportato a mano al blu del marchio con `--p-title` (due righe in
+fondo a `globals.css`). I titoli sono quindi esattamente `#282f3f` come chiesto
+da Dario, e sotto la scala resta leggibile invece di svanire. Se cambi
+`--p-cream` del tema chiaro, rifai il conto dei contrasti: è quello che tiene
+insieme la gerarchia, non un colore scelto a occhio.
+
 **Come funziona, e perché è fatto così.** I token dentro `@theme` non
 contengono un colore: puntano a variabili `--p-*` ridefinite per tema. Sembra
 un giro inutile, non lo è. Se contenessero il colore, Tailwind lo

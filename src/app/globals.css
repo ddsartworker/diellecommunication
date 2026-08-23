@@ -58,10 +58,25 @@
   --p-navy-dim: #6b7280;
   --p-navy-ink: #f0f0f2;
 
-  /* Il testo a tema chiaro è il blu del marchio, non un nero qualsiasi:
-     stessa `#282f3f` che a tema scuro fa da fondo. */
-  --p-cream: #282f3f;
-  --p-cream-2: #3a4354;
+  /*
+    Il testo. Qui c'è una sottigliezza che vale la pena capire prima di
+    toccarla.
+
+    Tutta la gerarchia del sito è fatta di trasparenze: titolo pieno,
+    sottotitolo al 65%, micro-etichette al 45%. Ma una stessa percentuale su
+    fondo chiaro sbiadisce molto più che su fondo scuro — il 55% rende 4,9:1
+    di contrasto sul blu e appena 3,3:1 sul bianco. Tenendo il blu del
+    marchio come base, a tema chiaro i livelli bassi si perderebbero.
+
+    Quindi la base è un blu più profondo, che riporta ogni livello vicino al
+    contrasto che ha nel tema scuro, e il testo pieno viene riportato a mano
+    al blu del marchio (`--p-title`, due righe in fondo al file). Così i
+    titoli sono esattamente `#282f3f` come chiesto, e sotto la scala resta
+    leggibile invece di svanire.
+  */
+  --p-cream: #141a26;
+  --p-cream-2: #2c3444;
+  --p-title: #282f3f;
   --p-cream-rule: #d6d6dc;
 
   --p-glow: #ffffff;
@@ -347,4 +362,18 @@ header {
 [data-theme="dark"] .theme-toggle__sun,
 [data-theme="light"] .theme-toggle__moon {
   display: block;
+}
+
+/*
+  Il testo pieno a tema chiaro è il blu del marchio, non la base scura da cui
+  discendono le trasparenze (vedi il commento sulla tavolozza chiara).
+  La seconda regola rimette le cose a posto dentro le sezioni inchiodate al
+  tema scuro — strumenti e contatti — che a tema chiaro si trovano comunque
+  `[data-theme="light"]` sopra di sé.
+*/
+[data-theme="light"] .text-cream {
+  color: var(--p-title);
+}
+[data-theme="dark"] .text-cream {
+  color: var(--color-cream);
 }
