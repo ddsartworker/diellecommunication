@@ -40,7 +40,8 @@ punto solo, senza toccare il codice.
 ## Struttura
 
 - `src/app/page.tsx` — la home, composta accostando i componenti di sezione in ordine
-- `src/app/<pagina>/page.tsx` — pagine autonome: metodo, chi-siamo, lavori, blog, contatti, prova
+- `src/app/<pagina>/page.tsx` — pagine autonome: metodo, chi-siamo, lavori, blog,
+  contatti, prova, privacy, termini
 - `src/app/lavori/[slug]` e `src/app/blog/[slug]` — pagine generate una per voce tramite
   `generateStaticParams`: basta aggiungere un elemento a `work` o `posts` in `site.ts`
   e la pagina nasce da sola
@@ -120,6 +121,17 @@ I pulsanti aprono una **scheda nuova** (scelta di Dario): se il visitatore non
 porta a termine la prenotazione, il sito è ancora lì dietro. `cta.tsx`
 riconosce da sé i link che iniziano per `http` e aggiunge
 `target="_blank" rel="noopener noreferrer"`.
+
+**Il footer** è ricalcato su quello di leftclick.ai: a sinistra un'etichetta
+piccola, una riga che spiega cosa succede e la pillola arancione; a destra
+quattro colonne di link (Servizi, Studio, Risorse, Seguici); sotto una riga di
+chiusura con marchio, note legali e copyright. Tutti i contenuti stanno in
+`footer` dentro `site.ts` — `site-footer.tsx` fa solo impaginazione.
+
+**Ogni voce del footer punta a una destinazione vera.** L'unica forzatura è la
+colonna «Servizi»: le otto voci non hanno una pagina propria e portano tutte a
+`/#servizi`. Il giorno in cui nascono le pagine dei singoli servizi, cambiano
+solo gli indirizzi in `site.ts`.
 
 **Inviti all'azione**: usa sempre il componente `src/components/cta.tsx`, mai un
 link sottolineato. La pillola arancione piena (`primary`) è l'unica azione forte
@@ -324,6 +336,12 @@ in inglese.
   arriva su una pagina che parla d'altro. Da rinominare **su Cal.com**, non
   nel codice. Se cambia anche l'indirizzo dell'evento (`30min`), va aggiornato
   `booking.url`: Cal.com non lascia rimandi dai vecchi indirizzi.
+- `src/app/privacy` e `src/app/termini` — **le due pagine legali non sono state
+  riviste da un legale** e in `company` (`site.ts`) mancano partita IVA e sede
+  legale: una privacy policy deve identificare per intero chi tratta i dati.
+  Da completare e far controllare prima di collegare il dominio. Va anche
+  verificato che la forma societaria dichiarata nel copyright — **S.r.l.** —
+  sia quella reale: è una dichiarazione pubblica.
 - `src/app/api/contact/route.ts` — il form contatti non invia ancora nulla, scrive
   solo nei log. Va collegato a un servizio email reale prima di andare online.
 - `src/app/prova/page.tsx` — i due pulsanti hanno ancora il loro markup

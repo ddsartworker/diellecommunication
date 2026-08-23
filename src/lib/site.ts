@@ -552,6 +552,208 @@ export function getWork(slug: string): WorkItem | undefined {
   return work.find((w) => w.slug === slug);
 }
 
+// — Footer. Ripreso da leftclick.ai, il riferimento indicato da Dario: a
+// sinistra l'invito con il pulsante, a destra le colonne di link, sotto una
+// riga con marchio, note legali e copyright.
+//
+// La colonna «Servizi» punta tutta alla sezione dei servizi in home: le otto
+// voci non hanno (ancora) una pagina propria. Il giorno in cui l'avranno,
+// cambiano solo gli indirizzi qui sotto.
+export const footer = {
+  kicker: "Lavoriamo insieme",
+  lead: "Comincia con mezz'ora gratuita: vediamo come ti trovano su Google e cosa serve per farti scegliere.",
+  columns: [
+    {
+      title: "Servizi",
+      links: [
+        { label: "Siti web & design", href: "/#servizi" },
+        { label: "Social & contenuti", href: "/#servizi" },
+        { label: "Content & email", href: "/#servizi" },
+        { label: "Advertising & performance", href: "/#servizi" },
+        { label: "Branding & identità", href: "/#servizi" },
+        { label: "Tutti i servizi", href: "/#servizi" },
+      ],
+    },
+    {
+      title: "Studio",
+      links: [
+        { label: "Chi siamo", href: "/chi-siamo" },
+        { label: "Il metodo", href: "/metodo" },
+        { label: "Lavori", href: "/lavori" },
+        { label: "Prova gratuita", href: "/prova" },
+        { label: "Contatti", href: "/contatti" },
+      ],
+    },
+    {
+      title: "Risorse",
+      links: [
+        { label: "Blog", href: "/blog" },
+        { label: "«Non mi serve il marketing»", href: "/blog/non-mi-serve-il-marketing" },
+        { label: "Il sito è l'anticamera di casa tua", href: "/blog/il-sito-e-l-anticamera-di-casa-tua" },
+        { label: "Contenuti fedeli al brand", href: "/blog/contenuti-fedeli-al-brand-non-al-trend" },
+      ],
+    },
+    {
+      title: "Seguici",
+      links: [
+        { label: "Instagram", href: "https://www.instagram.com/diellecommunication/" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/company/122214394/" },
+        { label: "Dario su LinkedIn", href: "https://www.linkedin.com/in/dario-de-sisto/" },
+      ],
+    },
+  ],
+  legalLinks: [
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Termini di servizio", href: "/termini" },
+  ],
+};
+
+// — Pagine legali. Stessa forma degli articoli del blog: titolo, apertura e
+// sezioni. Sono documenti che qualcuno leggerà davvero solo se scritti in
+// italiano e non in legalese, quindi restano nel tono del resto del sito.
+//
+// ATTENZIONE: sono redatte con cura ma non sono state riviste da un legale, e
+// mancano partita IVA e sede legale (vedi `company`). Prima di collegare il
+// dominio vanno completate e fatte controllare.
+export type LegalPage = {
+  slug: string;
+  title: string;
+  updated: string;
+  intro: string;
+  body: { heading: string; paragraphs: string[] }[];
+};
+
+export const legalPages: LegalPage[] = [
+  {
+    slug: "privacy",
+    title: "Privacy Policy",
+    updated: "agosto 2026",
+    intro:
+      "Questa pagina spiega quali dati raccogliamo quando visiti il sito o ci scrivi, perché li raccogliamo e cosa puoi chiederci di farne. È scritta per essere letta, non per essere subita.",
+    body: [
+      {
+        heading: "Chi tratta i tuoi dati",
+        paragraphs: [
+          "Il titolare del trattamento è DL Communication S.r.l., la società di Dario De Sisto e Luisa Panariello. Per qualsiasi domanda su questa pagina o sui tuoi dati puoi scriverci a commercialedlcommunication@gmail.com: risponde una persona, non un modulo.",
+        ],
+      },
+      {
+        heading: "Quali dati raccogliamo",
+        paragraphs: [
+          "Quelli che ci dai tu. Se compili il modulo dei contatti raccogliamo nome, email, messaggio e, se li inserisci, nome dell'attività e settore. Se prenoti una call raccogliamo nome, email e l'orario che hai scelto.",
+          "Quelli tecnici. Come ogni sito, il nostro fornitore di hosting registra dati di connessione — indirizzo IP, tipo di browser, pagine viste, data e ora. Servono a far funzionare il sito e a difenderlo da abusi, non a profilarti.",
+          "Non raccogliamo altro. Non compriamo liste di contatti, non ti chiediamo dati che non ci servono e non ti iscriviamo a nulla senza che tu lo chieda.",
+        ],
+      },
+      {
+        heading: "Perché li trattiamo",
+        paragraphs: [
+          "Per risponderti e, se decidiamo di lavorare insieme, per prepararti una proposta: la base giuridica è l'esecuzione di misure precontrattuali richieste da te (art. 6.1.b del GDPR).",
+          "Per tenere in piedi il sito e la sua sicurezza: qui la base è il nostro legittimo interesse a che il sito funzioni e non venga usato per fare danni (art. 6.1.f).",
+          "Per rispettare obblighi di legge, quando ce ne sono — per esempio quelli fiscali, se diventi cliente (art. 6.1.c).",
+        ],
+      },
+      {
+        heading: "A chi finiscono",
+        paragraphs: [
+          "A nessuno che non ci serva per lavorare. I tuoi dati passano dai fornitori che usiamo per far girare il sito e la posta: Vercel Inc. per l'hosting, Cal.com Inc. per le prenotazioni, Google LLC per la casella email. Ognuno di loro tratta i dati per nostro conto e con le garanzie previste per i trasferimenti fuori dall'Unione Europea.",
+          "Non vendiamo i tuoi dati e non li cediamo a terzi per scopi pubblicitari. Mai.",
+        ],
+      },
+      {
+        heading: "Per quanto tempo li teniamo",
+        paragraphs: [
+          "Le richieste che non diventano un progetto le conserviamo per due anni, poi le cancelliamo: ci servono a ricordarci di chi ci ha scritto e cosa ci siamo detti. I dati dei clienti li teniamo per il tempo del rapporto e per i dieci anni che la legge impone alle scritture contabili. I registri tecnici del sito durano pochi mesi.",
+        ],
+      },
+      {
+        heading: "Cookie",
+        paragraphs: [
+          "Questo sito non usa cookie di profilazione, non ha strumenti di analisi del traffico e non ti segue da un sito all'altro. Non c'è nessuna finestra da accettare perché non c'è nulla da accettare. Se un domani aggiungeremo strumenti di misurazione, questa pagina lo dirà prima.",
+        ],
+      },
+      {
+        heading: "Cosa puoi chiederci",
+        paragraphs: [
+          "Puoi chiederci di vedere i dati che abbiamo su di te, di correggerli, di cancellarli, di limitarne l'uso, di riceverli in un formato leggibile da un altro servizio, e puoi opporti al trattamento. Basta una mail a commercialedlcommunication@gmail.com: ti rispondiamo entro un mese, di solito molto prima.",
+          "Se pensi che stiamo sbagliando puoi rivolgerti al Garante per la protezione dei dati personali (garanteprivacy.it). Ma prima scrivici: quasi sempre si risolve parlando.",
+        ],
+      },
+      {
+        heading: "Se questa pagina cambia",
+        paragraphs: [
+          "La aggiorneremo quando cambia qualcosa di sostanziale in come trattiamo i dati, e in cima troverai sempre la data dell'ultima revisione.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "termini",
+    title: "Termini di servizio",
+    updated: "agosto 2026",
+    intro:
+      "Le regole d'uso di questo sito, in poche righe e senza legalese. Riguardano la consultazione del sito, non i contratti di lavoro con i clienti: quelli si firmano a parte.",
+    body: [
+      {
+        heading: "Cos'è questo sito",
+        paragraphs: [
+          "È il sito vetrina di DL Communication S.r.l. Racconta chi siamo, come lavoriamo e cosa abbiamo fatto per i nostri clienti. Consultarlo è libero e gratuito.",
+        ],
+      },
+      {
+        heading: "Quello che leggi non è un contratto",
+        paragraphs: [
+          "Le descrizioni dei servizi, i casi studio e il periodo di prova gratuito sono informazioni, non un'offerta vincolante ai sensi dell'art. 1336 del codice civile. Ogni collaborazione nasce da una proposta scritta e concordata caso per caso: è il senso stesso di lavorare su misura.",
+          "Il periodo di prova gratuito è quello che dice di essere: un tempo concordato insieme in cui lavoriamo su qualcosa di concreto, senza vincoli e senza carta di credito. Durata e contenuto si stabiliscono nella prima call.",
+        ],
+      },
+      {
+        heading: "Di chi sono i contenuti",
+        paragraphs: [
+          "Testi, immagini, grafiche e codice di questo sito sono nostri o li usiamo con il permesso di chi li ha fatti. Puoi citarli indicando la fonte; non puoi riprodurli per scopi commerciali senza chiedercelo prima.",
+          "I marchi dei clienti e degli strumenti che vedi nominati appartengono ai rispettivi titolari, e compaiono qui solo per raccontare con chi e con cosa lavoriamo.",
+        ],
+      },
+      {
+        heading: "I link verso altri siti",
+        paragraphs: [
+          "Il sito rimanda ai siti dei nostri clienti e ai servizi che usiamo. Su quei siti non abbiamo controllo: quello che contengono e come trattano i tuoi dati è responsabilità loro.",
+        ],
+      },
+      {
+        heading: "Fin dove rispondiamo",
+        paragraphs: [
+          "Curiamo il sito con attenzione, ma non possiamo garantire che sia sempre raggiungibile né che ogni informazione resti aggiornata al minuto. Non rispondiamo dei danni derivanti dall'uso del sito, salvo i casi di dolo o colpa grave, che la legge non permette di escludere.",
+        ],
+      },
+      {
+        heading: "Quale legge vale",
+        paragraphs: [
+          "Si applica la legge italiana. Per ogni controversia è competente il foro di Napoli, salvo che tu sia un consumatore: in quel caso vale il foro del tuo luogo di residenza o domicilio, come prevede il Codice del consumo.",
+        ],
+      },
+      {
+        heading: "Come contattarci",
+        paragraphs: [
+          "Per qualsiasi cosa riguardi questa pagina scrivi a commercialedlcommunication@gmail.com.",
+        ],
+      },
+    ],
+  },
+];
+
+export function getLegalPage(slug: string): LegalPage | undefined {
+  return legalPages.find((p) => p.slug === slug);
+}
+
+// — Ragione sociale, per le note legali e il copyright.
+// TODO: aggiungere partita IVA e sede legale — una privacy policy deve
+// identificare per intero chi tratta i dati, e oggi ci sono solo nome e mail.
+export const company = {
+  legalName: "DL Communication S.r.l.",
+  rights: "Tutti i diritti riservati.",
+};
+
 // Clienti reali. Il nastro è cliccabile: ogni nome porta al sito del cliente.
 // Le grafie sono prese dai siti stessi (logo o titolo), non a orecchio: il
 // nastro non le mette più in maiuscolo, quindi le maiuscole interne contano.
