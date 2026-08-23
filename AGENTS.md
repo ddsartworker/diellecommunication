@@ -100,7 +100,10 @@ pulsante. La barra fissa su mobile (`mobile-cta`) resta una pillola larga a sé:
 è un'altra affordance, non un pulsante in linea.
 
 Per dare profondità ai fondi piatti si usano cerchi sfumati molto sfocati nei
-colori del brand (`bg-saffron/10 blur-[120px]`), come in `trial` e `inner-cta`.
+colori del brand (`bg-saffron/10 blur-[120px]`), oggi solo in `inner-cta`.
+La sezione della prova (`trial`) **non è più una scheda di vetro arancione**:
+niente cornice, niente alone, è una sezione come le altre sul fondo a
+gradiente.
 Nell'hero quel ruolo lo svolge `.surface-glow`, non gli aloni.
 Mai gradienti sul testo.
 
@@ -110,14 +113,14 @@ tracking -0.03em e peso 500. Sono i valori misurati sul titolo di leftclick.ai.
 L'apertura è scura, con un alone radiale al centro e titolo in **un solo
 colore**: la sfumatura sta nel fondo, mai nelle lettere. Quella superficie è la
 classe **`.surface-glow`** in `globals.css`, condivisa da hero, «Partiamo da
-te», «Chi siamo» e «Tutto ciò che serve per farti scegliere»: non ricopiare il
-gradiente a mano, usa la classe.
+te», «Chi siamo», «Tutto ciò che serve per farti scegliere» e la sezione della
+prova: non ricopiare il gradiente a mano, usa la classe.
 
 **I fondi si alternano: uno a gradiente, uno in tinta unita.** Scendendo lungo
 la home l'ordine è hero (`.surface-glow`) · nastro clienti (`navy-ink`) ·
 problema (`.surface-glow`) · metodo (`bg-navy-deep`) · chi siamo
 (`.surface-glow`) · strumenti (`bg-navy-deep`) · servizi (`.surface-glow`) ·
-testimonianze (`bg-navy-deep`) · prova (fondo pagina, `navy`) · contatti
+testimonianze (`bg-navy-deep`) · prova (`.surface-glow`) · contatti
 (`bg-navy-deep`). La sezione delle testimonianze **non è più chiara**: era
 l'unica su `bg-cream`, ora è blu in tinta unita come le altre. Se aggiungi una
 sezione, guarda quella sopra e prendi l'altro fondo.
@@ -142,6 +145,12 @@ siamo». Nei **testi** non usare `<br />`: con i blocchi ogni riga manda a capo
 per conto suo sugli schermi stretti, mentre un `<br />` resta lì anche quando
 non ci sta. Nei **titoli** il `<br />` va bene (lo usa il titolo
 dell'apertura): lì la riga è corta e la spezzatura è voluta.
+
+Nelle **tre colonne della prova gratuita** ogni punto ha `pl-7` *e* `pr-7`:
+la linea verticale che li divide deve avere la stessa aria da tutte e due le
+parti, altrimenti il testo di un punto finisce appiccicato alla linea del
+successivo. Il primo punto resta a filo sinistro (`first:pl-0`), l'ultimo a
+filo destro (`last:pr-0`), come la gabbia.
 
 Nell'elenco dei servizi le colonne hanno **misure fisse**
 (`lg:grid-cols-[2.5rem_minmax(0,15rem)_minmax(0,28rem)_1fr]`): ogni riga è una
@@ -210,6 +219,11 @@ in inglese.
   Da rimuovere o proteggere prima di collegare il dominio.
 - `src/lib/site.ts` — l'email di contatto punta a `diellecommunication.it`, un dominio
   che non esiste. Va corretta con la casella vera su `dlcommunication.it`.
+- `src/lib/site.ts` — le tre testimonianze portano ora nome e attività di
+  persone vere (Mariano Panariello, Angelo Arrichiello), ma **il testo delle
+  citazioni è ancora quello editoriale** scritto per il sito. Va fatto
+  confermare o riscrivere da loro prima di andare online: sono parole
+  attribuite a persone reali.
 - `src/lib/site.ts` — i numeri della fascia sotto l'hero (`stats`) sono ripresi da
   affermazioni già presenti nel sito, ma non sono ancora stati confermati dai
   fondatori. Da verificare prima di andare online: sono dichiarazioni pubbliche.

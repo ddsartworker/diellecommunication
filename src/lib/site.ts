@@ -343,32 +343,37 @@ export const work: WorkItem[] = [
 ];
 
 // — Testimonianze.
-// TODO: SOSTITUIRE con recensioni reali (nome, attività, città).
-// Questi sono placeholder editoriali, non citazioni reali di clienti.
+// TODO: le firme sono di persone vere, il testo delle citazioni no: è ancora
+// quello editoriale scritto per il sito. Farlo confermare (o riscrivere) da
+// Mariano Panariello e Angelo Arrichiello prima di andare online.
 export type Testimonial = {
-  quote: string;
+  // Una stringa sola, oppure più righe: sul desktop ogni voce va a capo per
+  // conto suo, sugli schermi stretti il testo torna a scorrere di seguito.
+  quote: string | string[];
   author: string;
   detail: string;
 };
 
 export const testimonials: Testimonial[] = [
   {
-    quote:
-      "Per la prima volta ho capito davvero cosa stavamo facendo e perché. Niente paroloni: risultati che vedo nel locale, ogni settimana.",
-    author: "Titolare",
-    detail: "Ristorazione · Napoli",
+    quote: [
+      "Per la prima volta ho capito davvero cosa stavamo facendo e perché. Niente paroloni: risultati che vedo nel locale,",
+      "ogni settimana.",
+    ],
+    author: "Mariano Panariello, proprietario",
+    detail: "Ristorante San Pietro Bistrò del Mare · Torre del Greco (Napoli)",
   },
   {
     quote:
       "Parlo sempre con loro due, non con un call center diverso ogni volta. Si sente che il progetto è seguito da chi lo ha pensato.",
-    author: "Founder",
-    detail: "Beauty & wellness · Campania",
+    author: "Chef Angelo Arrichiello, proprietario",
+    detail: "Ristorante Mare · Portici (Napoli)",
   },
   {
     quote:
       "Avevo già speso senza vedere nulla. Qui prima mi hanno fatto provare, poi ho deciso. Oggi le prenotazioni arrivano dal sito.",
-    author: "Proprietario",
-    detail: "Centro sportivo · Campania",
+    author: "Mariano Panariello, proprietario",
+    detail: "Ristorante San Pietro Bistrò del Mare · Torre del Greco (Napoli)",
   },
 ];
 

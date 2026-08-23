@@ -2,6 +2,24 @@ import SectionHead from "./section-head";
 import Reveal from "./reveal";
 import { testimonials } from "@/lib/site";
 
+// Una citazione può arrivare come stringa o come elenco di righe: sul desktop
+// ogni riga va a capo dove l'abbiamo decisa noi, sugli schermi stretti torna a
+// scorrere di seguito (i blocchi diventano di nuovo testo in linea).
+function Quote({ text }: { text: string | string[] }) {
+  const righe = Array.isArray(text) ? text : [text];
+
+  return (
+    <>
+      {righe.map((riga, i) => (
+        <span key={riga} className="lg:block">
+          {i > 0 ? " " : null}
+          {riga}
+        </span>
+      ))}
+    </>
+  );
+}
+
 export default function Testimonials() {
   const [lead, ...rest] = testimonials;
 
@@ -20,7 +38,7 @@ export default function Testimonials() {
                 prima era a filo sinistro e sembrava sfalsata. */}
             <blockquote className="mx-auto mt-14 max-w-4xl text-center">
               <p className="display text-[clamp(1.35rem,3vw,2.2rem)] leading-[1.18] text-cream">
-                «{lead.quote}»
+                «<Quote text={lead.quote} />»
               </p>
               <footer className="mt-6 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-cream/50">
                 {lead.author} — {lead.detail}
@@ -33,8 +51,10 @@ export default function Testimonials() {
             colonna, e lì il testo si legge meglio a filo. */}
         <div className="mt-16 grid gap-10 border-t border-cream/10 pt-12 sm:grid-cols-2 sm:gap-14">
           {rest.map((t, i) => (
-            <Reveal key={t.detail} delay={120 + i * 80}>
-              <p className="text-xl leading-relaxed text-cream/75">«{t.quote}»</p>
+            <Reveal key={t.author + i} delay={120 + i * 80}>
+              <p className="text-xl leading-relaxed text-cream/75">
+                «<Quote text={t.quote} />»
+              </p>
               <p className="mt-5 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-cream/50">
                 {t.author} — {t.detail}
               </p>
