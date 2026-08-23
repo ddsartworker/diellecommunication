@@ -141,7 +141,12 @@ Il `body` accetta anche **un array di righe**: ogni voce diventa una riga a sé
 (`<span className="block">`). Serve a far staccare la frase di chiusura, come
 nei servizi («…solo ciò che ti serve:» a capo «la strategia resta cucita su
 misura.»). Stesso trucco, scritto a mano, nell'apertura, nel problema e in «Chi
-siamo». Nei **testi** non usare `<br />`: con i blocchi ogni riga manda a capo
+siamo». Attenzione a cosa metti **fuori** dai blocchi: le virgolette delle
+testimonianze stavano attorno alle righe e sul desktop finivano ognuna su una
+riga tutta sua, sopra e sotto la citazione. Tutto ciò che deve stare in linea
+col testo va dentro la prima o l'ultima riga.
+
+Nei **testi** non usare `<br />`: con i blocchi ogni riga manda a capo
 per conto suo sugli schermi stretti, mentre un `<br />` resta lì anche quando
 non ci sta. Nei **titoli** il `<br />` va bene (lo usa il titolo
 dell'apertura): lì la riga è corta e la spezzatura è voluta.

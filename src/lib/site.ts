@@ -361,19 +361,19 @@ export const testimonials: Testimonial[] = [
       "ogni settimana.",
     ],
     author: "Mariano Panariello, proprietario",
-    detail: "Ristorante San Pietro Bistrò del Mare · Torre del Greco (Napoli)",
+    detail: "Ristorante San Pietro Bistrot del Mare · Torre del Greco (Napoli)",
   },
   {
     quote:
       "Parlo sempre con loro due, non con un call center diverso ogni volta. Si sente che il progetto è seguito da chi lo ha pensato.",
     author: "Chef Angelo Arrichiello, proprietario",
-    detail: "Ristorante Mare · Portici (Napoli)",
+    detail: "Ristorante Na Mare · Portici (Napoli)",
   },
   {
     quote:
       "Avevo già speso senza vedere nulla. Qui prima mi hanno fatto provare, poi ho deciso. Oggi le prenotazioni arrivano dal sito.",
     author: "Mariano Panariello, proprietario",
-    detail: "Ristorante San Pietro Bistrò del Mare · Torre del Greco (Napoli)",
+    detail: "Ristorante San Pietro Bistrot del Mare · Torre del Greco (Napoli)",
   },
 ];
 

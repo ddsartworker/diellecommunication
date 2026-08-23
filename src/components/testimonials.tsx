@@ -5,6 +5,10 @@ import { testimonials } from "@/lib/site";
 // Una citazione può arrivare come stringa o come elenco di righe: sul desktop
 // ogni riga va a capo dove l'abbiamo decisa noi, sugli schermi stretti torna a
 // scorrere di seguito (i blocchi diventano di nuovo testo in linea).
+//
+// Le virgolette stanno **dentro** la prima e l'ultima riga, non fuori dai
+// blocchi: da fuori finivano ognuna su una riga tutta sua, sopra e sotto la
+// citazione, invece che attaccate al testo.
 function Quote({ text }: { text: string | string[] }) {
   const righe = Array.isArray(text) ? text : [text];
 
@@ -13,7 +17,9 @@ function Quote({ text }: { text: string | string[] }) {
       {righe.map((riga, i) => (
         <span key={riga} className="lg:block">
           {i > 0 ? " " : null}
+          {i === 0 ? "«" : null}
           {riga}
+          {i === righe.length - 1 ? "»" : null}
         </span>
       ))}
     </>
@@ -38,7 +44,7 @@ export default function Testimonials() {
                 prima era a filo sinistro e sembrava sfalsata. */}
             <blockquote className="mx-auto mt-14 max-w-4xl text-center">
               <p className="display text-[clamp(1.35rem,3vw,2.2rem)] leading-[1.18] text-cream">
-                «<Quote text={lead.quote} />»
+                <Quote text={lead.quote} />
               </p>
               <footer className="mt-6 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-cream/50">
                 {lead.author} — {lead.detail}
@@ -53,7 +59,7 @@ export default function Testimonials() {
           {rest.map((t, i) => (
             <Reveal key={t.author + i} delay={120 + i * 80}>
               <p className="text-xl leading-relaxed text-cream/75">
-                «<Quote text={t.quote} />»
+                <Quote text={t.quote} />
               </p>
               <p className="mt-5 font-mono text-[0.72rem] uppercase tracking-[0.16em] text-cream/50">
                 {t.author} — {t.detail}
