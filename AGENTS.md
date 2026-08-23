@@ -83,7 +83,8 @@ maiuscole spaziate.
 
 **Dove porta «Richiedi la prova gratuita»**: a **Cal.com**, il servizio di
 prenotazione appuntamenti (lo stesso impianto di leftclick.ai, il riferimento
-indicato da Dario). L'indirizzo sta in un punto solo — `booking.url` in
+indicato da Dario). L'indirizzo (oggi
+`cal.com/dlcommunication/30min`) sta in un punto solo — `booking.url` in
 `site.ts` — e da lì lo leggono tutti e sei i pulsanti: apertura, sezione della
 prova, barra fissa su mobile, CTA di chiusura delle pagine interne e i due
 pulsanti della pagina `/prova`. **Non scrivere l'indirizzo a mano nei
@@ -240,11 +241,11 @@ in inglese.
 
 ## Da sistemare
 
-- `src/lib/site.ts` — **`booking.url` è ancora un segnaposto**
-  (`cal.com/diellecommunication/prova-gratuita`): quell'indirizzo non esiste.
-  Va sostituito con il link vero appena l'account Cal.com è pronto. Finché è
-  un segnaposto **non pubblicare**: sarebbero sei pulsanti che portano a una
-  pagina inesistente.
+- `src/lib/site.ts` — l'appuntamento su Cal.com si chiama ancora «Meeting di
+  30 minuti», il nome predefinito: chi clicca «Richiedi la prova gratuita»
+  arriva su una pagina che parla d'altro. Da rinominare **su Cal.com**, non
+  nel codice. Se cambia anche l'indirizzo dell'evento (`30min`), va aggiornato
+  `booking.url`: Cal.com non lascia rimandi dai vecchi indirizzi.
 - `src/app/api/contact/route.ts` — il form contatti non invia ancora nulla, scrive
   solo nei log. Va collegato a un servizio email reale prima di andare online.
 - `src/app/prova/page.tsx` — i due pulsanti hanno ancora il loro markup

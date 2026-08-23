@@ -382,13 +382,16 @@ export const testimonials: Testimonial[] = [
 // il visitatore sceglie giorno e ora e prenota da solo, senza scrivere una
 // mail e senza aspettare risposta.
 //
-// TODO: SOSTITUIRE con il link vero. Il formato è
-// https://cal.com/<nome-utente>/<tipo-di-evento> — il nome utente si sceglie
-// iscrivendosi su cal.com, il tipo di evento è la durata della call (es. 30
-// minuti). `?source=website` serve solo a sapere, dentro Cal.com, che la
-// prenotazione è arrivata dal sito.
+// Il formato è https://cal.com/<nome-utente>/<tipo-di-evento>.
+// `?source=website` serve solo a sapere, dentro Cal.com, che la prenotazione
+// è arrivata dal sito e non da un link mandato a mano.
+//
+// ATTENZIONE: se su Cal.com cambia il nome utente o l'indirizzo dell'evento,
+// **non resta un rimando** dal vecchio indirizzo. Questa riga va aggiornata
+// nello stesso momento, o tutti e sei i pulsanti puntano nel vuoto. È già
+// successo una volta: alla nascita l'account aveva un suffisso casuale.
 export const booking = {
-  url: "https://cal.com/diellecommunication/prova-gratuita?source=website",
+  url: "https://cal.com/dlcommunication/30min?source=website",
   label: "Richiedi la prova gratuita",
 };
 
