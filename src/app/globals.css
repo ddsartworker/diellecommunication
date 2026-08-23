@@ -230,7 +230,12 @@ body {
      stessa durata: erano 25s per dieci nomi, con tredici il nastro è più
      lungo e in 25s correrebbe. Se aggiungi o togli clienti, ricalcola:
      circa 2,5 secondi a nome. */
-  animation: dielle-marquee 33s linear infinite;
+  animation: dielle-marquee 35s linear infinite;
+}
+/* I nomi sono link: il nastro si ferma quando ci passi sopra col mouse,
+   altrimenti cliccarli sarebbe un tiro al bersaglio in movimento. */
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {

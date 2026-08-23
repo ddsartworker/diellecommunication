@@ -234,11 +234,26 @@ scritta ferma («Dario e Luisa hanno lavorato con»), a destra i nomi che scorro
 Misure prese dal riferimento: etichetta 9,9px maiuscola con tracking 0.1em,
 nomi 15,8px di peso 500, 54px tra un nome e l'altro. La durata del giro tiene
 la stessa **velocità** del riferimento, non la stessa durata: erano 25 secondi
-per dieci nomi, oggi sono **33 per tredici**. Se aggiungi o togli un cliente,
+per dieci nomi, oggi sono **35 per quattordici**. Se aggiungi o togli un cliente,
 ricalcola — circa 2,5 secondi a nome — altrimenti il nastro corre o striscia.
 I nomi dei clienti in `site.ts` vanno scritti con le maiuscole giuste (AdaTech,
 BandoHub, CoffeeWorld, Tadàbook…): il nastro non li trasforma più in maiuscolo,
 e le grafie sono state prese dai siti dei clienti stessi, non a orecchio.
+
+**I nomi sono cliccabili** e portano al sito del cliente, in una scheda nuova.
+Ogni voce di `clients` è `{ name, href }`; `href` può mancare, e allora il nome
+resta testo semplice, senza mano e senza sottolineatura. NinjaStickers non ha
+un sito raggiungibile, quindi punta al suo caso studio interno
+(`/lavori/ninjastickers`): il nastro riconosce da sé gli indirizzi che
+cominciano per `/` e li fa passare dal router invece che da un link esterno.
+
+Al passaggio del mouse il nome si accende e prende una sottolineatura arancione,
+e **il nastro si ferma** (`.marquee-track:hover` in `globals.css`). Non è un
+vezzo: senza la pausa cliccare un nome sarebbe un tiro al bersaglio in
+movimento. La seconda copia della riga — quella che serve solo a chiudere il
+giro senza stacchi — è `aria-hidden` e fuori dalla tabulazione, altrimenti chi
+naviga da tastiera o con un lettore di schermo troverebbe ogni cliente due
+volte.
 
 Nella sezione **«Chi siamo»** (`about.tsx`) foto e testi di ciascun fondatore
 stanno in un unico blocco largo `32rem`, centrato nella colonna e allineato a

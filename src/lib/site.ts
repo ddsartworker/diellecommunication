@@ -547,22 +547,28 @@ export function getWork(slug: string): WorkItem | undefined {
   return work.find((w) => w.slug === slug);
 }
 
-// Clienti reali (fonte: ddsartworker.it). Usati nella marquee.
-// Nomi come vanno scritti a video: il nastro non li mette più in maiuscolo,
-// quindi le maiuscole interne contano.
-// TODO: far confermare a Dario le grafie esatte dei marchi.
-export const clients = [
-  "Namare",
-  "San Pietro Bistrot del Mare",
-  "Taverna 'e Mare",
-  "Tadàbook",
-  "Tadàplay",
-  "Le Stelle",
-  "AdaTech",
-  "BandoHub",
-  "Voice Concierge",
-  "Parsec 3.26",
-  "CoffeeWorld",
-  "EverUp",
-  "I Testa",
+// Clienti reali. Il nastro è cliccabile: ogni nome porta al sito del cliente.
+// Le grafie sono prese dai siti stessi (logo o titolo), non a orecchio: il
+// nastro non le mette più in maiuscolo, quindi le maiuscole interne contano.
+//
+// `href` può mancare: in quel caso il nome resta testo, senza mano e senza
+// sottolineatura. NinjaStickers non ha un sito raggiungibile, quindi punta al
+// suo caso studio qui dentro.
+export type Client = { name: string; href?: string };
+
+export const clients: Client[] = [
+  { name: "Namare", href: "https://namare.it/" },
+  { name: "San Pietro Bistrot del Mare", href: "https://www.sanpietrobistrot.it/" },
+  { name: "Taverna 'e Mare", href: "https://tavernaemare.it/" },
+  { name: "Tadàbook", href: "https://www.tadabook.it/" },
+  { name: "Tadàplay", href: "https://tadaplay.it/" },
+  { name: "Le Stelle", href: "https://lestellesrl.it/" },
+  { name: "AdaTech", href: "https://www.ada-tech.it/" },
+  { name: "BandoHub", href: "https://bandohub.it/" },
+  { name: "Voice Concierge", href: "https://voiceconcierge.it/" },
+  { name: "Parsec 3.26", href: "https://www.parsec326.it/" },
+  { name: "CoffeeWorld", href: "https://www.coffeeworld.it/" },
+  { name: "EverUp", href: "https://everup.co.uk/" },
+  { name: "I Testa", href: "https://itesta.it/" },
+  { name: "NinjaStickers", href: "/lavori/ninjastickers" },
 ];
