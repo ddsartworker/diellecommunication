@@ -154,9 +154,12 @@ dell'apertura): lì la riga è corta e la spezzatura è voluta.
 Le **firme delle testimonianze** (nome, ruolo, locale, città) sfiorano i 100
 caratteri: con la spaziatura da micro-etichetta (`tracking-[0.16em]`) volevano
 ~860px e andavano a capo dentro una colonna larga ~600px. Stanno su una riga
-sola a `text-[0.55rem]` con `tracking-[0.02em]`. Sotto i ~1200px la colonna si
-stringe e tornano su due righe: è voluto, l'alternativa sarebbe un corpo
-illeggibile. Se allunghi una firma, rifai il conto.
+sola a `text-[0.62rem]` con `tracking-[0.01em]`: sono ~565px, il massimo che
+entra in quella colonna a finestra piena su un 13". A questo corpo la
+leggibilità la fa il **contrasto** più della dimensione, per questo le firme
+stanno a `text-cream/70` e non a `/50` come le altre micro-etichette. Sotto i
+~1200px la colonna si stringe e tornano su due righe: è voluto, l'alternativa
+sarebbe un corpo illeggibile. Se allunghi una firma, rifai il conto.
 
 Nelle **tre colonne della prova gratuita** ogni punto ha `pl-7` *e* `pr-7`:
 la linea verticale che li divide deve avere la stessa aria da tutte e due le

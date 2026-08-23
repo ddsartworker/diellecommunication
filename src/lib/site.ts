@@ -367,7 +367,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "Parlo sempre con loro due, non con un call center diverso ogni volta. Si sente che il progetto è seguito da chi lo ha pensato.",
     author: "Chef Angelo Arrichiello, proprietario",
-    detail: "Ristorante Na Mare · Portici (Napoli)",
+    detail: "Ristorante NAMARE · Portici (Napoli)",
   },
   {
     quote:
