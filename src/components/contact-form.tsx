@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { site } from "@/lib/site";
+
 type Status = "idle" | "loading" | "success" | "error";
 
 const fieldClass =
@@ -39,17 +41,18 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="flex h-full min-h-64 flex-col items-start justify-center gap-3 rounded-2xl border border-mint/30 bg-saffron/5 p-8">
+      <div className="flex h-full min-h-64 flex-col items-start justify-center gap-3 rounded-2xl border border-saffron/30 bg-saffron/5 p-8">
         <p className="display text-4xl text-saffron">Ci siamo.</p>
         <p className="text-cream/70">
-          Messaggio ricevuto. Ti rispondo entro un paio di giorni lavorativi.
+          Messaggio ricevuto: te ne abbiamo mandato conferma per email. Ti
+          rispondiamo di persona entro un giorno lavorativo.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4" noValidate>
+    <form onSubmit={onSubmit} className="relative space-y-4" noValidate>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="sr-only">
@@ -115,6 +118,21 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {/* Campo trappola: invisibile a chi legge, irresistibile per i robot che
+          riempiono ogni campo. Se arriva pieno, la richiesta viene buttata.
+          `aria-hidden` e `tabIndex={-1}` lo tengono fuori anche dai lettori di
+          schermo e dalla tabulazione: nessuno lo incontra per sbaglio. */}
+      <div className="absolute left-[-9999px]" aria-hidden="true">
+        <label htmlFor="website">Non compilare questo campo</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div>
         <label htmlFor="message" className="sr-only">
           Messaggio
@@ -129,9 +147,17 @@ export default function ContactForm() {
         />
       </div>
 
+      {/* Se l'invio fallisce non lasciamo un errore muto: l'indirizzo è lì,
+          cliccabile. Chi voleva scrivere ha comunque una strada. */}
       {status === "error" && (
         <p role="alert" className="text-sm text-saffron">
-          {error}
+          {error}{" "}
+          <a
+            href={`mailto:${site.email}`}
+            className="underline decoration-saffron/50 decoration-1 underline-offset-4"
+          >
+            {site.email}
+          </a>
         </p>
       )}
 

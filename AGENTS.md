@@ -435,6 +435,38 @@ pulsanti).
 Testi del sito e commenti nel codice in italiano. Nomi di variabili, funzioni e file
 in inglese.
 
+## Posta: come parte il modulo contatti
+
+Il modulo passa da **Resend**, installato come integrazione nativa di Vercel
+(`vercel integration add resend/resend-email`). Chiave e dominio arrivano dalle
+variabili d'ambiente `RESEND_API_KEY` e `RESEND_EMAIL_DOMAIN`: non stanno nel
+codice e non vanno scritte a mano. Regione **`eu-west-1`, Irlanda**, scelta
+apposta invece della predefinita americana — la privacy policy dichiara cosa
+esce dall'Unione Europea, e la posta che resta dentro è una complicazione in
+meno.
+
+Partono **due email** per ogni richiesta (`src/app/api/contact/route.ts`):
+
+1. la richiesta a `site.email`, con **`replyTo` sull'indirizzo di chi ha
+   scritto**: si preme Rispondi e si sta già scrivendo a lui;
+2. una **conferma automatica a chi ha compilato**, col pulsante per prenotare
+   la call. Se questa seconda fallisce non è grave e non blocca nulla: la
+   richiesta è già arrivata. I testi stanno in `contactEmails` in `site.ts`.
+
+Contro lo spam c'è un **campo trappola** invisibile (`website`) invece di un
+captcha: i captcha fanno abbandonare il modulo, e a questi volumi non servono.
+Se arriva pieno, la richiesta viene scartata rispondendo «ok» — dire «sei un
+robot» servirebbe solo a fargli cambiare tattica.
+
+Se l'invio fallisce il modulo **non lascia un errore muto**: mostra
+l'indirizzo email cliccabile, così chi voleva scrivere ha comunque una strada.
+
+**Da fare: verificare il dominio.** Su Aruba, nei record DNS di
+`dlcommunication.it`, vanno aggiunti i tre record che Resend indica nel suo
+pannello — un TXT per DKIM su `resend._domainkey`, un MX e un TXT per SPF su
+`send`. Sono **record, mai i nameserver**: cambiare quelli spegnerebbe la
+casella di posta. Finché il dominio è `not_started`, ogni invio fallisce.
+
 ## Contesto operativo
 
 - Repository: `github.com/ddsartworker/diellecommunication`
@@ -464,8 +496,9 @@ in inglese.
   Da completare e far controllare prima di collegare il dominio. Va anche
   verificato che la forma societaria dichiarata nel copyright — **S.r.l.** —
   sia quella reale: è una dichiarazione pubblica.
-- `src/app/api/contact/route.ts` — il form contatti non invia ancora nulla, scrive
-  solo nei log. Va collegato a un servizio email reale prima di andare online.
+- **Il dominio su Resend non è ancora verificato**, quindi il modulo contatti
+  non riesce a spedire: fino a quando i tre record DNS non sono su Aruba, chi
+  compila vede l'errore con l'indirizzo email accanto. Vedi «Posta» più sotto.
 - `src/app/prova/page.tsx` — i due pulsanti hanno ancora il loro markup
   invece del componente `cta.tsx`: stesso colore, ma niente movimento e niente
   pallino con la freccia. Da uniformare.

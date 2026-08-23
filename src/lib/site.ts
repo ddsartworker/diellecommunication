@@ -567,6 +567,23 @@ export function getWork(slug: string): WorkItem | undefined {
   return work.find((w) => w.slug === slug);
 }
 
+// — Le due email che partono quando qualcuno compila il modulo contatti.
+// Il testo della conferma automatica è a tutti gli effetti una comunicazione
+// del brand: sta qui come tutto il resto, non dentro il codice.
+export const contactEmails = {
+  // Chi scrive riceve subito una conferma: senza, resta nel vuoto e nel
+  // dubbio di aver sbagliato qualcosa.
+  replySubject: "Abbiamo ricevuto il tuo messaggio",
+  replyGreeting: "Ciao",
+  replyLines: [
+    "Grazie per averci scritto: il tuo messaggio è arrivato a Dario e Luisa.",
+    "Ti rispondiamo di persona entro un giorno lavorativo. Se nel frattempo preferisci parlarne a voce, puoi prenotare direttamente mezz'ora con noi.",
+  ],
+  replySignature: "Dario e Luisa — Dielle Communication",
+  // Oggetto della notifica che arriva a noi.
+  noticeSubject: "Nuova richiesta dal sito",
+};
+
 // — Footer. Ripreso da leftclick.ai, il riferimento indicato da Dario: a
 // sinistra l'invito con il pulsante, a destra le colonne di link, sotto una
 // riga con marchio, note legali e copyright.
