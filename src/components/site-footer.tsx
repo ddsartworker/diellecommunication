@@ -29,14 +29,17 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-white/5 pb-10 pt-[72px]">
+    // Stessa superficie dell'apertura e della barra: `.surface-glow`, l'alone
+    // radiale che schiarisce verso il centro. Il sito si apre e si chiude
+    // sullo stesso fondo.
+    <footer className="surface-glow border-t border-white/5 pb-10 pt-[72px]">
       <div className="shell grid gap-16 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-20">
         {/* L'invito: etichetta piccola, una riga che spiega cosa succede, il
             pulsante sotto. Come nel riferimento, ma con la pillola arancione
             che è l'unica azione forte del sito. */}
         <div>
           <p className="text-[0.95rem] text-cream/55">{footer.kicker}</p>
-          <p className="mt-2 text-pretty text-[1.15rem] leading-snug text-cream sm:text-[1.3rem]">
+          <p className="mt-2 max-w-md text-pretty text-[1rem] leading-snug text-cream sm:text-[1.05rem]">
             {footer.lead}
           </p>
           <Cta href={booking.url} className="mt-8">

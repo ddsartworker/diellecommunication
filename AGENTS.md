@@ -165,15 +165,16 @@ tracking -0.03em e peso 500. Sono i valori misurati sul titolo di leftclick.ai.
 L'apertura è scura, con un alone radiale al centro e titolo in **un solo
 colore**: la sfumatura sta nel fondo, mai nelle lettere. Quella superficie è la
 classe **`.surface-glow`** in `globals.css`, condivisa da hero, «Partiamo da
-te», «Chi siamo», «Tutto ciò che serve per farti scegliere» e la sezione della
-prova: non ricopiare il gradiente a mano, usa la classe.
+te», «Chi siamo», «Tutto ciò che serve per farti scegliere», la sezione della
+prova e il **footer**: non ricopiare il gradiente a mano, usa la classe. Il
+sito si apre e si chiude sulla stessa superficie.
 
 **I fondi si alternano: uno a gradiente, uno in tinta unita.** Scendendo lungo
 la home l'ordine è hero (`.surface-glow`) · nastro clienti (`navy-ink`) ·
 problema (`.surface-glow`) · metodo (`bg-navy-deep`) · chi siamo
 (`.surface-glow`) · strumenti (`bg-navy-deep`) · servizi (`.surface-glow`) ·
 testimonianze (`bg-navy-deep`) · prova (`.surface-glow`) · contatti
-(`bg-navy-deep`). La sezione delle testimonianze **non è più chiara**: era
+(`bg-navy-deep`) · footer (`.surface-glow`). La sezione delle testimonianze **non è più chiara**: era
 l'unica su `bg-cream`, ora è blu in tinta unita come le altre. Se aggiungi una
 sezione, guarda quella sopra e prendi l'altro fondo.
 
