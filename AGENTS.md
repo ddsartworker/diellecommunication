@@ -50,6 +50,15 @@ punto solo, senza toccare il codice.
   sezione a sé)
 - `public/work/`, `public/social/`, `public/tools/` — immagini dei progetti e loghi
 
+Gli strumenti della sezione «Progettiamo con» stanno nell'array `TOOLS` dentro
+`src/components/tools.tsx` (non in `site.ts`: sono loghi, non testo). L'ordine
+conta — è quello con cui le tessere si aprono a ventaglio — e il numero nel
+pallino arancione si conta da sé, non va aggiornato a mano. Oggi sono dieci:
+Claude, Cursor, Antigravity, Visual Studio Code, Premiere, Illustrator,
+Lightroom, WordPress, Shopify, Ubersuggest. In `public/tools/` restano anche
+`photoshop.svg`, `figma.svg` ed `elementor.svg`, non più in elenco: basta
+rimetterli nell'array per farli tornare.
+
 ## Design
 
 I token sono definiti in `src/app/globals.css`, dentro il blocco `@theme`.

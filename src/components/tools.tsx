@@ -11,15 +11,20 @@ import Reveal from "./reveal";
   ogni card e larghezza dello stage sono guidate via transform/ref in un rAF,
   senza re-render di React a ogni frame.
 */
+// L'ordine è quello deciso da Dario, e conta: è quello con cui le tessere si
+// aprono a ventaglio, da sinistra a destra. Prima gli strumenti con cui si
+// costruisce, poi quelli con cui si disegna, poi quelli su cui si pubblica.
 const TOOLS = [
-  { name: "Adobe Illustrator", file: "/tools/illustrator.svg" },
-  { name: "Adobe Photoshop", file: "/tools/photoshop.svg" },
-  { name: "Adobe Lightroom", file: "/tools/lightroom.svg" },
-  { name: "Figma", file: "/tools/figma.svg" },
-  { name: "WordPress", file: "/tools/wordpress.svg" },
-  { name: "Elementor", file: "/tools/elementor.svg" },
-  { name: "Visual Studio Code", file: "/tools/vscode.svg" },
   { name: "Claude", file: "/tools/claude.svg" },
+  { name: "Cursor", file: "/tools/cursor.svg" },
+  { name: "Antigravity", file: "/tools/antigravity.png" },
+  { name: "Visual Studio Code", file: "/tools/vscode.svg" },
+  { name: "Adobe Premiere Pro", file: "/tools/premiere.svg" },
+  { name: "Adobe Illustrator", file: "/tools/illustrator.svg" },
+  { name: "Adobe Lightroom", file: "/tools/lightroom.svg" },
+  { name: "WordPress", file: "/tools/wordpress.svg" },
+  { name: "Shopify", file: "/tools/shopify.svg" },
+  { name: "Ubersuggest", file: "/tools/ubersuggest.svg" },
 ];
 
 const COLLAPSED_PEEK = 4; // px visibili di ogni card quando lo stack è chiuso
