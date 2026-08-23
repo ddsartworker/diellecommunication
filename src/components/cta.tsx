@@ -88,6 +88,9 @@ export default function Cta({
   return (
     <Wrapper
       href={href}
+      // La pillola piena non cambia col tema: arancione, testo blu, pallino
+      // blu. È il marchio in azione, non una superficie.
+      data-theme={variant === "primary" ? "dark" : undefined}
       className={classes}
       onClick={onClick}
       {...attributiEsterni}

@@ -5,7 +5,7 @@ import { useState } from "react";
 type Status = "idle" | "loading" | "success" | "error";
 
 const fieldClass =
-  "w-full rounded-xl border border-cream/15 bg-white/[0.03] px-4 py-3 text-cream placeholder:text-cream/35 outline-none transition-colors duration-300 focus:border-saffron/70";
+  "w-full rounded-xl border border-cream/15 bg-cream/[0.04] px-4 py-3 text-cream placeholder:text-cream/35 outline-none transition-colors duration-300 focus:border-saffron/70";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -138,7 +138,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full rounded-full bg-saffron px-7 py-3.5 text-sm font-semibold text-navy transition-colors duration-300 hover:bg-saffron-2 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+        className="w-full rounded-full bg-saffron px-7 py-3.5 text-sm font-semibold text-ink transition-colors duration-300 hover:bg-saffron-2 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
       >
         {status === "loading" ? "Invio in corso…" : "Lascia i tuoi dati"}
       </button>

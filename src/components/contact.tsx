@@ -7,6 +7,9 @@ export default function Contact() {
   return (
     <section
       id="contatti"
+      // Resta scura anche a tema chiaro, per scelta di Dario: è la sezione
+      // del modulo, e deve staccare da tutto il resto.
+      data-theme="dark"
       className="bg-navy-deep py-[108px]"
     >
       <div className="shell">

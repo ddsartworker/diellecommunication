@@ -35,7 +35,7 @@ export default function Work() {
                 aria-pressed={isActive}
                 className={`rounded-full px-4 py-2 font-mono text-[0.68rem] uppercase tracking-[0.14em] transition-colors duration-300 ${
                   isActive
-                    ? "bg-saffron text-navy"
+                    ? "bg-saffron text-ink"
                     : "border border-cream/15 text-cream/65 hover:border-cream/40 hover:text-cream"
                 }`}
               >
@@ -113,7 +113,7 @@ export default function Work() {
           href={instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="group mt-12 flex items-center justify-between gap-6 rounded-2xl border border-cream/15 p-6 transition-colors duration-500 hover:border-saffron/60 hover:bg-white/[0.02] sm:p-8"
+          className="group mt-12 flex items-center justify-between gap-6 rounded-2xl border border-cream/15 p-6 transition-colors duration-500 hover:border-saffron/60 hover:bg-cream/[0.03] sm:p-8"
         >
           <div>
             <span className="kicker text-cream/55">@diellecommunication</span>

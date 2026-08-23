@@ -32,7 +32,7 @@ export default function SiteFooter() {
     // `navy-ink`, lo stesso blu d'inchiostro del nastro dei clienti: il più
     // profondo della tavolozza. Il sito si apre chiaro e si chiude scuro, e
     // la chiusura stacca da tutto quello che ha sopra.
-    <footer className="bg-navy-ink border-t border-white/5 pb-10 pt-[72px]">
+    <footer className="bg-navy-ink border-t border-cream/10 pb-10 pt-[72px]">
       <div className="shell grid gap-16 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-20">
         {/* L'invito: etichetta piccola, una riga che spiega cosa succede, il
             pulsante sotto. Come nel riferimento, ma con la pillola arancione
@@ -67,7 +67,7 @@ export default function SiteFooter() {
 
       {/* Riga di chiusura: marchio a sinistra, note legali al centro,
           copyright a destra. */}
-      <div className="shell mt-16 flex flex-col gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
+      <div className="shell mt-16 flex flex-col gap-6 border-t border-cream/15 pt-8 md:flex-row md:items-center md:justify-between">
         <Logo />
 
         <nav className="flex flex-wrap gap-x-8 gap-y-2">

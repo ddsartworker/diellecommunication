@@ -74,7 +74,7 @@ export default async function ArticlePage({
               ))}
             </div>
 
-            <div className="mt-16 rounded-2xl border border-cream/10 bg-white/[0.02] p-7">
+            <div className="mt-16 rounded-2xl border border-cream/10 bg-cream/[0.03] p-7">
               <p className="kicker text-saffron">Scritto da</p>
               <p className="mt-3 leading-relaxed text-cream/80">
                 {founders.map((f) => f.name).join(" & ")} — i fondatori di Dielle
@@ -94,7 +94,7 @@ export default async function ArticlePage({
                   <Link
                     key={p.slug}
                     href={p.href}
-                    className="group bg-navy/40 p-7 transition-colors hover:bg-white/[0.02]"
+                    className="group bg-navy/40 p-7 transition-colors hover:bg-cream/[0.03]"
                   >
                     <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-saffron">
                       {p.tag}

@@ -64,7 +64,7 @@ export default function ProvaPage() {
               href={booking.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-block rounded-full bg-saffron px-7 py-3.5 text-sm font-semibold text-navy transition-colors duration-300 hover:bg-saffron-2"
+              className="mt-8 inline-block rounded-full bg-saffron px-7 py-3.5 text-sm font-semibold text-ink transition-colors duration-300 hover:bg-saffron-2"
             >
               {booking.label}
             </a>
@@ -138,7 +138,7 @@ export default function ProvaPage() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-cream/10 bg-white/[0.02] p-8">
+            <div className="rounded-2xl border border-cream/10 bg-cream/[0.03] p-8">
               <h2 className="display text-2xl text-cream/70">Non è per te se…</h2>
               <ul className="mt-6 space-y-3">
                 {notForYou.map((item) => (
@@ -168,7 +168,7 @@ export default function ProvaPage() {
               href={booking.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-10 inline-block rounded-full bg-saffron px-7 py-3.5 text-sm font-semibold text-navy transition-colors duration-300 hover:bg-saffron-2"
+              className="mt-10 inline-block rounded-full bg-saffron px-7 py-3.5 text-sm font-semibold text-ink transition-colors duration-300 hover:bg-saffron-2"
             >
               {booking.label}
             </a>

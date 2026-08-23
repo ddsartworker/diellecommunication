@@ -72,6 +72,9 @@ export default function SiteHeader() {
           1px lasciava intravedere il fondo bianco sotto la barra, ed è quella
           la riga che si vedeva sopra l'apertura. */}
       <div
+        // Il pannello è bianco con testo blu in tutti e due i temi: inchiodato
+        // al tema scuro, altrimenti a tema chiaro sarebbe bianco su bianco.
+        data-theme="dark"
         className={`grid overflow-hidden transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           open
             ? "grid-rows-[1fr] border-t border-navy/10 bg-white"

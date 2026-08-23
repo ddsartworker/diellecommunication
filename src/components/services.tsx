@@ -21,7 +21,7 @@ export default function Services() {
             <Reveal
               key={s.n}
               delay={i * 70}
-              className="group grid grid-cols-1 gap-6 border-b border-cream/10 py-9 transition-colors duration-500 hover:bg-white/[0.02] lg:grid-cols-[2.5rem_minmax(0,15rem)_minmax(0,28rem)_1fr] lg:items-baseline lg:gap-10"
+              className="group grid grid-cols-1 gap-6 border-b border-cream/10 py-9 transition-colors duration-500 hover:bg-cream/[0.03] lg:grid-cols-[2.5rem_minmax(0,15rem)_minmax(0,28rem)_1fr] lg:items-baseline lg:gap-10"
             >
               <span className="font-mono text-sm text-navy-dim transition-colors duration-300 group-hover:text-saffron">
                 {s.n}

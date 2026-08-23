@@ -81,6 +81,50 @@ Il verde `#4eb480` (`mint`) è ancora definito fra i token ma **non è più usat
 nessuna parte**: su richiesta di Dario è stato sostituito ovunque dall'arancione.
 Non reintrodurlo senza chiederglielo.
 
+## Due temi: scuro e chiaro
+
+Il sito ha un **interruttore chiaro / scuro** in basso a destra
+(`theme-toggle.tsx`). Il tema è un attributo `data-theme` sull'elemento `html`;
+da lì scendono le due tavolozze definite in cima a `globals.css`.
+
+A **tema chiaro** i due blu che si alternano diventano due chiari, con lo stesso
+ritmo: **bianco puro `#ffffff`** dove c'era il gradiente, **`#f0f0f2`** dove
+c'era la tinta unita. Il testo diventa `#282f3f`, cioè il blu del marchio: a
+tema scuro fa da fondo, a tema chiaro fa da inchiostro. L'arancione non cambia
+mai: è il marchio, non una superficie.
+
+**Come funziona, e perché è fatto così.** I token dentro `@theme` non
+contengono un colore: puntano a variabili `--p-*` ridefinite per tema. Sembra
+un giro inutile, non lo è. Se contenessero il colore, Tailwind lo
+risolverebbe in fase di compilazione e tutte le trasparenze — `text-cream/65`,
+`border-cream/10`, quelle che tengono in piedi il sito — resterebbero
+inchiodate al tema scuro anche a tema chiaro attivo. Passando dalla variabile,
+Tailwind emette `color-mix(var(--color-cream) 65%, transparent)` e la
+trasparenza segue il tema. **Non rimettere i colori diretti in `@theme`.**
+
+Ne segue la regola pratica: **usa sempre i token, mai `white/10` o un colore
+scritto a mano.** `border-white/10` non cambia col tema e a tema chiaro
+sparisce; `border-cream/15` funziona in tutti e due.
+
+**Due eccezioni volute, per scelta di Dario: gli strumenti («Progettiamo
+con…») e i contatti («Parliamo del tuo progetto») restano scuri anche a tema
+chiaro.** Sono inchiodati con `data-theme="dark"` sulla sezione: lo stesso
+attributo che sta su `html` si può mettere su qualunque elemento e vale per il
+suo sottoalbero. Lo usano anche il pannello del menu (bianco con testo blu in
+tutti e due i temi) e la pillola arancione piena, che non deve cambiare mai.
+
+Per il **testo sopra l'arancio** esiste un token a parte, `ink` (`#282f3f`),
+che non segue il tema: `text-navy` a tema chiaro diventa bianco, e il bianco
+sull'arancio non si legge.
+
+L'interruttore **non tiene stato in React**: legge e scrive l'attributo, e
+quale icona mostrare lo decide il CSS a partire dallo stesso attributo. Con lo
+stato ci sarebbe un disallineamento fra la pagina generata dal server, che il
+tema non lo sa, e quella che trova il browser. Il primo tema lo mette uno
+script dentro `layout.tsx` **prima** che la pagina si disegni: senza, a ogni
+caricamento si vedrebbe un lampo del tema sbagliato. Alla prima visita si
+segue l'impostazione del sistema operativo di chi guarda.
+
 Carattere: **uno solo per tutto il sito**, la pila di sistema
 (`ui-sans-serif, system-ui, …`), cioè il font dell'interfaccia del dispositivo di
 chi guarda: San Francisco su Mac e iPhone, Segoe UI su Windows, Roboto su
@@ -191,7 +235,9 @@ testimonianze (`bg-navy-deep`) · prova (`.surface-glow`) · contatti
 e `/termini`) stanno su `bg-navy-deep`, come la sezione dei contatti: sono
 pagine di servizio, non devono brillare. La sezione delle testimonianze **non è più chiara**: era
 l'unica su `bg-cream`, ora è blu in tinta unita come le altre. Se aggiungi una
-sezione, guarda quella sopra e prendi l'altro fondo.
+sezione, guarda quella sopra e prendi l'altro fondo. A tema chiaro l'ordine è
+lo stesso, con `#ffffff` al posto del gradiente e `#f0f0f2` al posto della
+tinta unita — tranne strumenti e contatti, che restano scuri.
 
 Impianto ricorrente delle sezioni: **niente kicker**, titolo e sottotitolo
 centrati e di **un colore solo** (avorio sul fondo scuro, blu su quello chiaro),

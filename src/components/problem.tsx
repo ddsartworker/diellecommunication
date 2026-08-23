@@ -21,7 +21,7 @@ export default function Problem() {
             <Reveal
               key={group.tag}
               delay={i * 100}
-              className="flex flex-col gap-6 rounded-2xl border border-cream/10 bg-white/[0.02] p-8 sm:p-10"
+              className="flex flex-col gap-6 rounded-2xl border border-cream/10 bg-cream/[0.03] p-8 sm:p-10"
             >
               <p className="display text-xl text-cream sm:text-2xl">
                 {group.tag}

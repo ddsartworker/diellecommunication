@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ThemeToggle from "@/components/theme-toggle";
 
 // Nessun font da scaricare: il sito usa il carattere di sistema del
 // dispositivo di chi guarda (vedi il blocco @theme in globals.css).
@@ -56,9 +57,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="it">
+    // `suppressHydrationWarning`: lo script qui sotto scrive `data-theme` su
+    // <html> prima che React arrivi, quindi il segno trovato dal browser non
+    // coincide con quello generato dal server. È voluto.
+    <html lang="it" suppressHydrationWarning>
+      <head>
+        {/*
+          Il tema va deciso PRIMA che la pagina si disegni, altrimenti si vede
+          un lampo del tema sbagliato a ogni caricamento. Questo script è
+          minuscolo e bloccante apposta: legge la scelta salvata, e se non c'è
+          segue l'impostazione del sistema operativo di chi visita.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("dielle-theme");if(!t){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="dark"}})()`,
+          }}
+        />
+      </head>
       <body className="min-h-screen bg-navy font-sans text-cream antialiased">
         {children}
+        <ThemeToggle />
       </body>
     </html>
   );

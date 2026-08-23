@@ -34,7 +34,7 @@ export default function BlogIndex() {
               <Link
                 key={post.slug}
                 href={post.href}
-                className="group grid gap-3 border-b border-cream/10 py-8 transition-colors duration-500 hover:bg-white/[0.02] md:grid-cols-[1fr_2fr] md:gap-10 md:py-10"
+                className="group grid gap-3 border-b border-cream/10 py-8 transition-colors duration-500 hover:bg-cream/[0.03] md:grid-cols-[1fr_2fr] md:gap-10 md:py-10"
               >
                 <div className="flex items-center gap-4 font-mono text-[0.65rem] uppercase tracking-[0.14em]">
                   <span className="text-saffron">{post.tag}</span>

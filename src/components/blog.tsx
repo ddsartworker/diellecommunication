@@ -25,7 +25,7 @@ export default function Blog() {
             >
               <Link
                 href={post.href}
-                className="group flex h-full flex-col p-8 transition-colors duration-500 hover:bg-white/[0.02]"
+                className="group flex h-full flex-col p-8 transition-colors duration-500 hover:bg-cream/[0.03]"
               >
                 <div className="flex items-center justify-between font-mono text-[0.65rem] uppercase tracking-[0.14em]">
                   <span className="text-saffron">{post.tag}</span>

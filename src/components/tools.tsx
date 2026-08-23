@@ -113,6 +113,9 @@ export default function Tools() {
     // una in tinta unita e una a gradiente (`surface-glow`).
     <section
       id="strumenti"
+      // Resta scura anche a tema chiaro: le tessere dei loghi sono bianche e
+      // su fondo bianco sparirebbero. Scelta di Dario.
+      data-theme="dark"
       className="overflow-x-clip bg-navy-deep py-[108px]"
     >
       <div className="shell">

@@ -38,13 +38,13 @@ export default function MobileCta() {
         show ? "translate-y-0" : "pointer-events-none translate-y-full"
       }`}
     >
-      <div className="border-t border-white/10 bg-navy-deep/90 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md">
+      <div className="border-t border-cream/15 bg-navy-deep/90 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-md">
         <a
           href={booking.url}
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={show ? 0 : -1}
-          className="flex items-center justify-center gap-2 rounded-full bg-saffron px-6 py-3.5 text-sm font-semibold text-navy"
+          className="flex items-center justify-center gap-2 rounded-full bg-saffron px-6 py-3.5 text-sm font-semibold text-ink"
         >
           {booking.label}
           <span aria-hidden>→</span>

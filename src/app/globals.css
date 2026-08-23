@@ -6,34 +6,92 @@
   I nomi dei token (navy / saffron / mint / cream) restano stabili: cambiano i valori.
   Type: Michroma (titoli/display), Inter (testo), JetBrains Mono (micro-label).
 */
+/*
+  Le due tavolozze del sito, chiaro e scuro.
+
+  I token di `@theme` qui sotto NON contengono un colore: puntano a queste
+  variabili. È voluto. Se contenessero il colore, Tailwind lo risolverebbe in
+  fase di compilazione e le trasparenze — `text-cream/65`, `border-cream/10`,
+  tutte quelle che tengono in piedi il sito — resterebbero inchiodate al tema
+  scuro anche a tema chiaro attivo. Passando dalla variabile, Tailwind emette
+  `color-mix(var(--color-cream) 65%)` e la trasparenza segue il tema.
+
+  Il tema si cambia mettendo `data-theme` sull'elemento `html` (lo fa
+  `theme-toggle.tsx`). Lo stesso attributo si può mettere su una sezione
+  qualsiasi per inchiodarla a un tema: lo usano gli strumenti e i contatti,
+  che restano scuri anche a tema chiaro.
+*/
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --p-navy: #282f3f; /* fondo di pagina */
+  --p-navy-2: #333d4f; /* superfici elevate (card, immagini) */
+  --p-navy-deep: #1e2530; /* la tinta unita che si alterna al fondo */
+  --p-navy-dim: #7d8694; /* label spente */
+  --p-navy-ink: #0f141b; /* le due fasce di chiusura: nastro e footer */
+
+  --p-cream: #f7f7f3; /* il testo */
+  --p-cream-2: #e9e9e2;
+  --p-cream-rule: #dcdcd2;
+
+  /* L'apertura: alone radiale che schiarisce verso il centro. */
+  --p-glow: radial-gradient(
+    80% 60% at 50% 40%,
+    var(--p-navy-2) 0%,
+    var(--p-navy-deep) 70%
+  );
+}
+
+/*
+  Tema chiaro. Due colori che si alternano, come i due blu del tema scuro:
+  bianco puro per l'apertura e le sezioni dispari, `#f0f0f2` per il nastro dei
+  clienti e le sezioni pari. Niente alone: a tema chiaro l'apertura è bianca
+  piena.
+*/
+[data-theme="light"] {
+  color-scheme: light;
+
+  --p-navy: #ffffff;
+  --p-navy-2: #ffffff;
+  --p-navy-deep: #f0f0f2;
+  --p-navy-dim: #6b7280;
+  --p-navy-ink: #f0f0f2;
+
+  /* Il testo a tema chiaro è il blu del marchio, non un nero qualsiasi:
+     stessa `#282f3f` che a tema scuro fa da fondo. */
+  --p-cream: #282f3f;
+  --p-cream-2: #3a4354;
+  --p-cream-rule: #d6d6dc;
+
+  --p-glow: #ffffff;
+}
+
 @theme {
-  --color-navy: #282f3f; /* blu brand */
-  --color-navy-2: #333d4f; /* superfici elevate (card, immagini) */
-  --color-navy-deep: #1e2530; /* sezioni e footer più scure */
-  --color-navy-dim: #7d8694; /* label spente su fondo scuro */
-  /* Blu d'inchiostro: non fa parte del gradiente dell'apertura, serve per le
-     fasce che devono staccare sia dall'apertura (#1e2530) sia dalle sezioni
-     sotto (#282f3f). Oggi lo usa il nastro dei clienti. */
-  --color-navy-ink: #0f141b;
+  --color-navy: var(--p-navy);
+  --color-navy-2: var(--p-navy-2);
+  --color-navy-deep: var(--p-navy-deep);
+  --color-navy-dim: var(--p-navy-dim);
+  --color-navy-ink: var(--p-navy-ink);
 
-  --color-saffron: #f49619; /* arancio brand */
-  --color-saffron-2: #b96e0c; /* arancio scuro: hover + accenti su chiaro */
+  --color-cream: var(--p-cream);
+  --color-cream-2: var(--p-cream-2);
+  --color-cream-rule: var(--p-cream-rule);
 
-  --color-mint: #4eb480; /* verde brand */
-  --color-mint-2: #2c8a5a; /* verde scuro: testo su fondo chiaro */
+  /* L'arancio è lo stesso nei due temi: è il marchio, non il fondo. */
+  --color-saffron: #f49619;
+  /* Blu fisso per il testo sopra l'arancio: non segue il tema, perché a
+     tema chiaro `navy` diventa bianco e il bianco sull'arancio sparisce. */
+  --color-ink: #282f3f;
+  --color-saffron-2: #b96e0c;
 
-  --color-cream: #f7f7f3; /* bianco brand, appena ammorbidito */
-  --color-cream-2: #e9e9e2;
-  --color-cream-rule: #dcdcd2;
+  --color-mint: #4eb480;
+  --color-mint-2: #2c8a5a;
 
   /*
     Un solo carattere per tutto il sito: la pila di sistema, cioè lo stesso
     font dell'interfaccia del dispositivo di chi guarda (San Francisco su
-    Mac e iPhone, Segoe UI su Windows, Roboto su Android). È la scelta del
-    riferimento indicato da Dario su 21st.dev, dove il titolo non dichiara
-    alcun font e ricade sulla pila di sistema.
-    Titoli, testo ed etichette usano tutti questa: cambia il peso, non la
-    famiglia.
+    Mac e iPhone, Segoe UI su Windows, Roboto su Android).
   */
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
@@ -44,8 +102,6 @@
 }
 
 :root {
-  color-scheme: dark;
-
   /* Altezza del nastro dei clienti: 27px di imbottitura sopra, 27 sotto e la
      riga dei nomi (15,84px per 1.3 di interlinea). L'apertura la sottrae alla
      propria altezza, così il nastro entra nella prima schermata e non serve
@@ -76,7 +132,9 @@ body {
 
 ::selection {
   background: var(--color-saffron);
-  color: var(--color-navy);
+  /* Scritto a mano e non dal token: a tema chiaro `navy` è bianco, e il
+     bianco sull'arancio non si legge. */
+  color: #282f3f;
 }
 
 /*
@@ -217,11 +275,7 @@ body {
   La usano l'hero e la sezione «Partiamo da te», così restano la stessa cosa.
 */
 .surface-glow {
-  background-image: radial-gradient(
-    80% 60% at 50% 40%,
-    var(--color-navy-2) 0%,
-    var(--color-navy-deep) 70%
-  );
+  background: var(--p-glow);
 }
 
 /* Client marquee */
@@ -257,4 +311,40 @@ body {
   .marquee-track {
     animation: none;
   }
+}
+
+/*
+  Passaggio fra i due temi: fondo e testo sfumano invece di scattare. Solo su
+  questi due, non su tutto: una transizione globale rallenta ogni hover.
+*/
+body,
+section,
+footer,
+header {
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  body,
+  section,
+  footer,
+  header {
+    transition: none;
+  }
+}
+
+/*
+  Interruttore del tema: si vede il sole quando il sito è scuro (cliccando si
+  passa al chiaro) e la luna quando è chiaro. Lo decide l'attributo
+  `data-theme` su <html>, non React: così l'icona è già quella giusta al primo
+  disegno, senza scambi a pagina caricata.
+*/
+.theme-toggle__sun,
+.theme-toggle__moon {
+  display: none;
+}
+[data-theme="dark"] .theme-toggle__sun,
+[data-theme="light"] .theme-toggle__moon {
+  display: block;
 }
