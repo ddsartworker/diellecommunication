@@ -232,9 +232,13 @@ non è preso dall'apertura, esiste apposta per far staccare la fascia sia da ci�
 che sta sopra (`#1e2530`) sia dalle sezioni sotto (`#282f3f`). A sinistra una
 scritta ferma («Dario e Luisa hanno lavorato con»), a destra i nomi che scorrono.
 Misure prese dal riferimento: etichetta 9,9px maiuscola con tracking 0.1em,
-nomi 15,8px di peso 500, 54px tra un nome e l'altro, giro in 25 secondi. I nomi
-dei clienti in `site.ts` vanno scritti con le maiuscole giuste: il nastro non li
-trasforma più in maiuscolo.
+nomi 15,8px di peso 500, 54px tra un nome e l'altro. La durata del giro tiene
+la stessa **velocità** del riferimento, non la stessa durata: erano 25 secondi
+per dieci nomi, oggi sono **33 per tredici**. Se aggiungi o togli un cliente,
+ricalcola — circa 2,5 secondi a nome — altrimenti il nastro corre o striscia.
+I nomi dei clienti in `site.ts` vanno scritti con le maiuscole giuste (AdaTech,
+BandoHub, CoffeeWorld, Tadàbook…): il nastro non li trasforma più in maiuscolo,
+e le grafie sono state prese dai siti dei clienti stessi, non a orecchio.
 
 Nella sezione **«Chi siamo»** (`about.tsx`) foto e testi di ciascun fondatore
 stanno in un unico blocco largo `32rem`, centrato nella colonna e allineato a

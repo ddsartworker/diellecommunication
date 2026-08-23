@@ -552,14 +552,17 @@ export function getWork(slug: string): WorkItem | undefined {
 // quindi le maiuscole interne contano.
 // TODO: far confermare a Dario le grafie esatte dei marchi.
 export const clients = [
-  "EverUp",
-  "NinjaStickers",
-  "Voice Concierge",
-  "Tadàplay",
-  "San Pietro Bistro",
-  "CoffeeWorld",
-  "Orto Botanico",
-  "Glam&Go London",
-  "K&C College",
   "Namare",
+  "San Pietro Bistrot del Mare",
+  "Taverna 'e Mare",
+  "Tadàbook",
+  "Tadàplay",
+  "Le Stelle",
+  "AdaTech",
+  "BandoHub",
+  "Voice Concierge",
+  "Parsec 3.26",
+  "CoffeeWorld",
+  "EverUp",
+  "I Testa",
 ];
