@@ -157,10 +157,14 @@ Accanto all'interruttore, alla sua sinistra e sulla stessa riga, c'è il
 **pulsante WhatsApp** (`whatsapp-button.tsx`): apre una chat col numero del
 brand e un messaggio già scritto, così a Dario e Luisa arriva anche
 l'informazione che il contatto viene dal sito. Numero e messaggio stanno in
-`site.ts`, non nel componente. Non è verde WhatsApp ma della stessa pastiglia
-scura dell'interruttore: l'arancione è l'unico accento del sito e il verde era
-stato tolto apposta. A riconoscerlo basta il simbolo. Anche questo è inchiodato
-al tema scuro, per lo stesso motivo dell'interruttore.
+`site.ts`, non nel componente. La pastiglia è la stessa dell'interruttore, ma
+il simbolo è nel **verde ufficiale di WhatsApp** (`#25D366`), su richiesta di
+Dario: è un'eccezione voluta alla regola dell'arancione unico accento, dello
+stesso tipo del fondo bianco sotto i loghi degli strumenti — è un marchio
+altrui, e i marchi altrui si riportano nel loro colore. **Non è il verde
+`mint` del brand**, che resta fuori dal sito: non prendere questo come
+permesso di rimetterlo. Anche questo pulsante è inchiodato al tema scuro, per
+lo stesso motivo dell'interruttore.
 
 L'interruttore **non tiene stato in React**: legge e scrive l'attributo, e
 quale icona mostrare lo decide il CSS a partire dallo stesso attributo. Con lo
