@@ -19,7 +19,7 @@ function Paragrafo({ testo }: { testo: string }) {
           {i < pezzi.length - 1 && (
             <a
               href={`mailto:${site.email}`}
-              className="text-cream underline decoration-cream/40 decoration-1 underline-offset-4 transition-colors duration-300 hover:text-saffron hover:decoration-saffron"
+              className="text-cream underline decoration-cream/40 decoration-1 underline-offset-4"
             >
               {site.email}
             </a>

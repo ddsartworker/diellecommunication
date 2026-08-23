@@ -38,7 +38,7 @@ export default function ContattiPage() {
                   </p>
                   <a
                     href={`mailto:${site.email}`}
-                    className="mt-1 block text-xl font-semibold tracking-tight text-cream underline decoration-cream/40 decoration-1 underline-offset-[6px] transition-colors duration-300 hover:text-saffron hover:decoration-saffron sm:text-2xl"
+                    className="mt-1 block text-xl font-semibold tracking-tight text-cream underline decoration-cream/40 decoration-1 underline-offset-[6px] sm:text-2xl"
                   >
                     {site.email}
                   </a>

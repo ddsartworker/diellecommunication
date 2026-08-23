@@ -89,7 +89,7 @@ export default function SiteHeader() {
                 <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-saffron">
                   Scrivici
                 </span>
-                <p className="display mt-3 text-sm text-navy underline decoration-navy/30 decoration-1 underline-offset-4 transition-colors duration-300 group-hover:text-saffron group-hover:decoration-saffron">
+                <p className="display mt-3 text-sm text-navy underline decoration-navy/30 decoration-1 underline-offset-4">
                   {site.email}
                 </p>
               </a>

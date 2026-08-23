@@ -237,9 +237,10 @@ solo gli indirizzi in `site.ts`.
 di posta con il destinatario già scritto. Porta una **sottolineatura sottile e
 sempre visibile** (`decoration-1`, cioè un pixel, al 40% del colore del testo),
 non una che compare al passaggio del mouse: la riga c'è per dire che si può
-scrivere, e se si vede solo passandoci sopra non lo dice a nessuno. Col mouse
-sopra, riga e testo diventano arancioni. È l'unico posto del sito in cui una
-sottolineatura è voluta. Nelle pagine legali la mail
+scrivere, e se si vede solo passandoci sopra non lo dice a nessuno. **Non
+cambia nulla al passaggio del mouse**, né il testo né la riga: per scelta di
+Dario resta ferma. È l'unico posto del sito in cui una sottolineatura è
+voluta. Nelle pagine legali la mail
 è dentro il testo dei paragrafi: `legal-article.tsx` la riconosce e la
 trasforma in link da sé, non serve scriverlo a mano in `site.ts`.
 
