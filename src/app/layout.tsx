@@ -6,7 +6,12 @@ import "./globals.css";
 // Tre famiglie da Google Fonts in meno significano anche una pagina che
 // compare prima, senza il salto di carattere durante il caricamento.
 
-const siteUrl = "https://diellecommunication.it";
+// Il dominio vero del brand, quello registrato su Aruba. Non è ancora
+// collegato: finché il sito vive su Vercel questo indirizzo serve solo a
+// costruire i link canonici e le anteprime social, e sarà giusto dal giorno
+// in cui il dominio punta qui. `diellecommunication.it`, che stava scritto
+// prima, non esiste e non è mai esistito.
+const siteUrl = "https://dlcommunication.it";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

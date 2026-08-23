@@ -272,6 +272,15 @@ in inglese.
 ## Contesto operativo
 
 - Repository: `github.com/ddsartworker/diellecommunication`
+- Email del brand: **`commercialedlcommunication@gmail.com`**. Sta scritta in
+  un punto solo (`site.email` in `site.ts`) e da lì la leggono l'intestazione,
+  la sezione contatti e la pagina `/contatti`. È una casella Gmail, non ancora
+  quella sul dominio: quando la casella Aruba sarà operativa, si cambia quella
+  riga e cambia ovunque.
+- I link canonici e le anteprime social partono da `siteUrl` in
+  `src/app/layout.tsx`, oggi `https://dlcommunication.it`: il dominio vero,
+  anche se non ancora collegato. Prima puntavano a `diellecommunication.it`,
+  che non esiste.
 - Dominio `dlcommunication.it` registrato su Aruba, con DNS e casella email presso
   Aruba. Il dominio non è ancora collegato: quando lo sarà, si cambiano solo i record
   del sito, **mai i nameserver**, altrimenti si spegne la posta.
@@ -290,8 +299,6 @@ in inglese.
   pallino con la freccia. Da uniformare.
 - `src/app/zzpreview/` — pagina di lavoro interna, raggiungibile pubblicamente.
   Da rimuovere o proteggere prima di collegare il dominio.
-- `src/lib/site.ts` — l'email di contatto punta a `diellecommunication.it`, un dominio
-  che non esiste. Va corretta con la casella vera su `dlcommunication.it`.
 - `src/lib/site.ts` — le tre testimonianze portano ora nome e attività di
   persone vere (Mariano Panariello, Angelo Arrichiello), ma **il testo delle
   citazioni è ancora quello editoriale** scritto per il sito. Va fatto

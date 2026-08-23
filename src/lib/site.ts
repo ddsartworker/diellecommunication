@@ -6,8 +6,9 @@ export const site = {
   name: "Dielle Communication",
   // Kicker shown in the hero / header.
   tagline: "Boutique marketing agency · Napoli",
-  // TODO: confermare l'indirizzo email ufficiale del brand.
-  email: "ciao@diellecommunication.it",
+  // La casella operativa del brand. Sta scritta qui e basta: intestazione,
+  // sezione contatti e pagina /contatti la leggono da qui.
+  email: "commercialedlcommunication@gmail.com",
   location: "Napoli · Campania · in remoto in tutta Italia",
   founders: "Dario De Sisto & Luisa Panariello",
 };
