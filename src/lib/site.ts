@@ -2171,9 +2171,17 @@ export const contactEmails = {
 
 // Le immagini di un'email non viaggiano dentro il messaggio: il programma di
 // posta le scarica, quindi servono indirizzi assoluti e raggiungibili da
-// fuori. Oggi si punta al deploy su Vercel perché `dlcommunication.it` non è
-// ancora collegato: il giorno in cui lo sarà, si cambia questa riga sola.
-export const emailAssetsUrl = "https://diellecommunication.vercel.app";
+// fuori.
+//
+// **Dal 25 agosto 2026 punta al dominio vero**, collegato quel giorno. Prima
+// puntava al deploy su Vercel, che resta raggiungibile: le mail già spedite
+// continuano a mostrare la firma.
+//
+// Perché questa riga è scritta a mano e non ricavata da `siteUrl`: la mail
+// viene letta anche mesi dopo, e da un programma che scarica le immagini
+// quando gli pare. Deve puntare a un indirizzo stabile, non a quello del
+// deploy che l'ha generata.
+export const emailAssetsUrl = "https://dlcommunication.it";
 
 // — Footer. Ripreso da leftclick.ai, il riferimento indicato da Dario: a
 // sinistra l'invito con il pulsante, a destra le colonne di link, sotto una
