@@ -5,10 +5,13 @@ import { booking, trial } from "@/lib/site";
 
 export default function Trial() {
   return (
-    // Fondo a gradiente come l'apertura: prima questa sezione era una scheda
-    // di vetro arancione appoggiata sul blu di pagina, fuori dall'alternanza
-    // sfumato / tinta unita del resto della home.
-    <section id="prova" className="surface-glow py-[108px]">
+    // Tinta unita. Non è sempre stata così: era una scheda di vetro arancione
+    // appoggiata sul blu di pagina, poi è diventata a gradiente come
+    // l'apertura, e dal 25 agosto 2026 è in tinta unita perché sopra di lei —
+    // uscite le testimonianze — c'è la sezione dei servizi, che il gradiente
+    // ce l'ha già. Vale sempre la stessa regola: guarda la sezione sopra e
+    // prendi l'altro fondo.
+    <section id="prova" className="bg-navy-deep py-[108px]">
       <div className="shell">
         <SectionHead
           title="Prima di chiederti fiducia, preferiamo dimostrarti il nostro valore."

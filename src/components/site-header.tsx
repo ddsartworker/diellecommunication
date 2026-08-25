@@ -23,12 +23,20 @@ export default function SiteHeader() {
     // `absolute` invece di `static` perché così non occupa spazio nel flusso e
     // l'apertura parte davvero dal margine dello schermo.
     <header className="absolute inset-x-0 top-0 z-50">
-      <div className="shell flex items-center justify-between py-7 sm:py-9">
-        <Logo />
+      {/* Tre colonne, non `justify-between`: il menu deve stare al centro
+          **della barra**, non al centro dello spazio che avanza. Con
+          `justify-between` le tre parti si spartiscono il vuoto, e siccome il
+          marchio e il gruppo di destra hanno larghezze diverse il menu
+          finiva spostato a sinistra. Le due colonne `1fr` ai lati sono
+          uguali per definizione, quindi la colonna `auto` in mezzo cade
+          esattamente a metà. Da telefono il menu è `hidden`, la colonna di
+          mezzo si chiude e marchio e «+» restano ai due bordi. */}
+      <div className="shell grid grid-cols-[1fr_auto_1fr] items-center py-7 sm:py-9">
+        <Logo className="col-start-1 justify-self-start" />
 
         {/* Le distanze si stringono a 1024px: lì dentro devono stare marchio,
-            sei voci, il pulsante e il "+". Si riaprono a 1280 in su. */}
-        <nav className="hidden items-center gap-5 lg:flex xl:gap-10 2xl:gap-14">
+            quattro voci, il pulsante e il "+". Si riaprono a 1280 in su. */}
+        <nav className="col-start-2 hidden items-center gap-5 lg:flex xl:gap-10 2xl:gap-14">
           {nav.map((item) => (
             <a
               key={item.href}
@@ -40,11 +48,23 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        {/* `col-start-3` non è ridondante, è la correzione di un errore vero:
+            sotto i 1024px il menu è `hidden`, quindi per la griglia **non
+            esiste come elemento** e non occupa nessuna colonna. Senza la
+            colonna dichiarata, questo blocco veniva collocato da solo nella
+            seconda — e il «+» finiva in mezzo alla barra invece che a destra.
+            Da telefono. Dichiarando le colonne a tutti e tre, ognuno sta al
+            suo posto che il menu ci sia o no. */}
+        <div className="col-start-3 flex items-center gap-4 justify-self-end">
           {/* Stesso pulsante dell'apertura, e stessa destinazione: scende
               alla sezione della prova, non apre il calendario. Chi è appena
               arrivato prima deve sapere cosa sta prenotando. */}
-          <Cta href="/#prova" size="sm" className="hidden lg:inline-flex">
+          {/* `max-lg:hidden` e non `hidden lg:inline-flex`: `cta.tsx` si porta
+              dentro `inline-flex`, che nel foglio di stile viene DOPO `hidden`
+              e quindi la batteva. Il pulsante restava visibile sul telefono,
+              usciva dallo schermo e spingeva fuori il «+» del menu. Le varianti
+              con media query sono emesse più in fondo, e vincono. */}
+          <Cta href="/#prova" size="sm" className="max-lg:hidden">
             {booking.label}
           </Cta>
 
@@ -54,7 +74,28 @@ export default function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Chiudi il menu" : "Apri il menu"}
             aria-expanded={open}
-            className="group flex size-10 items-center justify-center"
+            // `lg:hidden`: il «+» compare **solo sotto i 1024px**, dove la
+            // barra non mostra le voci ed è l'unica navigazione che esiste.
+            //
+            // Da computer è stato tolto per decisione di Dario del 24 agosto
+            // 2026, dopo l'inventario di cosa conteneva il pannello: nove
+            // elementi, e tutti e nove già visibili nella stessa pagina —
+            // quattro nella barra, gli altri nel footer. Zero informazioni
+            // che si trovassero solo lì, più il pulsante arancione che
+            // compariva due volte a pochi centimetri di distanza.
+            //
+            // La ricerca del Nielsen Norman Group (179 persone, sei siti)
+            // dice che la navigazione nascosta rende peggio da computer che
+            // da telefono: quindi la versione a vista è quella che vale, e
+            // un secondo menu nascosto lì accanto non aggiunge un canale.
+            // leftclick.ai a 1440px non ha nessun pulsante di menu — visto,
+            // non ricordato.
+            //
+            // Qui `lg:hidden` funziona anche se la classe di base è `flex`:
+            // le varianti con media query sono emesse più in fondo al foglio
+            // e vincono. È l'opposto della trappola di `<Cta>`, dove due
+            // classi **di base** si contendevano il `display`.
+            className="group flex size-10 items-center justify-center lg:hidden"
           >
             <span
               className={`relative block size-5 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
@@ -75,7 +116,10 @@ export default function SiteHeader() {
         // Il pannello è bianco con testo blu in tutti e due i temi: inchiodato
         // al tema scuro, altrimenti a tema chiaro sarebbe bianco su bianco.
         data-theme="dark"
-        className={`grid overflow-hidden transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        // Anche il pannello sparisce da 1024px in su, non solo il pulsante:
+        // senza, chi apre il menu su una finestra stretta e poi la allarga si
+        // ritroverebbe il pannello aperto e nessun «+» per chiuderlo.
+        className={`grid overflow-hidden transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] lg:hidden ${
           open
             ? "grid-rows-[1fr] border-t border-navy/10 bg-white"
             : "grid-rows-[0fr] border-t-0 bg-transparent"

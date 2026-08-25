@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { booking, contactEmails, site } from "@/lib/site";
+import { booking, contactEmails, emailAssetsUrl, site, social } from "@/lib/site";
 
 // Il modulo contatti manda due email: la richiesta a noi e una conferma a chi
 // ha scritto. Passa da Resend, l'integrazione di posta installata su Vercel;
@@ -22,6 +22,38 @@ const settori: Record<string, string> = {
 
 function riga(etichetta: string, valore: string) {
   return `<p style="margin:0 0 10px"><strong style="color:#7d8694">${etichetta}</strong><br>${valore}</p>`;
+}
+
+// Piè di pagina della conferma: marchio e profili dell'agenzia. Serve a far
+// sembrare la mail quello che è — scritta da un'azienda, non da uno script.
+//
+// Le immagini sono PNG e non SVG: i programmi di posta non disegnano gli SVG,
+// Gmail li scarta del tutto. Larghezza e altezza sono scritte anche come
+// attributi HTML oltre che nello stile, perché Outlook ignora il CSS sulle
+// immagini. I file sono al doppio della misura mostrata, per gli schermi
+// retina.
+function pieDiPagina() {
+  const profili = social
+    .filter((s) => s.brand)
+    .map(
+      (s) => `<a href="${s.href}" style="text-decoration:none;margin-right:14px">
+        <img src="${emailAssetsUrl}/email-${s.label.toLowerCase()}.png"
+             width="22" height="22" alt="${s.label}"
+             style="width:22px;height:22px;border:0;vertical-align:middle">
+      </a>`,
+    )
+    .join("");
+
+  return `
+    <div style="margin-top:34px;padding-top:24px;border-top:1px solid #e6e6e3">
+      <img src="${emailAssetsUrl}/email-logo.png" width="84" height="84"
+           alt="${site.name}"
+           style="width:84px;height:84px;border:0;display:block;margin-bottom:16px">
+      <p style="margin:0 0 10px;color:#7d8694;font-size:12px;letter-spacing:0.08em;text-transform:uppercase">
+        ${contactEmails.replyFollow}
+      </p>
+      <p style="margin:0">${profili}</p>
+    </div>`;
 }
 
 export async function POST(request: Request) {
@@ -107,6 +139,7 @@ export async function POST(request: Request) {
             </a>
           </p>
           <p style="margin:0;color:#7d8694">${contactEmails.replySignature}</p>
+          ${pieDiPagina()}
         </div>`,
     });
     if (conferma.error) {

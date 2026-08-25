@@ -6,6 +6,9 @@ import SiteFooter from "@/components/site-footer";
 import { getLegalPage } from "@/lib/site";
 
 export const metadata: Metadata = {
+  // Indirizzo ufficiale della pagina. Relativo: `metadataBase` in
+  // `layout.tsx` ci mette davanti il dominio giusto.
+  alternates: { canonical: "/termini" },
   title: "Termini di servizio",
   description:
     "Le regole d'uso del sito di DL Communication: contenuti, proprietà intellettuale, periodo di prova gratuito, responsabilità e foro competente.",

@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import SectionHead from "@/components/section-head";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
-import { booking, trial } from "@/lib/site";
+import { booking, faq, trial } from "@/lib/site";
 
 export const metadata: Metadata = {
+  // Indirizzo ufficiale della pagina. Relativo: `metadataBase` in
+  // `layout.tsx` ci mette davanti il dominio giusto.
+  alternates: { canonical: "/prova" },
   title: "Periodo di prova gratuito — Provaci, poi decidi",
   description:
     "Prima di chiederti fiducia, preferiamo dimostrarti il nostro valore. Inizia con un periodo di prova gratuito: nessun impegno, nessuna carta richiesta.",
@@ -28,24 +31,9 @@ const notForYou = [
   "Non hai tempo per un confronto iniziale",
 ];
 
-const faq = [
-  {
-    q: "Quanto costa la prova?",
-    a: "Niente. Il periodo di prova è gratuito: serve a farti capire come lavoriamo, senza rischi per te.",
-  },
-  {
-    q: "Devo lasciare i dati della carta?",
-    a: "No. Nessuna carta, nessun rinnovo automatico, nessuna sorpresa.",
-  },
-  {
-    q: "E se poi non voglio continuare?",
-    a: "Nessun problema. Se non ti convince, ci salutiamo: ci sei costati solo qualche giorno di lavoro.",
-  },
-  {
-    q: "Perché lo fate?",
-    a: "Perché accettiamo pochi clienti e vogliamo lavorare bene con chi è davvero in linea con noi. La prova serve a capirlo, da entrambe le parti.",
-  },
-];
+// Qui si mostrano SOLO le domande sulla prova (`trial`): la pagina parla di
+// quella, e le domande sull'agenzia stanno su `/faq`.
+const domandeProva = faq.filter((d) => d.trial);
 
 export default function ProvaPage() {
   return (
@@ -153,11 +141,11 @@ export default function ProvaPage() {
         </section>
 
         {/* FAQ */}
-        <section className="pb-24 sm:pb-32">
+        <section id="faq" className="pb-24 sm:pb-32">
           <div className="mx-auto max-w-3xl">
             <SectionHead title="Domande frequenti." />
             <dl className="mt-12 divide-y divide-cream/10 border-y border-cream/10">
-              {faq.map((item) => (
+              {domandeProva.map((item) => (
                 <div key={item.q} className="py-7">
                   <dt className="text-lg font-semibold text-cream">{item.q}</dt>
                   <dd className="mt-2 leading-relaxed text-cream/65">{item.a}</dd>

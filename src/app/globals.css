@@ -185,11 +185,28 @@ body {
   overflow-x: hidden;
 }
 
+/*
+  Il colore del testo evidenziato. Era l'arancione del marchio; Dario l'ha
+  trovato troppo forte e ha indicato quello di leftclick.ai.
+
+  Attenzione, perché il seguito non è ovvio: **leftclick.ai non ha nessuna
+  regola `::selection`** — scaricato il loro foglio di stile, zero
+  occorrenze. Quel blu non è una loro scelta di design, è il colore
+  predefinito del browser, che dipende dal sistema operativo di chi guarda e
+  dalla tinta d'accento che ha impostato. Togliendo la regola avremmo avuto
+  quel blu sul Mac di Dario e un altro colore altrove.
+
+  Quindi il colore è scritto qui: `#5d7aa3`, misurato sul pixel dello
+  screenshot che ha mandato. Così è quello per tutti, su ogni sistema.
+
+  Sfondo e testo sono tutti e due scritti a mano e uguali nei due temi: a
+  tema chiaro il token `cream` diventa blu scuro, e su questo azzurro non
+  avrebbe abbastanza contrasto. Così com'è rende 4,1:1, che per una
+  selezione di passaggio va bene.
+*/
 ::selection {
-  background: var(--color-saffron);
-  /* Scritto a mano e non dal token: a tema chiaro `navy` è bianco, e il
-     bianco sull'arancio non si legge. */
-  color: #282f3f;
+  background: #5d7aa3;
+  color: #f7f7f3;
 }
 
 /*
@@ -343,10 +360,10 @@ body {
   display: inline-flex;
   white-space: nowrap;
   /* La durata tiene la stessa *velocità* del nastro di riferimento, non la
-     stessa durata: erano 25s per dieci nomi, con tredici il nastro è più
-     lungo e in 25s correrebbe. Se aggiungi o togli clienti, ricalcola:
-     circa 2,5 secondi a nome. */
-  animation: dielle-marquee 35s linear infinite;
+     stessa durata: erano 25s per dieci nomi. Se aggiungi o togli clienti,
+     ricalcola: **circa 2,5 secondi a nome**, altrimenti il nastro corre o
+     striscia. Oggi i clienti sono diciotto, quindi 45s. */
+  animation: dielle-marquee 45s linear infinite;
 }
 /* I nomi sono link: il nastro si ferma quando ci passi sopra col mouse,
    altrimenti cliccarli sarebbe un tiro al bersaglio in movimento. */

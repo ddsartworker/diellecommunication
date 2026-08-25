@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Cta from "./cta";
 import Logo from "./logo";
-import { booking, company, footer } from "@/lib/site";
+import { booking, company, footer, site, whatsappUrl } from "@/lib/site";
 
 // Impianto ripreso da leftclick.ai, il riferimento indicato da Dario: a
 // sinistra l'invito con il pulsante, a destra le colonne di link, e sotto una
@@ -51,9 +51,35 @@ export default function SiteFooter() {
           <Cta href={booking.url} className="mt-8">
             {booking.label}
           </Cta>
+
+          {/* I recapiti stanno qui e non in una colonna di link. Il footer è
+              il posto dove la gente scende apposta a cercarli, e per
+              un'attività locale averli scritti per esteso su ogni pagina
+              conta anche per farsi trovare su Google. Prima «Contatti»
+              compariva due volte in due colonne diverse: ora zero volte, e
+              al suo posto ci sono le informazioni vere. */}
+          <address className="mt-10 flex flex-col gap-2 not-italic">
+            <a
+              href={`mailto:${site.email}`}
+              className="text-[0.95rem] text-cream underline decoration-cream/40 decoration-1 underline-offset-4"
+            >
+              {site.email}
+            </a>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[0.95rem] text-cream/60 transition-colors duration-300 hover:text-cream"
+            >
+              WhatsApp {site.whatsappDisplay}
+            </a>
+            <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-cream/45">
+              {site.location}
+            </p>
+          </address>
         </div>
 
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {footer.columns.map((column) => (
             <div key={column.title}>
               <p className="font-mono text-[0.68rem] uppercase tracking-[0.18em] text-cream/40">
@@ -74,7 +100,7 @@ export default function SiteFooter() {
       {/* Riga di chiusura: marchio a sinistra, note legali al centro,
           copyright a destra. */}
       <div className="shell mt-16 flex flex-col gap-6 border-t border-cream/15 pt-8 md:flex-row md:items-center md:justify-between">
-        <Logo />
+        <Logo size={56} />
 
         <nav className="flex flex-wrap gap-x-8 gap-y-2">
           {footer.legalLinks.map((link) => (

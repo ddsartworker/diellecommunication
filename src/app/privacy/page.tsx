@@ -6,6 +6,9 @@ import SiteFooter from "@/components/site-footer";
 import { getLegalPage } from "@/lib/site";
 
 export const metadata: Metadata = {
+  // Indirizzo ufficiale della pagina. Relativo: `metadataBase` in
+  // `layout.tsx` ci mette davanti il dominio giusto.
+  alternates: { canonical: "/privacy" },
   title: "Privacy Policy",
   description:
     "Quali dati raccogliamo, perché, per quanto tempo e cosa puoi chiederci di farne. Nessun cookie di profilazione, nessuno strumento di analisi.",

@@ -60,3 +60,8 @@ next-env.d.ts
 # ritagliate e alleggerite vivono in public/team/.
 /*.png
 /*.jpg
+
+# Originali ad alta risoluzione dei lavori, consegnati da Dario: 31 MB che in
+# git non servono a nessuno. Le versioni ridotte a 2000px vivono in
+# public/work/ e sono quelle che il sito pubblica.
+/foto dl lavori/

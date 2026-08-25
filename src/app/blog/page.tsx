@@ -7,6 +7,9 @@ import InnerCta from "@/components/inner-cta";
 import { posts } from "@/lib/site";
 
 export const metadata: Metadata = {
+  // Indirizzo ufficiale della pagina. Relativo: `metadataBase` in
+  // `layout.tsx` ci mette davanti il dominio giusto.
+  alternates: { canonical: "/blog" },
   title: "Blog — Il marketing, senza paroloni",
   description:
     "Idee e spiegazioni di marketing per chi fa un altro mestiere e vuole capirci qualcosa. Brevi, concrete, in italiano.",

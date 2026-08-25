@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { organizationSchema, siteUrl } from "@/lib/site";
+import JsonLd from "@/components/json-ld";
 import ThemeToggle from "@/components/theme-toggle";
 import WhatsappButton from "@/components/whatsapp-button";
 
@@ -8,21 +10,25 @@ import WhatsappButton from "@/components/whatsapp-button";
 // Tre famiglie da Google Fonts in meno significano anche una pagina che
 // compare prima, senza il salto di carattere durante il caricamento.
 
-// Il dominio vero del brand, quello registrato su Aruba. Non è ancora
-// collegato: finché il sito vive su Vercel questo indirizzo serve solo a
-// costruire i link canonici e le anteprime social, e sarà giusto dal giorno
-// in cui il dominio punta qui. `diellecommunication.it`, che stava scritto
-// prima, non esiste e non è mai esistito.
-const siteUrl = "https://dlcommunication.it";
+// L'indirizzo del sito arriva da `site.ts`, dove si ricava da solo dal
+// dominio di produzione configurato su Vercel. Prima era scritto a mano come
+// `https://dlcommunication.it`, che è il dominio vero ma **non ancora
+// collegato**: le anteprime social puntavano a un indirizzo che non
+// risponde, e chi condivideva il link vedeva un riquadro vuoto.
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  // Indirizzo ufficiale della home. Le altre pagine dichiarano il proprio in
+  // `alternates.canonical`, relativo a questo.
+  alternates: { canonical: "/" },
   title: {
     default: "Dielle Communication — Boutique marketing agency a Napoli",
     template: "%s · Dielle Communication",
   },
+  // 158 caratteri. Google ne mostra circa 155 e taglia il resto a metà
+  // frase: la precedente ne aveva 242 e finiva troncata.
   description:
-    "Boutique marketing agency a Napoli: comunicazione su misura seguita di persona da Dario De Sisto e Luisa Panariello. Siti web, social, advertising e branding per ristoranti, attività e PMI in Campania. Inizia con un periodo di prova gratuito.",
+    "Boutique marketing agency a Napoli: siti web, social, advertising e branding su misura, seguiti di persona da Dario e Luisa. Si comincia con una prova gratuita.",
   keywords: [
     "marketing",
     "comunicazione",
@@ -77,6 +83,9 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-navy font-sans text-cream antialiased">
         {children}
+        {/* Chi siamo, per Google. Sta nel layout perché vale per tutte le
+            pagine: è la carta d'identità dell'azienda, non di una pagina. */}
+        <JsonLd data={organizationSchema()} />
         <WhatsappButton />
         <ThemeToggle />
       </body>

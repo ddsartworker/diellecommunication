@@ -3,14 +3,21 @@ import Reveal from "./reveal";
 import ContactForm from "./contact-form";
 import { site, social } from "@/lib/site";
 
-export default function Contact() {
+export default function Contact({ glow = false }: { glow?: boolean }) {
   return (
     <section
       id="contatti"
       // Resta scura anche a tema chiaro, per scelta di Dario: è la sezione
       // del modulo, e deve staccare da tutto il resto.
       data-theme="dark"
-      className="bg-navy-deep py-[108px]"
+      // `glow` mette il gradiente al posto della tinta unita. Serve dove la
+      // sezione **sopra** è già in tinta unita: due fasce `navy-deep`
+      // attaccate si fondono in una sola e il modulo sembra la coda della
+      // sezione precedente. Oggi lo usa `/lavori`, dove la griglia è in tinta
+      // unita — richiesta di Dario, ed è la stessa regola dell'alternanza
+      // che vale in tutto il sito. Il gradiente resta quello scuro anche a
+      // tema chiaro, perché la sezione è inchiodata con `data-theme`.
+      className={`${glow ? "surface-glow" : "bg-navy-deep"} py-[108px]`}
     >
       <div className="shell">
         <SectionHead
@@ -28,7 +35,16 @@ export default function Contact() {
           <div className="space-y-5">
             <a
               href={`mailto:${site.email}`}
-              className="block text-xl font-semibold tracking-tight text-cream underline decoration-cream/40 decoration-1 underline-offset-[6px] sm:text-2xl"
+              // `overflow-wrap:anywhere` non è un vezzo: l'indirizzo è una
+              // parola sola di 36 caratteri, e a 20px misura più della gabbia
+              // su un telefono stretto. Non potendo andare a capo allargava
+              // la pagina oltre lo schermo, e siccome `body` ha
+              // `overflow-x: hidden` non si vedeva un cursore di scorrimento:
+              // si vedeva solo il contenuto tagliato a destra — compreso il
+              // «+» del menu, che spariva del tutto sotto i ~440px. Andava
+              // avanti da mesi ed era in «Da sistemare» come un problema del
+              // menu, che non c'entrava niente.
+              className="block text-lg font-semibold tracking-tight text-cream underline decoration-cream/40 decoration-1 underline-offset-[6px] [overflow-wrap:anywhere] sm:text-xl md:text-2xl"
             >
               {site.email}
             </a>
@@ -42,7 +58,7 @@ export default function Contact() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-cream/60 transition-colors hover:text-cream"
+                  className="font-mono text-[0.62rem] uppercase tracking-[0.12em] text-cream/60 transition-colors hover:text-cream"
                 >
                   {s.label} ↗
                 </a>

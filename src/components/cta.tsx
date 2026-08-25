@@ -18,7 +18,14 @@ type Size = "md" | "sm";
 // testo di peso 400 (non grassetto), riga 1.3, nessuna spaziatura extra tra le
 // lettere, distanza testo-pallino 1em, imbottitura 0.2em/0.25em/0.2em/1em.
 const base =
-  "group inline-flex select-none items-center gap-[1em] rounded-[2em] py-[0.2em] pl-[1em] pr-[0.25em] font-normal leading-[1.3] tracking-normal transition-colors duration-300";
+  "group inline-flex select-none items-center gap-[1em] rounded-[2em] py-[0.2em] font-normal leading-[1.3] tracking-normal transition-colors duration-300";
+
+// L'imbottitura è asimmetrica — largo dal lato del testo, stretto dal lato del
+// pallino — quindi si specchia quando il pallino passa a sinistra.
+const padding = {
+  avanti: "pl-[1em] pr-[0.25em]",
+  indietro: "pl-[0.25em] pr-[1em]",
+};
 
 // 0.9rem = la stessa dimensione del riferimento, da cui discende un pulsante
 // alto 38px. La versione piccola serve alle barre di navigazione.
@@ -65,6 +72,15 @@ export default function Cta({
   size = "md",
   className = "",
   onClick,
+  // `back` gira il pulsante: pallino a sinistra, freccia verso sinistra, e il
+  // movimento che al passaggio del mouse scorre dall'altra parte. Serve ai
+  // ritorni («Torna ai lavori»), che sono la stessa affordance ma nel verso
+  // opposto — un pulsante che dice «indietro» con una freccia che punta a
+  // destra è un piccolo inganno.
+  //
+  // È lo stesso impianto del riferimento, dove sulla pagina del caso studio
+  // il «Go Back» ha il pallino prima del testo.
+  back = false,
 }: {
   href: string;
   children: ReactNode;
@@ -72,8 +88,9 @@ export default function Cta({
   size?: Size;
   className?: string;
   onClick?: () => void;
+  back?: boolean;
 }) {
-  const classes = `${base} ${sizes[size]} ${variants[variant]} ${className}`;
+  const classes = `${base} ${padding[back ? "indietro" : "avanti"]} ${sizes[size]} ${variants[variant]} ${className}`;
   // Gli indirizzi interni passano dal router di Next; le ancore della stessa
   // pagina e i link esterni restano ancore normali.
   const Wrapper = href.startsWith("/") ? Link : "a";
@@ -85,6 +102,29 @@ export default function Cta({
     ? { target: "_blank", rel: "noopener noreferrer" }
     : {};
 
+  // La freccia esce dal lato verso cui punta e la copia entra dall'altro: nel
+  // verso normale a destra, nel ritorno a sinistra.
+  const box = (
+    <span className={iconBox[variant]} key="pallino">
+      <Arrow
+        className={`transition-transform duration-300 ease-[ease] ${
+          back
+            ? "-scale-x-100 group-hover:-translate-x-[200%]"
+            : "group-hover:translate-x-[200%]"
+        }`}
+      />
+      <Arrow
+        className={`absolute transition-transform duration-300 ease-[ease] ${
+          back
+            ? "-scale-x-100 translate-x-[200%] group-hover:translate-x-0"
+            : "-translate-x-[200%] group-hover:translate-x-0"
+        }`}
+      />
+    </span>
+  );
+  const pallino = back ? box : null;
+  const codaPallino = back ? null : box;
+
   return (
     <Wrapper
       href={href}
@@ -95,6 +135,7 @@ export default function Cta({
       onClick={onClick}
       {...attributiEsterni}
     >
+      {pallino}
       <span className="relative flex flex-col items-center justify-center overflow-hidden">
         <span className="transition-transform duration-300 ease-[ease] group-hover:-translate-y-full">
           {children}
@@ -107,11 +148,7 @@ export default function Cta({
           {children}
         </span>
       </span>
-
-      <span className={iconBox[variant]}>
-        <Arrow className="transition-transform duration-300 ease-[ease] group-hover:translate-x-[200%]" />
-        <Arrow className="absolute -translate-x-[200%] transition-transform duration-300 ease-[ease] group-hover:translate-x-0" />
-      </span>
+      {codaPallino}
     </Wrapper>
   );
 }

@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Cta from "./cta";
 import SectionHead from "./section-head";
 import Reveal from "./reveal";
 import { services } from "@/lib/site";
@@ -11,7 +13,10 @@ export default function Services() {
         <SectionHead
           title="Tutto ciò che serve per farti scegliere."
           body={[
-            "Otto fronti, una sola squadra. Prendi tutto o solo ciò che ti serve:",
+            // Non «otto»: contare i servizi li fa sembrare un catalogo corto,
+            // e il numero non è nemmeno il punto — la stessa voce copre lavori
+            // molto diversi fra loro. Richiesta di Dario del 25 agosto 2026.
+            "Tante possibilità, una sola squadra. Prendi tutto o solo ciò che ti serve:",
             "la strategia resta cucita su misura.",
           ]}
         />
@@ -27,9 +32,23 @@ export default function Services() {
                 {s.n}
               </span>
 
+              {/* Tutti i servizi hanno una pagina propria — cioè il campo `page`.
+                  Il controllo `s.page ?` resta comunque, perché un servizio nuovo
+                  potrebbe nascere senza testi: meglio che resti testo, invece
+                  di mandare qualcuno su una pagina che non esiste. */}
               <h3 className="font-sans text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
-                <span className="text-cream">{s.title} </span>
-                <span className="text-cream">{s.accent}</span>
+                {s.page ? (
+                  <Link
+                    href={`/servizi/${s.slug}`}
+                    className="text-cream transition-colors duration-300 hover:text-saffron"
+                  >
+                    {s.title} {s.accent}
+                  </Link>
+                ) : (
+                  <span className="text-cream">
+                    {s.title} {s.accent}
+                  </span>
+                )}
               </h3>
 
               <p className="text-cream/65">{s.body}</p>
@@ -46,6 +65,12 @@ export default function Services() {
               </ul>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Cta href="/servizi" variant="outline">
+            Vedi tutti i servizi
+          </Cta>
         </div>
       </div>
     </section>

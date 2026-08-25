@@ -18,7 +18,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
-  return { title: post.title, description: post.excerpt };
+  return {
+    alternates: { canonical: `/blog/${slug}` },
+    title: post.title,
+    description: post.excerpt,
+  };
 }
 
 export default async function ArticlePage({
@@ -79,7 +83,7 @@ export default async function ArticlePage({
               <p className="mt-3 leading-relaxed text-cream/80">
                 {founders.map((f) => f.name).join(" & ")} — i fondatori di Dielle
                 Communication. Seguiamo di persona ogni cliente, da Napoli, in
-                Campania e in remoto in tutta Italia.
+                Campania e da remoto in tutta Italia.
               </p>
             </div>
           </div>

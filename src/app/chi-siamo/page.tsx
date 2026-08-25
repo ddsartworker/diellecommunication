@@ -1,79 +1,129 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import SectionHead from "@/components/section-head";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
-import InnerCta from "@/components/inner-cta";
-import { founders } from "@/lib/site";
+import Contact from "@/components/contact";
+import Reveal from "@/components/reveal";
+import JsonLd from "@/components/json-ld";
+import { aboutPage, breadcrumbSchema, founders, services } from "@/lib/site";
 
 export const metadata: Metadata = {
+  // Indirizzo ufficiale della pagina. Relativo: `metadataBase` in
+  // `layout.tsx` ci mette davanti il dominio giusto.
+  alternates: { canonical: "/chi-siamo" },
   title: "Chi siamo — Dario & Luisa",
-  description:
-    "Dielle Communication è la boutique agency di Dario De Sisto e Luisa Panariello. Pochi clienti, seguiti di persona, una comunicazione che cresce con te.",
+  description: aboutPage.lead,
 };
 
-const values = [
-  {
-    title: "Su misura",
-    body: "Niente pacchetti uguali per tutti. Ogni strategia parte dalla tua attività e da quello che ti rende diverso.",
-  },
-  {
-    title: "Di persona",
-    body: "Lavori sempre con noi due. Nessun referente che cambia, nessun team che non vedrai mai.",
-  },
-  {
-    title: "A numero chiuso",
-    body: "Accettiamo pochi clienti per volta. È così che restiamo presenti e curiamo davvero ogni dettaglio.",
-  },
-];
+// Le quattro schede non ricopiano i testi dei servizi: `aboutPage.featured`
+// contiene solo i titoli, e il resto si pesca da `services`. Ognuna porta
+// alla pagina del servizio.
+const scelti = aboutPage.featured
+  .map((titolo) => services.find((s) => s.title === titolo))
+  .filter((s): s is (typeof services)[number] => Boolean(s));
 
+// Questa pagina ha inglobato `/dl-communication`, che diceva le stesse cose:
+// decisione di Dario del 24 agosto 2026. Niente è andato perso, i due testi
+// sono stati fusi in `aboutPage`.
+//
+// I fondi si alternano come nelle altre pagine interne: gradiente, tinta
+// unita, gradiente, e così via fino al modulo.
 export default function ChiSiamoPage() {
   return (
     <>
       <SiteHeader />
+      <JsonLd data={breadcrumbSchema([{ name: "Chi siamo", path: "/chi-siamo" }])} />
       <main>
-        <section className="pb-8 pt-36 sm:pt-44">
+        {/* 1. Apertura */}
+        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden pb-[108px] pt-40 text-cream sm:pt-48">
           <div className="shell">
             <SectionHead
               as="h1"
               size="xl"
-              title="Dietro Dielle ci siamo noi. Sempre."
+              title={aboutPage.title}
+              body={aboutPage.subtitle}
             />
-            <div className="mx-auto mt-8 grid max-w-3xl gap-5 text-lg leading-relaxed text-cream/70">
-              <p>
-                Dielle Communication nasce dall&apos;unione professionale di Dario
-                De Sisto e Luisa Panariello, dopo oltre dieci anni di esperienza
-                ciascuno. È nata da un&apos;idea semplice: offrire un&apos;alternativa
-                alle agenzie strutturate, dove il cliente cambia referente di
-                continuo e riceve pacchetti uguali per tutti.
-              </p>
-              <p>
-                Noi facciamo il contrario. Seguiamo direttamente ogni cliente,
-                accettandone pochi per volta, per garantire qualità, presenza e
-                continuità. Non vendiamo servizi: costruiamo una comunicazione che
-                evolve nel tempo insieme alla tua attività.
-              </p>
-            </div>
           </div>
         </section>
 
-        {/* Valori */}
-        <section className="py-[108px]">
+        {/* 2. Chi siamo, per esteso. Tutti i capoversi con la stessa
+            formattazione: se ne aggiungi uno non dargli una classe sua. */}
+        <section className="bg-navy-deep py-[108px]">
           <div className="shell">
-            <div className="grid gap-10 sm:grid-cols-3 sm:gap-8">
-              {values.map((value) => (
-                <div key={value.title} className="border-t border-cream/15 pt-6">
-                  <h2 className="text-xl font-semibold tracking-tight text-cream">
-                    {value.title}
-                  </h2>
-                  <p className="mt-3 leading-relaxed text-cream/65">{value.body}</p>
-                </div>
+            <Reveal>
+              <div className="mx-auto max-w-3xl space-y-6">
+                {[aboutPage.lead, ...aboutPage.intro].map((p) => (
+                  <p
+                    key={p}
+                    className="text-pretty text-lg leading-relaxed text-cream/75"
+                  >
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal delay={160}>
+              <div className="mx-auto mt-12 max-w-3xl rounded-2xl border border-cream/10 bg-cream/[0.03] p-8 sm:p-10">
+                <p className="font-mono text-[0.62rem] uppercase tracking-[0.16em] text-saffron">
+                  {aboutPage.notTitle}
+                </p>
+                <p className="mt-4 text-lg leading-relaxed text-cream/75">
+                  {aboutPage.notBody}
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* 3. I valori */}
+        <section className="surface-glow py-[108px]">
+          <div className="shell">
+            <SectionHead title={aboutPage.valuesTitle} />
+            <div className="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-8">
+              {aboutPage.values.map((value, i) => (
+                <Reveal key={value.title} delay={i * 90}>
+                  <div className="border-t border-cream/15 pt-6">
+                    <h2 className="text-xl font-semibold tracking-tight text-cream">
+                      {value.title}
+                    </h2>
+                    <p className="mt-3 leading-relaxed text-cream/65">
+                      {value.body}
+                    </p>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Fondatori */}
+        {/* 4. Cosa costruiamo: le quattro schede portano alle pagine vere. */}
+        <section className="bg-navy-deep py-[108px]">
+          <div className="shell">
+            <SectionHead title={aboutPage.buildTitle} body={aboutPage.buildBody} />
+            <div className="mt-14 grid gap-6 sm:grid-cols-2">
+              {scelti.map((s, i) => (
+                <Reveal key={s.title} delay={i * 90}>
+                  <Link
+                    href={s.page ? `/servizi/${s.slug}` : "/servizi"}
+                    className="block h-full rounded-2xl border border-cream/10 bg-cream/[0.03] p-7 transition-colors duration-300 hover:border-saffron/40"
+                  >
+                    <p className="font-mono text-[0.65rem] text-saffron">{s.n}</p>
+                    <h3 className="mt-3 text-xl">
+                      <span className="display text-cream">{s.title}</span>{" "}
+                      <span className="display text-cream/45">{s.accent}</span>
+                    </h3>
+                    <p className="mt-3 leading-relaxed text-cream/65">{s.body}</p>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 5. I fondatori */}
         <section className="surface-glow py-[108px] text-cream">
           <div className="shell">
             <SectionHead title="I fondatori." />
@@ -91,7 +141,6 @@ export default function ChiSiamoPage() {
                         className="object-cover"
                       />
                     ) : (
-                      // TODO: sostituire con la foto professionale in /public/team/
                       <div className="flex h-full items-center justify-center bg-cream/90 text-navy">
                         <span className="display text-[4.5rem] leading-none">
                           {person.initials}
@@ -102,22 +151,18 @@ export default function ChiSiamoPage() {
                   <h3 className="mt-6 text-2xl font-semibold tracking-tight text-cream">
                     {person.name}
                   </h3>
-                  <p className="mt-1 text-cream/55">
-                    {person.role}
-                  </p>
+                  <p className="mt-1 text-cream/55">{person.role}</p>
                   <p className="mt-4 text-lg italic leading-snug text-saffron">
                     «{person.quote}»
                   </p>
-                  <p className="mt-4 leading-relaxed text-cream/65">
-                    {person.bio}
-                  </p>
+                  <p className="mt-4 leading-relaxed text-cream/65">{person.bio}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <InnerCta />
+        <Contact />
       </main>
       <SiteFooter />
     </>

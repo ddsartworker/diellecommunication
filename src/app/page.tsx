@@ -6,7 +6,6 @@ import Method from "@/components/method";
 import About from "@/components/about";
 import Tools from "@/components/tools";
 import Services from "@/components/services";
-import Testimonials from "@/components/testimonials";
 import Trial from "@/components/trial";
 import Contact from "@/components/contact";
 import SiteFooter from "@/components/site-footer";
@@ -26,9 +25,17 @@ export default function Home() {
         <About />
         <Tools />
         <Services />
-        <Testimonials />
+        {/* Qui stava <Testimonials />. Tolta il 25 agosto 2026 su richiesta di
+            Dario: le citazioni non erano mai state confermate dalle persone a
+            cui erano attribuite. Componente e dati restano al loro posto.
+
+            Togliendola, servizi e prova sarebbero diventate due sezioni a
+            gradiente attaccate: per questo la prova è passata in tinta unita e
+            i contatti hanno preso il gradiente con `glow`. L'alternanza è
+            salva, e a tema chiaro — dove lo stacco si vede davvero — le tre
+            fasce restano distinte. */}
         <Trial />
-        <Contact />
+        <Contact glow />
       </main>
       <SiteFooter />
       <MobileCta />
