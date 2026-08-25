@@ -1,71 +1,70 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import SectionHead from "@/components/section-head";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
-import InnerCta from "@/components/inner-cta";
-import { work } from "@/lib/site";
+import Contact from "@/components/contact";
+import Reveal from "@/components/reveal";
+import WorkCard from "@/components/work-card";
+import JsonLd from "@/components/json-ld";
+import { breadcrumbSchema, work } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Lavori — Casi reali, spiegati semplice",
+  alternates: { canonical: "/lavori" },
+  title: "Lavori — i clienti di Dario e Luisa",
   description:
-    "I progetti di Dielle Communication: per ognuno il problema di partenza, cosa abbiamo fatto e cosa è cambiato.",
+    "I clienti seguiti da Dario e Luisa: ristorazione, e-commerce, prodotti educativi, tecnologia e territorio. Per ognuno cosa è cambiato, non cosa abbiamo consegnato.",
 };
 
+// Impianto ripreso da `leftclick.ai/case-studies`, il riferimento indicato da
+// Dario: apertura corta e poi **una griglia sola con tutti i lavori**. Niente
+// sezioni separate fra casi studio e resto — c'erano, e Dario ha chiesto di
+// toglierle: chi guarda vuole vedere tutto disposto, non due elenchi.
+//
+// Dove porta ogni scheda lo decidono i dati: chi ha un caso studio va alla
+// sua pagina, gli altri al sito del cliente.
 export default function LavoriIndex() {
   return (
     <>
       <SiteHeader />
+      <JsonLd data={breadcrumbSchema([{ name: "Lavori", path: "/lavori" }])} />
       <main>
-        <section className="pb-12 pt-36 sm:pt-44">
+        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden pb-[108px] pt-40 text-cream sm:pt-48">
           <div className="shell">
             <SectionHead
               as="h1"
               size="xl"
-              title="I lavori, spiegati semplice."
-              body="Per ogni progetto: il problema di partenza, cosa abbiamo fatto e cosa è cambiato. Senza gergo."
+              title="I nostri lavori."
+              // Due frasi, sulla falsariga del riferimento («Real results from
+              // real engagements. Every project below was built, deployed, and
+              // managed by our team»): la prima dice che sono lavori veri, la
+              // seconda che li abbiamo fatti noi.
+              //
+              // **Niente numeri qui.** C'era «Sedici clienti veri»: un numero
+              // in un sottotitolo invecchia da solo — basta un cliente in più
+              // e la pagina mente. Dario ha chiesto di toglierlo.
+              body={[
+                "Progetti veri, usciti davvero: niente concept, niente mockup da vetrina.",
+                "Ognuno pensato, costruito e seguito di persona da noi due.",
+              ]}
             />
           </div>
         </section>
 
-        <section className="pb-24 sm:pb-32">
-          <div className="shell grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {work.map((item) => (
-              <Link
-                key={item.slug}
-                href={`/lavori/${item.slug}`}
-                className="group flex flex-col"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-navy-2">
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-                  />
-                  <span className="absolute left-4 top-4 rounded-full bg-navy-deep/80 px-3 py-1 font-mono text-[0.6rem] uppercase tracking-[0.12em] text-cream/80 backdrop-blur-sm">
-                    {item.category}
-                  </span>
-                </div>
-                <div className="mt-5 flex items-baseline justify-between gap-4">
-                  <h2 className="text-xl font-semibold tracking-tight text-cream transition-colors group-hover:text-saffron">
-                    {item.title}
-                  </h2>
-                  <span className="shrink-0 font-mono text-[0.65rem] text-saffron">
-                    {item.year}
-                  </span>
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-cream/70">
-                  {item.what}
-                </p>
-              </Link>
-            ))}
+        <section className="bg-navy-deep py-[108px]">
+          <div className="shell">
+            <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+              {work.map((item, i) => (
+                <Reveal key={item.slug} delay={Math.min(i, 5) * 70}>
+                  <WorkCard item={item} />
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
-        <InnerCta />
+        {/* Col gradiente: la griglia qui sopra è in tinta unita, e due
+            fasce uguali attaccate si fonderebbero in una sola. */}
+        <Contact glow />
       </main>
       <SiteFooter />
     </>
