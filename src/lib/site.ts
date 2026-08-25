@@ -2454,6 +2454,22 @@ export const company = {
     country: "IT",
   },
   rights: "Tutti i diritti riservati.",
+  // Gli orari, come stanno sulla scheda Google dell'attività, aperta il
+  // 25 agosto 2026. **I due devono restare uguali**: Google confronta quello
+  // che il sito dichiara con quello che legge sulla scheda, e due risposte
+  // diverse alla stessa domanda indeboliscono tutte e due invece di
+  // rafforzarsi. Se cambiate orario sulla scheda, cambiatelo anche qui.
+  hours: {
+    days: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+    ],
+    opens: "09:00",
+    closes: "18:00",
+  },
 };
 
 // Clienti reali. Il nastro è cliccabile: ogni nome porta al sito del cliente.
@@ -2528,6 +2544,17 @@ export function organizationSchema() {
     },
     vatID: `IT${company.vatId}`,
     taxID: company.taxId,
+    // Gli stessi orari della scheda Google. Non erano dichiarati: il sito
+    // diceva chi siamo e dove, ma non quando — e quando è una delle prime
+    // cose che una persona chiede a Google.
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: company.hours.days,
+        opens: company.hours.opens,
+        closes: company.hours.closes,
+      },
+    ],
     description:
       "Boutique marketing agency di Napoli: siti web, social, advertising e branding, seguiti di persona dai fondatori.",
     slogan: site.tagline,

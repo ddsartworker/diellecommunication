@@ -1602,6 +1602,13 @@ combaciano il segnale si indebolisce invece di rafforzarsi, e una scheda con
 un indirizzo che non corrisponde viene sospesa. Non «semplificarlo» a Napoli
 per coerenza col racconto del sito.
 
+**Gli orari sono dichiarati, e devono restare uguali a quelli della scheda
+Google**: `openingHoursSpecification` li legge da `company.hours`, oggi
+lunedì-venerdì 9:00-18:00. Google confronta quello che il sito dichiara con
+quello che legge sulla scheda, e due risposte diverse alla stessa domanda
+indeboliscono tutte e due invece di rafforzarsi. Se cambiano sulla scheda,
+cambiano anche in `site.ts`.
+
 **Il 25 agosto 2026 Dario ha confermato che in Via De Gasperi 52 un cliente
 può presentarsi.** Serviva a decidere come aprire la scheda Google, e la
 risposta cambia la configurazione: la scheda va aperta **con l'indirizzo
