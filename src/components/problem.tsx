@@ -3,7 +3,7 @@ import { problems } from "@/lib/site";
 
 export default function Problem() {
   return (
-    <section id="problema" className="surface-glow py-[108px]">
+    <section id="problema" className="surface-glow section-y">
       {/* Impianto centrato come l'apertura: titolo, chiusura e testi di raccordo
           stanno sull'asse. Dentro le schede il testo resta allineato a sinistra,
           perché un elenco puntato centrato non si legge. */}

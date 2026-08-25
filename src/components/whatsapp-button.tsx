@@ -60,7 +60,7 @@ export default function WhatsappButton() {
           il pulsante che l'ha aperto: è la direzione che spiega da sola da
           dove è arrivato. */}
       <div
-        className={`fixed bottom-[9.5rem] right-4 z-50 w-[19rem] origin-bottom-right overflow-hidden rounded-2xl shadow-2xl transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] sm:right-6 md:bottom-[4.5rem] ${
+        className={`floating-control floating-panel fixed right-4 z-50 w-[min(19rem,calc(100vw-2rem))] origin-bottom-right overflow-hidden rounded-2xl shadow-2xl transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] sm:right-6 ${
           open
             ? "pointer-events-auto scale-100 opacity-100"
             : "pointer-events-none scale-90 opacity-0"
@@ -120,7 +120,7 @@ export default function WhatsappButton() {
           open ? "Chiudi il riquadro WhatsApp" : `Scrivici su WhatsApp al ${site.whatsappDisplay}`
         }
         title={`Scrivici su WhatsApp al ${site.whatsappDisplay}`}
-        className="fixed bottom-24 right-[4.75rem] z-50 flex size-11 items-center justify-center rounded-full border border-cream/15 bg-navy-deep/85 text-[#25D366] shadow-lg backdrop-blur-md transition-colors duration-300 hover:border-[#25D366]/60 md:bottom-6 md:right-[5rem]"
+        className="floating-control floating-dock fixed right-[4.75rem] z-50 flex size-11 items-center justify-center rounded-full border border-cream/15 bg-navy-deep/85 text-[#25D366] shadow-lg backdrop-blur-md transition-colors duration-300 hover:border-[#25D366]/60 md:right-[5rem]"
       >
         <Logo className="size-[1.2rem]" />
       </button>

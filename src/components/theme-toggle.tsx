@@ -73,7 +73,7 @@ export default function ThemeToggle() {
       // il footer, che resta scuro — se seguisse il tema chiaro lì sparirebbe.
       data-theme="dark"
       // Sopra la barra fissa del telefono, che occupa il fondo dello schermo.
-      className="fixed bottom-24 right-5 z-50 flex size-11 items-center justify-center rounded-full border border-cream/15 bg-navy-deep/85 text-cream/70 shadow-lg backdrop-blur-md transition-colors duration-300 hover:border-cream/40 hover:text-cream md:bottom-6 md:right-6"
+      className="floating-control floating-dock fixed right-5 z-50 md:right-6 flex size-11 items-center justify-center rounded-full border border-cream/15 bg-navy-deep/85 text-cream/70 shadow-lg backdrop-blur-md transition-colors duration-300 hover:border-cream/40 hover:text-cream"
     >
       <Sole />
       <Luna />

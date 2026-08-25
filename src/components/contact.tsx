@@ -1,7 +1,7 @@
 import SectionHead from "./section-head";
 import Reveal from "./reveal";
 import ContactForm from "./contact-form";
-import { site, social } from "@/lib/site";
+import { contactSection, site, social } from "@/lib/site";
 
 export default function Contact({ glow = false }: { glow?: boolean }) {
   return (
@@ -17,20 +17,22 @@ export default function Contact({ glow = false }: { glow?: boolean }) {
       // unita — richiesta di Dario, ed è la stessa regola dell'alternanza
       // che vale in tutto il sito. Il gradiente resta quello scuro anche a
       // tema chiaro, perché la sezione è inchiodata con `data-theme`.
-      className={`${glow ? "surface-glow" : "bg-navy-deep"} py-[108px]`}
+      className={`${glow ? "surface-glow" : "bg-navy-deep"} section-y`}
     >
       <div className="shell">
+        {/* Titolo e corpo stanno in `site.ts`: erano scritti qui e, quasi
+            uguali, dentro `inner-cta.tsx`. */}
         <SectionHead
           size="lg"
-          title="Parliamo del tuo progetto."
-          body={[
-            "Una chiacchierata gratuita, senza impegno. Ci racconti la tua attività,",
-            "noi ti diciamo con sincerità se e come possiamo aiutarti.",
-          ]}
+          title={contactSection.title}
+          body={contactSection.body}
         />
       </div>
 
-      <div className="shell mt-16 grid gap-14 md:grid-cols-2 md:gap-20">
+      {/* Due colonne da 1024px. A 768 il modulo si stringeva a ~296px e i
+          campi affiancati al suo interno finivano a 140px l'uno: sul tablet
+          verticale conviene la colonna piena. */}
+      <div className="shell mt-16 grid gap-14 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <div className="space-y-5">
             <a
@@ -51,14 +53,20 @@ export default function Contact({ glow = false }: { glow?: boolean }) {
             <p className="font-mono text-[0.72rem] uppercase tracking-[0.16em] text-cream/50">
               {site.location}
             </p>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2">
+            {/* `text-[0.62rem]` è una misura da desktop, e nasce da un
+                vincolo da desktop: da 1024px in su questa colonna sta accanto
+                al modulo e le quattro voci devono entrare in una riga sola
+                (~485px). Sotto quella soglia la colonna è piena e il vincolo
+                non esiste, quindi il testo torna leggibile e il bersaglio
+                tattile passa da 13px di altezza a 37. */}
+            <div className="flex flex-wrap gap-x-6 gap-y-1 pt-2">
               {social.map((s) => (
                 <a
                   key={s.href}
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-mono text-[0.62rem] uppercase tracking-[0.12em] text-cream/60 transition-colors hover:text-cream"
+                  className="inline-block py-2.5 font-mono text-[0.72rem] uppercase tracking-[0.1em] text-cream/60 transition-colors hover:text-cream lg:py-0 lg:text-[0.62rem] lg:tracking-[0.12em]"
                 >
                   {s.label} ↗
                 </a>

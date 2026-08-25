@@ -23,6 +23,12 @@ export const metadata: Metadata = {
 // (i cinque passi), poi **cosa succede a chi ci contatta** (i quattro
 // passaggi). `/processo` rimanda qui.
 //
+// Le sezioni sono quattro, ed erano sei fino al 25 agosto 2026: l'elenco
+// «Cosa ti aspetta» sotto i passaggi e la sezione «Perché funziona» dicevano
+// le stesse cose delle sezioni accanto — vedi i commenti in `site.ts`, dove
+// stavano i dati. Non rimetterle: la pagina ripeteva lo stesso quartetto di
+// promesse tre volte.
+//
 // I fondi si alternano come nelle altre pagine interne.
 export default function MetodoPage() {
   return (
@@ -31,7 +37,7 @@ export default function MetodoPage() {
       <JsonLd data={breadcrumbSchema([{ name: "Il metodo", path: "/metodo" }])} />
       <main>
         {/* 1. Apertura */}
-        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden pb-[108px] pt-40 text-cream sm:pt-48">
+        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden section-y-b pt-40 text-cream sm:pt-48">
           <div className="shell">
             <SectionHead
               as="h1"
@@ -43,7 +49,7 @@ export default function MetodoPage() {
         </section>
 
         {/* 2. Come lavoriamo: i cinque passi */}
-        <section className="bg-navy-deep py-[108px]">
+        <section className="bg-navy-deep section-y">
           <div className="shell">
             <SectionHead title={methodPage.stepsTitle} />
             <div className="mx-auto mt-14 max-w-5xl border-t border-cream/10">
@@ -87,7 +93,7 @@ export default function MetodoPage() {
         {/* 3. Cosa succede a chi ci contatta: i quattro passaggi. Era la
             pagina `/processo`. Qui sotto, «cosa ti aspetta» durante il
             lavoro. */}
-        <section className="surface-glow py-[108px]">
+        <section className="surface-glow section-y">
           <div className="shell">
             <SectionHead title={processPage.title} body={processPage.body} />
             <ol className="mx-auto mt-14 grid max-w-5xl gap-6 sm:grid-cols-2">
@@ -103,34 +109,29 @@ export default function MetodoPage() {
                 </Reveal>
               ))}
             </ol>
-
-            <Reveal delay={200}>
-              <ul className="mx-auto mt-14 max-w-3xl divide-y divide-cream/10 border-y border-cream/10">
-                {processPage.expect.map((r) => (
-                  <li
-                    key={r}
-                    className="flex gap-4 py-5 leading-relaxed text-cream/75"
-                  >
-                    <span aria-hidden className="text-saffron">
-                      →
-                    </span>
-                    <span>{r}</span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
           </div>
         </section>
 
         {/* 4. Il confronto */}
-        <section className="bg-navy-deep py-[108px]">
+        <section className="bg-navy-deep section-y">
           <div className="shell">
             <div className="mx-auto max-w-5xl">
               <h2 className="text-[clamp(1.6rem,3.8vw,2.7rem)]">
                 <span className="display text-cream">{methodPage.compareTitle}</span>
               </h2>
+              {/* La tabella era `grid-cols-2` a qualunque larghezza. Su un
+                  telefono da 320px ogni cella restava **139px larga e 123px
+                  alta** — misurato — cioè quattro righe di testo spezzato in
+                  due colonne strette appaiate. Da 640px in su resta la
+                  tabella di prima; sotto, ogni confronto diventa un blocco
+                  con le due voci una sopra l'altra.
+
+                  Le due etichette si ripetono su ogni blocco, ed è voluto:
+                  impilando le celle si perde l'intestazione, e senza un
+                  richiamo non si sa più quale delle due frasi è la nostra.
+                  Sono le stesse due stringhe di `site.ts`, non testo nuovo. */}
               <div className="mt-10 overflow-hidden rounded-2xl border border-cream/10">
-                <div className="grid grid-cols-2 border-b border-cream/10 font-mono text-[0.65rem] uppercase tracking-[0.14em]">
+                <div className="hidden border-b border-cream/10 font-mono text-[0.65rem] uppercase tracking-[0.14em] sm:grid sm:grid-cols-2">
                   <p className="border-r border-cream/10 p-5 text-cream/45">
                     {methodPage.compareThem}
                   </p>
@@ -139,12 +140,20 @@ export default function MetodoPage() {
                 {methodPage.compare.map((row) => (
                   <div
                     key={row.us}
-                    className="grid grid-cols-2 border-b border-cream/10 last:border-b-0"
+                    className="grid border-b border-cream/20 last:border-b-0 sm:grid-cols-2 sm:border-cream/10"
                   >
-                    <p className="border-r border-cream/10 p-5 text-cream/55">
-                      {row.them}
-                    </p>
-                    <p className="p-5 text-cream/90">{row.us}</p>
+                    <div className="border-b border-cream/[0.07] p-5 sm:border-b-0 sm:border-r sm:border-cream/10">
+                      <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-cream/40 sm:hidden">
+                        {methodPage.compareThem}
+                      </p>
+                      <p className="mt-2 text-cream/55 sm:mt-0">{row.them}</p>
+                    </div>
+                    <div className="p-5">
+                      <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-saffron sm:hidden">
+                        {methodPage.compareUs}
+                      </p>
+                      <p className="mt-2 text-cream/90 sm:mt-0">{row.us}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -152,28 +161,12 @@ export default function MetodoPage() {
           </div>
         </section>
 
-        {/* 5. Perché funziona */}
-        <section className="surface-glow py-[108px]">
-          <div className="shell">
-            <SectionHead title={methodPage.whyTitle} />
-            <div className="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-8">
-              {methodPage.why.map((point, i) => (
-                <Reveal key={point.title} delay={i * 90}>
-                  <div className="border-t border-cream/15 pt-6">
-                    <h3 className="text-xl font-semibold tracking-tight text-cream">
-                      {point.title}
-                    </h3>
-                    <p className="mt-3 leading-relaxed text-cream/65">
-                      {point.body}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <Contact />
+        {/* Il modulo sta sul gradiente, non in tinta unita: la sezione qui
+            sopra è già `bg-navy-deep`, e due fasce uguali attaccate si
+            fondono in una sola. È la stessa ragione per cui `/lavori` usa
+            `<Contact glow />`. Serve da quando è uscita la sezione «Perché
+            funziona», che stava fra la tabella e il modulo. */}
+        <Contact glow />
       </main>
       <SiteFooter />
     </>

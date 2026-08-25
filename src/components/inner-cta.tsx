@@ -1,5 +1,5 @@
 import Cta from "./cta";
-import { booking } from "@/lib/site";
+import { booking, innerCta } from "@/lib/site";
 
 type InnerCtaProps = {
   title?: string;
@@ -8,11 +8,11 @@ type InnerCtaProps = {
 
 // CTA di chiusura riutilizzata dalle pagine interne (blog, case study).
 export default function InnerCta({
-  title = "Parliamo del tuo progetto.",
-  body = "Una chiacchierata gratuita, senza impegno. Ti diciamo con sincerità se e come possiamo aiutarti.",
+  title = innerCta.title,
+  body = innerCta.body,
 }: InnerCtaProps) {
   return (
-    <section className="py-[108px]">
+    <section className="section-y">
       <div className="shell">
         <div className="relative overflow-hidden rounded-[1.75rem] border border-saffron/25 bg-gradient-to-br from-saffron/15 via-navy-2/40 to-saffron/10 p-8 sm:p-14">
           <div
@@ -26,9 +26,14 @@ export default function InnerCta({
               </h2>
               <p className="mt-4 max-w-md leading-relaxed text-cream/75">{body}</p>
             </div>
-            <Cta href={booking.url} className="shrink-0">
-              {booking.label}
-            </Cta>
+            {/* Stesso motivo della sezione della prova: sotto i 768px il
+                contenitore è `flex-col` e senza involucro il pulsante si
+                stira. */}
+            <div>
+              <Cta href={booking.url} className="shrink-0">
+                {booking.label}
+              </Cta>
+            </div>
           </div>
         </div>
       </div>

@@ -116,7 +116,7 @@ export default function Tools() {
       // Resta scura anche a tema chiaro: le tessere dei loghi sono bianche e
       // su fondo bianco sparirebbero. Scelta di Dario.
       data-theme="dark"
-      className="overflow-x-clip bg-navy-deep py-[108px]"
+      className="overflow-x-clip bg-navy-deep section-y"
     >
       <div className="shell">
         <div className="mx-auto max-w-3xl text-center">
@@ -171,9 +171,17 @@ export default function Tools() {
 
           <Reveal delay={150}>
             <p className="mx-auto mt-6 max-w-3xl text-pretty text-lg leading-relaxed text-cream/60">
+              {/* «Nessun lavoro girato a terzi» era troppo largo: si leggeva
+                  come «non lavoriamo mai con nessun altro», e la scheda
+                  Tadàplay dichiara illustratori e game designer sul progetto.
+                  Non erano fornitori di Dielle — la scelta non era loro, e
+                  disegnare le fiabe di un libro per bambini è un mestiere a
+                  sé. La promessa vera è un'altra, ed è questa: il tuo lavoro
+                  non finisce nelle mani di un'altra agenzia. */}
               Grafica, foto, siti, sviluppo e AI: ogni strumento del progetto lo
-              usiamo noi. Nessuna catena di fornitori, nessun lavoro girato a
-              terzi. Quello che vedi nasce qui, dentro Dielle Communication.
+              usiamo noi. Nessuna catena di fornitori, nessun account che ti
+              gira a un&apos;altra agenzia. Quello che vedi nasce qui, dentro
+              Dielle Communication.
             </p>
           </Reveal>
         </div>

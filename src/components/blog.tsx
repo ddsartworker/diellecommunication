@@ -7,7 +7,7 @@ export default function Blog() {
   return (
     <section
       id="blog"
-      className="bg-navy-deep py-[108px]"
+      className="bg-navy-deep section-y"
     >
       <div className="shell">
         <SectionHead

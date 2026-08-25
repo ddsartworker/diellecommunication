@@ -90,7 +90,7 @@ export default async function ArticlePage({
         </article>
 
         {others.length > 0 && (
-          <section className="py-[108px]">
+          <section className="section-y">
             <div className="mx-auto max-w-3xl">
               <p className="kicker text-cream/55">Continua a leggere</p>
               <div className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-cream/10 sm:grid-cols-2">

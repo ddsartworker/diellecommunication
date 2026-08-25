@@ -73,7 +73,7 @@ export default async function ServizioPage({
       />
       <main>
         {/* Stessa alternanza di fondi delle altre pagine interne. */}
-        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden pb-[108px] pt-40 text-cream sm:pt-48">
+        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden section-y-b pt-40 text-cream sm:pt-48">
           <div className="shell">
             <Reveal className="text-center">
               <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-saffron">
@@ -91,7 +91,7 @@ export default async function ServizioPage({
         </section>
 
         {/* Per chi è. Non promesse: situazioni in cui riconoscersi. */}
-        <section className="bg-navy-deep py-[108px]">
+        <section className="bg-navy-deep section-y">
           <div className="shell">
             <SectionHead title="Serve a te se…" />
             <ul className="mx-auto mt-12 max-w-3xl divide-y divide-cream/10 border-y border-cream/10">
@@ -112,7 +112,7 @@ export default async function ServizioPage({
         </section>
 
         {/* Cosa comprende, e subito sotto cosa non facciamo. */}
-        <section className="surface-glow py-[108px]">
+        <section className="surface-glow section-y">
           <div className="shell">
             <SectionHead title="Cosa comprende" />
             <ul className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">
@@ -141,14 +141,19 @@ export default async function ServizioPage({
             {/* Gli altri servizi con una pagina propria: una riga sola, per
                 chi è arrivato qui da Google e non sa cos'altro facciamo. */}
             <Reveal delay={200}>
-              <p className="mt-14 text-center font-mono text-[0.62rem] uppercase tracking-[0.14em] text-cream/45">
+              {/* Nove link in fila dentro una riga di testo a 9,9px: da
+                  computer si legge, col dito no — ogni bersaglio era alto
+                  12px. Su schermo stretto il corpo sale e le righe si
+                  distanziano, così le aree toccabili delle righe vicine non
+                  si sovrappongono. */}
+              <p className="mt-14 text-center font-mono text-[0.7rem] uppercase leading-[2.4] tracking-[0.14em] text-cream/45 sm:text-[0.62rem] sm:leading-normal">
                 Vedi anche{" "}
                 {altri.map((s, i) => (
                   <span key={s.slug}>
                     {i > 0 ? " · " : ""}
                     <Link
                       href={`/servizi/${s.slug}`}
-                      className="text-cream/70 transition-colors duration-300 hover:text-saffron"
+                      className="inline-block py-2 text-cream/70 transition-colors duration-300 hover:text-saffron sm:py-0"
                     >
                       {s.title}
                     </Link>
@@ -157,7 +162,7 @@ export default async function ServizioPage({
                 {" · "}
                 <Link
                   href="/servizi"
-                  className="text-cream/70 transition-colors duration-300 hover:text-saffron"
+                  className="inline-block py-2 text-cream/70 transition-colors duration-300 hover:text-saffron sm:py-0"
                 >
                   Tutti i servizi
                 </Link>

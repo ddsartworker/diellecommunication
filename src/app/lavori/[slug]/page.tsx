@@ -121,7 +121,7 @@ export default async function CaseStudyPage({
         ])}
       />
       <main>
-        <section className="surface-glow relative overflow-hidden pb-[108px] pt-36 text-cream sm:pt-44">
+        <section className="surface-glow relative overflow-hidden section-y-b pt-36 text-cream sm:pt-44">
           <div className="shell">
             {/* Apertura a due colonne: pannello a sinistra, immagine a
                 destra. Sotto i 1024px si impilano. */}
@@ -189,7 +189,7 @@ export default async function CaseStudyPage({
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 px-2 text-[0.95rem] text-saffron underline decoration-saffron/40 decoration-1 underline-offset-4"
+                    className="mt-5 inline-flex items-center gap-2 px-2 py-2 text-[0.95rem] text-saffron underline decoration-saffron/40 decoration-1 underline-offset-4"
                   >
                     {item.hrefLabel ?? dominio(item.href)}
                     <span aria-hidden>↗</span>

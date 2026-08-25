@@ -39,7 +39,7 @@ export default function Testimonials() {
   return (
     // Tinta unita `navy-deep`, come il metodo e gli strumenti: chiude
     // l'alternanza con i servizi, che stanno su fondo a gradiente.
-    <section className="bg-navy-deep py-[108px] text-cream">
+    <section className="bg-navy-deep section-y text-cream">
       <div className="shell">
         {/* Stessa intestazione di tutte le altre sezioni: titolo centrato,
             stessa scala, stesso colore unico. */}

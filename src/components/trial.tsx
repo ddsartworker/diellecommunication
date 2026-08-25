@@ -5,13 +5,11 @@ import { booking, trial } from "@/lib/site";
 
 export default function Trial() {
   return (
-    // Tinta unita. Non è sempre stata così: era una scheda di vetro arancione
-    // appoggiata sul blu di pagina, poi è diventata a gradiente come
-    // l'apertura, e dal 25 agosto 2026 è in tinta unita perché sopra di lei —
-    // uscite le testimonianze — c'è la sezione dei servizi, che il gradiente
-    // ce l'ha già. Vale sempre la stessa regola: guarda la sezione sopra e
-    // prendi l'altro fondo.
-    <section id="prova" className="bg-navy-deep py-[108px]">
+    // Fondo a gradiente. Vale sempre la stessa regola: guarda la sezione sopra
+    // e prendi l'altro fondo — qui sopra c'è la vetrina dei lavori, che è in
+    // tinta unita. Per mezza giornata questa sezione è stata `bg-navy-deep`,
+    // nel periodo fra l'uscita delle testimonianze e l'arrivo della vetrina.
+    <section id="prova" className="surface-glow section-y">
       <div className="shell">
         <SectionHead
           title="Prima di chiederti fiducia, preferiamo dimostrarti il nostro valore."
@@ -25,11 +23,15 @@ export default function Trial() {
             testo alla stessa distanza dalla linea che ha `pl-7` dall'altra
             parte, così nessun punto finisce appiccicato al bordo. La prima
             parte a filo sinistro e l'ultima a filo destro, come la gabbia. */}
-        <Reveal as="ol" delay={80} className="mt-12 grid gap-px sm:grid-cols-3">
+        {/* Tre colonne solo da 1024px in su. A 640, dove si aprivano prima, ogni
+            colonna lasciava **158px di testo utile** — misurato — e «Mettiamo le
+            mani in pasta» ci finiva su quattro righe. Fino a lì restano
+            impilate, e la linea che le divide torna orizzontale. */}
+        <Reveal as="ol" delay={80} className="mt-12 grid gap-px lg:grid-cols-3">
           {trial.steps.map((step) => (
             <li
               key={step.n}
-              className="flex flex-col gap-3 border-t border-cream/15 pt-6 sm:border-l sm:border-t-0 sm:pl-7 sm:pr-7 sm:pt-0 sm:first:border-l-0 sm:first:pl-0 sm:last:pr-0"
+              className="flex flex-col gap-3 border-t border-cream/15 pt-6 lg:border-l lg:border-t-0 lg:pl-7 lg:pr-7 lg:pt-0 lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0"
             >
               <span className="font-mono text-sm text-saffron">{step.n}</span>
               <h3 className="text-xl font-semibold tracking-tight text-cream">
@@ -53,9 +55,16 @@ export default function Trial() {
                 </li>
               ))}
             </ul>
-            <Cta href={booking.url} className="shrink-0">
-              {booking.label}
-            </Cta>
+            {/* Il `<div>` non è decorativo: sotto i 640px il contenitore è
+                `flex-col`, e `<Cta>` senza involucro si stira per tutta la
+                larghezza — il pallino con la freccia finisce lontanissimo dal
+                testo e la pillola perde le proporzioni che ha ovunque. È la
+                regola già scritta in AGENTS.md, che qui non era applicata. */}
+            <div>
+              <Cta href={booking.url} className="shrink-0">
+                {booking.label}
+              </Cta>
+            </div>
           </div>
         </Reveal>
       </div>

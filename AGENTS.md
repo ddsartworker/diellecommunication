@@ -41,8 +41,8 @@ punto solo, senza toccare il codice.
 
 - `src/app/page.tsx` — la home, composta accostando i componenti di sezione in ordine
 - `src/app/<pagina>/page.tsx` — pagine autonome: **servizi, lavori, chi-siamo,
-  contatti** (le quattro della barra), più **metodo, faq, blog, prova,
-  privacy, termini**
+  contatti** (le quattro della barra), più **metodo, faq, blog, privacy,
+  termini** (`prova` non c'è più: rimanda alla sezione della prova sulla home)
 - `src/app/lavori/[slug]`, `src/app/blog/[slug]` e `src/app/servizi/[slug]` —
   pagine generate una per voce tramite `generateStaticParams`: basta
   aggiungere un elemento a `work`, a `posts` o il campo `page` a un servizio
@@ -160,8 +160,11 @@ unita: `<Contact glow />`. Serve perché la griglia qui sopra è già
 `bg-navy-deep`, e due fasce uguali attaccate si fondono in una sola — il
 modulo sembrerebbe la coda della griglia invece di una sezione a sé. È la
 stessa regola dell'alternanza che vale in tutto il sito, non un'eccezione.
-Richiesta di Dario. Su tutte le altre pagine `<Contact />` resta in tinta
-unita, perché lì sopra ha una sezione a gradiente.
+Richiesta di Dario. **Vale anche su `/metodo`**, da quando è uscita la
+sezione «Perché funziona» e sopra il modulo è rimasta la tabella di confronto,
+che è in tinta unita. Sulle altre pagine `<Contact />` resta in tinta unita,
+perché lì sopra ha una sezione a gradiente. La regola non è «quale pagina»: è
+**guarda la sezione sopra e prendi l'altro fondo**.
 
 **Si chiama «Lavori», non «Portfolio».** Valutato e scartato da Dario il 24
 agosto 2026. «Portfolio» è gergo da agenzia, e il tono di voce del sito dice
@@ -264,6 +267,44 @@ Il filtro `work.filter(w => w.study)` resta in `generateStaticParams` e in
 `sitemap.ts`: **se lo cambi in uno, cambialo nell'altro**, o la mappa consegna
 a Google indirizzi che rispondono «pagina non trovata» — è già successo.
 
+**Le pillole dicono cosa è stato fatto lì, non la categoria del servizio.**
+Riscritte tutte e diciotto il 25 agosto 2026, ed è la correzione più utile
+fatta al portfolio.
+
+Com'era: San Pietro, Namare e Taverna 'e Mare avevano **la stessa identica
+lista di otto voci** — la prima scritta bene, le altre due ereditate — e le
+restanti quindici erano fatte di categorie generiche: «Branding · Siti web ·
+Advertising · Social · SEO». Dario se n'è accorto guardando due schede
+affiancate.
+
+**Riordinarle non è bastato**, ed è la parte da ricordare: le stesse otto
+parole in ordine diverso si leggono ancora uguali. Il problema non era la
+sequenza, era che *«Social · Siti web · Advertising»* è una scritta che sta
+bene su qualunque scheda di qualunque agenzia — quindi non dice niente di
+nessuna.
+
+Ora ogni etichetta è presa dal «Cosa abbiamo fatto» di quella pagina, una per
+una: «Software per il menù», «Card dei piloti MotoGP», «Carta del Docente»,
+«Cartellonistica stradale», «Casa d'aste», «Sito in un file solo». Novanta
+etichette diverse su diciotto schede, e **nessuna coppia di schede con la
+stessa lista**. Le poche che si ripetono sono quelle che si ripetono davvero
+nel lavoro — «Marchio illustrato» su cinque schede, «Presidio quotidiano» su
+tre.
+
+**Regola per le prossime**: apri il «Cosa abbiamo fatto», prendi da lì, e
+tieni ogni voce in due o tre parole. Non copiare dalla scheda accanto: è più
+veloce, ed è esattamente il modo in cui diciotto lavori diventano diciotto
+volte lo stesso elenco.
+
+**E quando una voce sembra di troppo si chiede, non si toglie.** «Ufficio
+stampa» era uscito da Namare perché non compariva nelle note vocali; Dario ha
+confermato che va lasciato. Una pillola in meno è un lavoro che non risulta
+fatto.
+
+**Prima di scrivere le pillole di una scheda nuova, leggi il suo «Cosa abbiamo
+fatto» e prendi da lì.** Una lista copiata è più veloce da scrivere ed è
+esattamente il motivo per cui il portfolio smette di dimostrare qualcosa.
+
 **Il registro dei testi è corporate**, su richiesta di Dario dopo una prima
 stesura troppo colloquiale. Vuol dire: lessico professionale e preciso, niente
 modi di dire, il problema descritto in terza persona e il lavoro in prima
@@ -292,11 +333,19 @@ portfolio.
 
 ## Le pagine dei servizi
 
-`/servizi` è l'elenco completo delle otto voci, e **tutte e otto hanno la
-loro pagina**: Siti web, Social, Content & email, Advertising, Branding,
-Reputazione, Community & PR, Analytics. Il campo che le accende è `page` in
+`/servizi` è l'elenco completo, e **ogni voce ha la sua pagina**: Siti web,
+Social, Content & email, Advertising, Branding, Reputazione, Community & PR,
+Analytics e **Intelligenza artificiale**. Il campo che le accende è `page` in
 `services` (`site.ts`); `generateStaticParams` genera la pagina da sé e la
 mappa del sito la raccoglie da sé.
+
+**La nona, «Intelligenza artificiale & automazioni», è nata il 25 agosto 2026
+già con la sua pagina**, ed è la prova che la regola funziona: il giorno prima
+il problema era proprio un servizio senza destinazione. Risponde parola per
+parola a un'obiezione della home — «pago tanti servizi come menù e portali di
+prenotazione, e non so se mi servono davvero» — arrivata lo stesso pomeriggio.
+**Se riscrivi una delle due, guarda anche l'altra**: è l'unico punto del sito
+dove un dubbio e la sua risposta sono stati scritti insieme.
 
 **Erano quattro fino al 25 agosto 2026**, e la scelta di fermarsi a quattro
 era motivata — meglio poche pagine con testi veri che otto riempite di
@@ -347,13 +396,25 @@ frasi che dice.** Ne segue la regola pratica: **se un punto si può ricavare
 leggendo la didascalia, non è un punto, è un'eco** — si riscrive la
 didascalia, non si accorciano i punti.
 
-**Le due schede non hanno la stessa origine, ed è bene saperlo prima di
-toccarle.** I cinque punti della seconda («Ho già provato, ma niente») sono
-frasi che Dario si sente dire in prima call, raccolte quel giorno. I tre della
-prima («Non sono sicuro che serva») no: nessuno si presenta annunciando di
-essere scettico, quindi sono le obiezioni che il sito gli attribuisce — le
-stesse a cui risponde l'articolo «Non mi serve il marketing». Se un giorno ne
-sentono una vera, sostituisce quella scritta.
+**Tutti e otto i punti, in tutte e due le schede, sono frasi vere** — cose
+che Dario si sente dire in prima call, raccolte il 25 agosto 2026. Non è stato
+così dall'inizio: la prima scheda («Non sono sicuro che serva») ne aveva tre
+scritte a tavolino, ed è stata svuotata una riga per volta nell'arco dello
+stesso pomeriggio, man mano che Dario ne mandava di vere.
+
+**Quando ne arriva una, prende il posto della più debole, non si aggiunge.**
+È la regola che ha portato qui: «pago tanti servizi come menù e portali di
+prenotazione» ha sostituito «il marketing mi sembra inutile», «avrei tanto da
+dire, ma nessuno me lo chiede mai» ha sostituito «i social sono tutti uguali»,
+e «su Google non esco» ha sostituito «le agenzie vendono solo fumo».
+
+**Guarda cosa si è guadagnato ogni volta.** Le tre scritte a tavolino
+dicevano tutte la stessa cosa — *il marketing non serve* — cioè il titolo
+della scheda ripetuto tre volte. Le tre vere dicono tre cose diverse e
+verificabili: *sto già pagando strumenti che non so se mi servono*, *ho una
+storia e nessuno me l'ha mai chiesta*, *non mi trovano*. E ognuna ha una
+risposta altrove nel sito: il servizio di intelligenza artificiale, il primo
+passo del metodo («Ti ascoltiamo»), la pagina Reputazione.
 
 **«Tanto vale che me lo faccia da solo» sta nella seconda scheda, non nella
 prima.** Sembra la frase dello scettico e non lo è: Dario ha precisato che la
@@ -433,6 +494,19 @@ cose già scritte nella stessa pagina:
   ed è anche vera guardando `/lavori` — dentro «Siti web» ci sono un
   e-commerce WooCommerce e un sito costruito con l'IA, dentro «Branding» il
   packaging di un vino e l'illustrazione di una scatola di giochi.
+- **«A numero chiuso» dichiara l'esclusiva di zona**, aggiunta il 25 agosto
+  2026 su richiesta di Dario: *se sei aperto al pubblico, non seguiamo un tuo
+  concorrente nello stesso territorio*, e *le persone vengono prima dei
+  numeri*. **È una promessa contrattuale, non un modo di dire**, e compare in
+  tre punti che devono restare d'accordo: qui, nella pastiglia sotto la
+  sezione della prova (`trial.reassurance`, quindi anche sulla home) e nella
+  domanda «Lavorate anche con i miei concorrenti?» della FAQ — che finisce
+  pure nei dati strutturati. Se cambia la promessa, cambiano tutti e tre.
+
+  **La condizione «se sei aperto al pubblico» è scritta e non sottintesa**, ed
+  è voluta: un e-commerce o un prodotto digitale non hanno una zona da
+  difendere, e promettere l'esclusiva anche a loro sarebbe una promessa vuota.
+
 - **«Di persona» è stata tenuta ma riempita.** Era un principio già detto nel
   `lead` e in `intro[0]`; ora porta i due impegni concreti dettati da Dario —
   **un appuntamento fisso al mese, un aggiornamento dedicato ogni giorno** — e
@@ -450,12 +524,193 @@ marchio, packaging, insegne — sta nella biografia sotto, non dentro la
 citazione: **una frase che elenca non si cita.** Il dato è uno solo
 (`founders` in `site.ts`) e lo leggono sia la home sia `/chi-siamo`.
 
-**Su `/metodo`, in «Cosa ti aspetta», non si parla più di prezzo.** C'era «il
-prezzo si concorda prima, non a lavoro finito»; dal 25 agosto 2026 c'è
-«sperimentiamo insieme e aggiustiamo nel tempo, non a piano fisso», scelta di
-Dario. L'impegno sul prezzo non è sparito dal sito: **resta nel passo
+**Su `/metodo` l'impegno sul prezzo sta in un punto solo: il passo
 «Proposta» di `processPage`**, cioè accanto al preventivo, che è il momento in
 cui uno se lo chiede. Non rimetterlo anche in fondo.
+
+C'era stato in un elenco intitolato «Cosa ti aspetta» — «il prezzo si concorda
+prima, non a lavoro finito» — sostituito il 25 agosto 2026 da «sperimentiamo
+insieme e aggiustiamo nel tempo, non a piano fisso», scelta di Dario. **Quella
+frase esiste ancora, l'elenco no**: è entrata nel passo «Restiamo», dove la
+promessa vale davvero. Vedi la sezione sulle ripetizioni qui sotto.
+
+## Il blog, per ora spento
+
+**«Blog» è nel footer, scritto, ma non si clicca.** Richiesta di Dario del 25
+agosto 2026: «il blog poi lo faremo più in là». Il campo che lo spegne è
+`disabled: true` sulla voce in `footer.columns`; `site-footer.tsx` la disegna
+come testo al 30% invece che come link.
+
+Il motivo: tre articoli fermi accanto a diciotto casi studio non dicono
+«scriviamo», dicono «abbiamo smesso». Un blog fermo è l'unica parte di un sito
+che invecchia da sola, e finché non riparte è meglio non mandarci nessuno.
+
+**Prima era stato tolto del tutto, ed era la lettura sbagliata della stessa
+richiesta.** Togliere la voce faceva sparire anche l'informazione che un blog
+esiste, e lasciava la colonna «Lavoro» con due voci su tre. Spegnerla dice
+tutte e due le cose: c'è, e non è ancora il momento.
+
+**Una voce spenta è un `<span>`, non un `<a>` reso inerte.** Un link con
+`pointer-events: none` resta annunciato come link da un lettore di schermo e
+resta raggiungibile col tabulatore: promette qualcosa che non succede.
+`aria-disabled` lo dice a chi ascolta, il colore a chi guarda.
+
+**Niente è stato cancellato.** Gli articoli restano in `posts`, le rotte
+`/blog` e `/blog/[slug]` esistono e si costruiscono, `inner-cta.tsx` continua
+a chiuderle. Togliere `disabled` riaccende tutto.
+
+**Le pagine restano nella mappa del sito, ed è voluto.** Chi le trova su
+Google trova contenuto vero: toglierle butterebbe via un posizionamento già
+guadagnato per una decisione dichiaratamente temporanea. Nella mappa è stato
+però corretto `changeFrequency`, che prometteva un aggiornamento settimanale
+inesistente: adesso è `"yearly"`. **Se il blog riparte, si tolgono `disabled`
+e si rimette `"weekly"`**: sono le due righe che si accendono insieme.
+
+**`src/components/blog.tsx` resta codice morto**: non lo importa nessuno, e
+ricopia titolo e sottotitolo di `/blog`.
+
+## Le ripetizioni, e la regola per riconoscerle
+
+Il 25 agosto 2026 Dario ha chiesto un controllo su dove il sito si ripete.
+Il posizionamento — pochi clienti, niente pacchetti, nessun account in mezzo,
+si comincia con una call gratuita — è giusto che torni su pagine diverse: è
+quello che il sito vende. **Il problema nasce quando due formulazioni della
+stessa promessa cadono nella stessa schermata**, perché lì chi legge fa due
+volte lo stesso percorso e la seconda volta smette di crederci.
+
+È la regola che era già scritta per le due schede del problema — *se un punto
+si ricava leggendo il testo accanto, non è un punto, è un'eco* — applicata al
+resto del sito. Cosa è uscito:
+
+**`/metodo` diceva le stesse quattro cose tre volte.** La pagina aveva sei
+sezioni: apertura, i cinque passi, i quattro passaggi + un elenco «Cosa ti
+aspetta», la tabella di confronto, «Perché funziona», il modulo. Le tre di
+mezzo giravano tutte intorno allo stesso quartetto — parli con chi esegue,
+pochi clienti, niente pacchetti, metriche vere:
+
+| il concetto | passi | confronto | «Perché funziona» |
+|---|---|---|---|
+| parli con chi esegue | `steps[2]` | `compare[0]` | «Presenza diretta» |
+| pochi clienti | — | `compare[2]` | «Numero chiuso» |
+| niente pacchetti | `steps[1]` | `compare[1]` | (già nell'apertura) |
+| metriche vere | `method[04]` | `compare[3]` | — |
+
+Sono usciti **`processPage.expect`** e **`methodPage.why`**, e con loro
+`expectTitle`, che non era nemmeno mai stato stampato — l'elenco compariva
+senza intestazione. **La tabella è rimasta perché è l'unica delle tre a dire
+qualcosa che le altre non dicono: il confronto con l'alternativa.** Restano
+quattro sezioni, e il modulo è passato a `<Contact glow />` per l'alternanza.
+
+**La sezione del modulo non rivende più la call.** `contact.tsx` diceva «una
+chiacchierata gratuita, senza impegno: ti diciamo con sincerità se e come
+possiamo aiutarti», e sulla home arriva **due sezioni dopo** quella della
+prova, che la stessa promessa l'ha già fatta per esteso. La stessa frase
+tornava sei volte in tutto il sito (`trial.steps[0]`, `inner-cta.tsx`,
+`aboutPage.intro[2]`, la FAQ «Come si comincia?», `processPage.steps[0]`).
+Ora dice **cosa succede dopo che scrivi**: «Raccontaci in due righe cosa ti
+serve e a che punto sei. Leggiamo noi due e ti rispondiamo entro un giorno
+lavorativo.»
+
+Quel «entro un giorno lavorativo» è **un impegno di servizio, non una frase**,
+e sta in tre punti che devono restare d'accordo: qui, in `contactPage.details`
+di `/contatti` e nella mail di conferma (`contactEmails`). Se cambia, cambiano
+tutti e tre — stessa meccanica dell'esclusiva di zona.
+
+**I testi dei due moduli sono passati in `site.ts`**, in `contactSection` e
+`innerCta`. Erano scritti dentro `contact.tsx` e `inner-cta.tsx`, contro la
+regola dei testi in un punto solo, ed erano **la stessa frase in due file**:
+titolo identico, corpo diverso di due parole. `innerCta` ha tenuto il taglio
+vecchio ed è giusto così — sta in fondo a un articolo o a un caso studio, dove
+la call non l'ha ancora proposta nessuno, e porta al calendario invece che a
+un modulo. **Le due sezioni non compaiono mai nella stessa pagina**: se un
+giorno succedesse, il titolo uguale si vedrebbe.
+
+**Quello che non è stato toccato, e perché.** L'esclusiva di zona nei tre
+punti dichiarati resta com'è: è una promessa contrattuale, e ripeterla è il
+punto. La FAQ che ricalca `/chi-siamo` resta: è una pagina di risposte, deve
+reggersi da sola. E «il marketing non si subisce, si fa insieme» resta in due
+posti (home e apertura di `/metodo`), com'era già dichiarato.
+
+## La pagina della prova, e perché non c'è più
+
+`/prova` è uscita dal sito il 25 agosto 2026, per decisione di Dario.
+L'indirizzo **rimanda alla sezione della prova sulla home** (`/#prova`, 308
+permanente in `next.config.ts`).
+
+Aveva due problemi insieme. **Nessun link ci portava**: non stava nella barra,
+non stava nel footer, non la nominava nessuna pagina — c'era solo nella mappa
+del sito, quindi la trovava Google e non i visitatori. E **quello che diceva
+era già sulla home**: titolo e sottotitolo erano la sezione `<Trial />`
+ricopiata a mano, i passi erano gli stessi `trial.steps`, la FAQ in fondo era
+il sottoinsieme `trial` di `/faq`.
+
+**Prima il rimando puntava al calendario, ed è stato cambiato subito.** Vale
+la pena sapere perché, perché è la stessa regola che governa i pulsanti:
+chi arriva da una ricerca non sa ancora cosa starebbe prenotando, e mandarlo
+dritto su Cal.com è chiedergli fiducia prima di avergli spiegato di cosa si
+tratta. È il motivo per cui il pulsante dell'apertura porta a `#prova` e non
+al calendario. Ora chi cercava la prova gratuita atterra dove gliela
+spieghiamo, con il pulsante per il calendario lì sotto.
+
+**Due cose da non dimenticare quando si toglie una pagina**, ed è successo
+qui:
+
+- **l'indirizzo va tolto anche da `sitemap.ts`.** Una mappa che consegna a
+  Google un indirizzo che rimanda altrove è un segnale sprecato — stessa
+  regola già scritta per i lavori senza caso studio;
+- **l'ancora deve esistere.** `/#prova` funziona perché la sezione `<Trial />`
+  sulla home ha `id="prova"`. Se un giorno quella sezione cambia id o esce
+  dalla home, questo rimando porta in cima alla pagina e nessuno se ne
+  accorge.
+
+**Quello che c'era di unico è stato salvato**, non buttato: le due liste
+«È per te se…» e «Non è per te se…» sono passate in `trial` dentro `site.ts`.
+Non sono in pagina oggi — stanno lì come i dati delle testimonianze. Dicono a
+chi la prova serve e a chi no, e non stanno scritte da nessun'altra parte del
+sito; «Non è per te se…» in particolare fa lo stesso mestiere del «Cosa non
+facciamo» delle pagine dei servizi, che è la parte che fa fidare chi ci ha già
+provato senza risultati. Il resto della pagina è andato via senza perdite,
+perché era già altrove.
+
+Con lei sono usciti anche i due difetti che ci erano stati trovati il giorno
+prima — la descrizione per Google che diceva ancora «nessuna carta richiesta»,
+e la colonna «Cosa non ti chiediamo» che stampava `trial.reassurance` con una
+✕, cioè dichiarava di **non** offrire l'esclusiva di zona. Restano scritti qui
+perché sono due modi tipici di rompersi: **un testo per Google che nessuno
+rilegge**, e **un elenco condiviso che cambia significato quando cambiano i
+dati che legge**.
+
+## La vetrina dei lavori sulla home
+
+`work.tsx` mostra **tre** lavori fra i servizi e la prova gratuita, più un
+pulsante verso `/lavori`. Rimessa in piedi il 25 agosto 2026, dopo che Dario
+ha chiesto se mancasse qualcosa alla home: mancava questo. Il nastro nominava
+diciotto clienti e poi la pagina non ne mostrava **nemmeno uno** — chi non
+conosceva Dielle arrivava in fondo senza aver visto una prova, e il componente
+era rimasto lì come codice morto da quando `/lavori` è diventata una griglia
+sola.
+
+**I tre in vetrina sono San Pietro, Central Padel e CoffeeWorld**, e non sono
+i più belli: sono **tre mestieri diversi** — ristorazione, sport, vendita —
+così chi arriva ha buone probabilità di riconoscersi in uno. Se cambi la
+selezione, guarda `sectors` prima di scegliere: è l'elenco dei settori che il
+modulo dei contatti propone, e la vetrina dovrebbe somigliargli.
+
+**I Testa era il terzo ed è uscito lo stesso giorno, non per il lavoro ma
+perché il suo sito è in rifacimento.** La scheda porta alla pagina interna, che
+porta al sito del cliente: mandare la home su un cantiere non conviene né a
+Dielle né a lui. Quando il sito nuovo è online si può rimettere, e la vetrina
+tornerebbe a coprire anche il beauty. **Vale come regola**: la vetrina è la
+parte del sito che manda traffico fuori più in fretta, quindi prima di
+metterci un lavoro si guarda com'è messo il sito del cliente oggi.
+
+**Tre e non di più.** La home deve far venire voglia di aprire `/lavori`, non
+sostituirla; e tre entrano in una riga sola sul desktop. La selezione è un
+elenco di slug in cima al componente, e se uno non esiste il build si ferma
+invece di mostrare una griglia con un buco.
+
+La scheda è la stessa di `/lavori` (`work-card.tsx`): un componente solo, come
+deve essere.
 
 ## Le testimonianze: fuori dal sito, non cancellate
 
@@ -484,9 +739,15 @@ I token sono definiti in `src/app/globals.css`, dentro il blocco `@theme`.
 
 **Gabbia e ritmo verticale** (misurati su leftclick.ai a 1440px): il contenuto
 sta nella classe **`.shell`** — largo 87,5% con un tetto di 1260px, quindi 90px
-di margine per lato — e ogni sezione ha **108px** di imbottitura sopra e sotto.
-Le sezioni non mettono imbottitura laterale: ci pensa la gabbia. Non tornare a
-`max-w-7xl` con `px-6 sm:px-10`.
+di margine per lato — e ogni sezione ha **108px** di imbottitura sopra e sotto,
+messi dalla classe **`.section-y`**. Le sezioni non mettono imbottitura
+laterale: ci pensa la gabbia. Non tornare a `max-w-7xl` con `px-6 sm:px-10`.
+
+**`py-[108px]` non si scrive più a mano**: la misura sta in `.section-y` dentro
+`globals.css`, ed è fissa a 108px solo da circa 1360px in su. Sotto si stringe
+con `clamp` — 64px sul telefono, ~78 sul tablet verticale, ~91 a 1024. Il
+desktop è identico a prima; il perché della scala sta in «Mobile e tablet» più
+sotto.
 
 Palette in uso: blu `#282f3f` (token `navy`, è il fondo), arancio `#f49619`
 (`saffron`, **l'unico accento**), bianco caldo `#f7f7f3` (`cream`), più due blu di
@@ -770,9 +1031,10 @@ Due cose da non disfare:
 - **«Servizi» sta prima di «Lavori».** Chi arriva vuole prima sapere cosa
   facciamo e poi vedere se lo facciamo bene. Prima trovava le prove prima
   della promessa.
-- **«Metodo» e «Blog» non stanno nella barra**, stanno nel footer. Il metodo
-  si legge dopo essersi convinti, non prima; il blog serve a chi ci conosce
-  già e torna. Nella barra occuperebbero il posto di qualcosa che converte.
+- **«Metodo» non sta nella barra**, sta nel footer: si legge dopo essersi
+  convinti, non prima, e nella barra occuperebbe il posto di qualcosa che
+  converte. Lo stesso valeva per «Blog», che dal 25 agosto 2026 non è più
+  cliccabile nemmeno nel footer — vedi «Il blog, per ora spento» più sotto.
 
 **Il menu sta al centro della barra, e la barra è una griglia a tre colonne**
 (`grid-cols-[1fr_auto_1fr]`), non un `flex justify-between`. Con
@@ -807,15 +1069,17 @@ link (Agenzia, Lavoro, Seguici); sotto una riga di chiusura con marchio, note
 legali e copyright. Tutti i contenuti stanno in `footer` dentro `site.ts` —
 `site-footer.tsx` fa solo impaginazione.
 
-**Era di 25 link su quattro colonne, oggi sono 12 in tutto.** Rifatto il 24
-agosto 2026 insieme alla barra. Cosa è uscito, e perché non va rimesso:
+**Era di 25 link su quattro colonne, oggi sono 12 in tutto**, di cui uno —
+«Blog» — scritto ma spento. Rifatto il 24 agosto 2026 insieme alla barra.
+Cosa è uscito, e perché non va rimesso:
 
 - le **sei voci di «Servizi»** puntavano tutte a `/#servizi`: sei etichette
   diverse e una destinazione sola. Per chi legge è una promessa non mantenuta
   sei volte (clicchi «Branding & identità» e trovi un elenco generico), per
   Google sono sei link senza destinazione propria, quindi valgono zero. Ne
   resta una, e ora porta a `/servizi`, che è una pagina vera;
-- i **tre articoli del blog**: ci si arriva da «Blog», che è lì sopra;
+- i **tre articoli del blog**: ci si arrivava da «Blog», che stava lì sopra —
+  e «Blog» oggi è lì ma non si clicca (vedi «Il blog, per ora spento»);
 - **«Contatti» compariva due volte**, in due colonne diverse.
 
 **I recapiti non sono più un link.** Stanno nel blocco a sinistra, sotto
@@ -870,7 +1134,13 @@ inganno. È lo stesso impianto del riferimento, dove sulla pagina del caso
 studio il «Go Back» ha il pallino prima del testo.
 
 Quando `<Cta>` sta dentro una colonna flex va avvolto in un `<div>`, o si
-stira per tutta la larghezza del contenitore.
+stira per tutta la larghezza del contenitore. **Vale anche quando la colonna
+esiste solo sotto una certa soglia**: `trial.tsx` e `inner-cta.tsx` sono
+`flex-col` sul telefono e `flex-row` da 640/768px in su, e senza involucro il
+pulsante si stirava **solo lì** — la pillola perdeva le proporzioni e il
+pallino con la freccia finiva a mezzo schermo dal testo. Corretto il 25 agosto
+2026: se aggiungi un `<Cta>` dentro un contenitore che cambia direzione,
+guardalo alla larghezza in cui è in colonna.
 
 Peso, interlinea e spaziature dei pulsanti sono misurati su leftclick.ai:
 testo di **peso 400** (mai grassetto), riga 1.3, nessuna spaziatura extra tra le
@@ -881,15 +1151,20 @@ testo e freccia sono scritti due volte dentro un contenitore che taglia il
 fuori-bordo, e al passaggio del mouse la coppia scorre — il testo verso l'alto,
 la freccia verso destra — in 0,3 secondi con andamento `ease`. Le misure sono
 in `em`, quindi basta cambiare la dimensione del testo per riscalare tutto il
-pulsante. La barra fissa su mobile (`mobile-cta`) resta una pillola larga a sé:
-è un'altra affordance, non un pulsante in linea.
+pulsante. **La barra fissa su mobile (`mobile-cta`) usa lo stesso `<Cta>`**,
+dal 25 agosto 2026 e su richiesta di Dario: prima era markup suo — stesso
+arancione, ma testo in grassetto, una freccia scritta al posto del pallino e
+nessuno dei movimenti degli altri pulsanti. Su uno schermo stretto è l'ultimo
+pulsante che si incontra, e si vedeva che era un altro oggetto. Resta una
+barra (fondo, filetto e area sicura in basso), ma quello che ci sta dentro è
+la pillola di sempre, centrata dentro un `<div>` per non stirarsi.
 
 Per dare profondità ai fondi piatti si usano cerchi sfumati molto sfocati nei
 colori del brand (`bg-saffron/10 blur-[120px]`), oggi solo in `inner-cta`.
 La sezione della prova (`trial`) **non è più una scheda di vetro arancione**:
-niente cornice, niente alone, è una sezione come le altre — e dal 25 agosto
-2026 sta in **tinta unita**, non più sul gradiente, perché sopra di lei ora
-c'è la sezione dei servizi.
+niente cornice, niente alone, è una sezione come le altre sul fondo a
+gradiente — perché sopra di lei c'è la vetrina dei lavori, che è in tinta
+unita.
 Nell'hero quel ruolo lo svolge `.surface-glow`, non gli aloni.
 Mai gradienti sul testo.
 
@@ -899,23 +1174,23 @@ tracking -0.03em e peso 500. Sono i valori misurati sul titolo di leftclick.ai.
 L'apertura è scura, con un alone radiale al centro e titolo in **un solo
 colore**: la sfumatura sta nel fondo, mai nelle lettere. Quella superficie è la
 classe **`.surface-glow`** in `globals.css`, condivisa da hero, «Partiamo da
-te», «Chi siamo», «Tutto ciò che serve per farti scegliere» e — da quando la
-prova è passata in tinta unita — la sezione dei contatti: non ricopiare il
-gradiente a mano, usa la classe.
+te», «Chi siamo», «Tutto ciò che serve per farti scegliere» e la sezione della
+prova: non ricopiare il gradiente a mano, usa la classe.
 
 **I fondi si alternano: uno a gradiente, uno in tinta unita.** Scendendo lungo
 la home l'ordine è hero (`.surface-glow`) · nastro clienti (`navy-ink`) ·
 problema (`.surface-glow`) · metodo (`bg-navy-deep`) · chi siamo
 (`.surface-glow`) · strumenti (`bg-navy-deep`) · servizi (`.surface-glow`) ·
-prova (`bg-navy-deep`) · contatti (`.surface-glow`, cioè `<Contact glow />`) ·
-footer (`bg-navy-ink`, scuro sempre).
+**vetrina dei lavori** (`bg-navy-deep`) · prova (`.surface-glow`) · contatti
+(`bg-navy-deep`) · footer (`bg-navy-ink`, scuro sempre).
 
-**Le ultime tre si sono scambiate i fondi il 25 agosto 2026**, e non per
-gusto: uscita la sezione delle testimonianze — che era `bg-navy-deep` fra
-servizi e prova — servizi e prova sarebbero rimaste due sezioni a gradiente
-attaccate. La prova è quindi passata in tinta unita e i contatti hanno preso
-il gradiente. Sul tema scuro non si vedrebbe la differenza; **a tema chiaro
-sì**, ed è lì che la correzione serve. Le due pagine legali (`/privacy`
+**Quel posto fra servizi e prova ha cambiato inquilino due volte il 25 agosto
+2026**, e la lezione è che l'alternanza non si aggiusta a occhio: uscite le
+testimonianze, servizi e prova sarebbero rimaste due sezioni a gradiente
+attaccate, quindi la prova era passata in tinta unita e i contatti avevano
+preso il gradiente; arrivata la vetrina dei lavori nello stesso posto, tutto è
+tornato com'era. Sul tema scuro non si sarebbe visto nulla; **a tema chiaro
+sì**, ed è lì che queste correzioni servono. Le due pagine legali (`/privacy`
 e `/termini`) stanno su `bg-navy-deep`, come la sezione dei contatti: sono
 pagine di servizio, non devono brillare. La sezione delle testimonianze **non è più in pagina**: vedi
 qui sotto. Se aggiungi una
@@ -1070,6 +1345,192 @@ una foto della misura sbagliata.
 Le animazioni restano lente e discrete (comparse allo scroll, scorrimenti nei
 pulsanti).
 
+## Mobile e tablet
+
+Passata fatta il 25 agosto 2026, su richiesta di Dario. Il sito era già in
+gran parte adattivo — le griglie si impilavano, il menu diventava «+» sotto i
+1024px, non c'era **nessuno sbordamento orizzontale** a nessuna larghezza — e
+quello che mancava non era la struttura: erano le soglie e i dettagli del
+dito. Tutti i numeri qui sotto sono misurati con un browser vero a viewport
+vero, non stimati.
+
+### Il ritmo verticale non è più fisso
+
+`py-[108px]` uguale a ogni larghezza faceva una home alta **14.819px sul
+telefono, cioè 16,5 schermate**, contro le 10,3 del desktop: il posto dove si
+legge di meno chiedeva di scorrere il 60% in più. Undici sezioni per 216px di
+sola imbottitura sono 2.376px di vuoto su uno schermo largo 390.
+
+Ora c'è **`.section-y`** (`padding-block: clamp(4rem, 2.5rem + 5vw, 6.75rem)`):
+64px sul telefono, 78 sul tablet verticale, 91 a 1024, **108 da ~1360 in su**,
+cioè la misura di riferimento dov'era stata presa. `.section-y-b` fa la stessa
+cosa solo sotto, per le aperture delle pagine interne.
+
+### Le soglie: quando una griglia si apre
+
+Il criterio non è «quale breakpoint suona bene», è **quanta larghezza serve al
+contenuto**. Tre griglie si aprivano troppo presto e sono state spostate:
+
+| cosa | prima | adesso | perché |
+|---|---|---|---|
+| schede dei fondatori | `sm` (640) in `about.tsx`, `md` (768) in `chi-siamo` | `lg` (1024) in tutti e due | il blocco vuole 26rem (416px): a 640 ne prendeva **256**, a 768 **312** |
+| i tre passi della prova | `sm` | `lg` | a 640 restavano **158px di testo utile** per colonna |
+| i cinque passi del metodo | `md` | `lg` | a 768 la descrizione stava in **218px** |
+| modulo dei contatti | `md` | `lg` | a 768 il modulo si stringeva a ~296px e i campi affiancati al suo interno finivano a 140px |
+| i tre valori di `/chi-siamo` | `sm` | `md` | a 640 erano colonne da 186px |
+
+**Le due schede dei fondatori avevano soglie diverse nei due file**, ed era la
+prova che la regola «se cambi una, cambia l'altra» non era stata seguita. Ora
+sono `lg` tutte e due, e il blocco misura 416px a qualunque larghezza sopra i
+475px.
+
+### La tabella del confronto su `/metodo`
+
+Era `grid-cols-2` a qualunque larghezza: su un telefono da 320px ogni cella
+restava **139px larga e 123px alta**, cioè due colonne di testo spezzato
+appaiate. Da 640px in su è la tabella di sempre; sotto, ogni confronto diventa
+un blocco con le due voci una sopra l'altra e l'etichetta della colonna sopra
+ciascuna.
+
+**Le etichette si ripetono su ogni blocco, ed è voluto**: impilando le celle
+si perde l'intestazione, e senza richiamo non si capisce più quale delle due
+frasi è la nostra. Sono le stesse stringhe di `site.ts`, non testo nuovo. Il
+filetto fra un confronto e il successivo è più marcato di quello interno alla
+coppia, o si leggono otto righe scollegate invece di quattro confronti.
+
+### I bersagli del dito
+
+Le linee guida di accessibilità (WCAG 2.5.8) chiedono **24×24px**, le linee
+guida di Apple e Google ne consigliano 44. Sul telefono c'erano link alti
+**12, 13, 15, 17, 20 e 21 pixel**. Corretti tutti:
+
+- link del footer (tre colonne e note legali) → 33px, con `py-2 -my-2`
+  dentro `FooterLink`: **il margine negativo restituisce lo spazio che il
+  padding prende**, quindi l'area cresce e a schermo non si muove niente;
+- email e WhatsApp nei recapiti del footer → 32px;
+- i quattro social nella sezione contatti → 37px, e **il corpo torna
+  leggibile sotto i 1024px**: `text-[0.62rem]` esiste per un vincolo da
+  desktop (le quattro voci in una riga sola accanto al modulo) che sotto quella
+  soglia non c'è;
+- la riga «Vedi anche» delle pagine di servizio → nove link a 9,9px in una
+  riga di testo: sul telefono il corpo sale e l'interlinea si allarga, così le
+  aree toccabili di righe vicine non si sovrappongono;
+- il link al sito del cliente sui casi studio → 36px;
+- «Scopri il metodo in dettaglio» → 35px;
+- i social nel pannello del menu → 33px.
+
+**Sui nomi del nastro il problema era diverso**, e vale la pena capirlo:
+`.marquee-track:hover` ferma il nastro col mouse, ma **`:hover` non esiste sul
+touch**, quindi da telefono erano bersagli che scorrevano via mentre li
+premevi — e sbagliare mira non voleva dire non aprire niente, voleva dire
+**aprire il sito del cliente sbagliato**. Ora il nastro si ferma anche su
+`:active`, cioè appena appoggi il dito, e il dito lascia la presa su un nome
+fermo. Il bersaglio è passato da 21px a 45 con un `py-3`: su un elemento **in
+linea** il padding verticale non alza la riga, quindi il nastro resta alto
+uguale e `--marquee-h` non va toccata.
+
+### Il pannello del menu non scorreva
+
+Il difetto più grosso trovato nella passata, segnalato da Dario: **su un
+iPhone SE si vedevano solo «Servizi» e «Lavori»**, e le altre due voci più il
+pulsante restavano sotto il bordo dello schermo, irraggiungibili.
+
+Tre cose insieme: il pannello si apriva alla sua altezza naturale (**788px**,
+su uno schermo da 667), il body era bloccato con `overflow: hidden`, e il
+pannello stesso è `overflow-hidden` per via dell'animazione su
+`grid-template-rows`. Nessuna delle tre è sbagliata da sola; insieme facevano
+un menu senza uscita.
+
+Cosa è cambiato:
+
+- **il contenuto scorre per conto suo.** Tetto a
+  `calc(100svh - var(--header-h))`, con `overflow-y-auto` e
+  `overscroll-contain` — quest'ultimo perché arrivati in fondo lo scorrimento
+  non deve passare alla pagina sotto. `svh` e non `vh`: su iOS la barra del
+  browser si ritrae e `vh` mentirebbe di una sessantina di pixel;
+- **`--header-h`** è un token nuovo in `globals.css` (7,5rem, 8,5 da 640px in
+  su): 28px di imbottitura sopra, 28 sotto e il marchio da 64. Se cambi `size`
+  del logo o l'imbottitura della barra, cambia anche lui;
+- **la navigazione è passata in cima.** Prima sopra c'erano email, luogo e
+  social, che spingevano le voci sotto la piega: in un menu da telefono i link
+  sono il motivo per cui lo si è aperto, i recapiti sono un di più e stanno
+  anche nel footer. Adesso tutte e quattro le voci **e** il pulsante arancione
+  si vedono senza scorrere su ogni telefono provato;
+- **i recapiti sono compattati**: i quattro social erano quattro righe, ora
+  sono una riga che va a capo da sola;
+- **Esc chiude il pannello.** Un menu a tutto schermo che si chiude solo
+  tornando a premere il «+» è una trappola per chi naviga da tastiera.
+
+**I due comandi fissi in basso a destra stanno a filo del fondo.** Erano
+inchiodati a 96px da sotto per fare posto alla barra fissa della consulenza —
+ma quella barra c'è solo da 700px di scorrimento in giù e sparisce nel footer,
+quindi sulla prima schermata e in fondo alla pagina i due pulsanti restavano
+**sospesi a mezz'aria**, a un terzo di schermo dal bordo. Segnalato da Dario.
+
+Ora la misura è la variabile **`--dock-b`** in `globals.css`: 1rem quando la
+barra non c'è, 4,75rem quando c'è, sempre 1,5rem da 768px in su (lì la barra
+non esiste). Chi la commuta è `mobile-cta.tsx`, che scrive `data-cta` su
+`<html>` — stesso impianto del tema e del menu: un attributo, e il CSS che ne
+discende. Il riquadro di WhatsApp si appoggia sopra i pulsanti con
+`calc(var(--dock-b) + 3.5rem)`, così sale e scende con loro invece di
+staccarsi.
+
+**Non rimettere `bottom-*` di Tailwind su questi tre elementi**: la posizione
+la governa la classe (`.floating-dock`, `.floating-panel`), o le due misure
+tornano a divergere.
+
+**I due comandi si ritirano mentre il menu è aperto.**
+WhatsApp e interruttore del tema sono `fixed` con `z-50`, cioè allo stesso
+piano dell'intestazione: restavano appoggiati sopra il pannello e sui telefoni
+piccoli coprivano i profili social — «Dario su LinkedIn» era tagliato a metà.
+L'attributo `data-menu="open"` va su `<html>` (stesso impianto del tema: un
+attributo e il CSS che ne discende) e la regola sta in `globals.css`, agganciata
+alla classe `.floating-control`. Mentre il menu è aperto quei due non servono:
+il menu ha già i suoi contatti.
+
+### La barra fissa copriva il footer
+
+`mobile-cta.tsx` osservava solo `#contatti` e spariva lì. Scorrendo oltre, nel
+footer, quella sezione usciva di vista e **la barra tornava fuori sopra
+l'ultima riga**: misurato su un telefono da 390px, la barra partiva a 771px e
+la riga con copyright e note legali finiva a 804 — Privacy e Termini erano
+irraggiungibili. Ora l'osservatore guarda **contatti e footer**, e conta le
+zone in vista invece di tenere un booleano: le due sono attaccate, e uscendo
+dall'una mentre si entra nell'altra un booleano solo faceva lampeggiare la
+barra.
+
+### Dettagli minori, ma reali
+
+- il riquadro di WhatsApp era `w-[19rem]` con `right-4`: 304+16 = **320px
+  esatti**, cioè incollato al bordo sui telefoni piccoli. Ora è
+  `w-[min(19rem,calc(100vw-2rem))]`;
+- `sizes` delle foto dei fondatori aggiornato alla soglia vera (475px, cioè
+  dove il blocco smette di crescere), in **tutti e due i file**.
+
+### Cosa è stato verificato, e come
+
+Sei larghezze (320, 390, 430, 768, 834, 1024), undici pagine, tutti e due i
+temi, e le due orientazioni. Controllati per ogni combinazione: sbordamento
+orizzontale, elementi che escono dalla gabbia, bersagli sotto i 24px e testo
+sotto gli 11,5px. **Nessuno sbordamento orizzontale da nessuna parte**, e
+l'unico bersaglio piccolo rimasto è il campo trappola anti-spam, che deve
+restare invisibile.
+
+Una nota di metodo: AGENTS.md avvertiva di non fidarsi di `--window-size` di
+Chrome sotto i ~450px. Con Playwright il problema non c'è, perché il viewport
+si imposta davvero invece di ritagliare la finestra: **è lo strumento giusto
+per misurare da telefono**, e l'avvertimento resta valido solo per Chrome
+lanciato a mano.
+
+### Una conseguenza da conoscere
+
+Portando le schede dei fondatori a 416px anche sul tablet, **la foto di Dario
+è più ingrandita di prima su quegli schermi**: il file è 472px, prima a 768px
+riempiva un riquadro da 312 e adesso ne riempie uno da 416. È il compromesso
+giusto — la biografia era su righe da trenta caratteri — e si chiude da sé il
+giorno in cui arrivano gli originali ad alta risoluzione (vedi «Da
+sistemare»). La foto di Luisa è 1024px e non ha il problema.
+
 ## Farsi trovare: mappa, canonici e dati strutturati
 
 Tutto costruito il 24 agosto 2026, dopo una diagnosi che aveva trovato questi
@@ -1112,17 +1573,27 @@ in `site`, `social` e `company`. Chi c'è dove:
 | dove | cosa dichiara |
 |---|---|
 | `layout.tsx` (tutte le pagine) | `ProfessionalService` — l'azienda |
-| `/faq` | `FAQPage` con le nove domande |
+| `/faq` | `FAQPage` con le dieci domande |
 | `/servizi/<slug>` | `Service` + briciole di pane |
 | le altre pagine interne | briciole di pane |
 
-**Manca l'indirizzo postale, ed è voluto.** `PostalAddress` vuole via e numero
-civico, e in `company` non ci sono ancora (vedi «Da sistemare»). Un indirizzo
-inventato o incompleto è **peggio** di nessun indirizzo: Google confronta
-questi dati con la scheda Google dell'attività e con quello che trova altrove,
-e se non combaciano il segnale si indebolisce invece di rafforzarsi. Il
-commento sopra `organizationSchema()` contiene già il blocco da incollare
-quando arriveranno sede legale e partita IVA.
+**L'indirizzo postale c'è, ed è quello vero.** `PostalAddress` dichiara Via
+Alcide De Gasperi 52, 80059 Torre del Greco (NA), insieme a `vatID` e
+`taxID`: arrivano da `company`, presi dalla visura. Questo paragrafo per un
+po' ha continuato a dire che mancava — era rimasto indietro rispetto al
+codice, ed è corretto dal 25 agosto 2026.
+
+**Perché deve restare quello vero, e non «Napoli».** Google confronta questi
+dati con la scheda Google dell'attività e con quello che trova altrove: se non
+combaciano il segnale si indebolisce invece di rafforzarsi, e una scheda con
+un indirizzo che non corrisponde viene sospesa. Non «semplificarlo» a Napoli
+per coerenza col racconto del sito.
+
+**Il 25 agosto 2026 Dario ha confermato che in Via De Gasperi 52 un cliente
+può presentarsi.** Serviva a decidere come aprire la scheda Google, e la
+risposta cambia la configurazione: la scheda va aperta **con l'indirizzo
+visibile**, non come attività che opera solo su un'area. Il sito e la scheda
+diranno lo stesso indirizzo, che è la condizione che evita la sospensione.
 
 **Le risposte della FAQ nei dati strutturati vengono dallo stesso `faq` che
 si legge in pagina.** Se un giorno divergessero sarebbe un motivo di
@@ -1295,10 +1766,17 @@ sopra.
 
   Le quattro nuove dichiarano anche **cosa non facciamo**, come le altre, e lì
   ci sono quattro impegni che vale la pena rileggere ad alta voce: non
-  compriamo liste di indirizzi, non compriamo recensioni, non compriamo
-  follower, non mandiamo report di quaranta pagine. Sono le righe che fanno
-  fidare chi ci ha già provato senza risultati — ed è anche il motivo per cui
-  vanno confermate prima di andare online.
+  compriamo liste di indirizzi, non promettiamo di far sparire una recensione
+  negativa, non compriamo follower, non mandiamo report di quaranta pagine.
+  Sono le righe che fanno fidare chi ci ha già provato senza risultati — ed è
+  anche il motivo per cui vanno confermate prima di andare online.
+
+  Su **Reputazione** la prima stesura diceva «non compriamo recensioni e non
+  ne scriviamo di finte». Tolta lo stesso giorno, su richiesta di Dario:
+  **su una pagina che vende reputazione, nominare le recensioni finte fa
+  venire in mente proprio la cosa che si vuole escludere** — e comunque
+  nessuno lo chiede. Al suo posto un impegno che le persone chiedono davvero,
+  e a cui la risposta è no: far sparire una recensione negativa.
 - `src/lib/site.ts` — l'appuntamento su Cal.com si chiama ancora «Meeting di
   30 minuti», il nome predefinito: chi clicca «Richiedi consulenza gratuita»
   arriva su una pagina che parla d'altro. Da rinominare **su Cal.com**, non
@@ -1311,9 +1789,15 @@ sopra.
   verificare la forma societaria dichiarata nel copyright, ed **era
   sbagliata**: c'era «S.r.l.», la visura dice **S.r.l.s.** — semplificata, che
   è una società diversa. Corretto.
-- `src/app/prova/page.tsx` — i due pulsanti hanno ancora il loro markup
-  invece del componente `cta.tsx`: stesso colore, ma niente movimento e niente
-  pallino con la freccia. Da uniformare.
+- ~~`src/app/prova/page.tsx` — pagina orfana, e i due pulsanti senza
+  `cta.tsx`~~ — **risolto togliendo la pagina** il 25 agosto 2026. Vedi
+  «La pagina della prova, e perché non c'è più» qui sopra.
+- `src/components/blog.tsx` — **codice morto: non lo importa nessuno.** La
+  home non ha più la sezione blog, e il componente è rimasto lì ricopiando
+  verbatim titolo e sottotitolo di `/blog` (`blog.tsx:14-15` = `blog/page.tsx`).
+  Diverso da `testimonials.tsx`, che è morto per scelta dichiarata e va tenuto:
+  questo è solo rimasto indietro. Da togliere, o da rimettere in pagina se la
+  sezione serve.
 - `src/app/zzpreview/` — pagina di lavoro interna, ancora raggiungibile da
   chiunque ne conosca l'indirizzo. **Non finisce più nei risultati di
   ricerca** (`noindex` più il blocco in `robots.txt`), quindi non è più
@@ -1334,7 +1818,10 @@ sopra.
   lavoro, rifai il numero.
 - `public/team/` — le foto dei fondatori sono a bassa risoluzione (Dario
   472×472, Luisa 1024×1024): il quadrato è stato ristretto a `26rem` proprio
-  per questo. Quando arrivano gli originali ad alta risoluzione si
+  per questo. **Dal 25 agosto 2026 il riquadro è 416px anche su tablet** (le
+  schede si affiancano solo da 1024px), quindi la foto di Dario è più
+  ingrandita di prima su quegli schermi: 472px dentro un riquadro da 416
+  invece che da 312. Quando arrivano gli originali ad alta risoluzione si
   sostituiscono i due file — stessi nomi, niente altro da toccare — e a quel
   punto si può valutare se riportare il quadrato a `32rem`.
 - `eslint.config.mjs` — la cartella `.vercel/` generata dal deploy non è esclusa

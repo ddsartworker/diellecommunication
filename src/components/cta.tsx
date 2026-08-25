@@ -81,6 +81,10 @@ export default function Cta({
   // È lo stesso impianto del riferimento, dove sulla pagina del caso studio
   // il «Go Back» ha il pallino prima del testo.
   back = false,
+  // Serve alla barra fissa su mobile, che quando è ritirata deve uscire dalla
+  // tabulazione: è fuori dallo schermo, e un pulsante raggiungibile col
+  // tabulatore ma invisibile manda il fuoco nel vuoto.
+  tabIndex,
 }: {
   href: string;
   children: ReactNode;
@@ -89,6 +93,7 @@ export default function Cta({
   className?: string;
   onClick?: () => void;
   back?: boolean;
+  tabIndex?: number;
 }) {
   const classes = `${base} ${padding[back ? "indietro" : "avanti"]} ${sizes[size]} ${variants[variant]} ${className}`;
   // Gli indirizzi interni passano dal router di Next; le ancore della stessa
@@ -133,6 +138,7 @@ export default function Cta({
       data-theme={variant === "primary" ? "dark" : undefined}
       className={classes}
       onClick={onClick}
+      tabIndex={tabIndex}
       {...attributiEsterni}
     >
       {pallino}

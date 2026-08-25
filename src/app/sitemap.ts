@@ -14,6 +14,13 @@ const lavoriConPagina = work.filter((w) => w.study);
 // mappa incompleta è peggio di nessuna mappa.
 //
 // `/zzpreview` non c'è ed è voluto: è una pagina di lavoro interna.
+//
+// **`/prova` non c'è più**, e toglierla di qui è la metà obbligatoria del
+// lavoro: dal 25 agosto 2026 quell'indirizzo rimanda al calendario
+// (`next.config.ts`), e una mappa che consegna a Google un indirizzo che
+// rimanda fuori dal sito è un segnale sprecato. Vale la regola già scritta
+// per i lavori senza caso studio: se cambia chi ha una pagina, la mappa
+// cambia con lui.
 
 // Quanto spesso cambia una pagina e quanto conta rispetto alle altre. Sono
 // indicazioni, non ordini: Google le legge e poi decide da sé.
@@ -23,10 +30,14 @@ const statiche: { path: string; priority: number; changeFrequency: MetadataRoute
   { path: "/lavori", priority: 0.8, changeFrequency: "monthly" },
   { path: "/chi-siamo", priority: 0.8, changeFrequency: "yearly" },
   { path: "/contatti", priority: 0.8, changeFrequency: "yearly" },
-  { path: "/prova", priority: 0.8, changeFrequency: "yearly" },
   { path: "/metodo", priority: 0.7, changeFrequency: "yearly" },
   { path: "/faq", priority: 0.7, changeFrequency: "monthly" },
-  { path: "/blog", priority: 0.6, changeFrequency: "weekly" },
+  // «settimanale» finché il blog era vivo. Dal 25 agosto 2026 non lo è —
+  // il link è uscito dal footer — e dichiarare un aggiornamento che non
+  // arriva fa passare Google a vuoto. Le pagine restano nella mappa: il
+  // contenuto è buono ed è già posizionato, è solo il sito che per ora non
+  // ci manda nessuno.
+  { path: "/blog", priority: 0.6, changeFrequency: "yearly" },
   { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
   { path: "/termini", priority: 0.2, changeFrequency: "yearly" },
 ];

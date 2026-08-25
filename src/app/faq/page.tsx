@@ -65,7 +65,7 @@ export default function FaqPage() {
       />
       <JsonLd data={breadcrumbSchema([{ name: faqPage.title, path: "/faq" }])} />
       <main>
-        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden pb-[108px] pt-40 text-cream sm:pt-48">
+        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden section-y-b pt-40 text-cream sm:pt-48">
           <div className="shell">
             <SectionHead
               as="h1"
@@ -76,14 +76,14 @@ export default function FaqPage() {
           </div>
         </section>
 
-        <section className="bg-navy-deep py-[108px]">
+        <section className="bg-navy-deep section-y">
           <div className="shell">
             <SectionHead title={faqPage.generalTitle} />
             <Elenco voci={sullAgenzia} />
           </div>
         </section>
 
-        <section className="surface-glow py-[108px]">
+        <section className="surface-glow section-y">
           <div className="shell">
             <SectionHead title={faqPage.trialTitle} />
             <Elenco voci={sullaProva} />

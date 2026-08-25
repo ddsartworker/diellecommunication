@@ -21,6 +21,23 @@ const nextConfig: NextConfig = {
       // Fusa dentro «Il metodo», che ora racconta come lavoriamo *e* cosa
       // succede a chi ci contatta.
       { source: "/processo", destination: "/metodo", permanent: true },
+      // `/prova` esce dal sito il 25 agosto 2026, per decisione di Dario, e
+      // rimanda **alla sezione della prova sulla home**.
+      //
+      // Perché è stata tolta: diceva quello che dice già quella sezione —
+      // titolo e sottotitolo erano `<Trial />` ricopiato a mano, i passi
+      // erano gli stessi `trial.steps`, la FAQ in fondo era il sottoinsieme
+      // `trial` di `/faq` — e non era raggiungibile da nessun link: ci
+      // arrivava solo chi la trovava su Google.
+      //
+      // **Prima puntava al calendario, ed è stato cambiato subito.** Chi
+      // arriva da una ricerca non sa ancora cosa starebbe prenotando, e
+      // mandarlo dritto su Cal.com è chiedergli fiducia prima di avergli
+      // spiegato di cosa si tratta: è esattamente la regola per cui il
+      // pulsante dell'apertura porta a `#prova` e non al calendario. Ora chi
+      // cercava la prova gratuita atterra dove gliela spieghiamo, con il
+      // pulsante per il calendario lì sotto.
+      { source: "/prova", destination: "/#prova", permanent: true },
     ];
   },
 };

@@ -163,6 +163,18 @@
      scorrere per vederlo — come sul riferimento. Se cambi l'imbottitura o il
      corpo dei nomi in `marquee.tsx`, cambia anche questo. */
   --marquee-h: 4.7rem;
+
+  /* Altezza dell'intestazione: 28px di imbottitura sopra, 28 sotto e il
+     marchio da 64 (36+36 da 640px in su). Serve al pannello del menu, che
+     si apre sotto la barra e non deve superare il fondo dello schermo. Se
+     cambi `size` del logo o l'imbottitura in `site-header.tsx`, cambia
+     anche qui. */
+  --header-h: 7.5rem;
+}
+@media (min-width: 40rem) {
+  :root {
+    --header-h: 8.5rem;
+  }
 }
 
 * {
@@ -343,6 +355,35 @@ body {
 }
 
 /*
+  Ritmo verticale delle sezioni.
+
+  La misura di riferimento resta **108px sopra e sotto**, presa da
+  leftclick.ai su uno schermo da 1440: da circa 1360px in su è esattamente
+  quella, quindi il desktop è identico a prima.
+
+  Sotto, si stringe. Il motivo è misurato, non estetico: con 108px fissi
+  ovunque la home su un telefono era alta **14.819px, cioè 16,5 schermate**,
+  contro le 10,3 del desktop — il posto dove si legge di meno era quello che
+  chiedeva di scorrere di più. Undici sezioni per 216px di sola imbottitura
+  fanno 2.376px di vuoto su uno schermo largo 390.
+
+  `clamp` fa il resto: 64px sul telefono, ~78 sul tablet verticale, ~91 a
+  1024, 108 da 1360 in su. Non è una sezione che si accorcia, è la stessa
+  sezione con l'aria proporzionata allo schermo.
+
+  Si usa al posto di `section-y`, che non va più scritto a mano: se un
+  giorno la misura cambia, cambia qui e cambia in tutte le sezioni insieme.
+*/
+.section-y {
+  padding-block: clamp(4rem, 2.5rem + 5vw, 6.75rem);
+}
+/* Le aperture delle pagine interne: stessa scala, ma solo sotto — sopra ci
+   pensa lo spazio che lascia l'intestazione. */
+.section-y-b {
+  padding-bottom: clamp(4rem, 2.5rem + 5vw, 6.75rem);
+}
+
+/*
   Superficie dell'apertura: alone radiale che schiarisce verso il centro.
   La usano l'hero e la sezione «Partiamo da te», così restano la stessa cosa.
 */
@@ -366,8 +407,16 @@ body {
   animation: dielle-marquee 45s linear infinite;
 }
 /* I nomi sono link: il nastro si ferma quando ci passi sopra col mouse,
-   altrimenti cliccarli sarebbe un tiro al bersaglio in movimento. */
-.marquee-track:hover {
+   altrimenti cliccarli sarebbe un tiro al bersaglio in movimento.
+
+   `:active` fa la stessa cosa col dito, e su un telefono è l'unica che
+   funziona: `:hover` non esiste sul touch, quindi lì i nomi erano bersagli
+   che scorrevano via mentre li premevi — e sbagliare mira non voleva dire
+   non aprire niente, voleva dire aprire il sito del cliente sbagliato. Il
+   nastro si ferma appena appoggi il dito, e il dito lascia la presa su un
+   nome fermo. */
+.marquee-track:hover,
+.marquee-track:active {
   animation-play-state: paused;
 }
 
@@ -402,6 +451,70 @@ header {
   section,
   footer,
   header {
+    transition: none;
+  }
+}
+
+/*
+  I due comandi fissi in basso a destra — WhatsApp e interruttore del tema —
+  si ritirano quando il pannello del menu è aperto. Sono `fixed` con `z-50`,
+  cioè allo stesso piano dell'intestazione: senza questa regola restavano
+  appoggiati sopra il contenuto del pannello, e sui telefoni piccoli
+  coprivano i profili social. Mentre il menu è aperto non servono a niente,
+  perché il menu ha già i suoi contatti.
+
+  L'attributo lo mette `site-header.tsx` su <html>, come fa il tema: stesso
+  impianto, un attributo solo e il CSS che ne discende.
+*/
+.floating-control {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    bottom 0.35s var(--ease-out-expo);
+}
+
+/*
+  I due comandi tondi in basso a destra — WhatsApp e interruttore del tema —
+  e il riquadro di WhatsApp che si apre sopra di loro.
+
+  **Stanno a filo del fondo**, e salgono solo quando c'è la barra fissa della
+  consulenza, che altrimenti si sovrapporrebbero. Prima erano inchiodati a
+  96px da sotto per fare posto alla barra sempre, anche quando la barra non
+  c'era: sulla prima schermata e nel footer restavano sospesi a mezz'aria a un
+  terzo di schermo dal bordo. Segnalato da Dario il 25 agosto 2026.
+
+  Chi accende `data-cta` è `mobile-cta.tsx`, sullo stesso <html> che porta il
+  tema e lo stato del menu. Da 768px in su la barra non esiste (`md:hidden`),
+  quindi lì la misura è sempre quella bassa: la riga nel media query vale per
+  tutti e due i casi, o su desktop i comandi salterebbero quando la barra si
+  «accende» senza essere visibile.
+*/
+:root {
+  --dock-b: 1rem;
+}
+html[data-cta="on"] {
+  --dock-b: 4.75rem;
+}
+@media (min-width: 48rem) {
+  :root,
+  html[data-cta="on"] {
+    --dock-b: 1.5rem;
+  }
+}
+.floating-dock {
+  bottom: var(--dock-b);
+}
+/* Il riquadro si appoggia sopra i pulsanti: 44px di pulsante più 12 di aria. */
+.floating-panel {
+  bottom: calc(var(--dock-b) + 3.5rem);
+}
+html[data-menu="open"] .floating-control {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(0.75rem);
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-control {
     transition: none;
   }
 }

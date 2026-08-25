@@ -28,7 +28,7 @@ export default function LavoriIndex() {
       <SiteHeader />
       <JsonLd data={breadcrumbSchema([{ name: "Lavori", path: "/lavori" }])} />
       <main>
-        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden pb-[108px] pt-40 text-cream sm:pt-48">
+        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden section-y-b pt-40 text-cream sm:pt-48">
           <div className="shell">
             <SectionHead
               as="h1"
@@ -50,7 +50,7 @@ export default function LavoriIndex() {
           </div>
         </section>
 
-        <section className="bg-navy-deep py-[108px]">
+        <section className="bg-navy-deep section-y">
           <div className="shell">
             <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
               {work.map((item, i) => (

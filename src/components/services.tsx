@@ -8,7 +8,7 @@ export default function Services() {
   return (
     // Fondo a gradiente come l'apertura: le sezioni si alternano una sfumata e
     // una in tinta unita (metodo e strumenti sono `navy-deep`).
-    <section id="servizi" className="surface-glow py-[108px]">
+    <section id="servizi" className="surface-glow section-y">
       <div className="shell">
         <SectionHead
           title="Tutto ciò che serve per farti scegliere."

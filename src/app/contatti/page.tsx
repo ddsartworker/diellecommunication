@@ -27,7 +27,7 @@ export default function ContattiPage() {
             Email, luogo e social non stanno qui: sono nella sezione del
             modulo qui sotto, e ripeterli darebbe due volte la stessa cosa
             nella stessa schermata. */}
-        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden pb-[108px] pt-40 text-cream sm:pt-48">
+        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden section-y-b pt-40 text-cream sm:pt-48">
           <div className="shell">
             <SectionHead
               as="h1"
@@ -42,7 +42,7 @@ export default function ContattiPage() {
             delle altre pagine nuove. Qui le fasce sono due e non tre: sopra
             il modulo non c'è altro da dire, e inventare una sezione per
             pareggiare il conto vorrebbe dire scrivere testo che non serve. */}
-        <section className="bg-navy-deep py-[108px]">
+        <section className="bg-navy-deep section-y">
           <div className="shell">
             <Reveal delay={90}>
               <dl className="mx-auto max-w-3xl divide-y divide-cream/10 border-y border-cream/10">

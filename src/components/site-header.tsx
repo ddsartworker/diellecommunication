@@ -8,12 +8,32 @@ import { booking, nav, site, social } from "@/lib/site";
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
 
-  // Blocca lo scroll del body quando il pannello è aperto
+  // Blocca lo scroll del body quando il pannello è aperto: dentro il
+  // pannello si scorre per conto suo.
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    // L'attributo su <html> lo leggono i due pulsanti fissi in basso a destra
+    // (WhatsApp e interruttore del tema), che altrimenti restano sopra il
+    // pannello: si vedevano appoggiati sui social, con «Dario su LinkedIn»
+    // coperto a metà. La regola sta in `globals.css`, come per il tema —
+    // stesso impianto: un attributo su <html> e il CSS che ne discende.
+    document.documentElement.dataset.menu = open ? "open" : "";
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.dataset.menu = "";
     };
+  }, [open]);
+
+  // Esc chiude, come il riquadro di WhatsApp. Un pannello che si apre a tutto
+  // schermo e si chiude solo tornando a premere il «+» è una trappola per chi
+  // naviga da tastiera.
+  useEffect(() => {
+    if (!open) return;
+    const esc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", esc);
+    return () => window.removeEventListener("keydown", esc);
   }, [open]);
 
   return (
@@ -126,48 +146,26 @@ export default function SiteHeader() {
         }`}
       >
         <div className="min-h-0">
-          <div className="shell py-10 sm:py-14">
-            {/* Info cliccabili (sopra) */}
-            <div className="grid gap-8 border-b border-navy/10 pb-10 sm:grid-cols-3">
-              <a href={`mailto:${site.email}`} className="group block">
-                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-saffron">
-                  Scrivici
-                </span>
-                <p className="display mt-3 text-sm text-navy underline decoration-navy/30 decoration-1 underline-offset-4">
-                  {site.email}
-                </p>
-              </a>
-              <div>
-                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-saffron">
-                  Dove siamo
-                </span>
-                <p className="display mt-3 text-sm leading-relaxed text-navy">
-                  {site.location}
-                </p>
-              </div>
-              <div>
-                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-saffron">
-                  Seguici
-                </span>
-                <ul className="mt-3 space-y-2">
-                  {social.map((s) => (
-                    <li key={s.href}>
-                      <a
-                        href={s.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="display text-sm text-navy transition-colors hover:text-saffron"
-                      >
-                        {s.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+          {/* **Qui dentro si scorre.** Il pannello si apriva a tutta la sua
+              altezza naturale — 788px — mentre il body era bloccato
+              (`overflow: hidden`) e il pannello stesso è `overflow-hidden`
+              per via dell'animazione su `grid-template-rows`. Risultato: su
+              un iPhone SE si vedevano **solo «Servizi» e «Lavori»**, e le
+              altre due voci più il pulsante restavano sotto il bordo dello
+              schermo senza modo di raggiungerli. Segnalato da Dario, e
+              riprodotto: il pannello finiva a 908px su uno schermo da 667.
 
-            {/* Link di navigazione (sotto) */}
-            <nav className="mt-10 grid gap-x-10 gap-y-2 sm:grid-cols-2">
+              Il tetto è lo schermo meno la barra (`--header-h`), in `svh`
+              perché su iOS la barra del browser si ritrae e `vh` mentirebbe.
+              `overscroll-contain` evita che arrivato in fondo lo scorrimento
+              passi alla pagina sotto. */}
+          <div className="shell max-h-[calc(100svh-var(--header-h))] overflow-y-auto overscroll-contain py-8 pb-[max(2rem,env(safe-area-inset-bottom))] sm:py-10">
+            {/* **La navigazione sta in cima**, e prima non era così: sopra
+                c'erano email, luogo e social, che spingevano le voci sotto la
+                piega. In un menu da telefono i link sono il motivo per cui lo
+                si è aperto; i recapiti sono un di più, e stanno anche nel
+                footer. */}
+            <nav className="grid gap-x-10 sm:grid-cols-2">
               {nav.map((item) => (
                 <a
                   key={item.href}
@@ -178,22 +176,66 @@ export default function SiteHeader() {
                   <span className="display text-2xl text-navy transition-colors group-hover:text-saffron sm:text-3xl">
                     {item.label}
                   </span>
-                  <span className="font-mono text-saffron opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 -translate-x-2">
+                  <span className="-translate-x-2 font-mono text-saffron opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
                     →
                   </span>
                 </a>
               ))}
             </nav>
 
-            {/* Lo stesso pulsante della barra: sotto i 1024px la barra non
-                c'è, e questa è l'unica via alla prova dentro il menu. */}
-            <Cta
-              href="/#prova"
-              className="mt-8"
-              onClick={() => setOpen(false)}
-            >
-              {booking.label}
-            </Cta>
+            {/* Sotto i 1024px la barra non c'è: questa è l'unica via alla
+                prova dentro il menu. Nel `<div>` perché il contenitore è una
+                colonna e senza involucro la pillola si stira. */}
+            <div className="mt-8">
+              <Cta href="/#prova" onClick={() => setOpen(false)}>
+                {booking.label}
+              </Cta>
+            </div>
+
+            {/* I recapiti, compattati: i quattro social erano quattro righe,
+                adesso sono una riga che va a capo da sola. */}
+            <div className="mt-10 grid gap-7 border-t border-navy/10 pt-8 sm:grid-cols-2">
+              <div>
+                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-saffron">
+                  Scrivici
+                </span>
+                <a
+                  href={`mailto:${site.email}`}
+                  onClick={() => setOpen(false)}
+                  className="display mt-3 block text-sm text-navy underline decoration-navy/30 decoration-1 underline-offset-4 [overflow-wrap:anywhere]"
+                >
+                  {site.email}
+                </a>
+              </div>
+              <div>
+                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-saffron">
+                  Dove siamo
+                </span>
+                <p className="display mt-3 text-sm leading-relaxed text-navy">
+                  {site.location}
+                </p>
+              </div>
+              <div className="sm:col-span-2">
+                <span className="display text-[0.7rem] uppercase tracking-[0.2em] text-saffron">
+                  Seguici
+                </span>
+                <ul className="mt-2 flex flex-wrap gap-x-6">
+                  {social.map((s) => (
+                    <li key={s.href}>
+                      <a
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setOpen(false)}
+                        className="display inline-block py-2 text-sm text-navy transition-colors hover:text-saffron"
+                      >
+                        {s.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>

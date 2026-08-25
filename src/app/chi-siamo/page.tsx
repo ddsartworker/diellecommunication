@@ -37,7 +37,7 @@ export default function ChiSiamoPage() {
       <JsonLd data={breadcrumbSchema([{ name: "Chi siamo", path: "/chi-siamo" }])} />
       <main>
         {/* 1. Apertura */}
-        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden pb-[108px] pt-40 text-cream sm:pt-48">
+        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden section-y-b pt-40 text-cream sm:pt-48">
           <div className="shell">
             <SectionHead
               as="h1"
@@ -50,7 +50,7 @@ export default function ChiSiamoPage() {
 
         {/* 2. Chi siamo, per esteso. Tutti i capoversi con la stessa
             formattazione: se ne aggiungi uno non dargli una classe sua. */}
-        <section className="bg-navy-deep py-[108px]">
+        <section className="bg-navy-deep section-y">
           <div className="shell">
             <Reveal>
               <div className="mx-auto max-w-3xl space-y-6">
@@ -79,10 +79,10 @@ export default function ChiSiamoPage() {
         </section>
 
         {/* 3. I valori */}
-        <section className="surface-glow py-[108px]">
+        <section className="surface-glow section-y">
           <div className="shell">
             <SectionHead title={aboutPage.valuesTitle} />
-            <div className="mt-14 grid gap-10 sm:grid-cols-3 sm:gap-8">
+            <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
               {aboutPage.values.map((value, i) => (
                 <Reveal key={value.title} delay={i * 90}>
                   <div className="border-t border-cream/15 pt-6">
@@ -100,7 +100,7 @@ export default function ChiSiamoPage() {
         </section>
 
         {/* 4. Cosa costruiamo: le quattro schede portano alle pagine vere. */}
-        <section className="bg-navy-deep py-[108px]">
+        <section className="bg-navy-deep section-y">
           <div className="shell">
             <SectionHead title={aboutPage.buildTitle} body={aboutPage.buildBody} />
             <div className="mt-14 grid gap-6 sm:grid-cols-2">
@@ -124,10 +124,13 @@ export default function ChiSiamoPage() {
         </section>
 
         {/* 5. I fondatori */}
-        <section className="surface-glow py-[108px] text-cream">
+        <section className="surface-glow section-y text-cream">
           <div className="shell">
             <SectionHead title="I fondatori." />
-            <div className="mx-auto mt-16 grid max-w-6xl gap-12 md:grid-cols-2 md:gap-12">
+            {/* Stessa soglia di `about.tsx`: vedi il commento lì. Prima questa
+                pagina si apriva a `md` e la home a `sm` — due comportamenti
+                diversi per lo stesso blocco. */}
+            <div className="mx-auto mt-16 grid max-w-6xl gap-12 lg:grid-cols-2 lg:gap-12">
               {founders.map((person) => (
                 <div key={person.name} className="mx-auto w-full max-w-[26rem] text-left">
                   <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
@@ -136,7 +139,7 @@ export default function ChiSiamoPage() {
                         src={person.photo}
                         alt={`Ritratto di ${person.name}`}
                         fill
-                        sizes="(max-width: 640px) 90vw, 26rem"
+                        sizes="(max-width: 475px) 88vw, 26rem"
                         quality={90}
                         className="object-cover"
                       />

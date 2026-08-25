@@ -53,8 +53,14 @@ export default function Marquee() {
 
                 // Sottolineatura e nome pieno al passaggio del mouse: è il
                 // segnale che si può cliccare.
+                // `py-3` su un elemento in linea non alza la riga — quindi
+                // il nastro resta alto uguale e `--marquee-h` non cambia — ma
+                // allarga il rettangolo che intercetta il dito, da 21px a 45.
+                // Serve perché qui si tocca un bersaglio in movimento: vedi
+                // anche `.marquee-track:active` in `globals.css`, che ferma il
+                // nastro appena appoggi il dito.
                 const stile =
-                  "text-cream/50 underline-offset-[6px] transition-colors duration-300 hover:text-cream hover:underline hover:decoration-saffron";
+                  "py-3 text-cream/50 underline-offset-[6px] transition-colors duration-300 hover:text-cream hover:underline hover:decoration-saffron";
                 const interno = client.href.startsWith("/");
 
                 return interno ? (

@@ -141,11 +141,16 @@ export const problems = [
     tag: "«Non sono sicuro che serva»",
     // Il corpo non elenca più le tre obiezioni qui sotto: dice perché è
     // normale pensarle, che è un'altra cosa.
-    body: "Nessuno te l'ha mai spiegato bene, e le poche volte che ci hanno provato ti hanno venduto un pacchetto. Intanto il marketing lo fai già ogni giorno — quando scegli come accogli chi entra — solo, lo fai per caso invece che apposta.",
+    body: "Nessuno te l'ha mai spiegato bene, e le poche volte che ci hanno provato ti hanno venduto un pacchetto. Intanto il marketing è già dentro ogni singola scelta che fai ogni giorno: solo, lo fai per caso invece che apposta.",
     points: [
-      "Il marketing mi sembra inutile",
-      "I social sono tutti uguali",
-      "Le agenzie vendono solo fumo",
+      // **Tutte e tre sono frasi vere**, sentite da clienti e riportate da
+      // Dario il 25 agosto 2026. Ognuna ha preso il posto di una scritta a
+      // tavolino: «il marketing mi sembra inutile», «i social sono tutti
+      // uguali» e «le agenzie vendono solo fumo». Da qui in poi le due schede
+      // sono alla pari — nessun virgolettato inventato in nessuna delle due.
+      "Pago tanti servizi come menù e portali di prenotazione, e non so se mi servono davvero",
+      "Avrei tanto da dire, ma nessuno me lo chiede mai",
+      "Su Google non esco",
     ],
   },
   {
@@ -220,7 +225,10 @@ export const founders: Founder[] = [
   // Luisa per prima, a sinistra: è lei la CEO.
   {
     name: "Luisa Panariello",
-    role: "CEO · Marketing & Communication",
+    // Quattro mestieri invece di «Marketing & Communication», che li teneva
+    // tutti dentro senza dirne nessuno. La riga va a capo sul blocco da
+    // 26rem: è voluto, si legge lo stesso ed è testo di servizio.
+    role: "CEO · Giornalista, copywriter, marketing strategist e SEO specialist",
     quote: "Trasformo la tua storia in contenuti che le persone vogliono seguire.",
     bio: "Specialista in branding, contenuti e comunicazione. Mi occupo della relazione con te e dello sviluppo strategico: trovo le parole giuste e le porto alle persone giuste.",
     initials: "LP",
@@ -318,8 +326,12 @@ export const services: Service[] = [
     slug: "social",
     title: "Social",
     accent: "& contenuti",
-    body: "Strategia, reel, storytelling e gestione dei canali. Contenuti che fanno fermare il pollice, non solo post da pubblicare.",
-    tags: ["Strategia", "Reel", "Gestione social"],
+    body: "Strategia, video storytelling e gestione dei canali. Contenuti che fanno fermare il pollice, non solo post da pubblicare.",
+    // «Video storytelling» al posto di «Reel», su richiesta di Dario: il reel
+    // è un formato di un social solo, e fra due anni potrebbe chiamarsi in un
+    // altro modo. Quello che si vende è raccontare per video — i reel restano
+    // citati fra le cose incluse, dove è giusto che stiano.
+    tags: ["Strategia", "Video storytelling", "Gestione social"],
     page: {
       lead: "Pubblicare non è comunicare. Prima decidiamo cosa hai da dire e a chi, poi costruiamo i contenuti che lo dicono.",
       forWho: [
@@ -330,7 +342,7 @@ export const services: Service[] = [
       included: [
         "Una linea editoriale scritta: di cosa parliamo, con che voce, ogni quanto.",
         "Riprese e fotografie fatte da noi, sul posto.",
-        "Montaggio dei reel e dei video verticali.",
+        "Video storytelling: non solo montaggio, ma cosa si racconta e in che ordine — reel e video verticali compresi.",
         "Grafiche e caroselli coerenti con la tua identità.",
         "Pubblicazione e risposte ai messaggi, se vuoi affidarcele.",
         "Un punto ogni mese su cosa ha funzionato e cosa no.",
@@ -448,7 +460,13 @@ export const services: Service[] = [
         "Sorveglianza nel tempo, perché una scheda si sporca da sola.",
       ],
       notTitle: "Cosa non facciamo",
-      notBody: "Non compriamo recensioni e non ne scriviamo di finte. Si riconoscono, Google le rimuove, e quando un cliente se ne accorge il danno è peggiore del problema di partenza.",
+      // Qui c'era «non compriamo recensioni e non ne scriviamo di finte»:
+      // tolta il 25 agosto 2026, non piaceva a Dario. Aveva ragione — su una
+      // pagina che vende reputazione, nominare le recensioni finte fa venire
+      // in mente proprio la cosa che si vuole escludere, e nessuno chiede a
+      // un'agenzia se le compra. Al suo posto un impegno che le persone
+      // chiedono davvero, e la risposta è no.
+      notBody: "Non ti promettiamo di far sparire una recensione negativa. Non si cancellano su richiesta: si risponde, in pubblico e bene, e una risposta fatta come si deve convince più di una stella in più.",
       metaTitle: "Reputazione online e recensioni a Napoli",
       metaDescription: "Scheda Google, recensioni e presenza online per attività a Napoli e in Campania. Ti facciamo trovare con le informazioni giuste, e con le risposte giuste.",
     },
@@ -507,6 +525,43 @@ export const services: Service[] = [
       notBody: "Non mandiamo report di quaranta pagine per far vedere che abbiamo lavorato. Se un numero non cambia una decisione, non lo scriviamo.",
       metaTitle: "Analytics, KPI e report per il marketing a Napoli",
       metaDescription: "Misurazione, indicatori e report leggibili per attività a Napoli e in tutta Italia. Numeri che servono a decidere, non a riempire un documento.",
+    },
+  },
+  // Il nono servizio, aggiunto il 25 agosto 2026 su dettatura di Dario. Nasce
+  // già con la sua pagina, perché un servizio senza `page` è esattamente il
+  // problema che lui aveva segnalato il giorno prima.
+  //
+  // È l'unico che risponde parola per parola a un'obiezione della home —
+  // «pago tanti servizi come menù e portali di prenotazione, e non so se mi
+  // servono davvero» — e non è una coincidenza: l'obiezione e questo servizio
+  // sono arrivati nello stesso pomeriggio. Se un giorno riscrivi una delle
+  // due, guarda anche l'altra.
+  {
+    n: "09",
+    slug: "intelligenza-artificiale",
+    title: "Intelligenza artificiale",
+    accent: "& automazioni",
+    body: "Usiamo l'AI di ultima generazione per ottimizzare i tuoi processi e farti risparmiare servizi costosi che non usi davvero.",
+    tags: ["Automazioni", "Strumenti su misura", "Formazione"],
+    page: {
+      lead: "L'intelligenza artificiale non serve a fare le stesse cose più in fretta. Serve a smettere di pagare per cose che non ti servono, e a togliere di mezzo il lavoro che rifai uguale ogni settimana.",
+      forWho: [
+        "Paghi diversi abbonamenti e non sai quali stai usando davvero.",
+        "Ci sono cose che rifai a mano ogni settimana, sempre nello stesso modo.",
+        "Vorresti provare l'AI ma non sai da dove si comincia, né cosa è serio e cosa è fuffa.",
+      ],
+      included: [
+        "Ricognizione degli strumenti che paghi oggi: quanto costano, e quanto vengono usati davvero.",
+        "Automazione delle attività ripetitive: risposte, listini, aggiornamenti, invii.",
+        "Strumenti costruiti su misura al posto di abbonamenti generici, quando conviene — come il menù che il ristorante aggiorna da sé.",
+        "Contenuti preparati con l'AI e riletti da noi, mai pubblicati così come escono.",
+        "Formazione a te e a chi lavora con te, perché gli strumenti restino usabili anche senza di noi.",
+        "Regole chiare su cosa si può dare in pasto a un modello e cosa no, i dati dei tuoi clienti compresi.",
+      ],
+      notTitle: "Cosa non facciamo",
+      notBody: "Non pubblichiamo testi e immagini generati e non riletti. L'intelligenza artificiale fa risparmiare tempo, non toglie la responsabilità di quello che esce a tuo nome.",
+      metaTitle: "Intelligenza artificiale e automazioni per le aziende a Napoli",
+      metaDescription: "Automazioni e strumenti su misura con l'AI per attività a Napoli e in tutta Italia. Meno abbonamenti che non usi, meno lavoro ripetuto a mano.",
     },
   },
 ];
@@ -627,14 +682,19 @@ export const work: WorkItem[] = [
     year: "2022 — 2026",
     href: "https://www.sanpietrobistrot.it/",
     outcome:
-      "Da 9.500 a 38.700 follower su Instagram in quattro anni, e TikTok aperto da zero e portato quasi a 5.000.",
+      "Da 9.500 a 38.700 follower su Instagram in quattro anni, e un menù che il ristorante aggiorna da sé quando cambia il pescato.",
+    // Etichette che dicono **cosa è stato fatto qui**, non la categoria del
+    // servizio. Riordinare non bastava: «Social · Siti web · Advertising» è
+    // la stessa scritta su qualunque scheda, e affiancate a quelle di Namare
+    // si leggevano identiche. Sono nomi presi dal «Cosa abbiamo fatto» di
+    // questa pagina, uno per uno.
     services: [
-      "Branding",
-      "Social",
-      "Fotografia e video",
-      "Advertising",
-      "Siti web",
-      "Email marketing",
+      "Sito rifatto da zero",
+      "Software per il menù",
+      "Gestione social",
+      "Foto e video dei piatti",
+      "Campagne Meta",
+      "Email e blog",
       "Packaging",
       "Ufficio stampa",
     ],
@@ -642,31 +702,37 @@ export const work: WorkItem[] = [
     alt: "Preparazione del pesce in cucina al San Pietro Bistrot del Mare",
     study: {
       lead:
-        "Seguiamo il San Pietro Bistrot del Mare da quattro anni, ristorante vista mare a Torre del Greco. In questo tempo il profilo Instagram è passato da circa 9.500 a 38.700 follower, e il profilo TikTok, aperto da zero, è arrivato quasi a 5.000.",
+        "Seguiamo il San Pietro Bistrot del Mare da quattro anni, ristorante vista mare a Torre del Greco. In questo tempo il profilo Instagram è passato da circa 9.500 a 38.700 follower, le prenotazioni hanno smesso di passare dai portali a pagamento e il menù si aggiorna da solo, con uno strumento costruito su misura.",
       subtitle: "Ristorante vista mare · Torre del Greco, Napoli · seguito dal 2022",
       outcomes: [
         "38.700 follower su Instagram, partendo da circa 9.500 quattro anni fa.",
-        "Un profilo TikTok aperto da zero e portato quasi a 5.000 follower.",
+        // Verificato il 25 agosto 2026 sul sito pubblicato: non c'è nessun
+        // widget di TheFork, Quandoo o OpenTable, si prenota dal sito del
+        // ristorante. Se un giorno ne compare uno, questa riga va tolta.
+        "Prenotazioni che arrivano dal sito, e non più dai portali a pagamento.",
         "Un sito rifatto interamente da zero, non un restyling di quello precedente.",
-        "Una produzione costante di post, reel e video, distribuita su tre canali.",
+        "Un software su misura per aggiornare il menù: lo cambia il ristorante, senza chiamare nessuno e senza aspettare.",
+        "Una produzione costante di post, reel e video.",
         "Campagne Meta gestite insieme ai contenuti, e non affidate a un fornitore diverso.",
         "Didascalie scritte per essere trovate dalle ricerche, non soltanto lette da chi già segue.",
         "Materiali e packaging sempre pronti, anche per eventi e fiere.",
+        "Una comunicazione che rispecchia la cucina, invece di somigliare a quella di qualunque altro ristorante.",
+        "Supporto costante lungo quattro anni, non un intervento chiuso a fine progetto.",
       ],
       challenge:
-        "Un ristorante affacciato sul mare, con una reputazione costruita in sala e una presenza online che non la rifletteva: un sito da rifare per intero, un profilo Instagram con margini inespressi, nessuna presenza su TikTok e materiali prodotti separatamente gli uni dagli altri.",
+        "Un ristorante affacciato sul mare, con una reputazione costruita in sala e una presenza online che non la rifletteva: un sito da rifare per intero, un profilo Instagram con margini inespressi, le prenotazioni in mano ai portali e materiali prodotti separatamente gli uni dagli altri. Il menù, che in un ristorante di pesce cambia con quello che arriva, richiedeva ogni volta un passaggio da noi.",
       solution: [
         "Abbiamo rifatto il sito interamente da zero.",
         "Abbiamo rivisto l'identità del locale e l'abbiamo applicata a tutti i supporti.",
-        "Gestiamo le pagine Instagram, TikTok e Facebook con un'unica linea editoriale.",
-        "Abbiamo aperto il profilo TikTok e ne seguiamo la crescita.",
+        "Gestiamo le pagine social con un'unica linea editoriale.",
         "Curiamo la produzione fotografica e video: post, reel e contenuti destinati alle campagne.",
         "Scriviamo le didascalie in ottica di ricerca, perché i contenuti vengano trovati e non solo scorsi.",
         "Impostiamo e seguiamo le campagne a pagamento su Meta.",
         "Curiamo l'email marketing e il blog aziendale.",
         "Progettiamo il packaging, compreso quello dedicato agli eventi.",
         "Realizziamo le produzioni fotografiche in esterna in occasione di eventi e fiere.",
-        "Teniamo aggiornato il menù e curiamo i rapporti con la stampa.",
+        "Abbiamo costruito uno strumento su misura per il menù, così il ristorante lo aggiorna da sé quando cambia il pescato, senza passare da noi e senza un abbonamento in più.",
+        "Curiamo i rapporti con la stampa.",
       ],
     },
   },
@@ -681,15 +747,19 @@ export const work: WorkItem[] = [
     // nella sezione «Risultati» — sono scritti in due posti perché fanno due
     // mestieri diversi: qui attirano, là dimostrano.
     outcome:
-      "Quasi 2.000 follower in più su Instagram in quattro mesi, e un reel da 26.200 visualizzazioni.",
+      "Quasi 2.000 follower in più in quattro mesi, e le prenotazioni tolte ai portali a pagamento.",
+    // Stesso criterio di San Pietro: nomi presi da quello che è stato fatto
+    // qui. Qui il lavoro è cominciato dai social e dagli scatti, il sito è
+    // arrivato dopo, e i canali sono tre — sono queste le cose da dire, non
+    // «Social · Siti web».
     services: [
-      "Branding",
-      "Social",
-      "Fotografia e video",
-      "Advertising",
-      "Siti web",
+      "Tre canali social",
+      "Video storytelling",
+      "Shooting in esterna",
+      "Sito nuovo",
+      "Campagne Meta",
       "Email marketing",
-      "Packaging",
+      "Packaging eventi",
       "Ufficio stampa",
     ],
     image: "/work/namare.jpg",
@@ -698,19 +768,33 @@ export const work: WorkItem[] = [
       // L'apertura racconta, non elenca: i servizi stanno già nelle pillole
       // qui accanto, ripeterli qui è dirlo due volte nella stessa schermata.
       lead:
-        "Da aprile 2026 seguiamo l'intera comunicazione di Namare, ristorante di mare a Portici. In quattro mesi il profilo Instagram è arrivato a 9.486 follower, quasi duemila in più, e un reel ha superato le 26.000 visualizzazioni.",
+        "Da aprile 2026 seguiamo l'intera comunicazione di Namare, ristorante di mare a Portici — e non solo il ristorante: anche il catering e il food truck. In quattro mesi il profilo Instagram è arrivato a 9.486 follower, quasi duemila in più, e le prenotazioni hanno smesso di passare dai portali a pagamento.",
       subtitle: "Ristorante di mare · Portici, Napoli · seguito da aprile 2026",
       outcomes: [
         "9.486 follower su Instagram, quasi 2.000 in più da quando seguiamo il profilo.",
-        "Un reel a 26.200 visualizzazioni.",
+        // Il reel da 26.200 visualizzazioni stava qui, nel `lead` e nella riga
+        // della scheda. Tolto il 25 agosto 2026 su richiesta di Dario: una
+        // visualizzazione non è un cliente, e accanto a una prenotazione vera
+        // faceva la figura del numero messo lì per far volume.
+        // Stessa verifica fatta su namare.it: nessun portale di prenotazione
+        // di terze parti, si prenota dal sito.
+        "Prenotazioni che arrivano dal sito, senza passare più dai portali a pagamento.",
         "Una produzione costante di post, reel e video, al posto di contenuti occasionali.",
         "Presenza coordinata su tre canali — Instagram, TikTok e Facebook — con un'unica linea editoriale.",
         "Campagne Meta gestite insieme ai contenuti, e non affidate a un fornitore diverso.",
         "Didascalie scritte per essere trovate dalle ricerche, non soltanto lette da chi già segue.",
         "Un sito nuovo, e materiali sempre pronti per eventi e fiere.",
+        "Una comunicazione che rispecchia la cucina: quello che si vede online è quello che si trova nel piatto.",
+        "Meno servizi pagati e più clienti: quello che non rendeva è stato tolto, non affiancato da altro.",
+        "Supporto esteso a tutto quello che il locale mette in piedi — il catering e il food truck compresi — e non al solo ristorante.",
       ],
+      // Il problema di Namare non era la mancanza di strumenti: era che ne
+      // aveva troppi e nessuno rendeva. È la stessa cosa che dice l'obiezione
+      // in cima alla home — «pago tanti servizi come menù e portali di
+      // prenotazione, e non so se mi servono davvero» — e non è un caso: è da
+      // qui che Dario l'ha presa.
       challenge:
-        "Un ristorante con una proposta di livello e una comunicazione da coordinare: identità da rivedere, canali social da presidiare con continuità, un sito da rifare, campagne da impostare e materiali che fino a quel momento nascevano separati gli uni dagli altri.",
+        "Una proposta di livello e una comunicazione completamente inespressa. Il locale pagava diversi servizi — portali di prenotazione compresi — senza che nessuno portasse clienti, e i materiali nascevano separati gli uni dagli altri: identità da rivedere, canali da presidiare con continuità, un sito da rifare.",
       solution: [
         "Abbiamo rivisto l'identità del locale e l'abbiamo applicata a tutti i supporti.",
         "Gestiamo le pagine Instagram, TikTok e Facebook con un'unica linea editoriale.",
@@ -722,6 +806,7 @@ export const work: WorkItem[] = [
         "Progettiamo il packaging, compreso quello dedicato agli eventi.",
         "Realizziamo le produzioni fotografiche in esterna in occasione di eventi e fiere.",
         "Teniamo aggiornato il menù e curiamo i rapporti con la stampa.",
+        "Seguiamo anche i progetti che nascono accanto al ristorante, dal catering al food truck: stessa identità, stessa voce, stessi materiali.",
       ],
     },
   },
@@ -733,15 +818,19 @@ export const work: WorkItem[] = [
     href: "https://www.centralpadel.it/",
     outcome:
       "Un circolo nato con marchio, sito e prenotazione dei campi — e la cartellonistica che è ancora oggi sui campi.",
+    // Le pillole aprono con le tre cose che Dario indica per prime — è un
+    // centro sportivo, e quello che lo distingue sono il marchio, la
+    // prenotazione dei campi e i cartelloni che ci sono ancora oggi. Le
+    // etichette generiche («Siti web», «Sviluppo») dicevano meno di quanto
+    // il lavoro vale.
     services: [
       "Branding",
+      "App di prenotazione",
+      "Cartellonistica del campo",
       "Illustrazione",
       "Siti web",
-      "E-commerce",
       "Fotografia",
-      "Stampa",
       "Email marketing",
-      "Sviluppo",
       "Manutenzione",
     ],
     image: "/work/central-padel.jpg",
@@ -753,7 +842,7 @@ export const work: WorkItem[] = [
       lead:
         "Central Padel è nato a Boscoreale, e c'eravamo dal primo giorno: marchio, identità, sito con la prenotazione dei campi, e tutta la cartellonistica dell'inaugurazione — che è ancora quella installata sui campi oggi. Da allora seguiamo il sito ogni giorno, gestiamo le prenotazioni delle partite e stiamo costruendo l'app che permetterà ai giocatori di registrarsi e al circolo di incassare.",
       subtitle:
-        "Circolo di padel · Via Andreulli, Boscoreale (NA) · seguito dal 2024",
+        "Centro sportivo · Via Andreulli, Boscoreale (NA) · seguito dal 2024",
       outcomes: [
         "Un marchio illustrato da zero, con palette e caratteri definiti.",
         "Un sito che permette di prenotare e pagare il campo, costruito su WooCommerce.",
@@ -789,23 +878,22 @@ export const work: WorkItem[] = [
     // lavoro, perché lì ci sono i giochi che abbiamo disegnato noi.
     href: "https://tadaplay.it/acquista-i-giochi-tadaplay-shop/",
     outcome:
-      "Non solo il marchio: abbiamo disegnato anche i giochi, e li abbiamo portati in vendita online, nei negozi e nelle scuole.",
+      "Dalle fiabe di Tadà al tavolo: le storie che prima si leggevano adesso si giocano, e le abbiamo disegnate noi.",
     services: [
-      "Illustrazione",
-      "Branding",
-      "Packaging",
-      "Siti web",
+      "Marchio illustrato",
+      "Giochi e packaging",
       "E-commerce",
-      "Advertising",
-      "Social",
-      "SEO",
-      "Manutenzione",
+      "Carta del Docente",
+      "Video YouTube",
+      "Campagne Google e Meta",
+      "Fiere di settore",
+      "Presidio quotidiano",
     ],
     image: "/work/tadaplay.jpg",
     alt: "Il marchio Tadàplay",
     study: {
       lead:
-        "Di Tadàplay abbiamo costruito tutto: il marchio, il sito con l'e-commerce e i giochi stessi — illustrazioni, scatole, flyer e manuali di istruzione — questi ultimi insieme a illustratori e game designer. Oggi si vendono online in Italia e all'estero, nei negozi fisici e nelle scuole, anche con la Carta del Docente. È un marchio di Love for Inclusion, la stessa società di Tadàbook: seguiamo tutti e due i progetti, e sono tuttora in corso.",
+        "Di Tadàplay abbiamo costruito tutto: il marchio, il sito con l'e-commerce e i giochi stessi — illustrazioni, scatole, flyer e manuali di istruzione — questi ultimi insieme a illustratori e game designer. Oggi si vendono online in Italia e all'estero, nei negozi fisici e nelle scuole, anche con la Carta del Docente. Tadàplay nasce come continuazione naturale delle fiabe di Tadà: le storie che prima si leggevano, qui si giocano.",
       // La società è Love for Inclusion S.r.l., verificata sul sito del
       // cliente: Tadàplay e Tadàbook sono due suoi marchi, e li seguiamo
       // tutti e due. Dirlo vale più di due schede separate — un cliente che
@@ -824,11 +912,11 @@ export const work: WorkItem[] = [
         "Un presidio quotidiano del sito: aggiornamenti, controlli e manutenzione.",
       ],
       challenge:
-        "Un progetto in cui andava disegnato tutto, dal marchio al prodotto fisico, e poi portato su tre canali di vendita che funzionano con regole diverse: l'e-commerce, i negozi e le scuole. Quello scolastico in particolare passa dalla Carta del Docente, che nessuna piattaforma di vendita online gestisce da sola.",
+        "Un progetto in cui andava disegnato tutto, dal marchio al prodotto fisico, e poi portato su tre canali di vendita che funzionano con regole diverse: l'e-commerce, i negozi e le scuole. La scuola in particolare non si vende come si vende a un privato — la Carta del Docente e gli acquisti della pubblica amministrazione seguono un percorso a parte, con i loro tempi, le loro procedure e i loro giustificativi, e nessuna piattaforma di vendita online lo gestisce da sola.",
       solution: [
         "Abbiamo disegnato e illustrato il marchio.",
         "Abbiamo disegnato, illustrato e realizzato i giochi e il loro packaging: scatole, flyer e manuali di istruzione.",
-        "Su questo abbiamo lavorato insieme a illustratori e game designer: un gioco non si progetta come una brochure, e su quel terreno serviva chi lo fa di mestiere.",
+        "Su questo abbiamo lavorato accanto agli illustratori e ai game designer del progetto: un gioco non si progetta come una brochure, e su quel terreno serve chi lo fa di mestiere.",
         "Abbiamo costruito il sito responsive su WordPress con Elementor Pro, e l'e-commerce per la vendita in Italia e all'estero.",
         "Abbiamo implementato e costruito con l'intelligenza artificiale i plugin che permettono l'acquisto con la Carta del Docente.",
         "Curiamo il posizionamento sui motori di ricerca e l'ottimizzazione dei testi.",
@@ -852,20 +940,21 @@ export const work: WorkItem[] = [
     outcome:
       "Compri una storia sul sito e si sblocca da sola nell'app: negozio e applicazione parlano fra loro.",
     services: [
-      "Siti web",
-      "E-commerce",
-      "Illustrazione",
-      "Strategia",
-      "Content",
-      "SEO",
+      "Sito ed e-commerce",
+      "Copertine delle storie",
+      "Negozio collegato all'app",
+      "Test nelle scuole",
+      "Ordine di uscita delle fiabe",
+      "Blog coi professionisti",
+      "Community da 50.000",
       "Email marketing",
-      "Manutenzione",
+      "Presidio settimanale",
     ],
     image: "/work/tadabook.jpg",
     alt: "Il marchio Tadàbook",
     study: {
       lead:
-        "Tadàbook è l'app di storie digitali per bambini di Love for Inclusion, la stessa società di Tadàplay. Ne abbiamo costruito sito ed e-commerce da zero, illustrato le copertine di tutte le storie e collegato il negozio all'applicazione: chi compra una storia se la ritrova sbloccata, senza passaggi manuali.",
+        "Tadàbook è l'app di storie digitali per bambini di Love for Inclusion. Ne abbiamo costruito sito ed e-commerce da zero, illustrato le copertine di tutte le storie e collegato il negozio all'applicazione: chi compra una storia se la ritrova sbloccata, senza passaggi manuali. Da queste fiabe nascerà poi Tadàplay, che le porta sul tavolo sotto forma di gioco.",
       subtitle:
         "Storie digitali per bambini di Love for Inclusion · Torre del Greco, Napoli · in corso",
       outcomes: [
@@ -876,6 +965,8 @@ export const work: WorkItem[] = [
         "Un calendario di uscita costruito sull'analisi delle parole chiave, non su scelte casuali.",
         "Ogni storia provata nelle scuole prima del rilascio.",
         "Fiabe inedite nate dentro il progetto.",
+        "Un blog scritto insieme ai professionisti di Tadà: educatori e specialisti che lavorano con i bambini ogni giorno, non redattori che scrivono di loro.",
+        "Una community di 50.000 persone su Facebook, gestita da noi giorno per giorno.",
         "Testi ottimizzati e sito presidiato ogni settimana.",
       ],
       challenge:
@@ -889,6 +980,8 @@ export const work: WorkItem[] = [
         "Abbiamo definito l'ordine di uscita delle fiabe partendo dall'analisi delle parole chiave.",
         "Abbiamo contribuito alla creazione di fiabe inedite.",
         "Curiamo l'email marketing.",
+        "Curiamo il blog insieme ai professionisti di Tadà, che portano il contenuto mentre noi ne curiamo la forma e la trovabilità.",
+        "Gestiamo la community su Facebook, cinquantamila persone fra genitori, insegnanti e specialisti.",
         "Ottimizziamo i testi per la ricerca e presidiamo il sito ogni settimana.",
       ],
     },
@@ -902,14 +995,14 @@ export const work: WorkItem[] = [
     outcome:
       "Da nessun sito a un e-commerce che spedisce in tutta Italia e in parte d'Europa.",
     services: [
-      "Siti web",
-      "E-commerce",
-      "Branding",
-      "Packaging",
-      "Advertising",
-      "Social",
-      "SEO",
-      "Manutenzione",
+      "E-commerce in Europa",
+      "Marchio dei prodotti",
+      "Packaging e biglietti",
+      "Campagne Google e Meta",
+      "Post e reel",
+      "Blog dei maestri",
+      "Spedizioni coordinate",
+      "Presidio quotidiano",
     ],
     image: "/work/i-testa.jpg",
     alt: "Il marchio I Testa — Maestri d'arte",
@@ -962,14 +1055,14 @@ export const work: WorkItem[] = [
     outcome:
       "Da sito vetrina senza catalogo a e-commerce che vende in tutta Italia e in Europa.",
     services: [
-      "Branding",
-      "Siti web",
-      "E-commerce",
-      "Packaging",
-      "Cartellonistica",
-      "SEO",
-      "Content",
-      "Manutenzione",
+      "Marchio rifatto",
+      "E-commerce del caffè",
+      "Packaging e cialde",
+      "Cartellonistica stradale",
+      "Materiali per il franchising",
+      "Testi e blog per la ricerca",
+      "Risorse scaricabili",
+      "Presidio quotidiano",
     ],
     image: "/work/coffeeworld.jpg",
     alt: "Il marchio CoffeeWorld — caffè e bevande in cialde e capsule",
@@ -1009,14 +1102,17 @@ export const work: WorkItem[] = [
     href: "https://tavernaemare.it/",
     outcome:
       "Le targhette della menzione Michelin le abbiamo prodotte noi, insieme al packaging e ai menù del locale.",
+    // Tre pillole, decise da Dario il 25 agosto 2026. Erano sette, ereditate
+    // dalla scheda di San Pietro: su questo cliente il lavoro è stato più
+    // stretto, e Social, Advertising, Email marketing e Ufficio stampa non
+    // c'entravano. Il packaging invece sì, tutto — e deve restare, o le
+    // pillole smentiscono la riga di apertura della scheda, che parla proprio
+    // delle targhette Michelin e del packaging.
     services: [
       "Packaging",
-      "Social",
-      "Fotografia e video",
-      "Advertising",
-      "Siti web",
-      "Email marketing",
-      "Ufficio stampa",
+      "Archivio foto e video",
+      "Menù di sala e online",
+      "Sito ottimizzato",
     ],
     image: "/work/taverna-e-mare.jpg",
     alt: "Il marchio Taverna 'e Mare",
@@ -1026,7 +1122,7 @@ export const work: WorkItem[] = [
       // un lavoro a progetto che finisce è la normalità, non una notizia.
       // Namare e San Pietro, che sono in corso, restano al presente.
       lead:
-        "Per due anni abbiamo seguito la comunicazione della Taverna 'e Mare, ristorante di mare a Torre del Greco. Qui più che altrove il lavoro passava dalle cose che si toccano: il packaging del locale e i menù, quelli in sala e quello online. Il sito non l'abbiamo costruito noi — c'era già, e siamo subentrati nella gestione.",
+        "Abbiamo seguito la comunicazione della Taverna 'e Mare, ristorante di mare a Torre del Greco. Qui più che altrove il lavoro passava dalle cose che si toccano: il packaging del locale e i menù, quelli in sala e quello online. Il sito c'era già e non rendeva: l'abbiamo ottimizzato invece di rifarlo da capo.",
       subtitle:
         "Ristorante di mare · Torre del Greco, Napoli · collaborazione a progetto, 2024 — 2026",
       outcomes: [
@@ -1035,7 +1131,8 @@ export const work: WorkItem[] = [
         "I menù di sala realizzati, e il menù online reso aggiornabile in tempo reale senza una ristampa a ogni variazione.",
         "Una produzione costante di scatti e video dei piatti, realizzata in sede e distribuita su Instagram, TikTok e Facebook.",
         "Campagne Meta gestite insieme ai contenuti, e non affidate a un fornitore diverso.",
-        "Un sito preso in carico e mantenuto aggiornato, senza rifarlo da capo.",
+        "Un archivio di foto e video professionali che resta al ristorante, e che oggi alimenta tutti i canali ufficiali — la scheda sulla guida Michelin compresa.",
+        "Un sito che non rendeva, ottimizzato invece che rifatto da capo.",
       ],
       challenge:
         "Una cucina riconosciuta e una comunicazione frammentata: materiali stampati commissionati di volta in volta e diversi gli uni dagli altri, un menù che a ogni variazione richiedeva una nuova stampa, produzione fotografica occasionale e un sito già esistente ma fermo, da riportare in efficienza senza ricostruirlo.",
@@ -1043,11 +1140,11 @@ export const work: WorkItem[] = [
         "Abbiamo progettato il packaging del locale: buste per il vino e buste per l'asporto.",
         "Abbiamo realizzato i menù di sala e gestito il menù online, reso aggiornabile in tempo reale.",
         "Abbiamo realizzato le targhette per la menzione sulla guida Michelin.",
-        "Abbiamo curato la produzione fotografica e video in sede: i piatti, le storie, i post e i reel per Instagram, TikTok e Facebook.",
+        "Abbiamo realizzato shooting e riprese professionali in sede — i piatti, la sala, il servizio — costruendo un archivio vero e non una manciata di scatti a uso di un post: oggi il ristorante lo usa su tutti i canali ufficiali, compresa la sua scheda sulla guida Michelin.",
         "Abbiamo gestito le pagine Instagram, TikTok e Facebook con un'unica linea editoriale.",
         "Abbiamo scritto le didascalie in ottica di ricerca, perché i contenuti venissero trovati e non solo scorsi.",
         "Abbiamo impostato e seguito le campagne a pagamento su Meta.",
-        "Siamo subentrati nella gestione del sito esistente, risolvendone le criticità e tenendolo aggiornato.",
+        "Abbiamo ottimizzato il sito esistente invece di rifarlo: risolte le criticità che ne frenavano le prestazioni, e tenuto aggiornato.",
         "Abbiamo curato l'email marketing e i rapporti con la stampa.",
       ],
     },
@@ -1069,12 +1166,10 @@ export const work: WorkItem[] = [
     outcome:
       "Marchio e card di tutti i piloti MotoGP illustrate a mano, per un progetto poi acquisito da Animoca Brands.",
     services: [
-      "Illustrazione",
-      "Branding",
-      "UI / UX",
-      "Siti web",
-      "Packaging",
-      "Advertising",
+      "Due marchi da zero",
+      "Card dei piloti MotoGP",
+      "Sito e interfaccia",
+      "Packaging e advertising",
     ],
     image: "/work/ninjastickers.jpg",
     alt: "Le card illustrate dei piloti MotoGP realizzate per NinjaStickers",
@@ -1115,7 +1210,12 @@ export const work: WorkItem[] = [
     href: "https://www.ada-tech.it/",
     outcome:
       "Marchio e sito da zero per un'azienda che vende intelligenza artificiale, costruiti con l'intelligenza artificiale.",
-    services: ["Branding", "Siti web", "Sviluppo", "UI / UX"],
+    services: [
+      "Marchio e regole d'uso",
+      "Sito senza framework",
+      "Fogli di stile riutilizzabili",
+      "Sviluppo con l'AI",
+    ],
     image: "/work/adatech.jpg",
     alt: "Il sito AdaTech — soluzioni di intelligenza artificiale su misura",
     study: {
@@ -1160,11 +1260,11 @@ export const work: WorkItem[] = [
     outcome:
       "Un servizio complesso — bandi, domande e rendicontazione — reso leggibile a un pubblico di professionisti.",
     services: [
-      "Branding",
-      "Siti web",
-      "Sviluppo",
-      "UI / UX",
-      "Architettura dei contenuti",
+      "Marchio per la finanza",
+      "Percorso in cinque fasi",
+      "Area riservata collegata",
+      "Sito statico con Astro",
+      "Domande frequenti e materiali",
     ],
     image: "/work/bandohub.jpg",
     alt: "Il sito BandoHub — supporto specialistico in finanza agevolata",
@@ -1207,12 +1307,12 @@ export const work: WorkItem[] = [
     outcome:
       "Dal nome al logo alle interfacce: un assistente vocale per gli hotel, diventato poi anche app.",
     services: [
-      "Naming",
-      "Branding",
-      "Illustrazione",
-      "UI / UX",
-      "Siti web",
-      "Email marketing",
+      "Naming del prodotto",
+      "Marchio illustrato",
+      "Skill vocale",
+      "Dashboard per le strutture",
+      "Interfaccia dell'app",
+      "Cartellonistica in camera",
     ],
     image: "/work/voice-concierge.jpg",
     alt: "La dashboard Voice Concierge su più dispositivi",
@@ -1248,8 +1348,13 @@ export const work: WorkItem[] = [
     year: "2018 — 2020",
     href: "https://www.everup.com/",
     outcome:
-      "Sito responsive e illustrazioni dell'interfaccia dell'app, lavorando fra Napoli e Londra.",
-    services: ["Siti web", "Illustrazione", "UI / UX", "Social", "Branding", "Packaging"],
+      "Due anni fra Napoli e Londra su un prodotto inglese: il sito, e i disegni che stanno dentro l'app.",
+    services: [
+      "Sito del prodotto",
+      "Illustrazioni dell'app",
+      "Profilo Instagram avviato",
+      "Modelli, banner e icone",
+    ],
     image: "/work/everup.jpg",
     alt: "L'app EverUp su telefono, tablet e computer",
     study: {
@@ -1292,11 +1397,12 @@ export const work: WorkItem[] = [
     outcome:
       "Un portale di territorio: le aziende del corallo, l'itinerario turistico e la casa d'aste, in un posto solo.",
     services: [
-      "Siti web",
-      "E-commerce",
-      "Architettura dei contenuti",
-      "SEO",
-      "Content",
+      "Portale del territorio",
+      "Elenco delle aziende",
+      "Itinerario turistico",
+      "Casa d'aste",
+      "Vendita online",
+      "Blog sul corallo",
     ],
     image: "/work/torre-del-greco-citta-del-corallo.jpg",
     alt: "Il portale Torre del Greco Città del Corallo",
@@ -1333,8 +1439,13 @@ export const work: WorkItem[] = [
     year: "2023",
     href: "https://www.parsec326.it/",
     outcome:
-      "Marchio nuovo e materiali istituzionali per una software house che lavora con la pubblica amministrazione.",
-    services: ["Branding", "Illustrazione", "Packaging", "Stampa"],
+      "Una software house che lavora con la pubblica amministrazione, rivestita da capo: marchio, carta intestata e manuali.",
+    services: [
+      "Marchio nuovo",
+      "Biglietti per il board",
+      "Carta intestata e cartelline",
+      "Manuali impaginati",
+    ],
     image: "/work/parsec-326.jpg",
     alt: "Il marchio Parsec 3.26 — la nostra passione: l'e-government",
     study: {
@@ -1365,8 +1476,14 @@ export const work: WorkItem[] = [
     year: "2023",
     href: "https://www.glamgolondon.co.uk/",
     outcome:
-      "Marchio, sito e prenotazione degli appuntamenti per un servizio estetico che va a domicilio.",
-    services: ["Branding", "Illustrazione", "Siti web", "Fotografia", "UI / UX"],
+      "Un'estetista che lavora a domicilio a Londra, con un sito che prende gli appuntamenti al posto suo.",
+    services: [
+      "Marchio illustrato",
+      "Sito responsive",
+      "Shooting sul posto",
+      "Trattamenti e prezzi",
+      "Prenotazione appuntamenti",
+    ],
     image: "/work/glam-and-go-london.jpg",
     alt: "Il sito Glam & Go London",
     study: {
@@ -1403,8 +1520,12 @@ export const work: WorkItem[] = [
     year: "2023",
     href: "https://gate42.it/",
     outcome:
-      "Marchio e sito per una software house che sviluppa per altri — e forma chi svilupperà.",
-    services: ["Branding", "Illustrazione", "Siti web", "UI / UX"],
+      "Chi sviluppa per gli altri raramente racconta sé stesso: quattro aree di servizio e un'academy, messe in ordine in un sito solo.",
+    services: [
+      "Marchio illustrato",
+      "Sito su WordPress",
+      "Quattro aree e academy",
+    ],
     image: "/work/gate42.jpg",
     alt: "Il sito Gate42 — «Software that you need, no less no more»",
     study: {
@@ -1434,7 +1555,12 @@ export const work: WorkItem[] = [
     href: "https://voiceoffice.it/",
     outcome:
       "Un prodotto senza precedenti reso comprensibile in una pagina sola, disegnato e costruito interamente con l'intelligenza artificiale.",
-    services: ["Branding", "Illustrazione", "Siti web", "Sviluppo", "UI / UX"],
+    services: [
+      "Marchio illustrato",
+      "Sito in un file solo",
+      "Racconto in tre passaggi",
+      "Costruito con l'AI",
+    ],
     image: "/work/voice-office.jpg",
     alt: "Il sito Voice Office — la rivoluzione vocale al servizio della tua azienda",
     study: {
@@ -1559,7 +1685,34 @@ export const trial = {
   // Dario. Era una rassicurazione presa dal software: qui non si paga niente
   // in nessun momento della prova, quindi nominare la carta di credito
   // suggeriva un pagamento che non esiste.
-  reassurance: ["Nessun impegno", "Pochi clienti per volta"],
+  reassurance: ["Nessun impegno", "Pochi clienti per volta", "Esclusiva di zona"],
+
+  // — Le due liste qui sotto **non sono in pagina oggi**, e sono tenute
+  // apposta, come i dati delle testimonianze.
+  //
+  // Venivano da `/prova`, la pagina uscita dal sito il 25 agosto 2026 (ora
+  // rimanda al calendario, vedi `next.config.ts`). Quasi tutto quello che
+  // c'era là dentro era la sezione della prova ricopiata a mano — titolo,
+  // sottotitolo, gli stessi `steps`, il sottoinsieme `trial` della FAQ — e
+  // con la pagina è andato via senza perdite. Queste due liste no: dicono
+  // **a chi la prova serve e a chi no**, e non stanno scritte da nessun'altra
+  // parte del sito.
+  //
+  // «Non è per te se…» è la più difficile da riscrivere e la più utile:
+  // dichiarare chi non si vuole come cliente è quello che fa fidare chi ci ha
+  // già provato senza risultati, ed è la stessa cosa che fa il «Cosa non
+  // facciamo» delle pagine dei servizi. Se un giorno la sezione della prova
+  // sulla home ha bisogno di un filtro, è già scritto.
+  forYou: [
+    "Hai un'attività e vuoi comunicare meglio",
+    "Sei stanco di promesse e vuoi vedere fatti",
+    "Cerchi qualcuno che ti segua di persona",
+  ],
+  notForYou: [
+    "Cerchi solo il preventivo più basso",
+    "Vuoi numeri gonfiati invece di risultati veri",
+    "Non hai tempo per un confronto iniziale",
+  ],
 };
 
 // — Blog: articoli educativi.
@@ -1701,6 +1854,40 @@ export function getWork(slug: string): WorkItem | undefined {
 // scritti due volte nella stessa schermata.
 type ContactDetail = { label: string; value: string; href?: string };
 
+// — I testi della sezione del modulo (`contact.tsx`), che sta sulla home e in
+// fondo a quasi tutte le pagine interne, e quelli della CTA di chiusura di
+// blog e casi studio (`inner-cta.tsx`). Stavano scritti dentro i due
+// componenti, contro la regola dei testi in un punto solo, ed erano **la
+// stessa frase in due file**: identici il titolo e quasi identico il corpo,
+// con due parole di differenza fra l'uno e l'altro.
+//
+// Il corpo della sezione contatti è stato riscritto il 25 agosto 2026. Prima
+// diceva «una chiacchierata gratuita, senza impegno: ti diciamo con sincerità
+// se e come possiamo aiutarti», che sulla home arriva **due sezioni dopo** la
+// sezione della prova, dove la stessa promessa è già stata fatta per esteso —
+// e la stessa frase tornava altre quattro volte fra `/chi-siamo`, la FAQ e
+// `/metodo`. Il modulo non deve rivendere la call: deve dire **cosa succede
+// dopo che scrivi**. Per questo ora dichiara i tempi di risposta, che è un
+// impegno di servizio vero (lo dicono anche `/contatti` e la mail di
+// conferma, quindi le tre cose restano d'accordo: se cambia, cambiano tutte).
+//
+// `innerCta` ha tenuto il taglio di prima, ed è giusto così: sta in fondo a
+// un articolo o a un caso studio, dove la call non l'ha ancora proposta
+// nessuno, e porta al calendario invece che a un modulo. Le due sezioni non
+// compaiono mai nella stessa pagina.
+export const contactSection = {
+  title: "Parliamo del tuo progetto.",
+  body: [
+    "Raccontaci in due righe cosa ti serve e a che punto sei.",
+    "Leggiamo noi due e ti rispondiamo entro un giorno lavorativo.",
+  ],
+};
+
+export const innerCta = {
+  title: "Parliamo del tuo progetto.",
+  body: "Una chiacchierata gratuita, senza impegno. Ti diciamo con sincerità se e come possiamo aiutarti.",
+};
+
 export const contactPage: {
   title: string;
   body: string[];
@@ -1779,7 +1966,12 @@ export const aboutPage = {
     },
     {
       title: "A numero chiuso",
-      body: "Accettiamo pochi clienti per volta. È così che restiamo presenti e curiamo davvero ogni dettaglio.",
+      // «Esclusiva di zona» è una promessa contrattuale, non un modo di dire:
+      // dichiararla qui vuol dire che un cliente può chiedertene conto. Vale
+      // solo per chi è aperto al pubblico — un e-commerce o un prodotto
+      // digitale non hanno una zona da difendere — ed è per questo che la
+      // condizione è scritta e non sottintesa.
+      body: "Accettiamo pochi clienti per volta, e se sei aperto al pubblico lavoriamo in esclusiva di zona: non seguiamo un tuo concorrente nello stesso territorio. Le persone vengono prima dei numeri.",
     },
   ],
   buildTitle: "Cosa costruiamo",
@@ -1835,6 +2027,10 @@ export const faq: FaqItem[] = [
     trial: true,
   },
   {
+    q: "Lavorate anche con i miei concorrenti?",
+    a: "Se sei aperto al pubblico, no: lavoriamo in esclusiva di zona, quindi non seguiamo un tuo concorrente nello stesso territorio. Quello che costruiamo con te resta tuo, e non lo ritrovi uguale a duecento metri da qui.",
+  },
+  {
     q: "Dove lavorate?",
     a: "Da Napoli. Seguiamo di persona la Campania e lavoriamo da remoto in tutta Italia.",
   },
@@ -1874,7 +2070,10 @@ export const faqPage = {
 // punto solo.
 export const methodPage = {
   title: "Lavoriamo come un sarto, non come una catena.",
-  body: "Niente pacchetti preconfezionati. Costruiamo la tua comunicazione su misura, un passo alla volta, e la seguiamo di persona dall'inizio alla fine.",
+  body: [
+    "Nessuno conosce il tuo lavoro come te: il marketing non si subisce, si fa insieme.",
+    "Ci sentiamo, e ogni passo lo decidiamo con te.",
+  ],
   stepsTitle: "I cinque passi",
   // Per ogni passo: cosa ottieni tu e quanto dura. Le chiavi sono le stesse
   // `n` di `method`.
@@ -1894,21 +2093,13 @@ export const methodPage = {
     { them: "Tanti clienti, poca attenzione", us: "Pochi clienti, presenza vera" },
     { them: "Report pieni di numeri di vanità", us: "Solo le metriche che contano per te" },
   ],
-  whyTitle: "Perché funziona.",
-  why: [
-    {
-      title: "Presenza diretta",
-      body: "Chi decide è chi lavora al tuo progetto. Niente telefono senza fine, niente versioni perse tra reparti.",
-    },
-    {
-      title: "Numero chiuso",
-      body: "Accettiamo pochi clienti per volta. È l'unico modo per restare davvero presenti e curare i dettagli.",
-    },
-    {
-      title: "Continuità",
-      body: "Non spariamo una campagna e via. Restiamo, misuriamo e miglioriamo, mese dopo mese.",
-    },
-  ],
+  // Qui c'era «Perché funziona», tre punti: Presenza diretta, Numero chiuso,
+  // Continuità. Tolti il 25 agosto 2026: dicevano le stesse cose della
+  // tabella qui sopra («Parli sempre con noi due» = Presenza diretta,
+  // «Pochi clienti, presenza vera» = Numero chiuso) e del quinto passo del
+  // metodo («Evolviamo insieme» = Continuità), nella stessa pagina e a due
+  // schermate di distanza. La tabella resta perché è l'unica sezione che
+  // dice una cosa che le altre non dicono: il confronto con l'alternativa.
 };
 
 export const processPage = {
@@ -1936,20 +2127,28 @@ export const processPage = {
     {
       n: "04",
       title: "Restiamo",
-      body: "Finita la prima parte non spariamo. La tua comunicazione cresce con la tua attività, e a seguirla restano le stesse due persone che l'hanno costruita.",
+      // La seconda frase arrivava dall'elenco «Cosa ti aspetta», che stava
+      // qui sotto ed è uscito il 25 agosto 2026: è una scelta di Dario dello
+      // stesso giorno (aveva preso il posto dell'impegno sul prezzo, che è
+      // rimasto nel passo «Proposta»), e non andava persa insieme all'elenco.
+      body: "Finita la prima parte non spariamo. Sperimentiamo insieme e aggiustiamo nel tempo, non a piano fisso: la tua comunicazione cresce con la tua attività, e a seguirla restano le stesse due persone che l'hanno costruita.",
     },
   ],
-  expectTitle: "Cosa ti aspetta",
-  expect: [
-    "Parli sempre con chi esegue, mai con un intermediario.",
-    "Vedi il lavoro mentre procede, non solo alla consegna.",
-    // Qui c'era «il prezzo si concorda prima, non a lavoro finito». Tolta il
-    // 25 agosto 2026: Dario preferisce dichiarare la flessibilità. L'impegno
-    // sul prezzo non è sparito dal sito — resta nel passo «Proposta» di
-    // `processPage`, dov'è al suo posto, cioè accanto al preventivo.
-    "Sperimentiamo insieme e aggiustiamo nel tempo, non a piano fisso.",
-    "Se non ti convince la prova, ci salutiamo senza costi.",
-  ],
+  // Qui c'era «Cosa ti aspetta», quattro righe stampate subito sotto i
+  // quattro passaggi. Tolte il 25 agosto 2026 perché erano l'eco di ciò che
+  // sta trenta centimetri sopra, nella stessa schermata: «parli con chi
+  // esegue» e «vedi il lavoro mentre procede» sono il passo 03, «se non ti
+  // convince ci salutiamo» è il terzo passo della prova. Vale la stessa
+  // regola delle due schede del problema: se un punto si ricava leggendo il
+  // testo accanto, non è un punto, è un'eco.
+  //
+  // `expectTitle` è uscito con loro, e non era nemmeno mai stato stampato:
+  // l'elenco compariva senza intestazione.
+  //
+  // L'unica cosa che dicevano e che non stava già nei passaggi — «sperimentiamo
+  // insieme e aggiustiamo nel tempo, non a piano fisso», scelta di Dario del
+  // 25 agosto 2026 — non è andata persa: è entrata nel passo «Restiamo», che
+  // è il momento in cui quella promessa vale davvero.
 };
 
 export const contactEmails = {
@@ -1999,7 +2198,19 @@ export const emailAssetsUrl = "https://diellecommunication.vercel.app";
 // posto dove la gente va apposta a cercarli, e per un'attività locale
 // averli su ogni pagina conta anche per farsi trovare su Google.
 // Li legge `site-footer.tsx` da `site`, non sono ricopiati qui.
-export const footer = {
+// `disabled` marca una voce che resta scritta ma non si clicca: oggi solo
+// «Blog». Vedi il commento dentro la colonna «Lavoro».
+export type FooterLinkItem = { label: string; href: string; disabled?: boolean };
+
+// Il tipo è dichiarato perché la colonna «Seguici» legge da `social`, che ha
+// un campo in più (`brand`): senza annotazione TypeScript deduce tre forme
+// diverse per le tre colonne e `disabled` non esiste su tutte.
+export const footer: {
+  kicker: string;
+  lead: string;
+  columns: { title: string; links: FooterLinkItem[] }[];
+  legalLinks: FooterLinkItem[];
+} = {
   kicker: "Lavoriamo insieme",
   lead: "Comincia con una consulenza gratuita: vediamo come ti trovano su Google e cosa serve per farti scegliere.",
   columns: [
@@ -2016,7 +2227,32 @@ export const footer = {
       links: [
         { label: "Servizi", href: "/servizi" },
         { label: "Lavori", href: "/lavori" },
-        { label: "Blog", href: "/blog" },
+        // **«Blog» c'è ma non si clicca**, dal 25 agosto 2026 e su richiesta
+        // di Dario: «il blog poi lo faremo più in là». Il campo che lo spegne
+        // è `disabled`; `site-footer.tsx` lo disegna come testo spento invece
+        // che come link, quindi la voce resta visibile e la colonna non si
+        // svuota, ma non porta da nessuna parte.
+        //
+        // Prima era stato tolto del tutto: era la lettura sbagliata della
+        // stessa richiesta. Toglierlo faceva sparire anche l'informazione che
+        // un blog esiste.
+        //
+        // Il motivo: tre articoli fermi accanto a diciotto casi studio non
+        // dicono «scriviamo», dicono «abbiamo smesso». Un blog fermo è
+        // l'unica parte di un sito che invecchia da sola, e finché non
+        // riparte è meglio non annunciarlo.
+        //
+        // **Niente è stato cancellato**: gli articoli, le loro pagine e la
+        // rotta `/blog` esistono ancora e restano in `posts`. Rimettere
+        // questa riga li riaccende tutti insieme.
+        //
+        // Le pagine restano anche nella mappa del sito, ed è voluto: chi le
+        // trova su Google trova contenuto vero, e toglierle butterebbe via
+        // un posizionamento già guadagnato. È l'opposto del caso `/prova`,
+        // che era orfana *e* ripeteva la home — qui il contenuto è unico.
+        // Nella mappa è stato però corretto `changeFrequency`, che
+        // prometteva un aggiornamento settimanale che non c'è.
+        { label: "Blog", href: "/blog", disabled: true },
       ],
     },
     // Legge da `social` invece di ricopiare i profili: erano due elenchi

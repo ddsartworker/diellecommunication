@@ -6,7 +6,7 @@ export default function Method() {
   return (
     <section
       id="metodo"
-      className="bg-navy-deep py-[108px]"
+      className="bg-navy-deep section-y"
     >
       <div className="shell">
         {/* Titolo e sottotitolo sull'asse centrale; l'elenco dei passi sotto
@@ -16,9 +16,21 @@ export default function Method() {
             <span className="display text-cream">Un metodo</span>{" "}
             <span className="display text-cream">sartoriale.</span>
           </h2>
+          {/* La frase è di Dario, 25 agosto 2026, e sta anche in apertura di
+              `/metodo`: è la risposta alla domanda «cosa succede se decido di
+              lavorare con voi». Prima qui c'era «niente pacchetti uguali per
+              tutti», che il sito ripete in altri quattro punti — sottotitolo
+              di /chi-siamo, `notBody`, la tabella di confronto, la FAQ sui
+              prezzi. Questa invece dice una cosa che non stava scritta da
+              nessuna parte: le decisioni si prendono insieme. */}
           <p className="mx-auto mt-6 max-w-3xl text-pretty text-lg text-cream/60">
-            Niente pacchetti uguali per tutti. Cuciamo la tua comunicazione su
-            misura, passo dopo passo.
+            <span className="block">
+              Nessuno conosce il tuo lavoro come te: il marketing non si
+              subisce, si fa insieme.
+            </span>
+            <span className="block">
+              Ci sentiamo, e ogni passo lo decidiamo con te.
+            </span>
           </p>
         </Reveal>
 
@@ -29,7 +41,7 @@ export default function Method() {
               as="li"
               key={step.n}
               delay={i * 70}
-              className="relative grid grid-cols-[2.4rem_1fr] gap-x-5 gap-y-3 py-7 md:grid-cols-[2.4rem_21rem_1fr] md:items-baseline md:gap-x-10 md:gap-y-0"
+              className="relative grid grid-cols-[2.4rem_1fr] gap-x-5 gap-y-3 py-7 lg:grid-cols-[2.4rem_21rem_1fr] lg:items-baseline lg:gap-x-10 lg:gap-y-0"
             >
               <span className="relative z-10 row-span-2 flex size-[2.4rem] items-center justify-center rounded-full border border-cream/15 bg-navy-deep font-mono text-xs text-saffron md:row-span-1">
                 {step.n}
@@ -47,7 +59,7 @@ export default function Method() {
         <Reveal delay={120}>
           <Link
             href="/metodo"
-            className="group mt-12 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-cream/65 transition-colors hover:text-saffron"
+            className="group mt-12 inline-flex items-center gap-2 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-cream/65 transition-colors hover:text-saffron"
           >
             Scopri il metodo in dettaglio
             <span className="transition-transform duration-300 group-hover:translate-x-1">

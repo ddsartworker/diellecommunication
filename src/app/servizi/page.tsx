@@ -30,7 +30,7 @@ export default function ServiziPage() {
       <SiteHeader />
       <JsonLd data={breadcrumbSchema([{ name: "Servizi", path: "/servizi" }])} />
       <main>
-        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden pb-[108px] pt-40 text-cream sm:pt-48">
+        <section className="surface-glow relative flex min-h-[58svh] flex-col justify-center overflow-hidden section-y-b pt-40 text-cream sm:pt-48">
           <div className="shell">
             <SectionHead
               as="h1"
@@ -45,7 +45,7 @@ export default function ServiziPage() {
           </div>
         </section>
 
-        <section className="bg-navy-deep py-[108px]">
+        <section className="bg-navy-deep section-y">
           <div className="shell">
             <ul className="mx-auto max-w-4xl divide-y divide-cream/10 border-y border-cream/10">
               {services.map((s, i) => {

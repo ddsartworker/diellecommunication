@@ -4,7 +4,7 @@ import { founders } from "@/lib/site";
 
 export default function About() {
   return (
-    <section id="studio" className="surface-glow py-[108px] text-cream">
+    <section id="studio" className="surface-glow section-y text-cream">
       {/* Stesso impianto delle sezioni precedenti: niente kicker, titolo e
           sottotitolo centrati e di un colore solo. */}
       <div className="shell text-center">
@@ -30,7 +30,13 @@ export default function About() {
         {/* Ritratti quadrati e contenuti, come nel riferimento. Dentro la
             scheda tutto è allineato a sinistra — foto, nome, ruolo, testo —
             mentre titolo e sottotitolo della sezione restano centrati. */}
-        <div className="mx-auto mt-16 grid max-w-6xl gap-12 sm:grid-cols-2 sm:gap-12">
+        {/* Due colonne solo da 1024px. Il blocco è largo 26rem (416px) e sotto
+            i 1024 due non ci stanno: a 640 si riducevano a **256px** e a 768
+            (iPad verticale) a 312, cioè una biografia su righe da trenta
+            caratteri e una foto rimpicciolita di un terzo. Misurato.
+            `chi-siamo/page.tsx` ha lo stesso blocco e la stessa soglia: se
+            cambi qui, cambia anche là. */}
+        <div className="mx-auto mt-16 grid max-w-6xl gap-12 lg:grid-cols-2 lg:gap-12">
           {founders.map((person, i) => (
             <Reveal key={person.name} delay={140 + i * 90}>
               {/* Foto e testi condividono la stessa larghezza e gli stessi
@@ -43,7 +49,7 @@ export default function About() {
                       src={person.photo}
                       alt={`Ritratto di ${person.name}`}
                       fill
-                      sizes="(max-width: 640px) 90vw, 26rem"
+                      sizes="(max-width: 475px) 88vw, 26rem"
                       quality={90}
                       className="object-cover"
                     />

@@ -10,9 +10,37 @@ import { booking, company, footer, site, whatsappUrl } from "@/lib/site";
 // I contenuti — invito, colonne, link legali — stanno in `footer` dentro
 // `site.ts`: qui c'è solo l'impaginazione.
 
-function FooterLink({ href, label }: { href: string; label: string }) {
+function FooterLink({
+  href,
+  label,
+  disabled,
+}: {
+  href: string;
+  label: string;
+  disabled?: boolean;
+}) {
+  // `py-2 -my-2` allarga il bersaglio del dito senza spostare niente a
+  // schermo: l'area cliccabile passa da 17px di altezza a 33, il margine
+  // negativo restituisce lo spazio che il padding aveva preso. Senza,
+  // sul telefono questi link erano alti 17px — sotto il minimo di 24px
+  // delle linee guida di accessibilità, e ben sotto i 44 consigliati.
   const classi =
-    "text-[0.95rem] text-cream/60 transition-colors duration-300 hover:text-cream";
+    "inline-block py-2 -my-2 text-[0.95rem] text-cream/60 transition-colors duration-300 hover:text-cream";
+
+  // Una voce spenta non è un link: è testo. Non `<a>` con `pointer-events`
+  // tolti — quello resta annunciato come link da un lettore di schermo e
+  // resta raggiungibile con il tabulatore, cioè promette qualcosa che non
+  // succede. `aria-disabled` lo dice a chi ascolta, il colore a chi guarda.
+  if (disabled) {
+    return (
+      <span
+        aria-disabled="true"
+        className="inline-block cursor-default py-2 -my-2 text-[0.95rem] text-cream/30"
+      >
+        {label}
+      </span>
+    );
+  }
 
   // Gli indirizzi interni passano dal router, i profili social sono link
   // esterni e aprono una scheda nuova.
@@ -58,10 +86,15 @@ export default function SiteFooter() {
               conta anche per farsi trovare su Google. Prima «Contatti»
               compariva due volte in due colonne diverse: ora zero volte, e
               al suo posto ci sono le informazioni vere. */}
-          <address className="mt-10 flex flex-col gap-2 not-italic">
+          {/* `gap-1` invece di `gap-2` perché i due link portano ora
+              `py-1.5`: lo spazio fra le righe resta quello di prima, ma
+              l'area che intercetta il dito passa da 20px a 32. Sono i due
+              recapiti che la gente scende a cercare apposta, ed erano i più
+              stretti della pagina. */}
+          <address className="mt-10 flex flex-col gap-1 not-italic">
             <a
               href={`mailto:${site.email}`}
-              className="text-[0.95rem] text-cream underline decoration-cream/40 decoration-1 underline-offset-4"
+              className="inline-block py-1.5 text-[0.95rem] text-cream underline decoration-cream/40 decoration-1 underline-offset-4"
             >
               {site.email}
             </a>
@@ -69,7 +102,7 @@ export default function SiteFooter() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[0.95rem] text-cream/60 transition-colors duration-300 hover:text-cream"
+              className="inline-block py-1.5 text-[0.95rem] text-cream/60 transition-colors duration-300 hover:text-cream"
             >
               WhatsApp {site.whatsappDisplay}
             </a>
@@ -88,7 +121,7 @@ export default function SiteFooter() {
               <ul className="mt-5 space-y-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <FooterLink href={link.href} label={link.label} />
+                    <FooterLink href={link.href} label={link.label} disabled={link.disabled} />
                   </li>
                 ))}
               </ul>
