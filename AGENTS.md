@@ -938,8 +938,21 @@ quale icona mostrare lo decide il CSS a partire dallo stesso attributo. Con lo
 stato ci sarebbe un disallineamento fra la pagina generata dal server, che il
 tema non lo sa, e quella che trova il browser. Il primo tema lo mette uno
 script dentro `layout.tsx` **prima** che la pagina si disegni: senza, a ogni
-caricamento si vedrebbe un lampo del tema sbagliato. Alla prima visita si
-segue l'impostazione del sistema operativo di chi guarda.
+caricamento si vedrebbe un lampo del tema sbagliato.
+
+**Alla prima visita il sito si apre sempre scuro**, anche a chi ha il sistema
+operativo in chiaro. Richiesta di Dario del 25 agosto 2026, e coerente con
+com'è disegnato: l'apertura è un alone su fondo blu, il nastro dei clienti e
+il footer sono ancora più profondi, e tre fasce restano scure anche a tema
+chiaro. Il chiaro c'è per chi lo preferisce, ma non è il modo in cui il sito
+va visto la prima volta.
+
+Prima si seguiva `prefers-color-scheme`, cioè l'impostazione del sistema
+operativo. **Non rimetterlo**: era la scelta di default, non una decisione.
+
+L'ordine di precedenza è **`?theme=` → scelta salvata → scuro**. Chi ha già
+usato l'interruttore continua a trovare la sua scelta: `localStorage` viene
+letto prima del predefinito, quindi il cambiamento non scavalca nessuno.
 
 Carattere: **uno solo per tutto il sito**, la pila di sistema
 (`ui-sans-serif, system-ui, …`), cioè il font dell'interfaccia del dispositivo di

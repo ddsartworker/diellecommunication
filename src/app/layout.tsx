@@ -72,12 +72,26 @@ export default function RootLayout({
         {/*
           Il tema va deciso PRIMA che la pagina si disegni, altrimenti si vede
           un lampo del tema sbagliato a ogni caricamento. Questo script è
-          minuscolo e bloccante apposta: legge la scelta salvata, e se non c'è
-          segue l'impostazione del sistema operativo di chi visita.
+          minuscolo e bloccante apposta.
+
+          L'ordine di precedenza è: `?theme=` nell'indirizzo, poi la scelta
+          salvata da chi visita, **poi lo scuro**.
+
+          Alla prima visita si apre **sempre scuro**, anche a chi ha il
+          sistema operativo in chiaro. Richiesta di Dario del 25 agosto 2026,
+          ed è la scelta giusta: il sito è disegnato scuro — l'apertura è un
+          alone su fondo blu, il nastro dei clienti e il footer sono ancora
+          più profondi, e tre fasce restano scure anche a tema chiaro. Il
+          chiaro esiste per chi lo preferisce, non è il modo in cui il sito va
+          visto la prima volta.
+
+          Chi ha già scelto continua a trovare la sua scelta: si guarda
+          `localStorage` prima del predefinito, quindi questa modifica non
+          scavalca nessuno.
         */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var q=new URLSearchParams(location.search).get("theme");var t=q==="light"||q==="dark"?q:localStorage.getItem("dielle-theme");if(!t){t=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="dark"}})()`,
+            __html: `(function(){try{var q=new URLSearchParams(location.search).get("theme");var t=q==="light"||q==="dark"?q:localStorage.getItem("dielle-theme");if(t!=="light"&&t!=="dark"){t="dark"}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="dark"}})()`,
           }}
         />
       </head>
