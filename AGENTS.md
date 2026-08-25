@@ -1777,11 +1777,19 @@ sopra.
   venire in mente proprio la cosa che si vuole escludere** — e comunque
   nessuno lo chiede. Al suo posto un impegno che le persone chiedono davvero,
   e a cui la risposta è no: far sparire una recensione negativa.
-- `src/lib/site.ts` — l'appuntamento su Cal.com si chiama ancora «Meeting di
-  30 minuti», il nome predefinito: chi clicca «Richiedi consulenza gratuita»
-  arriva su una pagina che parla d'altro. Da rinominare **su Cal.com**, non
-  nel codice. Se cambia anche l'indirizzo dell'evento (`30min`), va aggiornato
-  `booking.url`: Cal.com non lascia rimandi dai vecchi indirizzi.
+- ~~l'appuntamento su Cal.com si chiama «Meeting di 30 minuti»~~ —
+  **risolto il 25 agosto 2026**: Dario l'ha rinominato **«Consulenza
+  Gratuita»** e gli ha dato una descrizione. Chi clicca «Richiedi consulenza
+  gratuita» adesso arriva su una pagina che dice la stessa cosa, e che spiega
+  cosa succede nella mezz'ora.
+
+  Due cose da ricordare per il futuro. **L'indirizzo dell'evento resta
+  `30min`** e non va cambiato senza aggiornare `booking.url` nello stesso
+  giro: Cal.com non lascia rimandi dai vecchi indirizzi, quindi i dieci
+  pulsanti del sito punterebbero nel vuoto. E **il testo dell'evento vive su
+  Cal.com, non in `site.ts`**: è l'unico pezzo di copy del sito che non sta
+  nel repository, quindi se cambia il tono di voce va cambiato anche là a
+  mano.
 - `src/app/privacy` e `src/app/termini` — **le due pagine legali non sono
   ancora state riviste da un legale.** I dati societari però ci sono tutti,
   presi dalla visura camerale del 22 settembre 2025: denominazione, sede,
