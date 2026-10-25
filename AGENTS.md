@@ -301,6 +301,21 @@ realizzazione del logo e il packaging delle quattro scatole (Soave e Rock, da
   cliente da solo non è una cosa che qualcuno cerca — «logo e packaging per
   caffè in cialde» sì.
 
+**I profili Instagram dei clienti, dal 25 ottobre 2026.** Su San Pietro,
+Namare, Tadàplay, CoffeeWorld e Taverna 'e Mare i social li seguiamo noi, e
+Dario ha chiesto di dirlo: il campo `instagram` di `work` mette il profilo
+**sotto il link al sito**, con lo stesso aspetto e la maniglia come etichetta
+(«@sanpietrobistrot»). **Va solo dove i social li curiamo noi**: è una prova
+del lavoro, non un recapito del cliente. Lo stesso giorno il `lead` di
+ciascuno ha preso una frase su social, marketing e shooting fotografici e
+video, e ognuno ha `metaTitle` e `metaDescription` con le parole che le
+persone cercano — «social, foto e video» e il luogo.
+
+**Il pannello dell'apertura cresce col testo** (`lg:min-h-[30rem]`, non più
+`lg:h-[30rem]`): con l'altezza fissa il riassunto di Tadàplay usciva dal
+pannello. Quello di Tadàplay è stato anche accorciato, e resta la regola: un
+`lead` si legge in una schermata, se si allunga troppo si riscrive.
+
 **Le pillole dicono cosa è stato fatto lì, non la categoria del servizio.**
 Riscritte tutte e diciotto il 25 agosto 2026, ed è la correzione più utile
 fatta al portfolio.

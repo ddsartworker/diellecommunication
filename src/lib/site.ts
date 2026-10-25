@@ -635,6 +635,11 @@ export type WorkItem = {
   // Serve solo quando il link **non** è il sito del cliente: NinjaStickers
   // non ha un sito raggiungibile e punta al portfolio di Dario.
   hrefLabel?: string;
+  // Il profilo Instagram del cliente, **solo dove i social li seguiamo noi**:
+  // è una prova del lavoro, non un recapito del cliente. Compare sotto il
+  // link al sito, nella pagina del caso studio, con la maniglia («@nome»)
+  // come etichetta — dice dove si va, come il dominio per il sito.
+  instagram?: string;
   // **La riga sotto il nome nella griglia.** Deve dire *com'è finita*, non
   // cosa abbiamo consegnato: è la differenza fra «Rebranding, social, email
   // marketing e ufficio stampa» — un elenco della spesa — e «Da un'immagine
@@ -770,6 +775,7 @@ export const work: WorkItem[] = [
     category: "Food & ristorazione",
     year: "2022 — 2026",
     href: "https://www.sanpietrobistrot.it/",
+    instagram: "https://www.instagram.com/sanpietrobistrot/",
     outcome:
       "Da 9.500 a 38.700 follower su Instagram in quattro anni, e un menù che il ristorante aggiorna da sé quando cambia il pescato.",
     // Etichette che dicono **cosa è stato fatto qui**, non la categoria del
@@ -791,8 +797,11 @@ export const work: WorkItem[] = [
     alt: "Preparazione del pesce in cucina al San Pietro Bistrot del Mare",
     study: {
       lead:
-        "Seguiamo il San Pietro Bistrot del Mare da quattro anni, ristorante vista mare a Torre del Greco. In questo tempo il profilo Instagram è passato da circa 9.500 a 38.700 follower, le prenotazioni hanno smesso di passare dai portali a pagamento e il menù si aggiorna da solo, con uno strumento costruito su misura.",
+        "Seguiamo il San Pietro Bistrot del Mare da quattro anni, ristorante vista mare a Torre del Greco. In questo tempo il profilo Instagram è passato da circa 9.500 a 38.700 follower, le prenotazioni hanno smesso di passare dai portali a pagamento e il menù si aggiorna da solo, con uno strumento costruito su misura. Ne curiamo i social e il marketing, e realizziamo gli shooting fotografici e video dei piatti e della sala.",
       subtitle: "Ristorante vista mare · Torre del Greco, Napoli · seguito dal 2022",
+      metaTitle: "San Pietro Bistrot: social, foto e video a Torre del Greco",
+      metaDescription:
+        "Social e marketing del San Pietro Bistrot del Mare a Torre del Greco, con shooting fotografici e video: da 9.500 a 38.700 follower su Instagram in quattro anni.",
       outcomes: [
         "38.700 follower su Instagram, partendo da circa 9.500 quattro anni fa.",
         // Verificato il 25 agosto 2026 sul sito pubblicato: non c'è nessun
@@ -831,6 +840,7 @@ export const work: WorkItem[] = [
     category: "Food & ristorazione",
     year: "2026",
     href: "https://namare.it/",
+    instagram: "https://www.instagram.com/namareristorante/",
     // La riga porta i numeri, ed è l'unica del sito che può farlo: sono dati
     // dati da Dario, non stime. Se un giorno cambiano, si cambiano qui e
     // nella sezione «Risultati» — sono scritti in due posti perché fanno due
@@ -857,8 +867,11 @@ export const work: WorkItem[] = [
       // L'apertura racconta, non elenca: i servizi stanno già nelle pillole
       // qui accanto, ripeterli qui è dirlo due volte nella stessa schermata.
       lead:
-        "Da aprile 2026 seguiamo l'intera comunicazione di Namare, ristorante di mare a Portici — e non solo il ristorante: anche il catering e il food truck. In quattro mesi il profilo Instagram è arrivato a 9.486 follower, quasi duemila in più, e le prenotazioni hanno smesso di passare dai portali a pagamento.",
+        "Da aprile 2026 seguiamo l'intera comunicazione di Namare, ristorante di mare a Portici — e non solo il ristorante: anche il catering e il food truck. In quattro mesi il profilo Instagram è arrivato a 9.486 follower, quasi duemila in più, e le prenotazioni hanno smesso di passare dai portali a pagamento. Ne curiamo i social e il marketing, e realizziamo noi gli shooting fotografici e video.",
       subtitle: "Ristorante di mare · Portici, Napoli · seguito da aprile 2026",
+      metaTitle: "Namare ristorante, Portici: social, foto e video",
+      metaDescription:
+        "Social, marketing, shooting fotografici e video per Namare, ristorante di mare a Portici: quasi 2.000 follower in più in quattro mesi.",
       outcomes: [
         "9.486 follower su Instagram, quasi 2.000 in più da quando seguiamo il profilo.",
         // Il reel da 26.200 visualizzazioni stava qui, nel `lead` e nella riga
@@ -966,6 +979,7 @@ export const work: WorkItem[] = [
     // Punta allo shop e non alla home: è la parte del sito che mostra il
     // lavoro, perché lì ci sono i giochi che abbiamo disegnato noi.
     href: "https://tadaplay.it/acquista-i-giochi-tadaplay-shop/",
+    instagram: "https://www.instagram.com/tada_play/",
     outcome:
       "Dalle fiabe di Tadà al tavolo: le storie che prima si leggevano adesso si giocano, e le abbiamo disegnate noi.",
     services: [
@@ -973,6 +987,7 @@ export const work: WorkItem[] = [
       "Giochi e packaging",
       "E-commerce",
       "Carta del Docente",
+      "Shooting dei giochi",
       "Video YouTube",
       "Campagne Google e Meta",
       "Fiere di settore",
@@ -981,14 +996,21 @@ export const work: WorkItem[] = [
     image: "/work/tadaplay.jpg",
     alt: "Il marchio Tadàplay",
     study: {
+      // Accorciata il 25 ottobre 2026, quando è entrata la frase su social e
+      // shooting: così com'era usciva dal pannello dell'apertura. Le fiabe di
+      // Tadà restano nella riga della scheda, il dettaglio di scatole, flyer
+      // e manuali nei Risultati.
       lead:
-        "Di Tadàplay abbiamo costruito tutto: il marchio, il sito con l'e-commerce e i giochi stessi — illustrazioni, scatole, flyer e manuali di istruzione — questi ultimi insieme a illustratori e game designer. Oggi si vendono online in Italia e all'estero, nei negozi fisici e nelle scuole, anche con la Carta del Docente. Tadàplay nasce come continuazione naturale delle fiabe di Tadà: le storie che prima si leggevano, qui si giocano.",
+        "Di Tadàplay abbiamo costruito tutto: il marchio, il sito con l'e-commerce e i giochi stessi, insieme a illustratori e game designer. Oggi si vendono online in Italia e all'estero, nei negozi e nelle scuole, anche con la Carta del Docente. Ne curiamo anche i social e il marketing, e realizziamo gli shooting fotografici e video dei giochi.",
       // La società è Love for Inclusion S.r.l., verificata sul sito del
       // cliente: Tadàplay e Tadàbook sono due suoi marchi, e li seguiamo
       // tutti e due. Dirlo vale più di due schede separate — un cliente che
       // affida un secondo marchio è la prova migliore che esista.
       subtitle:
         "Giochi educativi di Love for Inclusion · Torre del Greco, Napoli · in corso",
+      metaTitle: "Tadàplay: giochi educativi, e-commerce e social",
+      metaDescription:
+        "Marchio, giochi, e-commerce con Carta del Docente, social, marketing e shooting fotografici e video per Tadàplay, giochi educativi di Torre del Greco.",
       outcomes: [
         "Il prodotto disegnato e illustrato, non soltanto il marchio che lo veste: i giochi, insieme a illustratori e game designer.",
         "Il packaging completo di ogni singolo gioco: scatole, flyer e manuali di istruzione.",
@@ -1009,6 +1031,7 @@ export const work: WorkItem[] = [
         "Abbiamo costruito il sito responsive su WordPress con Elementor Pro, e l'e-commerce per la vendita in Italia e all'estero.",
         "Abbiamo implementato e costruito con l'intelligenza artificiale i plugin che permettono l'acquisto con la Carta del Docente.",
         "Curiamo il posizionamento sui motori di ricerca e l'ottimizzazione dei testi.",
+        "Realizziamo gli shooting fotografici e video dei giochi.",
         "Produciamo video e post per Instagram, TikTok e Facebook, e i video del canale YouTube.",
         "Gestiamo le campagne a pagamento su Google e su Meta.",
         "Curiamo l'email marketing in modo continuativo.",
@@ -1141,6 +1164,7 @@ export const work: WorkItem[] = [
     category: "Retail & e-commerce",
     year: "2024 — 2026",
     href: "https://www.coffeeworld.it/",
+    instagram: "https://www.instagram.com/coffeeworld_it/",
     outcome:
       "Da sito vetrina senza catalogo a e-commerce che vende in tutta Italia e in Europa.",
     services: [
@@ -1149,6 +1173,8 @@ export const work: WorkItem[] = [
       "Packaging e cialde",
       "Cartellonistica stradale",
       "Materiali per il franchising",
+      "Social e marketing",
+      "Shooting dei prodotti",
       "Testi e blog per la ricerca",
       "Risorse scaricabili",
       "Presidio quotidiano",
@@ -1157,7 +1183,10 @@ export const work: WorkItem[] = [
     alt: "Il marchio CoffeeWorld — caffè e bevande in cialde e capsule",
     study: {
       lead:
-        "Abbiamo costruito da zero sito ed e-commerce di CoffeeWorld e rifatto il marchio. Oggi il negozio online vende oltre la Campania — in tutta Italia e in Europa — mentre punti vendita e centri in franchising fra Campania, Puglia e Lazio hanno packaging, cartellonistica e materiali coordinati.",
+        "Abbiamo costruito da zero sito ed e-commerce di CoffeeWorld e rifatto il marchio. Oggi il negozio online vende oltre la Campania — in tutta Italia e in Europa — mentre punti vendita e centri in franchising fra Campania, Puglia e Lazio hanno packaging, cartellonistica e materiali coordinati. Ne seguiamo anche i social e il marketing, e realizziamo gli shooting fotografici e video dei prodotti.",
+      metaTitle: "CoffeeWorld: e-commerce, packaging e social del caffè",
+      metaDescription:
+        "E-commerce, marchio e packaging per CoffeeWorld, caffè in cialde e capsule. Ne seguiamo anche social, marketing e shooting fotografici e video.",
       outcomes: [
         "Un e-commerce che vende oltre la Campania: in tutta Italia e in Europa.",
         "L'intera gamma finalmente consultabile online, dalle diverse qualità di caffè alle cialde.",
@@ -1165,6 +1194,7 @@ export const work: WorkItem[] = [
         "Il packaging completo: le confezioni delle diverse qualità e formati, lo scatolo delle cialde e le buste che le contengono.",
         "Materiali coordinati per i punti vendita e per i centri in franchising nelle tre regioni.",
         "Banner e template pronti per le campagne su Instagram, TikTok e Facebook, e le versioni stampate per i negozi.",
+        "Profili social seguiti con continuità, con foto e video dei prodotti realizzati da noi.",
         "Testi e articoli aggiornati periodicamente sulle parole chiave del momento, non scritti una volta e lasciati lì.",
         "Un presidio quotidiano del sito: aggiornamenti, controlli e manutenzione.",
       ],
@@ -1176,6 +1206,7 @@ export const work: WorkItem[] = [
         "Abbiamo progettato il packaging: le confezioni delle diverse qualità e formati di caffè, lo scatolo delle cialde e le buste interne.",
         "Abbiamo realizzato la cartellonistica stradale e i materiali per negozi e centri in franchising.",
         "Abbiamo prodotto banner e template per le campagne su Instagram, TikTok e Facebook, e le corrispondenti versioni per la stampa.",
+        "Gestiamo i profili social e il marketing del marchio, e realizziamo gli shooting fotografici e video dei prodotti.",
         "Con Luisa scriviamo e riscriviamo i testi in ottica di ricerca, aggiornandoli sulle parole chiave del momento.",
         "Abbiamo aperto il blog del sito e ne curiamo gli articoli, con lo stesso criterio.",
         "Abbiamo costruito le risorse gratuite scaricabili — guida alle miscele, manuale d'uso della macchina, decalcificazione — come primo punto di contatto.",
@@ -1189,6 +1220,7 @@ export const work: WorkItem[] = [
     category: "Food & ristorazione",
     year: "2024 — 2026",
     href: "https://tavernaemare.it/",
+    instagram: "https://www.instagram.com/tavernaemareristorante/",
     outcome:
       "Le targhette della menzione Michelin le abbiamo prodotte noi, insieme al packaging e ai menù del locale.",
     // Tre pillole, decise da Dario il 25 agosto 2026. Erano sette, ereditate
@@ -1211,9 +1243,12 @@ export const work: WorkItem[] = [
       // un lavoro a progetto che finisce è la normalità, non una notizia.
       // Namare e San Pietro, che sono in corso, restano al presente.
       lead:
-        "Abbiamo seguito la comunicazione della Taverna 'e Mare, ristorante di mare a Torre del Greco. Qui più che altrove il lavoro passava dalle cose che si toccano: il packaging del locale e i menù, quelli in sala e quello online. Il sito c'era già e non rendeva: l'abbiamo ottimizzato invece di rifarlo da capo.",
+        "Abbiamo seguito la comunicazione della Taverna 'e Mare, ristorante di mare a Torre del Greco. Qui più che altrove il lavoro passava dalle cose che si toccano: il packaging del locale e i menù, quelli in sala e quello online. Il sito c'era già e non rendeva: l'abbiamo ottimizzato invece di rifarlo da capo. Ne abbiamo curato anche i social e il marketing, con shooting fotografici e video realizzati in sede.",
       subtitle:
         "Ristorante di mare · Torre del Greco, Napoli · collaborazione a progetto, 2024 — 2026",
+      metaTitle: "Taverna 'e Mare, Torre del Greco: social, foto e video",
+      metaDescription:
+        "Social, marketing, shooting fotografici e video, packaging e menù per la Taverna 'e Mare, ristorante di mare a Torre del Greco con menzione Michelin.",
       outcomes: [
         "Le targhette per la menzione sulla guida Michelin, progettate e prodotte.",
         "Tutto il packaging del locale: buste per il vino e buste per l'asporto.",

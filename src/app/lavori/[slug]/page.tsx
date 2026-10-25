@@ -38,6 +38,15 @@ function dominio(url: string) {
   }
 }
 
+// «@nome» dall'indirizzo del profilo Instagram.
+function maniglia(url: string) {
+  try {
+    return `@${new URL(url).pathname.split("/").filter(Boolean)[0]}`;
+  } catch {
+    return url;
+  }
+}
+
 export function generateStaticParams() {
   return conCasoStudio.map((item) => ({ slug: item.slug }));
 }
@@ -126,7 +135,10 @@ export default async function CaseStudyPage({
           <div className="shell">
             {/* Apertura a due colonne: pannello a sinistra, immagine a
                 destra. Sotto i 1024px si impilano. */}
-            <div className="flex flex-col gap-4 lg:h-[30rem] lg:flex-row">
+            {/* `min-h` e non `h`: con l'altezza fissa un riassunto lungo usciva
+                dal pannello. Così il pannello cresce col testo e l'immagine
+                accanto lo segue. */}
+            <div className="flex flex-col gap-4 lg:min-h-[30rem] lg:flex-row">
               <div className="flex flex-col justify-between rounded-2xl bg-cream/[0.06] p-6 lg:w-[28.6%] lg:shrink-0">
                 {/* Stesso pulsante della pillola arancione, in versione a
                     contorno e girata: pallino a sinistra e freccia
@@ -200,6 +212,20 @@ export default async function CaseStudyPage({
                     className="mt-5 inline-flex items-center gap-2 px-2 py-2 text-[0.95rem] text-saffron underline decoration-saffron/40 decoration-1 underline-offset-4"
                   >
                     {item.hrefLabel ?? dominio(item.href)}
+                    <span aria-hidden>↗</span>
+                  </a>
+                ) : null}
+                {/* Il profilo Instagram, sotto il sito e con lo stesso
+                    aspetto: c'è solo dove i social li seguiamo noi. */}
+                {item.instagram ? (
+                  <a
+                    href={item.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${maniglia(item.instagram)} su Instagram`}
+                    className={`${item.href ? "" : "mt-5 "}flex w-fit items-center gap-2 px-2 py-2 text-[0.95rem] text-saffron underline decoration-saffron/40 decoration-1 underline-offset-4`}
+                  >
+                    {maniglia(item.instagram)}
                     <span aria-hidden>↗</span>
                   </a>
                 ) : null}
