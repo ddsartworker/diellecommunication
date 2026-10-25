@@ -51,8 +51,8 @@ export async function generateMetadata({
   if (!item?.study) return {};
   return {
     alternates: { canonical: `/lavori/${slug}` },
-    title: `${item.title} — caso studio`,
-    description: item.study.lead,
+    title: item.study.metaTitle ?? `${item.title} — caso studio`,
+    description: item.study.metaDescription ?? item.study.lead,
   };
 }
 

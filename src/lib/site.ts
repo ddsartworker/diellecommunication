@@ -103,7 +103,7 @@ export const social: Social[] = [
 ];
 
 // — Fascia di numeri sotto l'hero: trasforma la promessa in prova.
-// I 18 brand non sono una stima: sono esattamente le schede di `work` e i
+// I 19 brand non sono una stima: sono esattamente le schede di `work` e i
 // nomi del nastro. Se aggiungi o togli un lavoro, questo numero va rifatto,
 // o la riga smentisce la pagina /lavori che sta due schermate più sotto.
 // Gli altri tre restano da confermare con Dario e Luisa: sono dati già
@@ -111,7 +111,7 @@ export const social: Social[] = [
 // chiuso), niente di inventato, ma vanno verificati prima di andare online.
 export const stats = [
   { value: "10+", label: "anni di esperienza multicanale" },
-  { value: "18", label: "brand seguiti" },
+  { value: "19", label: "brand seguiti" },
   { value: "2", label: "referenti fissi" },
   { value: "0", label: "pacchetti preconfezionati" },
 ];
@@ -664,6 +664,12 @@ export type WorkItem = {
     outcomes: string[];
     challenge: string;
     solution: string[];
+    // Titolo e descrizione per Google. Facoltativi: se mancano si usano
+    // «<nome> — caso studio» e `lead`. Servono dove `lead` supera i ~155
+    // caratteri che Google mostra, e dove il nome del cliente da solo non è
+    // una cosa che qualcuno cerca: «logo e packaging per caffè in cialde» sì.
+    metaTitle?: string;
+    metaDescription?: string;
   };
 };
 
@@ -1091,6 +1097,63 @@ export const work: WorkItem[] = [
         "Abbiamo aperto il blog del sito e ne curiamo gli articoli, con lo stesso criterio.",
         "Abbiamo costruito le risorse gratuite scaricabili — guida alle miscele, manuale d'uso della macchina, decalcificazione — come primo punto di contatto.",
         "Presidiamo il sito ogni giorno: aggiornamento dei plugin, controlli di sicurezza e prestazioni.",
+      ],
+    },
+  },
+  {
+    // Aggiunto il 25 ottobre 2026. I testi vengono dai materiali del progetto
+    // (brief, presentazione «La o che sorge», didascalie del caso studio su
+    // Instagram), non da note vocali: vanno riletti da Dario.
+    //
+    // **Nessun link e nessun nome del committente.** La linea non ha ancora
+    // un sito, e i materiali pubblicati sul profilo Instagram presentano
+    // Risveglio da sola, senza nominare chi la produce: qui si fa lo stesso
+    // finché Dario non dice altrimenti.
+    slug: "risveglio",
+    title: "Risveglio",
+    category: "Prodotto & educazione",
+    year: "2026",
+    outcome:
+      "Da un nome e basta a un marchio con la tazzina dentro la parola, e quattro scatole pronte per lo scaffale.",
+    services: [
+      "Studio dello scaffale",
+      "Quattro proposte di logo",
+      "La o che sorge",
+      "Famiglia di tre segni",
+      "Palette e caratteri",
+      "Quattro scatole",
+      "Fustelle per la stampa",
+      "Render 3D e video",
+    ],
+    image: "/work/risveglio.jpg",
+    alt: "Le scatole da 50 cialde Risveglio, miscela Rock e miscela Soave, su fondo color caffè",
+    study: {
+      lead:
+        "Risveglio è una nuova linea di caffè in cialde e capsule, e quando ci è arrivata era soltanto un nome. Abbiamo disegnato il marchio — l'ultima lettera della parola diventa una tazzina in cui sorge il sole — e da lì le quattro scatole con cui la linea arriva sullo scaffale: due miscele, due formati.",
+      subtitle: "Caffè in cialde e capsule · logo e packaging · 2026",
+      metaTitle: "Risveglio: logo e packaging per caffè in cialde",
+      metaDescription:
+        "Logo e packaging per Risveglio, caffè in cialde e capsule: la «o» diventa una tazzina in cui sorge il sole, e quattro scatole pronte per lo scaffale.",
+      outcomes: [
+        "Un logo in cui il simbolo sta dentro il nome: la «o» finale è una tazzina vista dall'alto, con un caffè giallo come il sole e tre raggi che escono dal bordo.",
+        "Un marchio che si stacca dallo scaffale del caffè napoletano, lontano da nero, oro metallico e corone.",
+        "Una famiglia di tre segni pensata per ogni supporto: il marchio per i frontali, l'emblema rotondo per il coperchio delle capsule e l'icona dei profili social, l'alba a righe per le scatole.",
+        "Una palette calda di caffè, sole e crema, e tre caratteri con le misure esatte da usare in stampa.",
+        "Quattro scatole pronte per la produzione: Soave e Rock, ciascuna da 50 cialde e da 150 più 15 in omaggio.",
+        "Un sistema che regge le varianti: stessa struttura per tutte e quattro, e la miscela si riconosce dal colore dell'onda — oro per Soave, rosso per Rock.",
+        "I file definitivi per la tipografia, con il livello della fustella, e i render 3D e i video verticali per presentare le scatole sui social.",
+      ],
+      challenge:
+        "Una linea di caffè nuova, con un nome già scelto e nient'altro. Doveva farsi riconoscere in un attimo fra decine di confezioni, restare leggibile anche sui pochi centimetri del coperchio di una capsula e dire «risveglio» prima ancora che si legga la parola. Il tutto in un settore dove i codici visivi — nero, oro, corone, maiuscole solenni — sono già occupati dai marchi più forti.",
+      solution: [
+        "Abbiamo studiato lo scaffale: come i principali torrefattori italiani usano i colori per distinguere le miscele, e quali codici sono già di qualcun altro.",
+        "Abbiamo presentato al cliente quattro strade diverse — il sole, la tazzina, l'alba — e insieme abbiamo scelto la più semplice, «La o che sorge».",
+        "Abbiamo disegnato il marchio in un minuscolo rotondo e pieno, leggibile anche in piccolo, con i puntini delle due «i» dello stesso giallo del sole.",
+        "Abbiamo costruito attorno al marchio una famiglia di tre segni, una palette e la scheda dei caratteri, con le specifiche da passare a chi stampa.",
+        "Abbiamo affiancato al progetto un promemoria per la registrazione del marchio: chi deposita, in quali classi, con quali costi e in che tempi.",
+        "Abbiamo progettato le quattro scatole, ciascuna da un foglio solo che piegato diventa coperchio, fronte, fianchi e fondo: sul coperchio sorge il sole, sul fronte c'è il marchio, l'onda colorata gira tutto intorno.",
+        "Abbiamo preparato le fustelle definitive dei due formati, con l'etichetta per lo smaltimento, pronte per la tipografia.",
+        "Abbiamo realizzato i render 3D delle scatole e i video verticali per presentarle sui social.",
       ],
     },
   },
@@ -2492,6 +2555,9 @@ export const clients: Client[] = [
   { name: "Voice Concierge", href: "https://voiceconcierge.it/" },
   { name: "Parsec 3.26", href: "https://www.parsec326.it/" },
   { name: "CoffeeWorld", href: "https://www.coffeeworld.it/" },
+  // Risveglio non ha ancora un sito: come NinjaStickers, punta al caso
+  // studio interno.
+  { name: "Risveglio", href: "/lavori/risveglio" },
   { name: "EverUp", href: "https://everup.co.uk/" },
   { name: "I Testa", href: "https://itesta.it/" },
   // NinjaStickers non ha più un sito d'azienda: le card sono in vendita su

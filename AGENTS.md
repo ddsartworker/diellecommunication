@@ -229,7 +229,7 @@ cambiato.** Sul riferimento è così: chi apre la pagina vuole sapere com'è
 andata, non ascoltare la premessa. Se ti sembra illogico, è perché lo è — e
 funziona lo stesso.
 
-**Tutti e sedici i lavori hanno la loro pagina**, e questo è un requisito di
+**Tutti i lavori — diciannove dal 25 ottobre 2026 — hanno la loro pagina**, e questo è un requisito di
 Dario: nessuna scheda della griglia deve portare direttamente fuori dal sito.
 
 **I testi sono stati scritti uno per uno con Dario**, il 24 agosto 2026, sulle
@@ -266,6 +266,26 @@ diventa un link esterno e il requisito salta.
 Il filtro `work.filter(w => w.study)` resta in `generateStaticParams` e in
 `sitemap.ts`: **se lo cambi in uno, cambialo nell'altro**, o la mappa consegna
 a Google indirizzi che rispondono «pagina non trovata» — è già successo.
+
+**Risveglio, aggiunto il 25 ottobre 2026, è il primo lavoro scritto dai
+materiali del progetto invece che dalle note vocali** — brief, presentazione
+«La o che sorge», didascalie del caso studio su Instagram, tutto nella
+cartella `~/Desktop/Risveglio`. Racconta due cose, come ha chiesto Dario: la
+realizzazione del logo e il packaging delle quattro scatole (Soave e Rock, da
+50 e da 150 + 15 cialde). Tre scelte da sapere:
+
+- **non nomina il committente e non ha link**: la linea non ha un sito, e i
+  post di Dielle su Instagram la presentano da sola. Nel nastro punta al caso
+  studio interno, come NinjaStickers;
+- **l'immagine è un fotogramma dei render delle scatole**
+  (`Video_Higgsfield_Scatole_50/04_Affiancate_caffe_2160x3840.png`), tagliato
+  a 4:3 alla risoluzione originale e poi ridotto a 2000×1500, mai ingrandito;
+- **è il primo caso studio con titolo e descrizione per Google propri**:
+  `metaTitle` e `metaDescription` dentro `study`, facoltativi. Se mancano la
+  pagina usa «<nome> — caso studio» e `lead`, come prima. Servono quando
+  `lead` supera i ~155 caratteri che Google mostra, o quando il nome del
+  cliente da solo non è una cosa che qualcuno cerca — «logo e packaging per
+  caffè in cialde» sì.
 
 **Le pillole dicono cosa è stato fatto lì, non la categoria del servizio.**
 Riscritte tutte e diciotto il 25 agosto 2026, ed è la correzione più utile
@@ -451,7 +471,7 @@ la più debole invece di allungare.
 
 Sono i quattro dati di `stats` in `site.ts`, e li disegna `stats.tsx` dentro
 l'apertura, non come sezione a sé. Oggi: **10+ anni di esperienza multicanale ·
-18 brand seguiti · 2 referenti fissi · 0 pacchetti preconfezionati.**
+19 brand seguiti · 2 referenti fissi · 0 pacchetti preconfezionati.**
 
 Tre delle quattro etichette sono state riscritte il 25 agosto 2026, e ognuna
 per un motivo diverso:
@@ -1309,7 +1329,7 @@ scritta ferma («Dario e Luisa hanno lavorato con»), a destra i nomi che scorro
 Misure prese dal riferimento: etichetta 9,9px maiuscola con tracking 0.1em,
 nomi 15,8px di peso 500, 54px tra un nome e l'altro. La durata del giro tiene
 la stessa **velocità** del riferimento, non la stessa durata: erano 25 secondi
-per dieci nomi, oggi sono **40 per sedici**. Se aggiungi o togli un cliente,
+per dieci nomi, oggi sono **48 per diciannove**. Se aggiungi o togli un cliente,
 ricalcola — circa 2,5 secondi a nome — altrimenti il nastro corre o striscia.
 I nomi dei clienti in `site.ts` vanno scritti con le maiuscole giuste (AdaTech,
 BandoHub, CoffeeWorld, Tadàbook…): il nastro non li trasforma più in maiuscolo,
@@ -1840,7 +1860,7 @@ sopra.
 - `src/lib/site.ts` — i numeri della fascia sotto l'hero (`stats`) sono ripresi da
   affermazioni già presenti nel sito, ma non sono ancora stati confermati dai
   fondatori. Da verificare prima di andare online: sono dichiarazioni pubbliche.
-  **Uno però ora è verificabile**: i «18 brand seguiti» sono esattamente le
+  **Uno però ora è verificabile**: i «19 brand seguiti» (erano 18 fino al 25 ottobre 2026) sono esattamente le
   schede di `work` e i nomi del nastro — erano 10, e la riga smentiva la
   pagina `/lavori` che sta due schermate più sotto. Se aggiungi o togli un
   lavoro, rifai il numero.
