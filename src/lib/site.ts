@@ -1134,15 +1134,18 @@ export const work: WorkItem[] = [
       "Fustelle per la stampa",
       "Render 3D e video",
     ],
-    image: "/work/risveglio.jpg",
-    alt: "Le scatole da 50 cialde Risveglio, miscela Rock e miscela Soave, su fondo color caffè",
-    // Il logo è disegnato in vettoriale: questa è la versione in negativo
-    // della presentazione «La o che sorge», resa a 2000×1500 sul marrone
-    // delle scatole (#42271C), senza il quadrato terracotta della proposta.
+    // **Il logo è l'immagine principale**, scelta di Dario: è quella della
+    // scheda nella griglia e la prima slide dell'apertura; le scatole sono la
+    // seconda. Il logo è disegnato in vettoriale: questa è la versione in
+    // negativo della presentazione «La o che sorge», resa a 2000×1500 sul
+    // marrone delle scatole (#42271C), senza il quadrato terracotta della
+    // proposta.
+    image: "/work/risveglio-logo.jpg",
+    alt: "Il logo Risveglio: la «o» finale è una tazzina con il sole, sotto il payoff «Il gusto di ogni giorno»",
     gallery: [
       {
-        src: "/work/risveglio-logo.jpg",
-        alt: "Il logo Risveglio: la «o» finale è una tazzina con il sole, sotto il payoff «Il gusto di ogni giorno»",
+        src: "/work/risveglio.jpg",
+        alt: "Le scatole da 50 cialde Risveglio, miscela Rock e miscela Soave, su fondo color caffè",
       },
     ],
     study: {

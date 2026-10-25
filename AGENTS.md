@@ -279,7 +279,8 @@ realizzazione del logo e il packaging delle quattro scatole (Soave e Rock, da
   L'etichetta è «Il caso studio su Instagram» (`hrefLabel`), perché il
   dominio — instagram.com — non direbbe dove si va. Nel nastro punta invece
   al caso studio interno, come NinjaStickers;
-- **è il primo lavoro con due immagini nell'apertura**: le scatole e il logo,
+- **è il primo lavoro con due immagini nell'apertura**: prima il logo, che
+  è anche la copertina nella griglia (scelta di Dario), poi le scatole,
   in un carosello (`gallery` in `work`, `src/components/work-gallery.tsx`).
   Il campo è facoltativo, la griglia mostra sempre solo `image`, e **il
   carosello non scorre da solo**: un'immagine che cambia mentre leggi il
