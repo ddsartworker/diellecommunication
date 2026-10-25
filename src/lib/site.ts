@@ -717,7 +717,7 @@ export const work: WorkItem[] = [
     href: "https://lestellesrl.it/",
     instagram: "https://www.instagram.com/lestelleofficial/",
     outcome:
-      "Da un'azienda storica senza un reparto marketing a un team che lavora dentro l'azienda, ogni giorno.",
+      "Da una comunicazione affidata a più mani a un team marketing che lavora dentro l'azienda, ogni giorno.",
     services: [
       "Team marketing interno",
       "Customer service",
