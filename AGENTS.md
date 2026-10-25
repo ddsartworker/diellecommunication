@@ -272,8 +272,12 @@ materiali del progetto invece che dalle note vocali** — brief, presentazione
 «La o che sorge», didascalie del caso studio su Instagram, tutto nella
 cartella `~/Desktop/Risveglio`. Racconta due cose, come ha chiesto Dario: la
 realizzazione del logo e il packaging delle quattro scatole (Soave e Rock, da
-50 e da 150 + 15 cialde). Tre scelte da sapere:
+50 e da 150 + 15 cialde). Quattro scelte da sapere:
 
+- **è la prima scheda della griglia**, prima della ristorazione, perché è il
+  lavoro più recente: richiesta di Dario. È un'eccezione all'ordine
+  editoriale, non un nuovo criterio cronologico — quando arriva un lavoro più
+  nuovo prende lui il primo posto, e Risveglio torna dopo CoffeeWorld;
 - **non nomina il committente, e il link porta al post Instagram**: la linea
   non ha un sito, e il caso studio sul profilo di Dielle la presenta da sola.
   L'etichetta è «Il caso studio su Instagram» (`hrefLabel`), perché il

@@ -685,7 +685,85 @@ export const work: WorkItem[] = [
   // prodotto, poi quelli tecnologici, e chiudono i lavori di territorio.
   // La griglia legge questo elenco così com'è: per spostare una scheda si
   // sposta la sua voce qui, non si aggiunge un campo «posizione».
+  //
+  // **Eccezione: in cima va l'ultimo lavoro fatto.** Risveglio sta prima di
+  // tutti dal 25 ottobre 2026, su richiesta di Dario, perché in ordine di
+  // tempo è il più recente. Quando arriva un lavoro più nuovo, prende il suo
+  // posto e Risveglio torna nel suo gruppo (Prodotto, dopo CoffeeWorld).
 
+  {
+    // Aggiunto il 25 ottobre 2026. I testi vengono dai materiali del progetto
+    // (brief, presentazione «La o che sorge», didascalie del caso studio su
+    // Instagram), non da note vocali: vanno riletti da Dario.
+    //
+    // **Nessun nome del committente.** I materiali pubblicati sul profilo
+    // Instagram presentano Risveglio da sola, senza nominare chi la produce:
+    // qui si fa lo stesso finché Dario non dice altrimenti. Il link non è a
+    // un sito, che la linea non ha, ma al post del caso studio.
+    slug: "risveglio",
+    title: "Risveglio",
+    category: "Prodotto & educazione",
+    year: "2026",
+    // Il post del caso studio sul profilo Instagram di Dielle: la linea non
+    // ha un sito, e lì il lavoro si vede per intero, slide per slide.
+    href: "https://www.instagram.com/p/DeXXdZxiAV7/",
+    hrefLabel: "Il caso studio su Instagram",
+    outcome:
+      "Da un nome e basta a un marchio con la tazzina dentro la parola, e quattro scatole pronte per lo scaffale.",
+    services: [
+      "Studio dello scaffale",
+      "Quattro proposte di logo",
+      "La o che sorge",
+      "Famiglia di tre segni",
+      "Palette e caratteri",
+      "Quattro scatole",
+      "Fustelle per la stampa",
+      "Render 3D e video",
+    ],
+    // **Il logo è l'immagine principale**, scelta di Dario: è quella della
+    // scheda nella griglia e la prima slide dell'apertura; le scatole sono la
+    // seconda. Il logo è disegnato in vettoriale: questa è la versione in
+    // negativo della presentazione «La o che sorge», resa a 2000×1500 sul
+    // marrone delle scatole (#42271C), senza il quadrato terracotta della
+    // proposta.
+    image: "/work/risveglio-logo.jpg",
+    alt: "Il logo Risveglio: la «o» finale è una tazzina con il sole, sotto il payoff «Il gusto di ogni giorno»",
+    gallery: [
+      {
+        src: "/work/risveglio.jpg",
+        alt: "Le scatole da 50 cialde Risveglio, miscela Rock e miscela Soave, su fondo color caffè",
+      },
+    ],
+    study: {
+      lead:
+        "Risveglio è una nuova linea di caffè in cialde e capsule, e quando ci è arrivata era soltanto un nome. Abbiamo disegnato il marchio — l'ultima lettera della parola diventa una tazzina in cui sorge il sole — e da lì le quattro scatole con cui la linea arriva sullo scaffale: due miscele, due formati.",
+      subtitle: "Caffè in cialde e capsule · logo e packaging · 2026",
+      metaTitle: "Risveglio: logo e packaging per caffè in cialde",
+      metaDescription:
+        "Logo e packaging per Risveglio, caffè in cialde e capsule: la «o» diventa una tazzina in cui sorge il sole, e quattro scatole pronte per lo scaffale.",
+      outcomes: [
+        "Un logo in cui il simbolo sta dentro il nome: la «o» finale è una tazzina vista dall'alto, con un caffè giallo come il sole e tre raggi che escono dal bordo.",
+        "Un marchio che si stacca dallo scaffale del caffè napoletano, lontano da nero, oro metallico e corone.",
+        "Una famiglia di tre segni pensata per ogni supporto: il marchio per i frontali, l'emblema rotondo per il coperchio delle capsule e l'icona dei profili social, l'alba a righe per le scatole.",
+        "Una palette calda di caffè, sole e crema, e tre caratteri con le misure esatte da usare in stampa.",
+        "Quattro scatole pronte per la produzione: Soave e Rock, ciascuna da 50 cialde e da 150 più 15 in omaggio.",
+        "Un sistema che regge le varianti: stessa struttura per tutte e quattro, e la miscela si riconosce dal colore dell'onda — oro per Soave, rosso per Rock.",
+        "I file definitivi per la tipografia, con il livello della fustella, e i render 3D e i video verticali per presentare le scatole sui social.",
+      ],
+      challenge:
+        "Una linea di caffè nuova, con un nome già scelto e nient'altro. Doveva farsi riconoscere in un attimo fra decine di confezioni, restare leggibile anche sui pochi centimetri del coperchio di una capsula e dire «risveglio» prima ancora che si legga la parola. Il tutto in un settore dove i codici visivi — nero, oro, corone, maiuscole solenni — sono già occupati dai marchi più forti.",
+      solution: [
+        "Abbiamo studiato lo scaffale: come i principali torrefattori italiani usano i colori per distinguere le miscele, e quali codici sono già di qualcun altro.",
+        "Abbiamo presentato al cliente quattro strade diverse — il sole, la tazzina, l'alba — e insieme abbiamo scelto la più semplice, «La o che sorge».",
+        "Abbiamo disegnato il marchio in un minuscolo rotondo e pieno, leggibile anche in piccolo, con i puntini delle due «i» dello stesso giallo del sole.",
+        "Abbiamo costruito attorno al marchio una famiglia di tre segni, una palette e la scheda dei caratteri, con le specifiche da passare a chi stampa.",
+        "Abbiamo affiancato al progetto un promemoria per la registrazione del marchio: chi deposita, in quali classi, con quali costi e in che tempi.",
+        "Abbiamo progettato le quattro scatole, ciascuna da un foglio solo che piegato diventa coperchio, fronte, fianchi e fondo: sul coperchio sorge il sole, sul fronte c'è il marchio, l'onda colorata gira tutto intorno.",
+        "Abbiamo preparato le fustelle definitive dei due formati, con l'etichetta per lo smaltimento, pronte per la tipografia.",
+        "Abbiamo realizzato i render 3D delle scatole e i video verticali per presentarle sui social.",
+      ],
+    },
+  },
   {
     slug: "san-pietro-bistrot",
     title: "San Pietro Bistrot del Mare ristorante",
@@ -1102,79 +1180,6 @@ export const work: WorkItem[] = [
         "Abbiamo aperto il blog del sito e ne curiamo gli articoli, con lo stesso criterio.",
         "Abbiamo costruito le risorse gratuite scaricabili — guida alle miscele, manuale d'uso della macchina, decalcificazione — come primo punto di contatto.",
         "Presidiamo il sito ogni giorno: aggiornamento dei plugin, controlli di sicurezza e prestazioni.",
-      ],
-    },
-  },
-  {
-    // Aggiunto il 25 ottobre 2026. I testi vengono dai materiali del progetto
-    // (brief, presentazione «La o che sorge», didascalie del caso studio su
-    // Instagram), non da note vocali: vanno riletti da Dario.
-    //
-    // **Nessun nome del committente.** I materiali pubblicati sul profilo
-    // Instagram presentano Risveglio da sola, senza nominare chi la produce:
-    // qui si fa lo stesso finché Dario non dice altrimenti. Il link non è a
-    // un sito, che la linea non ha, ma al post del caso studio.
-    slug: "risveglio",
-    title: "Risveglio",
-    category: "Prodotto & educazione",
-    year: "2026",
-    // Il post del caso studio sul profilo Instagram di Dielle: la linea non
-    // ha un sito, e lì il lavoro si vede per intero, slide per slide.
-    href: "https://www.instagram.com/p/DeXXdZxiAV7/",
-    hrefLabel: "Il caso studio su Instagram",
-    outcome:
-      "Da un nome e basta a un marchio con la tazzina dentro la parola, e quattro scatole pronte per lo scaffale.",
-    services: [
-      "Studio dello scaffale",
-      "Quattro proposte di logo",
-      "La o che sorge",
-      "Famiglia di tre segni",
-      "Palette e caratteri",
-      "Quattro scatole",
-      "Fustelle per la stampa",
-      "Render 3D e video",
-    ],
-    // **Il logo è l'immagine principale**, scelta di Dario: è quella della
-    // scheda nella griglia e la prima slide dell'apertura; le scatole sono la
-    // seconda. Il logo è disegnato in vettoriale: questa è la versione in
-    // negativo della presentazione «La o che sorge», resa a 2000×1500 sul
-    // marrone delle scatole (#42271C), senza il quadrato terracotta della
-    // proposta.
-    image: "/work/risveglio-logo.jpg",
-    alt: "Il logo Risveglio: la «o» finale è una tazzina con il sole, sotto il payoff «Il gusto di ogni giorno»",
-    gallery: [
-      {
-        src: "/work/risveglio.jpg",
-        alt: "Le scatole da 50 cialde Risveglio, miscela Rock e miscela Soave, su fondo color caffè",
-      },
-    ],
-    study: {
-      lead:
-        "Risveglio è una nuova linea di caffè in cialde e capsule, e quando ci è arrivata era soltanto un nome. Abbiamo disegnato il marchio — l'ultima lettera della parola diventa una tazzina in cui sorge il sole — e da lì le quattro scatole con cui la linea arriva sullo scaffale: due miscele, due formati.",
-      subtitle: "Caffè in cialde e capsule · logo e packaging · 2026",
-      metaTitle: "Risveglio: logo e packaging per caffè in cialde",
-      metaDescription:
-        "Logo e packaging per Risveglio, caffè in cialde e capsule: la «o» diventa una tazzina in cui sorge il sole, e quattro scatole pronte per lo scaffale.",
-      outcomes: [
-        "Un logo in cui il simbolo sta dentro il nome: la «o» finale è una tazzina vista dall'alto, con un caffè giallo come il sole e tre raggi che escono dal bordo.",
-        "Un marchio che si stacca dallo scaffale del caffè napoletano, lontano da nero, oro metallico e corone.",
-        "Una famiglia di tre segni pensata per ogni supporto: il marchio per i frontali, l'emblema rotondo per il coperchio delle capsule e l'icona dei profili social, l'alba a righe per le scatole.",
-        "Una palette calda di caffè, sole e crema, e tre caratteri con le misure esatte da usare in stampa.",
-        "Quattro scatole pronte per la produzione: Soave e Rock, ciascuna da 50 cialde e da 150 più 15 in omaggio.",
-        "Un sistema che regge le varianti: stessa struttura per tutte e quattro, e la miscela si riconosce dal colore dell'onda — oro per Soave, rosso per Rock.",
-        "I file definitivi per la tipografia, con il livello della fustella, e i render 3D e i video verticali per presentare le scatole sui social.",
-      ],
-      challenge:
-        "Una linea di caffè nuova, con un nome già scelto e nient'altro. Doveva farsi riconoscere in un attimo fra decine di confezioni, restare leggibile anche sui pochi centimetri del coperchio di una capsula e dire «risveglio» prima ancora che si legga la parola. Il tutto in un settore dove i codici visivi — nero, oro, corone, maiuscole solenni — sono già occupati dai marchi più forti.",
-      solution: [
-        "Abbiamo studiato lo scaffale: come i principali torrefattori italiani usano i colori per distinguere le miscele, e quali codici sono già di qualcun altro.",
-        "Abbiamo presentato al cliente quattro strade diverse — il sole, la tazzina, l'alba — e insieme abbiamo scelto la più semplice, «La o che sorge».",
-        "Abbiamo disegnato il marchio in un minuscolo rotondo e pieno, leggibile anche in piccolo, con i puntini delle due «i» dello stesso giallo del sole.",
-        "Abbiamo costruito attorno al marchio una famiglia di tre segni, una palette e la scheda dei caratteri, con le specifiche da passare a chi stampa.",
-        "Abbiamo affiancato al progetto un promemoria per la registrazione del marchio: chi deposita, in quali classi, con quali costi e in che tempi.",
-        "Abbiamo progettato le quattro scatole, ciascuna da un foglio solo che piegato diventa coperchio, fronte, fianchi e fondo: sul coperchio sorge il sole, sul fronte c'è il marchio, l'onda colorata gira tutto intorno.",
-        "Abbiamo preparato le fustelle definitive dei due formati, con l'etichetta per lo smaltimento, pronte per la tipografia.",
-        "Abbiamo realizzato i render 3D delle scatole e i video verticali per presentarle sui social.",
       ],
     },
   },
