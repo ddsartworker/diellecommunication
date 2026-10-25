@@ -403,8 +403,8 @@ body {
   /* La durata tiene la stessa *velocità* del nastro di riferimento, non la
      stessa durata: erano 25s per dieci nomi. Se aggiungi o togli clienti,
      ricalcola: **circa 2,5 secondi a nome**, altrimenti il nastro corre o
-     striscia. Oggi i clienti sono diciannove, quindi 48s. */
-  animation: dielle-marquee 48s linear infinite;
+     striscia. Oggi i clienti sono venti, quindi 50s. */
+  animation: dielle-marquee 50s linear infinite;
 }
 /* I nomi sono link: il nastro si ferma quando ci passi sopra col mouse,
    altrimenti cliccarli sarebbe un tiro al bersaglio in movimento.

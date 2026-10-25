@@ -229,7 +229,7 @@ cambiato.** Sul riferimento è così: chi apre la pagina vuole sapere com'è
 andata, non ascoltare la premessa. Se ti sembra illogico, è perché lo è — e
 funziona lo stesso.
 
-**Tutti i lavori — diciannove dal 25 ottobre 2026 — hanno la loro pagina**, e questo è un requisito di
+**Tutti i lavori — venti dal 25 ottobre 2026 — hanno la loro pagina**, e questo è un requisito di
 Dario: nessuna scheda della griglia deve portare direttamente fuori dal sito.
 
 **I testi sono stati scritti uno per uno con Dario**, il 24 agosto 2026, sulle
@@ -274,10 +274,10 @@ cartella `~/Desktop/Risveglio`. Racconta due cose, come ha chiesto Dario: la
 realizzazione del logo e il packaging delle quattro scatole (Soave e Rock, da
 50 e da 150 + 15 cialde). Quattro scelte da sapere:
 
-- **è la prima scheda della griglia**, prima della ristorazione, perché è il
+- **è stata la prima scheda della griglia** per poche ore, perché era il
   lavoro più recente: richiesta di Dario. È un'eccezione all'ordine
-  editoriale, non un nuovo criterio cronologico — quando arriva un lavoro più
-  nuovo prende lui il primo posto, e Risveglio torna dopo CoffeeWorld;
+  editoriale, non un nuovo criterio cronologico — lo stesso giorno è arrivata
+  Le Stelle, ha preso il primo posto, e Risveglio è tornato dopo CoffeeWorld;
 - **non nomina il committente, e il link porta al post Instagram**: la linea
   non ha un sito, e il caso studio sul profilo di Dielle la presenta da sola.
   L'etichetta è «Il caso studio su Instagram» (`hrefLabel`), perché il
@@ -301,8 +301,34 @@ realizzazione del logo e il packaging delle quattro scatole (Soave e Rock, da
   cliente da solo non è una cosa che qualcuno cerca — «logo e packaging per
   caffè in cialde» sì.
 
+**Le Stelle, aggiunta il 25 ottobre 2026, è il cliente più recente e sta in
+cima alla griglia** (stessa eccezione di Risveglio: l'ultimo lavoro prende il
+primo posto, poi torna fra il retail). Importa e distribuisce bomboniere,
+Natale e home decor dal 1981 e vende solo ai negozi; da settembre 2026 Dielle
+ne è il team marketing interno. I servizi sono quelli dettati da Dario, i
+fatti vengono dai materiali in `~/Desktop/Le Stelle`. Tre cose da sapere
+prima di toccare la scheda:
+
+- **è al presente**: il rapporto è in corso;
+- **il sito non l'abbiamo costruito noi** — l'ha fatto un altro fornitore.
+  La scheda dice che ne curiamo la manutenzione e che ne stiamo
+  ridisegnando l'interfaccia, ed è il massimo che si può scrivere;
+- **cosa resta fuori**: il nome del gestionale e del fornitore del sito, i
+  problemi aperti, le regole interne sulle zone dei rivenditori e **la parola
+  «ingrosso»**, che il cliente non vuole: vende ai negozi, non è un ingrosso.
+  Quei materiali contengono anche dati riservati dei negozi: da lì si prende
+  solo quello che il cliente dichiara già in pubblico.
+
+L'immagine è il marchio nuovo, «Le Stelle Wall», preso dalla tavola
+originale da 5315px: solo la fascia salvia col logo, perché le due fasce scure
+con payoff e social nell'apertura venivano tagliate a metà. Il 4:3 è
+completato con altre righe di stelle della stessa tavola, ridotto a
+2000×1500. Non dice che il marchio l'abbiamo
+disegnato noi, e la scheda nemmeno.
+
 **I profili Instagram dei clienti, dal 25 ottobre 2026.** Su San Pietro,
-Namare, Tadàplay, CoffeeWorld e Taverna 'e Mare i social li seguiamo noi, e
+Namare, Tadàplay, CoffeeWorld e Taverna 'e Mare — e su Le Stelle, nata già
+col suo — i social li seguiamo noi, e
 Dario ha chiesto di dirlo: il campo `instagram` di `work` mette il profilo
 **sotto il link al sito**, con lo stesso aspetto e la maniglia come etichetta
 («@sanpietrobistrot»). **Va solo dove i social li curiamo noi**: è una prova
@@ -500,7 +526,7 @@ la più debole invece di allungare.
 
 Sono i quattro dati di `stats` in `site.ts`, e li disegna `stats.tsx` dentro
 l'apertura, non come sezione a sé. Oggi: **10+ anni di esperienza multicanale ·
-19 brand seguiti · 2 referenti fissi · 0 pacchetti preconfezionati.**
+20 brand seguiti · 2 referenti fissi · 0 pacchetti preconfezionati.**
 
 Tre delle quattro etichette sono state riscritte il 25 agosto 2026, e ognuna
 per un motivo diverso:
@@ -1358,7 +1384,7 @@ scritta ferma («Dario e Luisa hanno lavorato con»), a destra i nomi che scorro
 Misure prese dal riferimento: etichetta 9,9px maiuscola con tracking 0.1em,
 nomi 15,8px di peso 500, 54px tra un nome e l'altro. La durata del giro tiene
 la stessa **velocità** del riferimento, non la stessa durata: erano 25 secondi
-per dieci nomi, oggi sono **48 per diciannove**. Se aggiungi o togli un cliente,
+per dieci nomi, oggi sono **50 per venti**. Se aggiungi o togli un cliente,
 ricalcola — circa 2,5 secondi a nome — altrimenti il nastro corre o striscia.
 I nomi dei clienti in `site.ts` vanno scritti con le maiuscole giuste (AdaTech,
 BandoHub, CoffeeWorld, Tadàbook…): il nastro non li trasforma più in maiuscolo,
@@ -1889,7 +1915,7 @@ sopra.
 - `src/lib/site.ts` — i numeri della fascia sotto l'hero (`stats`) sono ripresi da
   affermazioni già presenti nel sito, ma non sono ancora stati confermati dai
   fondatori. Da verificare prima di andare online: sono dichiarazioni pubbliche.
-  **Uno però ora è verificabile**: i «19 brand seguiti» (erano 18 fino al 25 ottobre 2026) sono esattamente le
+  **Uno però ora è verificabile**: i «20 brand seguiti» (erano 18 fino al 25 ottobre 2026, poi 19 con Risveglio) sono esattamente le
   schede di `work` e i nomi del nastro — erano 10, e la riga smentiva la
   pagina `/lavori` che sta due schermate più sotto. Se aggiungi o togli un
   lavoro, rifai il numero.

@@ -103,7 +103,7 @@ export const social: Social[] = [
 ];
 
 // — Fascia di numeri sotto l'hero: trasforma la promessa in prova.
-// I 19 brand non sono una stima: sono esattamente le schede di `work` e i
+// I 20 brand non sono una stima: sono esattamente le schede di `work` e i
 // nomi del nastro. Se aggiungi o togli un lavoro, questo numero va rifatto,
 // o la riga smentisce la pagina /lavori che sta due schermate più sotto.
 // Gli altri tre restano da confermare con Dario e Luisa: sono dati già
@@ -111,7 +111,7 @@ export const social: Social[] = [
 // chiuso), niente di inventato, ma vanno verificati prima di andare online.
 export const stats = [
   { value: "10+", label: "anni di esperienza multicanale" },
-  { value: "19", label: "brand seguiti" },
+  { value: "20", label: "brand seguiti" },
   { value: "2", label: "referenti fissi" },
   { value: "0", label: "pacchetti preconfezionati" },
 ];
@@ -691,81 +691,82 @@ export const work: WorkItem[] = [
   // La griglia legge questo elenco così com'è: per spostare una scheda si
   // sposta la sua voce qui, non si aggiunge un campo «posizione».
   //
-  // **Eccezione: in cima va l'ultimo lavoro fatto.** Risveglio sta prima di
-  // tutti dal 25 ottobre 2026, su richiesta di Dario, perché in ordine di
-  // tempo è il più recente. Quando arriva un lavoro più nuovo, prende il suo
-  // posto e Risveglio torna nel suo gruppo (Prodotto, dopo CoffeeWorld).
+  // **Eccezione: in cima va l'ultimo lavoro fatto**, su richiesta di Dario.
+  // Dal 25 ottobre 2026 è Le Stelle, il cliente più recente; Risveglio, che
+  // ci era stato fino a quel giorno, è tornato nel suo gruppo, dopo
+  // CoffeeWorld. Quando arriva un lavoro più nuovo, prende il primo posto e
+  // Le Stelle torna fra il retail.
 
   {
-    // Aggiunto il 25 ottobre 2026. I testi vengono dai materiali del progetto
-    // (brief, presentazione «La o che sorge», didascalie del caso studio su
-    // Instagram), non da note vocali: vanno riletti da Dario.
+    // Aggiunto il 25 ottobre 2026: è il cliente più recente, preso a
+    // settembre 2026. I fatti vengono dai materiali di lavoro
+    // (`~/Desktop/Le Stelle`, PRODUCT.md e CLAUDE.md); l'elenco dei servizi
+    // è quello dettato da Dario.
     //
-    // **Nessun nome del committente.** I materiali pubblicati sul profilo
-    // Instagram presentano Risveglio da sola, senza nominare chi la produce:
-    // qui si fa lo stesso finché Dario non dice altrimenti. Il link non è a
-    // un sito, che la linea non ha, ma al post del caso studio.
-    slug: "risveglio",
-    title: "Risveglio",
-    category: "Prodotto & educazione",
+    // **Cosa non c'è, ed è voluto.** Niente nomi del gestionale, del
+    // fornitore del sito o dei suoi difetti, niente regole interne sulle
+    // zone dei rivenditori oltre a quella che il cliente dichiara da sé, e
+    // **mai la parola «ingrosso»**: Le Stelle vende ai negozi e non vuole
+    // essere chiamata così. Il sito l'ha costruito un altro fornitore: qui si
+    // dice che ne curiamo la manutenzione e che ne stiamo ridisegnando
+    // l'interfaccia, non che l'abbiamo fatto noi.
+    slug: "le-stelle",
+    title: "Le Stelle",
+    category: "Retail & e-commerce",
     year: "2026",
-    // Il post del caso studio sul profilo Instagram di Dielle: la linea non
-    // ha un sito, e lì il lavoro si vede per intero, slide per slide.
-    href: "https://www.instagram.com/p/DeXXdZxiAV7/",
-    hrefLabel: "Il caso studio su Instagram",
+    href: "https://lestellesrl.it/",
+    instagram: "https://www.instagram.com/lestelleofficial/",
     outcome:
-      "Da un nome e basta a un marchio con la tazzina dentro la parola, e quattro scatole pronte per lo scaffale.",
+      "Da un'azienda storica senza un reparto marketing a un team che lavora dentro l'azienda, ogni giorno.",
     services: [
-      "Studio dello scaffale",
-      "Quattro proposte di logo",
-      "La o che sorge",
-      "Famiglia di tre segni",
-      "Palette e caratteri",
-      "Quattro scatole",
-      "Fustelle per la stampa",
-      "Render 3D e video",
+      "Team marketing interno",
+      "Customer service",
+      "Email ai negozi",
+      "Accesso rivenditori",
+      "Ricerca di negozi nuovi",
+      "Manutenzione del sito",
+      "Nuova interfaccia del sito",
+      "Foto e video per i social",
+      "Flussi di lavoro",
+      "Agenti su misura",
     ],
-    // **Il logo è l'immagine principale**, scelta di Dario: è quella della
-    // scheda nella griglia e la prima slide dell'apertura; le scatole sono la
-    // seconda. Il logo è disegnato in vettoriale: questa è la versione in
-    // negativo della presentazione «La o che sorge», resa a 2000×1500 sul
-    // marrone delle scatole (#42271C), senza il quadrato terracotta della
-    // proposta.
-    image: "/work/risveglio-logo.jpg",
-    alt: "Il logo Risveglio: la «o» finale è una tazzina con il sole, sotto il payoff «Il gusto di ogni giorno»",
-    gallery: [
-      {
-        src: "/work/risveglio.jpg",
-        alt: "Le scatole da 50 cialde Risveglio, miscela Rock e miscela Soave, su fondo color caffè",
-      },
-    ],
+    // Il marchio nuovo, «Le Stelle Wall». Della tavola originale (5315×4134)
+    // c'è solo la fascia salvia col logo: le due fasce scure con payoff e
+    // social, nell'apertura del caso studio, venivano tagliate a metà. Per
+    // arrivare al 4:3 sopra e sotto ci sono altre righe di stelle della
+    // stessa tavola, girate; ridotta a 2000×1500, mai ingrandita.
+    image: "/work/le-stelle.jpg",
+    alt: "Il marchio Le Stelle in bianco su fondo salvia con le stelle, e sotto «Bomboniere, Home decoration, Christmas»",
     study: {
       lead:
-        "Risveglio è una nuova linea di caffè in cialde e capsule, e quando ci è arrivata era soltanto un nome. Abbiamo disegnato il marchio — l'ultima lettera della parola diventa una tazzina in cui sorge il sole — e da lì le quattro scatole con cui la linea arriva sullo scaffale: due miscele, due formati.",
-      subtitle: "Caffè in cialde e capsule · logo e packaging · 2026",
-      metaTitle: "Risveglio: logo e packaging per caffè in cialde",
+        "Le Stelle importa e distribuisce bomboniere, articoli di Natale e home decor dal 1981, e vende solo ai negozi. Da settembre 2026 siamo il suo team marketing interno: curiamo social, foto e video, email marketing e customer service, accompagniamo i nuovi rivenditori, teniamo il sito e ne ridisegniamo l'interfaccia, e digitalizziamo i reparti con agenti costruiti su misura.",
+      subtitle:
+        "Bomboniere, Natale e home decor · Casoria, Napoli · seguito dal 2026",
+      metaTitle: "Le Stelle bomboniere: team marketing, social e agenti AI",
       metaDescription:
-        "Logo e packaging per Risveglio, caffè in cialde e capsule: la «o» diventa una tazzina in cui sorge il sole, e quattro scatole pronte per lo scaffale.",
+        "Team marketing interno per Le Stelle, bomboniere e Natale dal 1981: social, foto e video, email marketing, customer service, sito e agenti AI su misura.",
       outcomes: [
-        "Un logo in cui il simbolo sta dentro il nome: la «o» finale è una tazzina vista dall'alto, con un caffè giallo come il sole e tre raggi che escono dal bordo.",
-        "Un marchio che si stacca dallo scaffale del caffè napoletano, lontano da nero, oro metallico e corone.",
-        "Una famiglia di tre segni pensata per ogni supporto: il marchio per i frontali, l'emblema rotondo per il coperchio delle capsule e l'icona dei profili social, l'alba a righe per le scatole.",
-        "Una palette calda di caffè, sole e crema, e tre caratteri con le misure esatte da usare in stampa.",
-        "Quattro scatole pronte per la produzione: Soave e Rock, ciascuna da 50 cialde e da 150 più 15 in omaggio.",
-        "Un sistema che regge le varianti: stessa struttura per tutte e quattro, e la miscela si riconosce dal colore dell'onda — oro per Soave, rosso per Rock.",
-        "I file definitivi per la tipografia, con il livello della fustella, e i render 3D e i video verticali per presentare le scatole sui social.",
+        "Un team marketing che lavora dentro l'azienda, accanto a direzione, ufficio e rete agenti, invece di un fornitore esterno da rincorrere.",
+        "Un percorso più chiaro per i negozi che chiedono di diventare rivenditori: dal modulo alle email di risposta, con la valutazione che resta fatta a mano, una richiesta alla volta.",
+        "Campagne email ai negozi clienti divise per linea, per zona e per agente, e le risposte che arrivano a chi le deve leggere.",
+        "Elenchi di negozi nuovi e di ex clienti da richiamare, zona per zona, pronti per gli agenti e nel rispetto dei rivenditori già serviti.",
+        "Foto e video dei prodotti per Instagram, Facebook, TikTok e Pinterest, con un piano editoriale che segue le stagioni: bomboniere, Natale, Pasqua.",
+        "Un sito con circa 5.000 articoli tenuto aggiornato, e una nuova interfaccia che entra una pagina alla volta, senza mai fermare gli ordini.",
+        "Strumenti su misura che leggono i dati dell'azienda e preparano in pochi secondi quello che prima richiedeva una mattinata: ordini, giacenze, elenchi per gli agenti.",
       ],
       challenge:
-        "Una linea di caffè nuova, con un nome già scelto e nient'altro. Doveva farsi riconoscere in un attimo fra decine di confezioni, restare leggibile anche sui pochi centimetri del coperchio di una capsula e dire «risveglio» prima ancora che si legga la parola. Il tutto in un settore dove i codici visivi — nero, oro, corone, maiuscole solenni — sono già occupati dai marchi più forti.",
+        "Un'azienda dal 1981, con circa 5.000 articoli, oltre 50 agenti fra Italia ed Europa e una vendita riservata ai negozi fisici. Un sito nato per dare il catalogo ai rivenditori e cresciuto per aggiunte, dati preziosi su clienti e magazzino chiusi nel gestionale, e una comunicazione che passava da più mani senza un reparto che la tenesse insieme. In più ogni nuovo rivenditore va approvato a mano, per non togliere spazio a chi c'è già: portare clienti nuovi qui non vuol dire portarne tanti, vuol dire portare quelli giusti.",
       solution: [
-        "Abbiamo studiato lo scaffale: come i principali torrefattori italiani usano i colori per distinguere le miscele, e quali codici sono già di qualcun altro.",
-        "Abbiamo presentato al cliente quattro strade diverse — il sole, la tazzina, l'alba — e insieme abbiamo scelto la più semplice, «La o che sorge».",
-        "Abbiamo disegnato il marchio in un minuscolo rotondo e pieno, leggibile anche in piccolo, con i puntini delle due «i» dello stesso giallo del sole.",
-        "Abbiamo costruito attorno al marchio una famiglia di tre segni, una palette e la scheda dei caratteri, con le specifiche da passare a chi stampa.",
-        "Abbiamo affiancato al progetto un promemoria per la registrazione del marchio: chi deposita, in quali classi, con quali costi e in che tempi.",
-        "Abbiamo progettato le quattro scatole, ciascuna da un foglio solo che piegato diventa coperchio, fronte, fianchi e fondo: sul coperchio sorge il sole, sul fronte c'è il marchio, l'onda colorata gira tutto intorno.",
-        "Abbiamo preparato le fustelle definitive dei due formati, con l'etichetta per lo smaltimento, pronte per la tipografia.",
-        "Abbiamo realizzato i render 3D delle scatole e i video verticali per presentarle sui social.",
+        "Lavoriamo come team marketing interno, a fianco della direzione e dell'ufficio commerciale.",
+        "Curiamo il customer service: rispondiamo ai negozi, e i privati — che non comprano online — li indirizziamo al punto vendita giusto.",
+        "Scriviamo e inviamo le campagne email ai negozi, con liste divise per linea, zona e agente.",
+        "Abbiamo ridisegnato l'ingresso dei nuovi rivenditori, dal modulo di richiesta alle email che ricevono.",
+        "Prepariamo per gli agenti gli elenchi di negozi nuovi e di ex clienti da richiamare, zona per zona, per portare clienti nuovi dove mancano.",
+        "Seguiamo la manutenzione del sito, aggiornamenti e controlli compresi.",
+        "Stiamo ridisegnando interfaccia ed esperienza del sito, partendo da home, accesso dei rivenditori e scheda prodotto.",
+        "Realizziamo gli shooting fotografici e video dei prodotti e gestiamo i profili social con un piano editoriale stagionale.",
+        "Abbiamo rivisto i flussi di lavoro fra ufficio, magazzino e agenti, togliendo i passaggi fatti a mano che si potevano evitare.",
+        "Digitalizziamo i reparti con gli strumenti di intelligenza artificiale più recenti: skill e agenti costruiti su misura, che leggono i dati dell'azienda e preparano ordini, giacenze ed elenchi in pochi secondi.",
       ],
     },
   },
@@ -1211,6 +1212,79 @@ export const work: WorkItem[] = [
         "Abbiamo aperto il blog del sito e ne curiamo gli articoli, con lo stesso criterio.",
         "Abbiamo costruito le risorse gratuite scaricabili — guida alle miscele, manuale d'uso della macchina, decalcificazione — come primo punto di contatto.",
         "Presidiamo il sito ogni giorno: aggiornamento dei plugin, controlli di sicurezza e prestazioni.",
+      ],
+    },
+  },
+  {
+    // Aggiunto il 25 ottobre 2026. I testi vengono dai materiali del progetto
+    // (brief, presentazione «La o che sorge», didascalie del caso studio su
+    // Instagram), non da note vocali: vanno riletti da Dario.
+    //
+    // **Nessun nome del committente.** I materiali pubblicati sul profilo
+    // Instagram presentano Risveglio da sola, senza nominare chi la produce:
+    // qui si fa lo stesso finché Dario non dice altrimenti. Il link non è a
+    // un sito, che la linea non ha, ma al post del caso studio.
+    slug: "risveglio",
+    title: "Risveglio",
+    category: "Prodotto & educazione",
+    year: "2026",
+    // Il post del caso studio sul profilo Instagram di Dielle: la linea non
+    // ha un sito, e lì il lavoro si vede per intero, slide per slide.
+    href: "https://www.instagram.com/p/DeXXdZxiAV7/",
+    hrefLabel: "Il caso studio su Instagram",
+    outcome:
+      "Da un nome e basta a un marchio con la tazzina dentro la parola, e quattro scatole pronte per lo scaffale.",
+    services: [
+      "Studio dello scaffale",
+      "Quattro proposte di logo",
+      "La o che sorge",
+      "Famiglia di tre segni",
+      "Palette e caratteri",
+      "Quattro scatole",
+      "Fustelle per la stampa",
+      "Render 3D e video",
+    ],
+    // **Il logo è l'immagine principale**, scelta di Dario: è quella della
+    // scheda nella griglia e la prima slide dell'apertura; le scatole sono la
+    // seconda. Il logo è disegnato in vettoriale: questa è la versione in
+    // negativo della presentazione «La o che sorge», resa a 2000×1500 sul
+    // marrone delle scatole (#42271C), senza il quadrato terracotta della
+    // proposta.
+    image: "/work/risveglio-logo.jpg",
+    alt: "Il logo Risveglio: la «o» finale è una tazzina con il sole, sotto il payoff «Il gusto di ogni giorno»",
+    gallery: [
+      {
+        src: "/work/risveglio.jpg",
+        alt: "Le scatole da 50 cialde Risveglio, miscela Rock e miscela Soave, su fondo color caffè",
+      },
+    ],
+    study: {
+      lead:
+        "Risveglio è una nuova linea di caffè in cialde e capsule, e quando ci è arrivata era soltanto un nome. Abbiamo disegnato il marchio — l'ultima lettera della parola diventa una tazzina in cui sorge il sole — e da lì le quattro scatole con cui la linea arriva sullo scaffale: due miscele, due formati.",
+      subtitle: "Caffè in cialde e capsule · logo e packaging · 2026",
+      metaTitle: "Risveglio: logo e packaging per caffè in cialde",
+      metaDescription:
+        "Logo e packaging per Risveglio, caffè in cialde e capsule: la «o» diventa una tazzina in cui sorge il sole, e quattro scatole pronte per lo scaffale.",
+      outcomes: [
+        "Un logo in cui il simbolo sta dentro il nome: la «o» finale è una tazzina vista dall'alto, con un caffè giallo come il sole e tre raggi che escono dal bordo.",
+        "Un marchio che si stacca dallo scaffale del caffè napoletano, lontano da nero, oro metallico e corone.",
+        "Una famiglia di tre segni pensata per ogni supporto: il marchio per i frontali, l'emblema rotondo per il coperchio delle capsule e l'icona dei profili social, l'alba a righe per le scatole.",
+        "Una palette calda di caffè, sole e crema, e tre caratteri con le misure esatte da usare in stampa.",
+        "Quattro scatole pronte per la produzione: Soave e Rock, ciascuna da 50 cialde e da 150 più 15 in omaggio.",
+        "Un sistema che regge le varianti: stessa struttura per tutte e quattro, e la miscela si riconosce dal colore dell'onda — oro per Soave, rosso per Rock.",
+        "I file definitivi per la tipografia, con il livello della fustella, e i render 3D e i video verticali per presentare le scatole sui social.",
+      ],
+      challenge:
+        "Una linea di caffè nuova, con un nome già scelto e nient'altro. Doveva farsi riconoscere in un attimo fra decine di confezioni, restare leggibile anche sui pochi centimetri del coperchio di una capsula e dire «risveglio» prima ancora che si legga la parola. Il tutto in un settore dove i codici visivi — nero, oro, corone, maiuscole solenni — sono già occupati dai marchi più forti.",
+      solution: [
+        "Abbiamo studiato lo scaffale: come i principali torrefattori italiani usano i colori per distinguere le miscele, e quali codici sono già di qualcun altro.",
+        "Abbiamo presentato al cliente quattro strade diverse — il sole, la tazzina, l'alba — e insieme abbiamo scelto la più semplice, «La o che sorge».",
+        "Abbiamo disegnato il marchio in un minuscolo rotondo e pieno, leggibile anche in piccolo, con i puntini delle due «i» dello stesso giallo del sole.",
+        "Abbiamo costruito attorno al marchio una famiglia di tre segni, una palette e la scheda dei caratteri, con le specifiche da passare a chi stampa.",
+        "Abbiamo affiancato al progetto un promemoria per la registrazione del marchio: chi deposita, in quali classi, con quali costi e in che tempi.",
+        "Abbiamo progettato le quattro scatole, ciascuna da un foglio solo che piegato diventa coperchio, fronte, fianchi e fondo: sul coperchio sorge il sole, sul fronte c'è il marchio, l'onda colorata gira tutto intorno.",
+        "Abbiamo preparato le fustelle definitive dei due formati, con l'etichetta per lo smaltimento, pronte per la tipografia.",
+        "Abbiamo realizzato i render 3D delle scatole e i video verticali per presentarle sui social.",
       ],
     },
   },
@@ -2619,6 +2693,7 @@ export const clients: Client[] = [
   // Risveglio non ha ancora un sito: come NinjaStickers, punta al caso
   // studio interno.
   { name: "Risveglio", href: "/lavori/risveglio" },
+  { name: "Le Stelle", href: "https://lestellesrl.it/" },
   { name: "EverUp", href: "https://everup.co.uk/" },
   { name: "I Testa", href: "https://itesta.it/" },
   // NinjaStickers non ha più un sito d'azienda: le card sono in vendita su
