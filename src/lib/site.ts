@@ -645,6 +645,11 @@ export type WorkItem = {
   services: string[];
   image?: string;
   alt?: string;
+  // Altre immagini dopo `image`, per la sola pagina del caso studio: se ci
+  // sono, l'apertura diventa un carosello (`work-gallery.tsx`). La scheda
+  // della griglia mostra sempre e solo `image`. Stesse regole: originale ad
+  // almeno 1600px, 4:3, mai ingrandite.
+  gallery?: { src: string; alt: string }[];
   // Livello 2 — la pagina propria. La struttura è quella di
   // `leftclick.ai/case-studies/<slug>`, indicata da Dario:
   // frase di apertura · pillole dei servizi · nome · sottotitolo ·
@@ -1105,14 +1110,18 @@ export const work: WorkItem[] = [
     // (brief, presentazione «La o che sorge», didascalie del caso studio su
     // Instagram), non da note vocali: vanno riletti da Dario.
     //
-    // **Nessun link e nessun nome del committente.** La linea non ha ancora
-    // un sito, e i materiali pubblicati sul profilo Instagram presentano
-    // Risveglio da sola, senza nominare chi la produce: qui si fa lo stesso
-    // finché Dario non dice altrimenti.
+    // **Nessun nome del committente.** I materiali pubblicati sul profilo
+    // Instagram presentano Risveglio da sola, senza nominare chi la produce:
+    // qui si fa lo stesso finché Dario non dice altrimenti. Il link non è a
+    // un sito, che la linea non ha, ma al post del caso studio.
     slug: "risveglio",
     title: "Risveglio",
     category: "Prodotto & educazione",
     year: "2026",
+    // Il post del caso studio sul profilo Instagram di Dielle: la linea non
+    // ha un sito, e lì il lavoro si vede per intero, slide per slide.
+    href: "https://www.instagram.com/p/DeXXdZxiAV7/",
+    hrefLabel: "Il caso studio su Instagram",
     outcome:
       "Da un nome e basta a un marchio con la tazzina dentro la parola, e quattro scatole pronte per lo scaffale.",
     services: [
@@ -1127,6 +1136,15 @@ export const work: WorkItem[] = [
     ],
     image: "/work/risveglio.jpg",
     alt: "Le scatole da 50 cialde Risveglio, miscela Rock e miscela Soave, su fondo color caffè",
+    // Il logo è disegnato in vettoriale: questa è la versione in negativo
+    // della presentazione «La o che sorge», resa a 2000×1500 sul marrone
+    // delle scatole (#42271C), senza il quadrato terracotta della proposta.
+    gallery: [
+      {
+        src: "/work/risveglio-logo.jpg",
+        alt: "Il logo Risveglio: la «o» finale è una tazzina con il sole, sotto il payoff «Il gusto di ogni giorno»",
+      },
+    ],
     study: {
       lead:
         "Risveglio è una nuova linea di caffè in cialde e capsule, e quando ci è arrivata era soltanto un nome. Abbiamo disegnato il marchio — l'ultima lettera della parola diventa una tazzina in cui sorge il sole — e da lì le quattro scatole con cui la linea arriva sullo scaffale: due miscele, due formati.",

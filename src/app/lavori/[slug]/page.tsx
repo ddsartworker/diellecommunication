@@ -7,6 +7,7 @@ import SiteFooter from "@/components/site-footer";
 import Contact from "@/components/contact";
 import Reveal from "@/components/reveal";
 import JsonLd from "@/components/json-ld";
+import WorkGallery from "@/components/work-gallery";
 import { breadcrumbSchema, getWork, work } from "@/lib/site";
 
 // Impianto ricalcato su `leftclick.ai/case-studies/<slug>`, il riferimento
@@ -145,7 +146,14 @@ export default async function CaseStudyPage({
               </div>
 
               <div className="relative min-h-[16rem] flex-1 overflow-hidden rounded-2xl bg-cream/[0.04] lg:min-h-0">
-                {item.image ? (
+                {item.image && item.gallery?.length ? (
+                  <WorkGallery
+                    images={[
+                      { src: item.image, alt: item.alt ?? item.title },
+                      ...item.gallery,
+                    ]}
+                  />
+                ) : item.image ? (
                   <Image
                     src={item.image}
                     alt={item.alt ?? item.title}

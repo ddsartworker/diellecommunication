@@ -274,9 +274,18 @@ cartella `~/Desktop/Risveglio`. Racconta due cose, come ha chiesto Dario: la
 realizzazione del logo e il packaging delle quattro scatole (Soave e Rock, da
 50 e da 150 + 15 cialde). Tre scelte da sapere:
 
-- **non nomina il committente e non ha link**: la linea non ha un sito, e i
-  post di Dielle su Instagram la presentano da sola. Nel nastro punta al caso
-  studio interno, come NinjaStickers;
+- **non nomina il committente, e il link porta al post Instagram**: la linea
+  non ha un sito, e il caso studio sul profilo di Dielle la presenta da sola.
+  L'etichetta è «Il caso studio su Instagram» (`hrefLabel`), perché il
+  dominio — instagram.com — non direbbe dove si va. Nel nastro punta invece
+  al caso studio interno, come NinjaStickers;
+- **è il primo lavoro con due immagini nell'apertura**: le scatole e il logo,
+  in un carosello (`gallery` in `work`, `src/components/work-gallery.tsx`).
+  Il campo è facoltativo, la griglia mostra sempre solo `image`, e **il
+  carosello non scorre da solo**: un'immagine che cambia mentre leggi il
+  riassunto accanto te la toglie da sotto gli occhi. Si cambia con frecce,
+  pallini, tastiera e dito. L'immagine del logo è il vettoriale in negativo
+  della presentazione, reso a 2000×1500 sul marrone delle scatole;
 - **l'immagine è un fotogramma dei render delle scatole**
   (`Video_Higgsfield_Scatole_50/04_Affiancate_caffe_2160x3840.png`), tagliato
   a 4:3 alla risoluzione originale e poi ridotto a 2000×1500, mai ingrandito;
